@@ -12,6 +12,7 @@ import GetStarted from "./pages/GetStarted/GetStarted";
 import ContactUs from "./pages/ContactUs/ContactUs";
 import Faq from "./pages/Faq/Faq";
 import Reviews from "./pages/Reviews/Reviews";
+import Footer from "./pages/Footer/Footer";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/contactUs" element={<ContactUs />} />
         <Route path="/reviews" element={<Reviews />} />
         <Route path="/faq" element={<Faq />} />
+        <Route path="/footer" element={<Footer />} />
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="/members" element={<Members />} />
