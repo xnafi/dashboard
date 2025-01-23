@@ -9,6 +9,7 @@ import OurTeams from "./pages/OurTeams/OurTeams";
 import PricingPlan from "./pages/PricingPlan/PricingPlan";
 import JoinCommunity from "./pages/JoinCommunity/JoinCommunity";
 import GetStarted from "./pages/GetStarted/GetStarted";
+import ContactUs from "./pages/ContactUs/ContactUs";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/pricingPlan" element={<PricingPlan />} />
         <Route path="/joinCommunity" element={<JoinCommunity />} />
         <Route path="/getStarted" element={<GetStarted />} />
+        <Route path="/contactUs" element={<ContactUs />} />
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="/members" element={<Members />} />
