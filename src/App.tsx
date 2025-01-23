@@ -10,6 +10,7 @@ import PricingPlan from "./pages/PricingPlan/PricingPlan";
 import JoinCommunity from "./pages/JoinCommunity/JoinCommunity";
 import GetStarted from "./pages/GetStarted/GetStarted";
 import ContactUs from "./pages/ContactUs/ContactUs";
+import Faq from "./pages/Faq/Faq";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/joinCommunity" element={<JoinCommunity />} />
         <Route path="/getStarted" element={<GetStarted />} />
         <Route path="/contactUs" element={<ContactUs />} />
+        <Route path="/faq" element={<Faq />} />
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="/members" element={<Members />} />
