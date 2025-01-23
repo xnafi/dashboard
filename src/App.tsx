@@ -5,6 +5,7 @@ import Home from "./pages/Home/Home";
 import Members from "./pages/Members/Members";
 import Banner from "./pages/Banner/Banner";
 import Features from "./pages/Features/Features";
+import OurTeams from "./pages/OurTeams/OurTeams";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/banner" element={<Banner />} />
         <Route path="/features" element={<Features />} />
+        <Route path="/ourTeams" element={<OurTeams />} />
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="/members" element={<Members />} />
