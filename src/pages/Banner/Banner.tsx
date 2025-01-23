@@ -1,6 +1,6 @@
 export default function Banner() {
   return (
-    <div className="w-full flex flex-col items-center justify-center bg-gradient-to-r from-purple-200 to-pink-200 h-[700px] text-center px-4">
+    <div className="max-w-full mx-auto h-[700px] px-4 flex flex-col items-center justify-center bg-gradient-to-r from-purple-200 to-pink-200  text-center ">
       {/* Title */}
       <h1 className="text-4xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-blue-500 to-purple-500">
         One dashboard to manage <br />
