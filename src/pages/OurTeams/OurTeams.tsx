@@ -4,7 +4,7 @@ const OurTeams = () => {
         <div className="max-w-7xl mx-auto px-6 text-center">
           {/* Section Title */}
           <div className="mb-12">
-            <p className="text-sm text-indigo-600 font-semibold">Our Great Team</p>
+            <p className="inline-block px-4 py-1 mb-4 text-sm font-medium text-blue-600 bg-blue-100 rounded-full ">Our Great Team</p>
             <h2 className="  mt-2">
               <span className="text-gray-700 text-2xl font-bold">Supported </span>{" "}
               <span className="text-gray-600 text-2xl">by Real People</span>

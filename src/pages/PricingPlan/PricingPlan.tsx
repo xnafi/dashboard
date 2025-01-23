@@ -56,7 +56,7 @@ const PricingPlan = () => {
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <p className="text-sm text-indigo-600 font-semibold">Pricing Plans</p>
+          <p className="inline-block px-4 py-1 mb-4 text-sm font-medium text-blue-600 bg-blue-100 rounded-full ">Pricing Plans</p>
           <h2 className="text-2xl font-bold text-gray-800 mt-2">
             Tailored pricing plans <span className="font-normal">designed for you</span>
           </h2>

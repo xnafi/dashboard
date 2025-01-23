@@ -3,9 +3,9 @@ import { FaCode, FaSync, FaRocket, FaPaperPlane, FaUsers, FaFileAlt } from "reac
 const Features = () => {
   return (
     <section className="bg-gradient-to-b from-purple-50 to-white py-16">
-      <div className="max-w-6xl mx-auto px-4 text-center">
+      <div className="max-w-7xl mx-auto px-4 text-center">
         {/* Badge */}
-        <div className="inline-block px-4 py-1 mb-4 text-sm font-medium text-blue-600 bg-blue-100 rounded-full">
+        <div className="inline-block px-4 py-1 mb-4 text-sm font-medium text-blue-600 bg-blue-100 rounded-full ">
           Useful Features
         </div>
 
