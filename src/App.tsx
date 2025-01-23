@@ -7,6 +7,7 @@ import Banner from "./pages/Banner/Banner";
 import Features from "./pages/Features/Features";
 import OurTeams from "./pages/OurTeams/OurTeams";
 import PricingPlan from "./pages/PricingPlan/PricingPlan";
+import JoinCommunity from "./pages/JoinCommunity/JoinCommunity";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/features" element={<Features />} />
         <Route path="/ourTeams" element={<OurTeams />} />
         <Route path="/pricingPlan" element={<PricingPlan />} />
+        <Route path="/joinCommunity" element={<JoinCommunity />} />
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="/members" element={<Members />} />
