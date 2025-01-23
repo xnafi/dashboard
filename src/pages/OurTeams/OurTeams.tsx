@@ -5,9 +5,9 @@ const OurTeams = () => {
           {/* Section Title */}
           <div className="mb-12">
             <p className="text-sm text-indigo-600 font-semibold">Our Great Team</p>
-            <h2 className="text-2xl font-bold text-gray-800 mt-2">
-              <span className="text-gray-600">Supported by</span>{" "}
-              <span className="text-gray-600">Real People</span>
+            <h2 className="  mt-2">
+              <span className="text-gray-700 text-2xl font-bold">Supported </span>{" "}
+              <span className="text-gray-600 text-2xl">by Real People</span>
             </h2>
             <p className="text-gray-500 mt-4">
               Who is behind these great-looking interfaces?
