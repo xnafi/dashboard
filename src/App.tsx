@@ -11,6 +11,7 @@ import JoinCommunity from "./pages/JoinCommunity/JoinCommunity";
 import GetStarted from "./pages/GetStarted/GetStarted";
 import ContactUs from "./pages/ContactUs/ContactUs";
 import Faq from "./pages/Faq/Faq";
+import Reviews from "./pages/Reviews/Reviews";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/joinCommunity" element={<JoinCommunity />} />
         <Route path="/getStarted" element={<GetStarted />} />
         <Route path="/contactUs" element={<ContactUs />} />
+        <Route path="/reviews" element={<Reviews />} />
         <Route path="/faq" element={<Faq />} />
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
