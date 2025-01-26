@@ -85,7 +85,7 @@ const Faq = () => {
                     </span>
                   </button>
                   {open === index && (
-                    <div className="px-6 py-4 bg-gray-100 text-gray-600">
+                    <div className="px-6 py-4 bg-white text-gray-600">
                       {item.answer}
                     </div>
                   )}
