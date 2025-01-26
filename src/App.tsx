@@ -13,6 +13,7 @@ import ContactUs from "./pages/ContactUs/ContactUs";
 import Faq from "./pages/Faq/Faq";
 import Reviews from "./pages/Reviews/Reviews";
 import Footer from "./pages/Footer/Footer";
+import LogIn from "./pages/LogIn/LogIn";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="/reviews" element={<Reviews />} />
         <Route path="/faq" element={<Faq />} />
         <Route path="/footer" element={<Footer />} />
+        <Route path="/login" element={<LogIn />} />
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="/members" element={<Members />} />
