@@ -32,7 +32,7 @@ export default function SideBar() {
   ];
 
   return (
-    <div className="w-64 fixed left-0 top-0 bg-white h-screen shadow-lg z-[999]">
+    <div className="w-60 fixed left-0 top-0 bg-white h-screen shadow-lg z-[999]">
       {/* Sidebar Header */}
       <div className="flex items-center px-4 py-6">
         <div className="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold">
