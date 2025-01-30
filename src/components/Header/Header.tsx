@@ -2,7 +2,7 @@ import { Search, Bell, Moon, Languages, Grid2x2Plus } from "lucide-react";
 
 export default function Header() {
   return (
-    <div className="fixed top-0 left-60 w-[calc(100%-14rem)] h-[60px] bg-white mt-4 mb-4 ml-4 mr-4 max-w-[1100px] flex items-center px-6 justify-between z-50">
+    <div className="fixed top-0 left-60 w-[calc(100%-14rem)] h-[60px] bg-white mt-4 mb-4 ml-8  max-w-[1080px] flex items-center px-6 justify-between z-50">
       {/* Left Section: Search Bar */}
       <div className="relative flex items-center w-[300px]  px-4 py-2 ">
         <Search className="w-5 h-5 text-gray-600" />
