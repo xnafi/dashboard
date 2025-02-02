@@ -14,6 +14,7 @@ import Faq from "./pages/Faq/Faq";
 import Reviews from "./pages/Reviews/Reviews";
 import Footer from "./pages/Footer/Footer";
 import LogIn from "./pages/LogIn/LogIn";
+import InvoiceList from "./pages/InvoiceList/InvoiceList";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="/members" element={<Members />} />
+          <Route path="/invoice-list" element={<InvoiceList />} />
         </Route>
       </Routes>
     </BrowserRouter>
