@@ -3,7 +3,7 @@ import { FaPaperPlane, FaDownload, FaPrint, FaEdit } from "react-icons/fa";
 
 const InvoiceBill: React.FC = () => {
   return (
-    <div className="p-6 bg-gray-50 mt-20 ml-4">
+    <div className="p-6 bg-gray-50 mt-20 ml-4 w-full">
       {/* Search Bar */}
       
 
@@ -107,7 +107,8 @@ const InvoiceBill: React.FC = () => {
               <p>Subtotal: <span className="font-semibold">$1800</span></p>
               <p>Discount: <span className="font-semibold">$28</span></p>
               <p>Tax: <span className="font-semibold">21%</span></p>
-              <p className="font-bold">Total: $1690</p>
+              <p>Total: <span className="font-semibold">$1690</span></p>
+              
             </div>
           </div>
           
