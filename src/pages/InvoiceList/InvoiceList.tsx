@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaTrash, FaEye, FaFileInvoice, FaUser, FaMoneyBillWave, FaClock, FaEllipsisV, FaCheckCircle } from "react-icons/fa";
+import { FaTrash, FaEye, FaFileInvoice, FaRegUser, FaCheckDouble, FaBan, FaEllipsisV, FaCheckCircle, FaRegClock } from "react-icons/fa";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 const invoices = [
   {
@@ -37,41 +37,41 @@ export default function InvoiceList() {
   };
 
   return (
-    <div className="p-6 bg-gray-100 min-h-screen mt-20">
+    <div className="p-6 bg-gray-50 mt-20 ml-6 w-full">
       {/* Top Analytics Cards */}
-      <div className="grid grid-cols-4 gap-4 mb-6 ml-4">
+      <div className="grid grid-cols-4 gap-4 mb-6 ">
         <div className="p-4 bg-white shadow-md rounded-lg flex items-center justify-between">
           <div>
             <h3 className="text-xl font-semibold">24</h3>
             <p className="text-gray-500">Clients</p>
           </div>
-          <FaUser className="text-indigo-500 text-2xl" />
+          <FaRegUser className=" text-2xl text-gray-500" />
         </div>
         <div className="p-4 bg-white shadow-md rounded-lg flex items-center justify-between">
           <div>
             <h3 className="text-xl font-semibold">165</h3>
             <p className="text-gray-500">Invoices</p>
           </div>
-          <FaFileInvoice className="text-blue-500 text-2xl" />
+          <FaFileInvoice className="text-gray-500 text-2xl" />
         </div>
         <div className="p-4 bg-white shadow-md rounded-lg flex items-center justify-between">
           <div>
             <h3 className="text-xl font-semibold">$2.46k</h3>
             <p className="text-gray-500">Paid</p>
           </div>
-          <FaMoneyBillWave className="text-green-500 text-2xl" />
+          <FaCheckDouble className="text-gray-500 text-2xl" />
         </div>
         <div className="p-4 bg-white shadow-md rounded-lg flex items-center justify-between">
           <div>
             <h3 className="text-xl font-semibold">$876</h3>
             <p className="text-gray-500">Unpaid</p>
           </div>
-          <FaClock className=" text-2xl" />
+          <FaBan className=" text-2xl text-gray-500" />
         </div>
       </div>
 
       {/* Action Bar */}
-      <div className="bg-white shadow-md rounded-lg p-4 mb-4 flex justify-between items-center ml-4">
+      <div className="bg-white shadow-md rounded-lg p-4 mb-4 flex justify-between items-center ">
         <div className="flex items-center gap-4">
           <select className="border p-2 rounded" value={showCount} onChange={(e) => setShowCount(e.target.value)}>
             <option value="10">Show 10</option>
@@ -91,7 +91,7 @@ export default function InvoiceList() {
       </div>
 
       {/* Table */}
-      <div className="bg-white shadow-md rounded-lg p-4 ml-4">
+      <div className="bg-white shadow-md rounded-lg p-4">
   <table className="w-full border-collapse">
     <thead>
       <tr className="bg-gray-100 text-start text-sm text-gray-600 ">
@@ -124,11 +124,11 @@ export default function InvoiceList() {
           </td>
           <td className="p-3  gap-2 ">
             {invoice.status === "Paid" ? (
-              <FaCheckCircle className="text-green-500" />
+              <FaCheckCircle className="text-gray-500" />
             ) : (
-              <FaClock className="text-yellow-500" />
+              <FaRegClock className="text-yellow-500" />
             )}
-            <span>{invoice.status}</span>
+            {/* <span>{invoice.status}</span> */}
           </td>
           <td className="p-3 flex flex-row text-start gap-3">
             <img
@@ -155,8 +155,8 @@ export default function InvoiceList() {
             </span>
           </td>
           <td className="p-3 flex flex-row mb-4 gap-2 ">
-            <FaEye className="text-blue-500 cursor-pointer hover:text-blue-700 transition" />
-            <FaTrash className="text-red-500 cursor-pointer hover:text-red-700 transition" />
+            <FaEye className="text-gray-500 cursor-pointer hover:text-blue-700 transition" />
+            <FaTrash className="text-gray-500 cursor-pointer hover:text-red-700 transition" />
             <FaEllipsisV className="text-gray-500 cursor-pointer hover:text-gray-700 transition" />
           </td>
         </tr>
@@ -184,6 +184,10 @@ export default function InvoiceList() {
    <FaChevronRight className="text-gray-600" />
   </button>
 </div>
+{/* Footer */}
+<div className="text-sm text-gray-600  ">
+        © 2024, Made with ❤️ by PIXINVENT
+      </div>
     </div>
   );
 }

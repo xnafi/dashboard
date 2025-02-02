@@ -6,7 +6,7 @@ const InvoicePayment = () => {
   const [paymentStub, setPaymentStub] = useState(true);
   return (
     <div className="p-6 bg-gray-50 flex justify-center mt-20">
-      <div className="max-w-5xl w-full bg-white shadow-lg rounded-lg p-6 flex gap-6">
+      <div className=" w-full bg-white shadow-lg rounded-lg p-6 flex gap-6">
         {/* Left Side: Invoice Details */}
         <div className="flex-1">
           {/* Header */}
