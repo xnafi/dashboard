@@ -5,14 +5,14 @@ const InvoicePayment = () => {
   const [clientNotes, setClientNotes] = useState(true);
   const [paymentStub, setPaymentStub] = useState(true);
   return (
-    <div className="p-6 bg-gray-50 flex justify-center mt-20 dark:bg-gray-900  dark:text-gray-500">
-      <div className=" w-full bg-white shadow-lg rounded-lg p-6 flex gap-6">
+    <div className="p-6 bg-gray-50 flex justify-center mt-20 dark:bg-gray-900  dark:text-gray-400">
+      <div className=" w-full bg-white shadow-lg rounded-lg p-6 flex gap-6 dark:bg-gray-800  dark:text-gray-400 ">
         {/* Left Side: Invoice Details */}
         <div className="flex-1">
           {/* Header */}
-          <div className="bg-gray-100 p-4 rounded-lg flex justify-between items-center">
+          <div className="bg-gray-100 p-4 rounded-lg flex justify-between items-center dark:bg-gray-800  dark:text-gray-400">
             <div>
-              <h2 className="text-xl font-bold text-indigo-600 flex items-center gap-2">
+              <h2 className="text-xl font-bold text-indigo-600 flex items-center gap-2 ">
                 <span className="text-indigo-600">Vuexy</span>
               </h2>
               <p className="text-gray-600 text-sm">
@@ -28,7 +28,7 @@ const InvoicePayment = () => {
                <div>
               <input
                 type="text"
-                className="border border-gray-300 px-2 py-1 rounded text-sm w-20 bg-gray-100"
+                className="border border-gray-300 px-2 py-1 rounded text-sm w-20 bg-gray-100 dark:bg-gray-800  dark:text-gray-400"
                 value="#45678"
                 readOnly
               />
@@ -41,7 +41,7 @@ const InvoicePayment = () => {
                 <div>
               <input
                 type="text"
-                className="border border-gray-300 px-2 py-1 rounded text-sm w-20 bg-gray-100"
+                className="border border-gray-300 px-2 py-1 rounded text-sm w-20 bg-gray-100 dark:bg-gray-800  dark:text-gray-400"
                 value="12/13/2013"
                 readOnly
               />
@@ -54,7 +54,7 @@ const InvoicePayment = () => {
                 <div>
               <input
                 type="text"
-                className="border border-gray-300 px-2 py-1 rounded text-sm w-20 bg-gray-100"
+                className="border border-gray-300 px-2 py-1 rounded text-sm w-20 bg-gray-100 dark:bg-gray-800  dark:text-gray-400"
                 value="4/23/2023"
                 readOnly
                 />
@@ -68,7 +68,7 @@ const InvoicePayment = () => {
           <div className="mt-6 grid grid-cols-2 gap-6">
             <div>
               <h4 className="font-semibold text-gray-700 mb-4">Invoice To:</h4>
-              <select className="w-full border p-2 rounded bg-gray-100 mb-4">
+              <select className="w-full border p-2 rounded bg-gray-100 mb-4 dark:bg-gray-800  dark:text-gray-400">
                 <option>Jordan Stevenson</option>
               </select>
               <p className="text-sm text-gray-600">Hall-Robbins PLC</p>
@@ -97,20 +97,20 @@ const InvoicePayment = () => {
             <div className="flex items-center gap-2 mt-4">
               
 
-              <select className="border p-2 w-1/2 rounded bg-gray-100 text-gray-500">
+              <select className="border p-2 w-1/2 rounded bg-gray-100 text-gray-500 dark:bg-gray-800  dark:text-gray-400">
                 <option>App Customization</option>
               </select>
              <div className="w-1/2 flex  items-center gap-4">
 
-              <input type="text" className="border p-2 w-20 rounded bg-gray-100 text-center" value="24" readOnly />
-              <input type="text" className="border p-2 w-20 rounded bg-gray-100 text-center" value="1" readOnly />
-              <input type="text" className="border p-2 w-20 rounded bg-gray-100 text-right" value="$24.00" readOnly />
+              <input type="text" className="border p-2 w-20 rounded bg-gray-100 text-center dark:bg-gray-800  dark:text-gray-400" value="24" readOnly />
+              <input type="text" className="border p-2 w-20 rounded bg-gray-100 text-center dark:bg-gray-800  dark:text-gray-400" value="1" readOnly />
+              <input type="text" className="border p-2 w-20 rounded bg-gray-100 text-right dark:bg-gray-800  dark:text-gray-400" value="$24.00" readOnly />
             </div>
              </div>
             <div className="flex items-center gap-4 mt-2">               
             <input
               type="text"
-              className="border p-2 w-1/2 rounded bg-gray-100 mt-2 text-gray-500"
+              className="border p-2 w-1/2 rounded bg-gray-100 mt-2 text-gray-500 dark:bg-gray-800  dark:text-gray-400"
               value="Customization & Bug Fixes"
               readOnly
               />
@@ -127,7 +127,7 @@ const InvoicePayment = () => {
                 <div className="">
 
               <h4 className="font-semibold text-gray-700">Salesperson:
-              <input type="text" className="border p-2 rounded bg-gray-100 ml-2" value="Edward Crowley" readOnly /></h4>
+              <input type="text" className="border p-2 rounded bg-gray-100 ml-2 dark:bg-gray-800  dark:text-gray-400" value="Edward Crowley" readOnly /></h4>
                 </div>
               
             <div className="">
@@ -151,13 +151,13 @@ const InvoicePayment = () => {
           <div className="mt-6">
             <h4 className="font-semibold text-gray-700">Note:</h4>
             <textarea
-              className="w-full border p-2 rounded bg-gray-100"
+              className="w-full border p-2 rounded bg-gray-100 dark:bg-gray-800  dark:text-gray-400"
               readOnly
               value="It was a pleasure working with you and your team. We hope you will keep us in mind for future freelance projects. Thank You!"
             ></textarea>
           </div>
           {/* Footer */}
-      <div className="text-sm text-gray-600 mt-6 text-start">
+      <div className="text-sm text-gray-600 mt-6 text-start ">
         © 2024, Made with ❤️ by PIXINVENT
       </div>
         </div>
@@ -165,23 +165,23 @@ const InvoicePayment = () => {
 
         {/* Right Side: Actions Panel */}
         <div className="w-64">
-           <div className="bg-white shadow-md rounded-lg p-4">
+           <div className="bg-white shadow-md rounded-lg p-4 dark:bg-gray-800  dark:text-gray-400">
               {/* Send Invoice Button */}
-              <button className="w-full flex items-center justify-center gap-2 bg-gray-200 text-black px-4 py-2 rounded mb-2 transition duration-300 hover:bg-indigo-500 hover:scale-105">
+              <button className="w-full flex items-center justify-center gap-2 bg-gray-200 dark:bg-gray-700  dark:text-gray-400 text-black px-4 py-2 rounded mb-2 transition duration-300 hover:bg-indigo-500 hover:scale-105">
                 <FaPaperPlane /> Send Invoice
               </button>
           
               {/* Download Button */}
-              <button className="w-full flex items-center justify-center gap-2 bg-gray-200 px-4 py-2 rounded mb-2 transition duration-300  hover:bg-indigo-500 hover:scale-105">
+              <button className="w-full flex items-center justify-center gap-2 bg-gray-200 dark:bg-gray-700  dark:text-gray-400 px-4 py-2 rounded mb-2 transition duration-300  hover:bg-indigo-500 hover:scale-105">
                 <FaDownload /> Download
               </button>
           
               {/* Print & Edit Buttons - Side by Side */}
               <div className="flex flex-row gap-2">
-                <button className="w-full flex items-center justify-center gap-2 bg-gray-200 px-4 py-2 rounded mb-2 transition duration-300 hover:bg-indigo-500 hover:scale-105">
+                <button className="w-full flex items-center justify-center gap-2 bg-gray-200 dark:bg-gray-700  dark:text-gray-400 px-4 py-2 rounded mb-2 transition duration-300 hover:bg-indigo-500 hover:scale-105">
                   <FaPrint /> Print
                 </button>
-                <button className="w-full flex items-center justify-center gap-2 bg-gray-200 px-4 py-2 rounded mb-2 transition duration-300 hover:bg-indigo-500 hover:scale-105">
+                <button className="w-full flex items-center justify-center gap-2 bg-gray-200 dark:bg-gray-700  dark:text-gray-400 px-4 py-2 rounded mb-2 transition duration-300 hover:bg-indigo-500 hover:scale-105">
                   <FaEdit /> Edit
                 </button>
               </div>
@@ -193,11 +193,11 @@ const InvoicePayment = () => {
             </div>
 
           {/* Payment Options */}
-          <div className="mt-4 bg-white shadow-md rounded-lg p-4">
+          <div className="mt-4 bg-white shadow-md rounded-lg p-4 dark:bg-gray-800  dark:text-gray-400">
   <h4 className="text-gray-700 font-semibold mb-3">Accept payments via</h4>
   
   {/* Payment Method Dropdown */}
-  <select className="w-full border p-2 rounded bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+  <select className="w-full border p-2 rounded bg-gray-100 dark:bg-gray-700  dark:text-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500">
     <option>Bank Account</option>
     <option>Bkash</option>
     <option>Rocket</option>
