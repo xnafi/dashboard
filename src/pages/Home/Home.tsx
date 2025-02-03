@@ -3,7 +3,7 @@ import SalesCard from "./../../components/re-ui/SalesCard";
 
 export default function Home() {
   return (
-    <div className="p-8 flex gap-6 bg-gray-100 mt-20 fixed left-60 w-[calc(100%-14rem)]">
+    <div className="p-8 flex gap-6 bg-gray-100 mt-20 fixed left-60 w-[calc(100%-14rem)] dark:bg-gray-900  dark:text-gray-500">
       {/* Website Analytics Card */}
       <AnalyticsCard
         title="Website Analytics"
