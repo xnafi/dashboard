@@ -28,20 +28,20 @@ const InvoicePayment = () => {
                <div>
               <input
                 type="text"
-                className="border border-gray-300 px-2 py-1 rounded text-sm w-20"
+                className="border border-gray-300 px-2 py-1 rounded text-sm w-20 bg-gray-100"
                 value="#45678"
                 readOnly
               />
               </div> 
                 </div>
-              <div className="flex justify-between items-center gap-2">
-                <div>
-              <p className="text-sm text-gray-500 mt-1">Date Issued:</p>
+              <div className="flex justify-between items-center gap-2 ">
+                <div className="">
+              <p className="text-sm text-gray-500 mt-1 ">Date Issued:</p>
                 </div>
                 <div>
               <input
                 type="text"
-                className="border border-gray-300 px-2 py-1 rounded text-sm w-20"
+                className="border border-gray-300 px-2 py-1 rounded text-sm w-20 bg-gray-100"
                 value="12/13/2013"
                 readOnly
               />
@@ -54,7 +54,7 @@ const InvoicePayment = () => {
                 <div>
               <input
                 type="text"
-                className="border border-gray-300 px-2 py-1 rounded text-sm w-20"
+                className="border border-gray-300 px-2 py-1 rounded text-sm w-20 bg-gray-100"
                 value="4/23/2023"
                 readOnly
                 />
@@ -67,8 +67,8 @@ const InvoicePayment = () => {
           {/* Invoice To & Bill To */}
           <div className="mt-6 grid grid-cols-2 gap-6">
             <div>
-              <h4 className="font-semibold text-gray-700">Invoice To:</h4>
-              <select className="w-full border p-2 rounded bg-gray-100">
+              <h4 className="font-semibold text-gray-700 mb-4">Invoice To:</h4>
+              <select className="w-full border p-2 rounded bg-gray-100 mb-4">
                 <option>Jordan Stevenson</option>
               </select>
               <p className="text-sm text-gray-600">Hall-Robbins PLC</p>
@@ -77,7 +77,7 @@ const InvoicePayment = () => {
               <p className="text-sm text-gray-600">don85@johnson.com</p>
             </div>
             <div>
-              <h4 className="font-semibold text-gray-700">Bill To:</h4>
+              <h4 className="font-semibold text-gray-700 mb-4">Bill To:</h4>
               <p className="text-sm text-gray-600">Total Due: $12,110.55</p>
               <p className="text-sm text-gray-600">Bank Name: American Bank</p>
               <p className="text-sm text-gray-600">Country: United States</p>
@@ -88,22 +88,33 @@ const InvoicePayment = () => {
 
           {/* Items Table */}
           <div className="mt-6 border rounded-lg p-4">
-            <div className="flex items-center gap-2">
-              <select className="border p-2 w-full rounded bg-gray-100 text-gray-500">
+          <div className="grid grid-cols-4 text-gray-600 text-sm font-semibold border-b pb-2">
+            <p className="">Item</p>
+            <p className="ml-52">Cost</p>
+            <p className="ml-28">Hours</p>
+            <p className="ml-10">Price</p>
+          </div>
+            <div className="flex items-center gap-2 mt-4">
+              
+
+              <select className="border p-2 w-1/2 rounded bg-gray-100 text-gray-500">
                 <option>App Customization</option>
               </select>
-              <input type="text" className="border p-2 w-16 rounded bg-gray-100 text-center" value="24" readOnly />
-              <input type="text" className="border p-2 w-16 rounded bg-gray-100 text-center" value="1" readOnly />
+             <div className="w-1/2 flex  items-center gap-4">
+
+              <input type="text" className="border p-2 w-20 rounded bg-gray-100 text-center" value="24" readOnly />
+              <input type="text" className="border p-2 w-20 rounded bg-gray-100 text-center" value="1" readOnly />
               <input type="text" className="border p-2 w-20 rounded bg-gray-100 text-right" value="$24.00" readOnly />
             </div>
-            <div className="flex items-center gap-2 mt-2">               
+             </div>
+            <div className="flex items-center gap-4 mt-2">               
             <input
               type="text"
-              className="border p-2  rounded bg-gray-100 mt-2 text-gray-500"
+              className="border p-2 w-1/2 rounded bg-gray-100 mt-2 text-gray-500"
               value="Customization & Bug Fixes"
               readOnly
               />
-            <p className="text-sm text-gray-600 mt-2">Discount: <br /> 0% 0% 0%</p>
+            <p className="text-sm text-gray-600 mt-2">Discount: <br />0% 0% 0%</p>
               </div>
             <button className="mt-4 bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600 transition">
               + Add Item
@@ -126,10 +137,12 @@ const InvoicePayment = () => {
             </div>
             
               
-            <div className="">
-              <p className="text-sm text-gray-600 text-start">Subtotal: <strong className="text-end">$1800</strong></p>
-              <p className="text-sm text-gray-600 text-start">Discount: <strong className="text-end">$28</strong></p>
-              <p className="text-sm text-gray-600 text-start">Tax: <strong className="text-end">21%</strong></p>
+            <div className="mr-24">
+              <p className="text-sm text-gray-600">Subtotal: <strong className="text-end">$1800</strong></p>
+              <p className="text-sm text-gray-600 ">Discount: <strong className="text-end">$28</strong></p>
+              <p className="text-sm text-gray-600 ">Tax: <strong className="text-end">21%</strong></p>
+              {/* Border added here */}
+              <hr className="border-gray-300 my-2" />
               <p className="text-lg text-gray-600  text-start">Total: <strong className="text-end">$1690</strong></p>
             </div>
           </div>
