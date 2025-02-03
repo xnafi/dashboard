@@ -39,29 +39,29 @@ export default function InvoiceList() {
   return (
     <div className="p-6 bg-gray-50 mt-20 ml-6 w-full dark:bg-gray-900  dark:text-gray-500">
       {/* Top Analytics Cards */}
-      <div className="grid grid-cols-4 gap-4 mb-6 ">
-        <div className="p-4 bg-white shadow-md rounded-lg flex items-center justify-between">
+      <div className="grid grid-cols-4 gap-4 mb-6 bg-white dark:bg-gray-800  dark:text-gray-400">
+        <div className="p-4   shadow-md rounded-lg flex items-center justify-between">
           <div>
             <h3 className="text-xl font-semibold">24</h3>
             <p className="text-gray-500">Clients</p>
           </div>
           <FaRegUser className=" text-2xl text-gray-500" />
         </div>
-        <div className="p-4 bg-white shadow-md rounded-lg flex items-center justify-between">
+        <div className="p-4 shadow-md rounded-lg flex items-center justify-between">
           <div>
             <h3 className="text-xl font-semibold">165</h3>
             <p className="text-gray-500">Invoices</p>
           </div>
           <FaFileInvoice className="text-gray-500 text-2xl" />
         </div>
-        <div className="p-4 bg-white shadow-md rounded-lg flex items-center justify-between">
+        <div className="p-4 shadow-md rounded-lg flex items-center justify-between">
           <div>
             <h3 className="text-xl font-semibold">$2.46k</h3>
             <p className="text-gray-500">Paid</p>
           </div>
           <FaCheckDouble className="text-gray-500 text-2xl" />
         </div>
-        <div className="p-4 bg-white shadow-md rounded-lg flex items-center justify-between">
+        <div className="p-4 shadow-md rounded-lg flex items-center justify-between">
           <div>
             <h3 className="text-xl font-semibold">$876</h3>
             <p className="text-gray-500">Unpaid</p>
@@ -71,9 +71,9 @@ export default function InvoiceList() {
       </div>
 
       {/* Action Bar */}
-      <div className="bg-white shadow-md rounded-lg p-4 mb-4 flex justify-between items-center ">
-        <div className="flex items-center gap-4">
-          <select className="border p-2 rounded" value={showCount} onChange={(e) => setShowCount(e.target.value)}>
+      <div className="bg-white dark:bg-gray-800  dark:text-gray-400 shadow-md rounded-lg p-4 mb-4 flex justify-between items-center ">
+        <div className="flex items-center gap-4 ">
+          <select className="border p-2 rounded dark:bg-gray-800  dark:text-gray-400 dark:border-gray-500" value={showCount} onChange={(e) => setShowCount(e.target.value)}>
             <option value="10">Show 10</option>
             <option value="20">Show 20</option>
             <option value="50">Show 50</option>
@@ -81,8 +81,8 @@ export default function InvoiceList() {
           <button className="bg-indigo-500 text-white px-4 py-2 rounded">+ Create Invoice</button>
         </div>
         <div className="flex items-center gap-4">
-          <input type="text" placeholder="Search Invoice" className="border p-2 rounded w-full" />
-          <select className="border p-2 rounded" value={invoiceStatus} onChange={(e) => setInvoiceStatus(e.target.value)}>
+          <input type="text" placeholder="Search Invoice" className="border p-2 rounded w-full dark:bg-gray-800  dark:text-gray-400 dark:border-gray-500" />
+          <select className="border p-2 rounded dark:bg-gray-800  dark:text-gray-400 dark:border-gray-500" value={invoiceStatus} onChange={(e) => setInvoiceStatus(e.target.value)}>
             <option value="All">Invoice Status</option>
             <option value="Paid">Paid</option>
             <option value="Pending">Pending</option>
@@ -91,10 +91,10 @@ export default function InvoiceList() {
       </div>
 
       {/* Table */}
-      <div className="bg-white shadow-md rounded-lg p-4">
+      <div className="bg-white shadow-md rounded-lg p-4 dark:bg-gray-800  dark:text-gray-400 dark:border-gray-500">
   <table className="w-full border-collapse">
     <thead>
-      <tr className="bg-gray-100 text-start text-sm text-gray-600 ">
+      <tr className="bg-gray-100 text-start text-sm text-gray-600 dark:bg-gray-800  dark:text-gray-400 dark:border-gray-500">
         <th className="p-3">
           <input type="checkbox" />
         </th>
@@ -109,7 +109,7 @@ export default function InvoiceList() {
     </thead>
     <tbody className="divide-y divide-gray-200 text-sm text-gray-700">
       {invoices.map((invoice) => (
-        <tr key={invoice.id} className="border-t hover:bg-gray-50 transition">
+        <tr key={invoice.id} className="border-t hover:bg-indigo-500 transition">
           <td className="p-3 text-center">
             <input
               type="checkbox"
@@ -124,7 +124,7 @@ export default function InvoiceList() {
           </td>
           <td className="p-3  gap-2 ">
             {invoice.status === "Paid" ? (
-              <FaCheckCircle className="text-gray-500" />
+              <FaCheckCircle className="text-green-500" />
             ) : (
               <FaRegClock className="text-yellow-500" />
             )}
@@ -147,8 +147,8 @@ export default function InvoiceList() {
             <span
               className={`px-2 py-1 rounded text-xs font-medium ${
                 invoice.balance === "Paid"
-                  ? "bg-green-100 text-green-600"
-                  : "bg-gray-100 text-gray-600"
+                  ? "bg-green-100 text-green-600 dark:bg-gray-800  dark:text-green-400 "
+                  : "bg-gray-100 text-gray-600 dark:bg-gray-800  dark:text-gray-400 "
               }`}
             >
               {invoice.balance}
@@ -168,19 +168,19 @@ export default function InvoiceList() {
 
       {/* Pagination */}
 <div className="flex justify-end mt-4 gap-2">
-  <button className="px-4 py-2 border rounded bg-gray-200 flex items-center gap-2 hover:bg-gray-300 transition">
+  <button className="px-4 py-2 border rounded bg-gray-200 dark:bg-gray-800  dark:text-gray-200 dark:border-gray-500 flex items-center gap-2 hover:bg-gray-600 dark:hover:bg-gray-400  transition">
     <FaChevronLeft className="text-gray-600" />
   </button>
-  <button className="px-4 py-2 border rounded bg-gray-200 text-black mx-2 hover:bg-indigo-600 transition">
+  <button className="px-4 py-2 border rounded bg-gray-200 dark:bg-gray-800  dark:text-gray-200 dark:border-gray-500 text-black mx-2 hover:bg-indigo-500 dark:hover:bg-indigo-300 transition">
     1
   </button>
-  <button className="px-4 py-2 border rounded bg-gray-200 text-black mx-2 hover:bg-indigo-600 transition">
+  <button className="px-4 py-2 border rounded bg-gray-200 dark:bg-gray-800  dark:text-gray-200 dark:border-gray-500 text-black mx-2 hover:bg-indigo-500 dark:hover:bg-indigo-300 transition">
     2
   </button>
-  <button className="px-4 py-2 border rounded bg-gray-200 text-black mx-2 hover:bg-indigo-600 transition">
+  <button className="px-4 py-2 border rounded bg-gray-200 dark:bg-gray-800  dark:text-gray-200 dark:border-gray-500 text-black mx-2 hover:bg-indigo-500 dark:hover:bg-indigo-300 transition">
     3
   </button>
-  <button className="px-4 py-2 border rounded bg-gray-200 flex items-center gap-2 hover:bg-gray-300 transition">
+  <button className="px-4 py-2 border rounded bg-gray-200 dark:bg-gray-800  dark:text-gray-200 dark:border-gray-500 flex items-center gap-2 hover:bg-gray-600 dark:hover:bg-gray-400  transition">
    <FaChevronRight className="text-gray-600" />
   </button>
 </div>

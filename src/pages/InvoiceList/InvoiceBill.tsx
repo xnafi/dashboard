@@ -3,7 +3,7 @@ import { FaPaperPlane, FaDownload, FaPrint, FaEdit } from "react-icons/fa";
 
 const InvoiceBill: React.FC = () => {
   return (
-    <div className="p-6 bg-gray-50 mt-20 ml-4 w-full dark:bg-gray-900  dark:text-gray-500">
+    <div className="p-6 bg-gray-50 mt-20 ml-6 w-full dark:bg-gray-900  dark:text-gray-500">
       {/* Search Bar */}
       
 
@@ -21,7 +21,7 @@ const InvoiceBill: React.FC = () => {
             </div>
              {/* Invoice Number */}
           <div className="bg-gray-100 p-3 rounded-lg mb-6 dark:bg-gray-700  dark:text-gray-400">
-            <p className="font-semibold">Invoice #3492</p>
+            <p className="font-semibold mb-2">Invoice #3492</p>
             <p>Date Issued: 25/08/2020</p>
             <p>Date Due: 29/08/2020</p>
           </div>
@@ -52,9 +52,9 @@ const InvoiceBill: React.FC = () => {
          
 
           {/* Table */}
-          <table className="w-full border-collapse mb-6">
+          <table className="w-full border-collapse mb-6 border dark:border-gray-500">
             <thead>
-              <tr className="bg-gray-100 text-left text-gray-500 dark:bg-gray-800  dark:text-gray-500">
+              <tr className="bg-gray-100 text-left text-gray-500 dark:bg-gray-800  dark:text-gray-500 border dark:border-gray-500">
                 <th className="p-2">ITEM</th>
                 <th className="p-2">DESCRIPTION</th>
                 <th className="p-2">HOURS</th>
@@ -62,29 +62,29 @@ const InvoiceBill: React.FC = () => {
                 <th className="p-2">PRICE</th>
               </tr>
             </thead>
-            <tbody className="divide-y">
-              <tr>
+            <tbody className="divide-y dark:border-gray-500">
+              <tr className="dark:border-gray-500">
                 <td className="p-2">Premium Branding Package</td>
                 <td className="p-2">Branding & Promotion</td>
                 <td className="p-2">48</td>
                 <td className="p-2">1</td>
                 <td className="p-2">$32</td>
               </tr>
-              <tr>
+              <tr className="dark:border-gray-500">
                 <td className="p-2">Social Media</td>
                 <td className="p-2">Social media templates</td>
                 <td className="p-2">42</td>
                 <td className="p-2">1</td>
                 <td className="p-2">$28</td>
               </tr>
-              <tr>
+              <tr className="dark:border-gray-500">
                 <td className="p-2">Web Design</td>
                 <td className="p-2">Web designing package</td>
                 <td className="p-2">46</td>
                 <td className="p-2">1</td>
                 <td className="p-2">$24</td>
               </tr>
-              <tr>
+              <tr className="dark:border-gray-500">
                 <td className="p-2">SEO</td>
                 <td className="p-2">Search engine optimization</td>
                 <td className="p-2">40</td>
@@ -129,27 +129,27 @@ const InvoiceBill: React.FC = () => {
 <div className="w-1/4">
   <div className="bg-white shadow-md rounded-lg p-4 dark:bg-gray-800  dark:text-gray-500">
     {/* Send Invoice Button */}
-    <button className="w-full flex items-center justify-center gap-2 bg-gray-200 text-black px-4 py-2 rounded mb-2 transition duration-300 hover:bg-indigo-500 hover:scale-105 dark:bg-gray-700  dark:text-gray-400">
+    <button className="w-full flex items-center justify-center gap-2 bg-gray-200 text-black px-4 py-2 rounded mb-2 transition duration-300 hover:bg-indigo-500 dark:hover:bg-indigo-500 hover:scale-105 dark:bg-gray-700  dark:text-gray-400">
       <FaPaperPlane /> Send Invoice
     </button>
 
     {/* Download Button */}
-    <button className="w-full flex items-center justify-center gap-2 bg-gray-200 px-4 py-2 rounded mb-2 transition duration-300  hover:bg-indigo-500 hover:scale-105 dark:bg-gray-700  dark:text-gray-400">
+    <button className="w-full flex items-center justify-center gap-2 bg-gray-200 px-4 py-2 rounded mb-2 transition duration-300  hover:bg-indigo-500 dark:hover:bg-indigo-500 hover:scale-105 dark:bg-gray-700  dark:text-gray-400">
       <FaDownload /> Download
     </button>
 
     {/* Print & Edit Buttons - Side by Side */}
     <div className="flex flex-row gap-2">
-      <button className="w-full flex items-center justify-center gap-2 bg-gray-200 px-4 py-2 rounded mb-2 transition duration-300 hover:bg-indigo-500 hover:scale-105 dark:bg-gray-700  dark:text-gray-400">
+      <button className="w-full flex items-center justify-center gap-2 bg-gray-200 px-4 py-2 rounded mb-2 transition duration-300 hover:bg-indigo-500 dark:hover:bg-indigo-500 hover:scale-105 dark:bg-gray-700  dark:text-gray-400">
         <FaPrint /> Print
       </button>
-      <button className="w-full flex items-center justify-center gap-2 bg-gray-200 px-4 py-2 rounded mb-2 transition duration-300 hover:bg-indigo-500 hover:scale-105 dark:bg-gray-700  dark:text-gray-400">
+      <button className="w-full flex items-center justify-center gap-2 bg-gray-200 px-4 py-2 rounded mb-2 transition duration-300 hover:bg-indigo-500 dark:hover:bg-indigo-500 hover:scale-105 dark:bg-gray-700  dark:text-gray-400">
         <FaEdit /> Edit
       </button>
     </div>
 
     {/* Add Payment Button */}
-    <button className="w-full flex items-center justify-center gap-2 bg-green-500 text-white px-4 py-2 rounded transition duration-300 hover:bg-green-500 hover:scale-105">
+    <button className="w-full flex items-center justify-center gap-2 bg-green-500 text-white px-4 py-2 rounded transition duration-300 hover:bg-green-500 dark:hover:bg-green-600 hover:scale-105">
       + Add Payment
     </button>
   </div>
@@ -158,7 +158,7 @@ const InvoiceBill: React.FC = () => {
       </div>
 
       {/* Footer */}
-      <div className="text-sm text-gray-600 mt-6 text-start dark:bg-gray-800  dark:text-gray-500">
+      <div className="text-sm text-gray-600 mt-6 text-start ">
         © 2024, Made with ❤️ by PIXINVENT
       </div>
     </div>
