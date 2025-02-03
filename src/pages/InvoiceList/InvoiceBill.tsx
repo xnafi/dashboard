@@ -3,15 +3,15 @@ import { FaPaperPlane, FaDownload, FaPrint, FaEdit } from "react-icons/fa";
 
 const InvoiceBill: React.FC = () => {
   return (
-    <div className="p-6 bg-gray-50 mt-20 ml-4 w-full">
+    <div className="p-6 bg-gray-50 mt-20 ml-4 w-full dark:bg-gray-900  dark:text-gray-500">
       {/* Search Bar */}
       
 
-      <div className="flex gap-6">
+      <div className="flex gap-6 ">
         {/* Invoice Card */}
-        <div className="bg-white shadow-md rounded-lg p-6 w-3/4 ">
+        <div className="bg-white shadow-md rounded-lg p-6 w-3/4 dark:bg-gray-800  dark:text-gray-500">
           {/* Header */}
-          <div className="bg-gray-50 gap-3 ">
+          <div className="bg-gray-50 gap-3 dark:bg-gray-700  dark:text-gray-400">
             <div className="text-indigo-600 font-bold text-xl mt-2 ml-2">Vuexy</div>
             <div className="flex justify-between items-center ">
             <div className="text-sm text-gray-500 ml-2">
@@ -20,7 +20,7 @@ const InvoiceBill: React.FC = () => {
               +1 (123) 456 7891, +44 (876) 543 2198
             </div>
              {/* Invoice Number */}
-          <div className="bg-gray-100 p-3 rounded-lg mb-6">
+          <div className="bg-gray-100 p-3 rounded-lg mb-6 dark:bg-gray-700  dark:text-gray-400">
             <p className="font-semibold">Invoice #3492</p>
             <p>Date Issued: 25/08/2020</p>
             <p>Date Due: 29/08/2020</p>
@@ -32,7 +32,7 @@ const InvoiceBill: React.FC = () => {
           {/* Invoice Details */}
           <div className="flex justify-between mb-6">
             <div>
-              <h4 className="font-semibold mb-4">Invoice To:</h4>
+              <h4 className="font-semibold mb-4 mt-4">Invoice To:</h4>
               <p>Thomas Shelby</p>
               <p>Shelby Company Limited</p>
               <p>Small Heath, B10 0HF, UK</p>
@@ -40,7 +40,7 @@ const InvoiceBill: React.FC = () => {
               <p>peakyFBlinders@gmail.com</p>
             </div>
             <div className="mr-20">
-              <h4 className="font-semibold mb-4">Bill To:</h4>
+              <h4 className="font-semibold mb-4 mt-4">Bill To:</h4>
               <p>Total Due: <span className="font-semibold">$12,110.55</span></p>
               <p>Bank name: American Bank</p>
               <p>Country: United States</p>
@@ -54,7 +54,7 @@ const InvoiceBill: React.FC = () => {
           {/* Table */}
           <table className="w-full border-collapse mb-6">
             <thead>
-              <tr className="bg-gray-100 text-left text-gray-500">
+              <tr className="bg-gray-100 text-left text-gray-500 dark:bg-gray-800  dark:text-gray-500">
                 <th className="p-2">ITEM</th>
                 <th className="p-2">DESCRIPTION</th>
                 <th className="p-2">HOURS</th>
@@ -127,23 +127,23 @@ const InvoiceBill: React.FC = () => {
 
         {/* Actions Panel */}
 <div className="w-1/4">
-  <div className="bg-white shadow-md rounded-lg p-4">
+  <div className="bg-white shadow-md rounded-lg p-4 dark:bg-gray-800  dark:text-gray-500">
     {/* Send Invoice Button */}
-    <button className="w-full flex items-center justify-center gap-2 bg-gray-200 text-black px-4 py-2 rounded mb-2 transition duration-300 hover:bg-indigo-500 hover:scale-105">
+    <button className="w-full flex items-center justify-center gap-2 bg-gray-200 text-black px-4 py-2 rounded mb-2 transition duration-300 hover:bg-indigo-500 hover:scale-105 dark:bg-gray-700  dark:text-gray-400">
       <FaPaperPlane /> Send Invoice
     </button>
 
     {/* Download Button */}
-    <button className="w-full flex items-center justify-center gap-2 bg-gray-200 px-4 py-2 rounded mb-2 transition duration-300  hover:bg-indigo-500 hover:scale-105">
+    <button className="w-full flex items-center justify-center gap-2 bg-gray-200 px-4 py-2 rounded mb-2 transition duration-300  hover:bg-indigo-500 hover:scale-105 dark:bg-gray-700  dark:text-gray-400">
       <FaDownload /> Download
     </button>
 
     {/* Print & Edit Buttons - Side by Side */}
     <div className="flex flex-row gap-2">
-      <button className="w-full flex items-center justify-center gap-2 bg-gray-200 px-4 py-2 rounded mb-2 transition duration-300 hover:bg-indigo-500 hover:scale-105">
+      <button className="w-full flex items-center justify-center gap-2 bg-gray-200 px-4 py-2 rounded mb-2 transition duration-300 hover:bg-indigo-500 hover:scale-105 dark:bg-gray-700  dark:text-gray-400">
         <FaPrint /> Print
       </button>
-      <button className="w-full flex items-center justify-center gap-2 bg-gray-200 px-4 py-2 rounded mb-2 transition duration-300 hover:bg-indigo-500 hover:scale-105">
+      <button className="w-full flex items-center justify-center gap-2 bg-gray-200 px-4 py-2 rounded mb-2 transition duration-300 hover:bg-indigo-500 hover:scale-105 dark:bg-gray-700  dark:text-gray-400">
         <FaEdit /> Edit
       </button>
     </div>
@@ -158,7 +158,7 @@ const InvoiceBill: React.FC = () => {
       </div>
 
       {/* Footer */}
-      <div className="text-sm text-gray-600 mt-6 text-start">
+      <div className="text-sm text-gray-600 mt-6 text-start dark:bg-gray-800  dark:text-gray-500">
         © 2024, Made with ❤️ by PIXINVENT
       </div>
     </div>
