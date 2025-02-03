@@ -32,7 +32,7 @@ const InvoiceBill: React.FC = () => {
           {/* Invoice Details */}
           <div className="flex justify-between mb-6">
             <div>
-              <h4 className="font-semibold">Invoice To:</h4>
+              <h4 className="font-semibold mb-4">Invoice To:</h4>
               <p>Thomas Shelby</p>
               <p>Shelby Company Limited</p>
               <p>Small Heath, B10 0HF, UK</p>
@@ -40,7 +40,7 @@ const InvoiceBill: React.FC = () => {
               <p>peakyFBlinders@gmail.com</p>
             </div>
             <div className="mr-20">
-              <h4 className="font-semibold">Bill To:</h4>
+              <h4 className="font-semibold mb-4">Bill To:</h4>
               <p>Total Due: <span className="font-semibold">$12,110.55</span></p>
               <p>Bank name: American Bank</p>
               <p>Country: United States</p>
@@ -54,7 +54,7 @@ const InvoiceBill: React.FC = () => {
           {/* Table */}
           <table className="w-full border-collapse mb-6">
             <thead>
-              <tr className="bg-gray-100 text-left">
+              <tr className="bg-gray-100 text-left text-gray-500">
                 <th className="p-2">ITEM</th>
                 <th className="p-2">DESCRIPTION</th>
                 <th className="p-2">HOURS</th>
@@ -104,10 +104,12 @@ const InvoiceBill: React.FC = () => {
           </p>
           </div>
             <div className="">
-              <p>Subtotal: <span className="font-semibold">$1800</span></p>
-              <p>Discount: <span className="font-semibold">$28</span></p>
-              <p>Tax: <span className="font-semibold">21%</span></p>
-              <p>Total: <span className="font-semibold">$1690</span></p>
+              <p className="text-start">Subtotal: <span className="font-semibold ">$1800</span></p>
+              <p className="text-start">Discount: <span className="font-semibold ">$28</span></p>
+              <p className="text-start">Tax: <span className="font-semibold ">21%</span></p>
+              {/* Border added here */}
+              <hr className="border-gray-300 my-2" />
+              <p  className="text-start">Total: <span className="font-semibold ">$1690</span></p>
               
             </div>
           </div>
