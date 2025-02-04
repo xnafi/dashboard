@@ -106,7 +106,7 @@ const InvoicePayment = () => {
 
           {/* Items Table */}
           <div className="mt-6 border dark:border-gray-500 rounded-lg p-4">
-          <div className="grid grid-cols-4 text-gray-600 text-sm font-semibold border-b pb-2">
+          <div className="grid grid-cols-4 text-gray-600 text-sm font-semibold border-b dark:border-gray-500 pb-2">
             <p className="dark:text-gray-300">Item</p>
             <p className="ml-52 dark:text-gray-300">Cost</p>
             <p className="ml-28 dark:text-gray-300">Hours</p>
@@ -169,7 +169,7 @@ const InvoicePayment = () => {
     <strong>21%</strong>
   </div>
   {/* Border added here */}
-  <hr className="border-gray-300 my-2" />
+  <hr className="border-gray-300 dark:border-gray-500 my-2" />
   <div className="flex justify-between text-lg text-gray-600 dark:text-gray-300 font-semibold">
     <p>Total:</p>
     <strong>$1690</strong>
