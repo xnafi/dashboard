@@ -45,6 +45,7 @@ const statusClasses: { [key: string]: string } = {
 const UserList = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const totalPages = 5; 
+    const [isModalOpen, setIsModalOpen] = useState(false);
     
     const handlePageChange = (page: number) => {
       if (page >= 1 && page <= totalPages) {
@@ -153,10 +154,13 @@ const UserList = () => {
             <FiDownload className="text-gray-500" />
             Export
           </button>
-          <button className="flex items-center gap-2 bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 rounded-md">
-            <IoMdAdd className="text-white" />
-            Add New User
-          </button>
+          <button
+          onClick={() => setIsModalOpen(true)}
+          className="flex items-center gap-2 bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 rounded-md"
+        >
+          <IoMdAdd className="text-white" />
+          Add New User
+        </button>
         </div>
       </div>
 
@@ -203,6 +207,62 @@ const UserList = () => {
           </tbody>
         </table>
       </div>
+      {/* Add User Modal */}
+      {isModalOpen && (
+  <div className="fixed inset-0 flex justify-end bg-black bg-opacity-50 z-50">
+    <div className="bg-white dark:bg-gray-800 w-80 h-full p-6 shadow-lg transform transition-transform duration-300 ease-in-out translate-x-0">
+      <button
+        onClick={() => setIsModalOpen(false)}
+        className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
+      >
+        ✖
+      </button>
+      <h2 className="text-xl font-semibold mb-4">Add New User</h2>
+      <div className="space-y-4">
+        <input className="w-full p-1 border rounded dark:bg-gray-800 dark:text-gray-300 dark:border-gray-500" type="text" placeholder="Full Name" />
+        <input className="w-full p-1 border rounded dark:bg-gray-800 dark:text-gray-300 dark:border-gray-500" type="text" placeholder="Username" />
+        <input className="w-full p-1 border rounded dark:bg-gray-800 dark:text-gray-300 dark:border-gray-500" type="email" placeholder="Email" />
+        <input className="w-full p-1 border rounded dark:bg-gray-800 dark:text-gray-300 dark:border-gray-500" type="text" placeholder="Company" />
+        
+        <select className="w-full p-1 border rounded dark:bg-gray-800 dark:text-gray-300 dark:border-gray-500">
+          <option>Select Country</option>
+          <option>USA</option>
+          <option>UK</option>
+          <option>Canada</option>
+        </select>
+
+        <input className="w-full p-1 border rounded dark:bg-gray-800 dark:text-gray-300 dark:border-gray-500" type="text" placeholder="Contact" />
+
+        <select className="w-full p-1 border rounded dark:bg-gray-800 dark:text-gray-300 dark:border-gray-500">
+          <option>Select Role</option>
+          <option>Admin</option>
+          <option>Editor</option>
+          <option>Author</option>
+        </select>
+
+        <select className="w-full p-1 border rounded dark:bg-gray-800 dark:text-gray-300 dark:border-gray-500">
+          <option>Select Plan</option>
+          <option>Basic</option>
+          <option>Premium</option>
+          <option>Enterprise</option>
+        </select>
+
+        <select className="w-full p-1 border rounded dark:bg-gray-800 dark:text-gray-300 dark:border-gray-500">
+          <option>Select Status</option>
+          <option>Active</option>
+          <option>Inactive</option>
+          <option>Pending</option>
+        </select>
+      </div>
+      <div className="flex justify-end gap-2 mt-4">
+        <button className="px-4 py-2 bg-indigo-500 text-white rounded">Submit</button>
+        <button onClick={() => setIsModalOpen(false)} className="px-4 py-2 bg-red-300 text-red-700 dark:bg-red-900 dark:bg-transparent dark:text-red-400 rounded dark:hover:bg-red-600">Cancel</button>
+      </div>
+    </div>
+  </div>
+)}
+
+
 
       {/* Pagination */}
       <div className="flex justify-between items-center mt-4">
