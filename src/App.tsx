@@ -17,6 +17,7 @@ import LogIn from "./pages/LogIn/LogIn";
 import InvoiceList from "./pages/InvoiceList/InvoiceList";
 import InvoiceBill from "./pages/InvoiceList/InvoiceBill";
 import InvoicePayment from "./pages/InvoiceList/InvoicePayment";
+import UserList from "./pages/User/UserList";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
           <Route path="/invoice-list" element={<InvoiceList />} />
           <Route path="/invoice-bill" element={<InvoiceBill />} />
           <Route path="/invoice-payment" element={<InvoicePayment />} />
+          <Route path="/user-list" element={<UserList />} />
         </Route>
       </Routes>
     </BrowserRouter>
