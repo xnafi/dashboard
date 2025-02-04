@@ -37,7 +37,7 @@ export default function InvoiceList() {
   };
 
   return (
-    <div className="p-6 bg-gray-50 mt-20 ml-6 w-full dark:bg-gray-900  dark:text-gray-500">
+    <div className="p-6 bg-gray-50 mt-20 ml-6 w-full dark:bg-gray-900  dark:text-gray-300">
       {/* Top Analytics Cards */}
       <div className="grid grid-cols-4 gap-4 mb-6 bg-white dark:bg-gray-800  dark:text-gray-400">
         <div className="p-4   shadow-md rounded-lg flex items-center justify-between">
