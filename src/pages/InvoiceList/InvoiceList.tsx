@@ -107,9 +107,9 @@ export default function InvoiceList() {
         <th className="p-3 text-start">Action</th>
       </tr>
     </thead>
-    <tbody className="divide-y divide-gray-200 text-sm text-gray-700">
+    <tbody className="divide-y divide-gray-200 text-sm text-gray-700 dark:text-gray-300">
       {invoices.map((invoice) => (
-        <tr key={invoice.id} className="border-t hover:bg-indigo-500 transition">
+        <tr key={invoice.id} className="border-t border-b dark:border-gray-500 hover:bg-indigo-500 transition">
           <td className="p-3 text-center">
             <input
               type="checkbox"
@@ -117,7 +117,7 @@ export default function InvoiceList() {
               onChange={() => toggleSelect(invoice.id)}
             />
           </td>
-          <td className="p-3 text-blue-500">
+          <td className="p-3 text-blue-500 ">
             <Link to={`/invoice/${invoice.id}`} className="hover:underline">
               {invoice.id}
             </Link>
@@ -130,7 +130,7 @@ export default function InvoiceList() {
             )}
             {/* <span>{invoice.status}</span> */}
           </td>
-          <td className="p-3 flex flex-row text-start gap-3">
+          <td className="p-3 flex flex-row text-start gap-3 ">
             <img
               src={invoice.avatar}
               alt="Avatar"
