@@ -54,7 +54,7 @@ const UserList = () => {
     };
 
   return (
-    <div className="p-6 bg-gray-50 mt-20 ml-6 w-full dark:bg-gray-900 shadow-md rounded-lg">
+    <div className="p-6 bg-gray-50 mt-20 ml-6  dark:bg-gray-900 shadow-md rounded-lg max-w-full">
       {/* Analytics Cards */}
       <div className="grid grid-cols-4 gap-4 mb-6">
       {/* Session Card */}
