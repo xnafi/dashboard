@@ -19,6 +19,7 @@ import InvoiceBill from "./pages/InvoiceList/InvoiceBill";
 import InvoicePayment from "./pages/InvoiceList/InvoicePayment";
 import UserList from "./pages/User/UserList";
 import Register from "./pages/Register/Register";
+import UserOverview from "./pages/User/UserOverview";
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
           <Route path="/invoice-bill" element={<InvoiceBill />} />
           <Route path="/invoice-payment" element={<InvoicePayment />} />
           <Route path="/user-list" element={<UserList />} />
+          <Route path="/user-overview" element={<UserOverview />} />
         </Route>
       </Routes>
     </BrowserRouter>
