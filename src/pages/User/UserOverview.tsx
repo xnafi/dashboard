@@ -7,7 +7,9 @@ import {
   FaEye,
   FaSyncAlt,
   FaDownload,
-  FaEllipsisV
+  FaEllipsisV,
+  FaChevronLeft,
+  FaChevronRight,
 } from "react-icons/fa";
 
 const UserOverview = () => {
@@ -45,7 +47,7 @@ const UserOverview = () => {
   const [showCount, setShowCount] = useState("10");
 
   return (
-    <div className="p-6 bg-gray-50 mt-20 ml-6 w-full dark:bg-gray-900 dark:text-gray-300">
+    <div className="p-6 bg-gray-50 mt-20 ml-6 max-w-full dark:bg-gray-900 dark:text-gray-300">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 p-6 bg-gray-100">
         {/* Left Side - User Details & Plan */}
         <div className="lg:col-span-1 space-y-6">
@@ -136,43 +138,42 @@ const UserOverview = () => {
 
           {/* Plan Card */}
           <div className="bg-white rounded-2xl shadow-md p-6">
-  {/* Plan Type and Price */}
-  <div className="flex justify-between items-center">
-    <span className="bg-purple-500 text-white px-3 py-1 rounded-full text-sm">
-      Standard
-    </span>
-    <p className="text-4xl font-bold text-indigo-500">
-      $99 <span className="text-sm text-gray-500">/ month</span>
-    </p>
-  </div>
+            {/* Plan Type and Price */}
+            <div className="flex justify-between items-center">
+              <span className="bg-indigo-500 text-white px-3 py-1 rounded-full text-sm">
+                Standard
+              </span>
+              <p className="text-4xl font-bold text-indigo-500">
+                $99 <span className="text-sm text-gray-500">/ month</span>
+              </p>
+            </div>
 
-  {/* Plan Features */}
-  <ul className="text-lg text-gray-700 mt-3 space-y-1">
-    <li>• 10 Users</li>
-    <li>• Up to 10 GB Storage</li>
-    <li>• Basic Support</li>
-  </ul>
+            {/* Plan Features */}
+            <ul className="text-lg text-gray-700 mt-3 space-y-1">
+              <li>• 10 Users</li>
+              <li>• Up to 10 GB Storage</li>
+              <li>• Basic Support</li>
+            </ul>
 
-  {/* Days Remaining Section */}
-  <div className="flex justify-between items-center mt-4">
-    <p className="text-lg text-gray-500">Days</p>
-    <p className="text-lg text-gray-500">26 of 30 days</p>
-  </div>
+            {/* Days Remaining Section */}
+            <div className="flex justify-between items-center mt-4">
+              <p className="text-lg text-gray-500">Days</p>
+              <p className="text-lg text-gray-500">26 of 30 days</p>
+            </div>
 
-  {/* Progress Bar */}
-  <div className="w-full bg-gray-200 rounded-full h-2 mt-1">
-    <div className="bg-indigo-500 h-2 rounded-full w-11/12"></div>
-  </div>
+            {/* Progress Bar */}
+            <div className="w-full bg-gray-200 rounded-full h-2 mt-1">
+              <div className="bg-indigo-500 h-2 rounded-full w-11/12"></div>
+            </div>
 
-  {/* Remaining Days Text */}
-  <p className="text-sm text-gray-500 mt-1">4 days remaining</p>
+            {/* Remaining Days Text */}
+            <p className="text-sm text-gray-500 mt-1">4 days remaining</p>
 
-  {/* Upgrade Button */}
-  <button className="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-md w-full">
-    Upgrade Plan
-  </button>
-</div>
-
+            {/* Upgrade Button */}
+            <button className="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-md w-full">
+              Upgrade Plan
+            </button>
+          </div>
         </div>
 
         {/* Right Side - Invoice List */}
@@ -180,33 +181,36 @@ const UserOverview = () => {
           <div className="flex justify-between items-center mb-4">
             <h3 className="text-lg font-semibold">Invoice List</h3>
             <div className="flex items-center gap-4 ">
-          <select className="border p-2 rounded dark:bg-gray-800  dark:text-gray-400 dark:border-gray-500" value={showCount} onChange={(e) => setShowCount(e.target.value)}>
-            <option value="10">Show 10</option>
-            <option value="20">Show 20</option>
-            <option value="50">Show 50</option>
-          </select>
-          <button className="flex items-center px-3 py-2 bg-gray-400 text-white rounded-md">
-              <FaDownload className="mr-2" /> Export
-            </button>
-        </div>
-            
+              <select
+                className="border p-2 rounded dark:bg-gray-800  dark:text-gray-400 dark:border-gray-500"
+                value={showCount}
+                onChange={(e) => setShowCount(e.target.value)}
+              >
+                <option value="10">Show 10</option>
+                <option value="20">Show 20</option>
+                <option value="50">Show 50</option>
+              </select>
+              <button className="flex items-center px-3 py-2 bg-gray-400 text-white rounded-md">
+                <FaDownload className="mr-2" /> Export
+              </button>
+            </div>
           </div>
           <div className="overflow-x-auto">
-            <table className="w-full border-collapse">
+            <table className="w-full  border-collapse">
               <thead>
                 <tr className="text-gray-600 text-sm bg-gray-100">
-                  <th className="py-2 px-4 text-left">#</th>
-                  <th className="py-2 px-4 text-left">Status</th>
-                  <th className="py-2 px-4 text-left">Total</th>
-                  <th className="py-2 px-4 text-left">Issued Date</th>
-                  <th className="py-2 px-4 text-left">Action</th>
+                  <th className="py-2 px-8 text-left">#</th>
+                  <th className="py-2 px-8 text-left">Status</th>
+                  <th className="py-2 px-8 text-left">Total</th>
+                  <th className="py-2 px-8 text-left">Issued Date</th>
+                  <th className="py-2 px-9 text-left">Action</th>
                 </tr>
               </thead>
               <tbody>
                 {currentInvoices.map((invoice) => (
                   <tr key={invoice.id} className="border-b text-gray-700">
-                    <td className="py-2 px-4">#{invoice.id}</td>
-                    <td className="py-2 px-4">
+                    <td className="py-2 px-8">#{invoice.id}</td>
+                    <td className="py-2 px-8">
                       {invoice.status === "paid" && (
                         <FaCheckCircle className="text-green-500" />
                       )}
@@ -220,12 +224,12 @@ const UserOverview = () => {
                         <FaClock className="text-orange-500" />
                       )}
                     </td>
-                    <td className="py-2 px-4">{invoice.total}</td>
-                    <td className="py-2 px-4">{invoice.date}</td>
-                    <td className="py-2 px-4 flex space-x-2">
+                    <td className="py-2 px-8">{invoice.total}</td>
+                    <td className="py-2 px-8">{invoice.date}</td>
+                    <td className="py-2 px-9 flex space-x-2">
                       <FaEye className="text-gray-500 cursor-pointer hover:text-blue-700 transition" />
-                                  <FaTrash className="text-gray-500 cursor-pointer hover:text-red-700 transition" />
-                                  <FaEllipsisV className="text-gray-500 cursor-pointer hover:text-gray-700 transition" />
+                      <FaTrash className="text-gray-500 cursor-pointer hover:text-red-700 transition" />
+                      <FaEllipsisV className="text-gray-500 cursor-pointer hover:text-gray-700 transition" />
                     </td>
                   </tr>
                 ))}
@@ -237,13 +241,13 @@ const UserOverview = () => {
               onClick={prevPage}
               className="px-3 py-1 bg-gray-200 rounded-md"
             >
-              Prev
+              <FaChevronLeft className="text-gray-600" />
             </button>
             <button
               onClick={nextPage}
-              className="px-3 py-1 bg-purple-500 text-white rounded-md"
+              className="px-3 py-1 bg-gray-200 rounded-md"
             >
-              Next
+              <FaChevronRight className="text-gray-600" />
             </button>
           </div>
         </div>

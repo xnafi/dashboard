@@ -20,6 +20,7 @@ import InvoicePayment from "./pages/InvoiceList/InvoicePayment";
 import UserList from "./pages/User/UserList";
 import Register from "./pages/Register/Register";
 import UserOverview from "./pages/User/UserOverview";
+import UserSecurity from "./pages/User/UserSecurity";
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
           <Route path="/invoice-payment" element={<InvoicePayment />} />
           <Route path="/user-list" element={<UserList />} />
           <Route path="/user-overview" element={<UserOverview />} />
+          <Route path="/user-security" element={<UserSecurity />} />
         </Route>
       </Routes>
     </BrowserRouter>
