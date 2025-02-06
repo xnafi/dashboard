@@ -21,6 +21,7 @@ import UserList from "./pages/User/UserList";
 import Register from "./pages/Register/Register";
 import UserOverview from "./pages/User/UserOverview";
 import UserSecurity from "./pages/User/UserSecurity";
+import UserPlans from "./pages/User/UserPlans";
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
           <Route path="/user-list" element={<UserList />} />
           <Route path="/user-overview" element={<UserOverview />} />
           <Route path="/user-security" element={<UserSecurity />} />
+          <Route path="/user-plans" element={<UserPlans />} />
         </Route>
       </Routes>
     </BrowserRouter>
