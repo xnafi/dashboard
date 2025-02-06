@@ -6,12 +6,12 @@ const UserSecurity = () => {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   return (
-    <div className="p-6 bg-gray-50 mt-20 ml-6 dark:bg-gray-900 dark:text-gray-300 max-w-full">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 p-6 bg-gray-100">
+    <div className="p-6 bg-gray-50 mt-20 ml-6 dark:bg-gray-900 dark:text-white max-w-full">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 p-6 bg-gray-100 dark:bg-gray-900  dark:text-gray-200">
       {/* Left Side - User Details & Plan */}
       <div className="lg:col-span-1 space-y-6">
         {/* User Details */}
-        <div className="bg-white rounded-2xl shadow-md p-6">
+        <div className="bg-white rounded-2xl shadow-md p-6 dark:bg-gray-800  dark:text-white">
           {/* Profile Section */}
           <div className="flex flex-col items-center">
             <img
@@ -20,7 +20,7 @@ const UserSecurity = () => {
               className="w-20 h-20 rounded-full border-2 border-indigo-500"
             />
             <h2 className="text-lg font-semibold mt-2">Seth Hallam</h2>
-            <span className="text-gray-500 bg-gray-200 px-3 py-1 rounded-full text-sm mt-1">
+            <span className="text-gray-500 bg-gray-200 dark:bg-gray-500  dark:text-white px-3 py-1 rounded-full text-sm mt-1">
               Author
             </span>
           </div>
@@ -52,11 +52,11 @@ const UserSecurity = () => {
           </div>
 
           {/* Divider */}
-          <hr className="my-4" />
+          <hr className="my-4 dark:border-gray-500" />
 
           {/* Details Section */}
           <h3 className="text-md font-semibold mb-2">Details</h3>
-          <div className="text-sm text-gray-700 space-y-2">
+          <div className="text-sm text-gray-700 dark:text-white space-y-2">
             <p>
               <strong>Username:</strong> @shallamb
             </p>
@@ -96,7 +96,7 @@ const UserSecurity = () => {
         </div>
 
         {/* Plan Card */}
-        <div className="bg-white rounded-2xl shadow-md p-6">
+        <div className="bg-white rounded-2xl shadow-md p-6 dark:bg-gray-800  dark:text-white">
           {/* Plan Type and Price */}
           <div className="flex justify-between items-center">
             <span className="bg-indigo-500 text-white px-3 py-1 rounded-full text-sm">
@@ -108,7 +108,7 @@ const UserSecurity = () => {
           </div>
 
           {/* Plan Features */}
-          <ul className="text-lg text-gray-700 mt-3 space-y-1">
+          <ul className="text-lg text-gray-700 mt-3 space-y-1 dark:text-white">
             <li>• 10 Users</li>
             <li>• Up to 10 GB Storage</li>
             <li>• Basic Support</li>
@@ -116,8 +116,8 @@ const UserSecurity = () => {
 
           {/* Days Remaining Section */}
           <div className="flex justify-between items-center mt-4">
-            <p className="text-lg text-gray-500">Days</p>
-            <p className="text-lg text-gray-500">26 of 30 days</p>
+            <p className="text-lg text-gray-500 dark:text-white">Days</p>
+            <p className="text-lg text-gray-500 dark:text-white">26 of 30 days</p>
           </div>
 
           {/* Progress Bar */}
@@ -136,12 +136,12 @@ const UserSecurity = () => {
       </div>
 
       {/* Right Side - Change Password */}
-      <div className="lg:col-span-2 bg-white rounded-2xl shadow-md p-6">
-        <div className="bg-white rounded-2xl shadow-md p-6">
+      <div className="lg:col-span-2 bg-white rounded-2xl shadow-md p-6 dark:bg-gray-800  dark:text-white">
+        <div className="bg-white rounded-2xl shadow-md p-6 dark:bg-gray-800  dark:text-white">
           <h3 className="text-lg font-semibold">Change Password</h3>
 
           {/* Password Requirements Alert */}
-          <div className="bg-orange-100 text-orange-600 p-4 rounded-lg mt-4">
+          <div className="bg-orange-100 text-orange-600 dark:text-orange-400 dark:bg-transparent p-4 rounded-lg mt-4">
             <p className="font-semibold">Ensure that these requirements are met</p>
             <p className="text-sm">Minimum 8 characters long, uppercase & symbol</p>
           </div>
@@ -154,12 +154,12 @@ const UserSecurity = () => {
               <div className="relative">
                 <input
                   type={showPassword ? "text" : "password"}
-                  className="w-full border rounded-md px-3 py-2 mt-1"
+                  className="w-full border rounded-md px-3 py-2 mt-1 dark:bg-gray-800  dark:text-white"
                   placeholder="••••••••"
                 />
                 <button
                   type="button"
-                  className="absolute right-3 top-3 text-gray-500"
+                  className="absolute right-3 top-3 text-gray-500 "
                   onClick={() => setShowPassword(!showPassword)}
                 >
                   {showPassword ? <EyeIcon size={18} /> : <EyeOffIcon size={18} />}
@@ -173,7 +173,7 @@ const UserSecurity = () => {
               <div className="relative">
                 <input
                   type={showConfirmPassword ? "text" : "password"}
-                  className="w-full border rounded-md px-3 py-2 mt-1"
+                  className="w-full border rounded-md px-3 py-2 mt-1 dark:bg-gray-800  dark:text-white"
                   placeholder="••••••••"
                 />
                 <button
