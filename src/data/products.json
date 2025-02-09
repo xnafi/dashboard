@@ -1,0 +1,39 @@
+[
+    {
+      "id": 1,
+      "name": "OnePlus 7Pro",
+      "brand": "OnePlus",
+      "category": "Electronics",
+      "stock": true,
+      "sku": 238474,
+      "price": 999,
+      "qty": 26,
+      "status": "Publish",
+      "image": "https://i.postimg.cc/pVZjtSzY/oneplus-7pro.png"
+    },
+    {
+      "id": 2,
+      "name": "Magic Mouse",
+      "brand": "Google",
+      "category": "Electronics",
+      "stock": false,
+      "sku": 647838,
+      "price": 89,
+      "qty": 12,
+      "status": "Scheduled",
+      "image": "https://i.postimg.cc/gJpxCy0T/magic-mouse.png"
+    },
+    {
+      "id": 3,
+      "name": "Wooden Chair",
+      "brand": "Insofar",
+      "category": "Home Decor",
+      "stock": true,
+      "sku": 765497,
+      "price": 456,
+      "qty": 32,
+      "status": "Publish",
+      "image": "https://i.postimg.cc/D0jm4tP9/wooden-chair.png"
+    }
+  ]
+  

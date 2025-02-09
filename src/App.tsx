@@ -22,6 +22,8 @@ import Register from "./pages/Register/Register";
 import UserOverview from "./pages/User/UserOverview";
 import UserSecurity from "./pages/User/UserSecurity";
 import UserPlans from "./pages/User/UserPlans";
+import ECommerceProductList from "./pages/eCommerce/eCommerceProductList";
+
 
 function App() {
   return (
@@ -49,6 +51,7 @@ function App() {
           <Route path="/user-overview" element={<UserOverview />} />
           <Route path="/user-security" element={<UserSecurity />} />
           <Route path="/user-plans" element={<UserPlans />} />
+          <Route path="/ECommerceProductList" element={<ECommerceProductList />} />
         </Route>
       </Routes>
     </BrowserRouter>
