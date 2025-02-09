@@ -23,6 +23,7 @@ import UserOverview from "./pages/User/UserOverview";
 import UserSecurity from "./pages/User/UserSecurity";
 import UserPlans from "./pages/User/UserPlans";
 import ECommerceProductList from "./pages/eCommerce/eCommerceProductList";
+import ECommerceCategoryList from "./pages/eCommerce/ECommerceCategoryList";
 
 
 function App() {
@@ -52,6 +53,7 @@ function App() {
           <Route path="/user-security" element={<UserSecurity />} />
           <Route path="/user-plans" element={<UserPlans />} />
           <Route path="/ECommerceProductList" element={<ECommerceProductList />} />
+          <Route path="/ECommerceCategoryList" element={<ECommerceCategoryList />} />
         </Route>
       </Routes>
     </BrowserRouter>
