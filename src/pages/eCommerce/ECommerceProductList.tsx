@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { FaEdit, FaEllipsisV } from "react-icons/fa";
 import { BsToggleOn, BsToggleOff } from "react-icons/bs";
 import productsData from "../../data/products.json";
+import { FiDownload } from "react-icons/fi";
 
 interface Product {
   id: number;
@@ -116,9 +117,9 @@ const ECommerceProductList = () => {
               <option value="20">20</option>
             </select>
 
-            <button className="bg-gray-200 text-black px-4 py-2 rounded-md">
-              Export
-            </button>
+            <button className="bg-gray-200 text-black px-4 py-2 rounded-md flex items-center gap-2">
+  <FiDownload className="text-gray-600" /> Export
+</button>
             <button className="bg-indigo-500 text-white px-4 py-2 rounded-md">
               + Add Product
             </button>
@@ -163,11 +164,21 @@ const ECommerceProductList = () => {
                 </td>
                 <td className="p-3 border">{product.category}</td>
                 <td
-                  className="p-3 border cursor-pointer"
-                  onClick={() => toggleStock(product.id)}
-                >
-                  {product.stock ? "In Stock" : "Out of Stock"}
-                </td>
+  className="p-3  cursor-pointer flex items-center justify-between"
+  onClick={() => toggleStock(product.id)}
+>
+  {product.stock ? (
+    <>
+      
+      <BsToggleOn className="text-indigo-500 " />
+    </>
+  ) : (
+    <>
+      
+      <BsToggleOff className="text-red-500" />
+    </>
+  )}
+</td>
                 <td className="p-3 border">{product.sku}</td>
                 <td className="p-3 border">${product.price}</td>
                 <td className="p-3 border">{product.qty}</td>
