@@ -1,6 +1,7 @@
 import { useState } from "react";
-import {  FiMoreVertical } from "react-icons/fi";
-import { FaEdit, } from "react-icons/fa";
+import { FiMoreVertical } from "react-icons/fi";
+import { FaEdit, FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { AiOutlineClose } from "react-icons/ai";
 
 const categories = [
   {
@@ -27,36 +28,13 @@ const categories = [
     earnings: "$78,900",
     image: "https://i.postimg.cc/zfj9y5FC/smart-home.png",
   },
-  {
-    id: 4,
-    name: "Automobile Accessories",
-    description: "Car chargers, seat covers, and GPS devices.",
-    products: 920,
-    earnings: "$60,450",
-    image: "https://i.postimg.cc/VN8jV2pH/car-accessories.png",
-  },
-  {
-    id: 5,
-    name: "Musical Instruments",
-    description: "Guitars, pianos, violins, and percussion instruments.",
-    products: 380,
-    earnings: "$40,780",
-    image: "https://i.postimg.cc/zG6JhVRb/guitar.png",
-  },
-  {
-    id: 6,
-    name: "Camping & Outdoor Gear",
-    description: "Tents, sleeping bags, backpacks, and survival tools.",
-    products: 520,
-    earnings: "$85,640",
-    image: "https://i.postimg.cc/DZ9F0zwq/tent.png",
-  },
 ];
 
 const ECommerceCategoryList = () => {
   const [search, setSearch] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 4;
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const filteredCategories = categories.filter((category) =>
     category.name.toLowerCase().includes(search.toLowerCase())
@@ -69,7 +47,7 @@ const ECommerceCategoryList = () => {
   );
 
   return (
-    <div className="p-6 bg-gray-50 mt-20 ml-6 dark:bg-gray-900 dark:text-white max-w-full rounded-lg shadow-md">
+    <div className="p-6 bg-gray-50 mt-20 ml-6 dark:bg-gray-900 dark:text-white max-w-full rounded-lg shadow-md ">
       {/* Search Bar */}
       <div className="flex justify-between items-center mb-4">
         <input
@@ -79,17 +57,12 @@ const ECommerceCategoryList = () => {
           onChange={(e) => setSearch(e.target.value)}
           className="border border-gray-300 rounded-lg px-4 py-2 w-1/3"
         />
-         <div className="flex items-center gap-3">
-            <select className="border p-2 rounded-md">
-              <option value="7">7</option>
-              <option value="10">10</option>
-              <option value="20">20</option>
-            </select>
-        <button className="bg-indigo-600 text-white px-4 py-2 rounded-lg">
+        <button
+          onClick={() => setIsModalOpen(true)}
+          className="bg-indigo-600 text-white px-4 py-2 rounded-lg"
+        >
           + Add Category
         </button>
-
-      </div>
       </div>
 
       {/* Category Table */}
@@ -141,44 +114,108 @@ const ECommerceCategoryList = () => {
             ))}
           </tbody>
         </table>
+        {/* Pagination */}
+      <div className="flex justify-end items-center mt-4 space-x-2">
+        <button
+          onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+          disabled={currentPage === 1}
+          className={`px-3 py-1 flex items-center space-x-1 rounded-lg ${
+            currentPage === 1
+              ? "bg-gray-300 dark:bg-gray-700 cursor-not-allowed"
+              : "bg-indigo-600 text-white hover:bg-indigo-700"
+          }`}
+        >
+          <FaChevronLeft />
+          <span>Prev</span>
+        </button>
+        <span className="text-gray-700 dark:text-gray-300">
+          Page {currentPage} of {totalPages}
+        </span>
+        <button
+          onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+          disabled={currentPage === totalPages}
+          className={`px-3 py-1 flex items-center space-x-1 rounded-lg ${
+            currentPage === totalPages
+              ? "bg-gray-300 dark:bg-gray-700 cursor-not-allowed"
+              : "bg-indigo-600 text-white hover:bg-indigo-700"
+          }`}
+        >
+          <span>Next</span>
+          <FaChevronRight />
+        </button>
+      </div>
       </div>
 
-      {/* Pagination */}
-      <div className="flex justify-between items-center mt-4">
-        <p className="text-sm text-gray-500">
-          Showing {Math.min((currentPage - 1) * itemsPerPage + 1, filteredCategories.length)} to{" "}
-          {Math.min(currentPage * itemsPerPage, filteredCategories.length)} of {filteredCategories.length} entries
-        </p>
-        <div className="flex space-x-2">
-          <button
-            className={`px-3 py-1 border rounded-lg ${currentPage === 1 ? "opacity-50" : ""}`}
-            disabled={currentPage === 1}
-            onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-          >
-            «
-          </button>
-          {Array.from({ length: totalPages }, (_, i) => (
+      {/* Right-side Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-end">
+          <div className="w-96 bg-white dark:bg-gray-800 shadow-xl p-6 relative transform transition-transform ease-in-out translate-x-0">
             <button
-              key={i}
-              className={`px-3 py-1 border rounded-lg ${
-                currentPage === i + 1 ? "bg-indigo-600 text-white" : ""
-              }`}
-              onClick={() => setCurrentPage(i + 1)}
+              onClick={() => setIsModalOpen(false)}
+              className="absolute top-4 right-4 text-gray-600 hover:text-black"
             >
-              {i + 1}
+              <AiOutlineClose size={20} />
             </button>
-          ))}
-          <button
-            className={`px-3 py-1 border rounded-lg ${
-              currentPage === totalPages ? "opacity-50" : ""
-            }`}
-            disabled={currentPage === totalPages}
-            onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
-          >
-            »
-          </button>
+            <h2 className="text-xl font-semibold mb-4">Add Category</h2>
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium">Title</label>
+                <input
+                  type="text"
+                  placeholder="Enter category title"
+                  className="w-full border rounded-lg px-3 py-2"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium">Slug</label>
+                <input
+                  type="text"
+                  placeholder="Enter slug"
+                  className="w-full border rounded-lg px-3 py-2"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium">Attachment</label>
+                <input type="file" className="w-full border rounded-lg px-3 py-2" />
+              </div>
+              <div>
+                <label className="block text-sm font-medium">
+                  Parent Category
+                </label>
+                <select className="w-full border rounded-lg px-3 py-2">
+                  <option>Select parent category</option>
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-medium">Description</label>
+                <textarea
+                  placeholder="Enter category description..."
+                  className="w-full border rounded-lg px-3 py-2"
+                ></textarea>
+              </div>
+              <div>
+                <label className="block text-sm font-medium">
+                  Select category status
+                </label>
+                <select className="w-full border rounded-lg px-3 py-2">
+                  <option>Select category status</option>
+                </select>
+              </div>
+              <div className="flex justify-end space-x-2">
+                <button
+                  onClick={() => setIsModalOpen(false)}
+                  className="bg-red-200 text-red-600 px-4 py-2 rounded-lg"
+                >
+                  Discard
+                </button>
+                <button className="bg-indigo-600 text-white px-4 py-2 rounded-lg">
+                  Add
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
