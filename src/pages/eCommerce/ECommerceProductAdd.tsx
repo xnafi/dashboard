@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { FiUpload } from "react-icons/fi";
 import { Switch } from "@headlessui/react";
+import { FaBoxOpen, FaTruck, FaGlobe, FaTags, FaSlidersH } from "react-icons/fa";
 
 
 const ECommerceProductAdd = () => {
   const [enabled, setEnabled] = useState(true);
+  const [activeTab, setActiveTab] = useState("Restock");
 
  
     const [image, setImage] = useState<string | null>(null);
@@ -25,6 +27,9 @@ const ECommerceProductAdd = () => {
         setImage(imageUrl);
       }
     };
+
+    
+       
   
 
   return (
@@ -175,7 +180,10 @@ const ECommerceProductAdd = () => {
             {/* Variants */}
             <div className="bg-gray-50 p-4 rounded-lg shadow-sm mt-4">
               <h2 className="text-lg font-semibold mb-2">Variants</h2>
+              <div>
+                <h2 className="text-sm font-medium text-gray-700 dark:text-gray-300 block mb-2">options</h2>
               <div className="flex space-x-2">
+                
                 <input
                   type="text"
                   placeholder="Size"
@@ -187,35 +195,68 @@ const ECommerceProductAdd = () => {
                   className="w-1/2 p-2 border rounded"
                 />
               </div>
-              <button className="mt-2 text-indigo-600">+ Add Another Option</button>
+              <button className="mt-2 bg-indigo-600 text-white px-4 py-2 ">+ Add Another Option</button>
+            </div>
             </div>
 
             {/* Inventory */}
-            <div className="bg-gray-50 p-4 rounded-lg shadow-sm mt-4">
-              <h2 className="text-lg font-semibold mb-2">Inventory</h2>
-              <div className="flex space-x-2">
-                <button className="px-4 py-2 bg-indigo-600 text-white rounded">
-                  Restock
-                </button>
-                <button className="px-4 py-2 bg-gray-300 rounded">Shipping</button>
-              </div>
-              <div className="mt-2 flex space-x-2">
-                <input
-                  type="text"
-                  placeholder="Add to stock"
-                  className="w-full p-2 border rounded"
-                />
-                <button className="px-4 py-2 bg-indigo-600 text-white rounded">
-                  Confirm
-                </button>
-              </div>
-              <p className="text-gray-600 mt-2">
-                Product in stock now: 8 <br />
-                Product in transit: 62 <br />
-                Last time restocked: 24th June, 2023 <br />
-                Total stock over lifetime: 2,430
-              </p>
-            </div>
+            <div className="bg-gray-50 p-4 rounded-lg shadow-sm dark:bg-gray-800 mt-4">
+      {/* Header */}
+      <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Inventory</h2>
+
+      {/* Sidebar Navigation */}
+      <div className="flex">
+        <div className="w-1/3 space-y-2">
+          {[
+            { name: "Restock", icon: <FaBoxOpen /> },
+            { name: "Shipping", icon: <FaTruck /> },
+            { name: "Global Delivery", icon: <FaGlobe /> },
+            { name: "Attributes", icon: <FaTags /> },
+            { name: "Advanced", icon: <FaSlidersH /> },
+          ].map((tab) => (
+            <button
+              key={tab.name}
+              onClick={() => setActiveTab(tab.name)}
+              className={`w-full flex items-center space-x-2 px-4 py-2 rounded text-left transition ${
+                activeTab === tab.name
+                  ? "bg-gray-200 text-gray-700"
+                  : "bg-gray-200 text-gray-700 hover:bg-indigo-500 hover:text-white"
+              }`}
+            >
+              {tab.icon}
+              <span>{tab.name}</span>
+            </button>
+          ))}
+        </div>
+
+        {/* Content Section */}
+        <div className="w-2/3 pl-4">
+          <h3 className="text-sm font-normal text-gray-900 dark:text-white">Options</h3>
+          <div>
+          <h2 className="text-sm font-normal mt-4 text-gray-700 dark:text-gray-300 block mb-2">Add to stock</h2>
+          
+          <div className="mt-2 flex space-x-2">
+            <input
+              type="number"
+              placeholder="Add Quantity"
+              className="w-full p-2 border rounded outline-none focus:ring-2 focus:ring-indigo-500"
+            />
+            <button className="px-4 py-2 bg-indigo-500 text-white rounded hover:bg-indigo-600">
+              Confirm
+            </button>
+          </div>
+          </div>
+
+          {/* Stock Details */}
+          <p className="text-gray-600 dark:text-gray-300 mt-4 text-sm">
+            <span className="block mb-2">Product in stock now: 8</span>
+            <span className="block mb-2">Product in transit: 62</span>
+            <span className="block mb-2">Last time restocked: 24th June, 2023</span>
+            <span className="block mb-2">Total stock over lifetime: 2,430</span>
+          </p>
+        </div>
+      </div>
+    </div>
           </div>
 
           {/* Sidebar */}
