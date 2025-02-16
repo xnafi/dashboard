@@ -28,6 +28,7 @@ import ECommerceProductAdd from "./pages/eCommerce/ECommerceProductAdd";
 import ECommerceProductList from "./pages/eCommerce/ECommerceProductList";
 import ECommerceOrderList from "./pages/eCommerce/EcommerceOrderList";
 import ECommerceAllCustomers from "./pages/eCommerce/ECommerceAllCustomers";
+import ECommerceOrderDetails from "./pages/eCommerce/ECommerceOrderDetails";
 
 
 function App() {
@@ -61,6 +62,7 @@ function App() {
           <Route path="/ECommerceCategoryList" element={<ECommerceCategoryList />} />
           <Route path="/ECommerceOrderList" element={<ECommerceOrderList/>} />
           <Route path="/ECommerceAllCustomers" element={<ECommerceAllCustomers/>} />
+          <Route path="/ECommerceOrderDetails" element={<ECommerceOrderDetails/>} />
         </Route>
       </Routes>
     </BrowserRouter>

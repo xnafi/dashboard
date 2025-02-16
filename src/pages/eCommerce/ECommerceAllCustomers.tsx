@@ -78,14 +78,14 @@ const ECommerceAllCustomers = () => {
       <table className="w-full border-collapse border border-gray-200 ">
         <thead>
           <tr className="bg-white">
-            <th className="px-4 py-2 text-left">
+            <th className="px-4 py-2 text-left ">
               <input type="checkbox" />
             </th>
-            <th className="px-4 py-2 text-left">Customers</th>
-            <th className="px-4 py-2 text-left">Customer ID</th>
-            <th className="px-4 py-2 text-left">Country</th>
-            <th className="px-4 py-2 text-left">Orders</th>
-            <th className="px-4 py-2 text-left">Total Spent</th>
+            <th className="px-4 py-2 text-left text-sm text-gray-600">Customers</th>
+            <th className="px-4 py-2 text-left text-sm text-gray-600">Customer ID</th>
+            <th className="px-4 py-2 text-left text-sm text-gray-600">Country</th>
+            <th className="px-4 py-2 text-left text-sm text-gray-600">Orders</th>
+            <th className="px-4 py-2 text-left text-sm text-gray-600">Total Spent</th>
           </tr>
         </thead>
         <tbody>
