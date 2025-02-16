@@ -6,7 +6,7 @@
         "email": "dayna19@yahoo.com",
         "customerId": "#345889",
         "country": "United States",
-        "countryFlag": "🇺🇸",
+        "countryFlag": "https://flagcdn.com/w40/us.png",
         "orders": 41,
         "totalSpent": "$32,907",
         "avatar": "https://randomuser.me/api/portraits/men/1.jpg"
@@ -17,7 +17,7 @@
         "email": "lorena@yahoo.com",
         "customerId": "#234875",
         "country": "Brazil",
-        "countryFlag": "🇧🇷",
+        "countryFlag": "https://flagcdn.com/w40/br.png",
         "orders": 12,
         "totalSpent": "$5,347",
         "avatar": "https://randomuser.me/api/portraits/men/2.jpg"
@@ -28,7 +28,7 @@
         "email": "bemblinF@gmail.com",
         "customerId": "#783645",
         "country": "India",
-        "countryFlag": "🇮🇳",
+        "countryFlag": "https://flagcdn.com/w40/in.png",
         "orders": 36,
         "totalSpent": "$12,458",
         "avatar": "https://randomuser.me/api/portraits/men/3.jpg"
@@ -39,7 +39,7 @@
         "email": "bbinerH@gmail.com",
         "customerId": "#234876",
         "country": "Australia",
-        "countryFlag": "🇦🇺",
+        "countryFlag": "https://flagcdn.com/w40/au.png",
         "orders": 7,
         "totalSpent": "$1,345",
         "avatar": "https://randomuser.me/api/portraits/women/1.jpg"
@@ -50,7 +50,18 @@
         "email": "bkrabbe1d@gmail.com",
         "customerId": "#234598",
         "country": "France",
-        "countryFlag": "🇫🇷",
+        "countryFlag": "https://flagcdn.com/w40/fr.png",
+        "orders": 34,
+        "totalSpent": "$24,435",
+        "avatar": "https://randomuser.me/api/portraits/women/2.jpg"
+      },
+      {
+        "id": 6,
+        "name": "Beverlie Krabbe",
+        "email": "bkrabbe1d@gmail.com",
+        "customerId": "#234598",
+        "country": "France",
+        "countryFlag": "https://flagcdn.com/w40/fr.png",
         "orders": 34,
         "totalSpent": "$24,435",
         "avatar": "https://randomuser.me/api/portraits/women/2.jpg"

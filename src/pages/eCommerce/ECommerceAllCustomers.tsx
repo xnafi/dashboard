@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaSearch, FaPlus } from "react-icons/fa";
+import customersData from "../../data/customers.json";
+import { FiDownload } from "react-icons/fi";
 
 interface Customer {
   id: number;
@@ -13,70 +15,35 @@ interface Customer {
   avatar: string;
 }
 
-const customersData: Customer[] = [
-  {
-    id: 1,
-    name: "Jordan Stevenson",
-    email: "dayna19@yahoo.com",
-    customerId: "#345889",
-    country: "United States",
-    countryFlag: "🇺🇸",
-    orders: 41,
-    totalSpent: "$32,907",
-    avatar: "https://randomuser.me/api/portraits/men/1.jpg",
-  },
-  {
-    id: 2,
-    name: "Benedetto Rossiter",
-    email: "lorena@yahoo.com",
-    customerId: "#234875",
-    country: "Brazil",
-    countryFlag: "🇧🇷",
-    orders: 12,
-    totalSpent: "$5,347",
-    avatar: "https://randomuser.me/api/portraits/men/2.jpg",
-  },
-  {
-    id: 3,
-    name: "Bentlee Emblin",
-    email: "bemblinF@gmail.com",
-    customerId: "#783645",
-    country: "India",
-    countryFlag: "🇮🇳",
-    orders: 36,
-    totalSpent: "$12,458",
-    avatar: "https://randomuser.me/api/portraits/men/3.jpg",
-  },
-  {
-    id: 4,
-    name: "Bertha Biner",
-    email: "bbinerH@gmail.com",
-    customerId: "#234876",
-    country: "Australia",
-    countryFlag: "🇦🇺",
-    orders: 7,
-    totalSpent: "$1,345",
-    avatar: "https://randomuser.me/api/portraits/women/1.jpg",
-  },
-  {
-    id: 5,
-    name: "Beverlie Krabbe",
-    email: "bkrabbe1d@gmail.com",
-    customerId: "#234598",
-    country: "France",
-    countryFlag: "🇫🇷",
-    orders: 34,
-    totalSpent: "$24,435",
-    avatar: "https://randomuser.me/api/portraits/women/2.jpg",
-  },
-];
-
 const ECommerceAllCustomers = () => {
+  const [customers, setCustomers] = useState<Customer[]>([]);
   const [search, setSearch] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 5;
+
+  // Fetch customers from JSON file
+  useEffect(() => {
+    setCustomers(customersData.customers);
+  }, []);
+
+  // Filter customers based on search input
+  const filteredCustomers = customers.filter((customer) =>
+    customer.name.toLowerCase().includes(search.toLowerCase())
+  );
+
+  // Pagination logic
+  const totalPages = Math.ceil(filteredCustomers.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const selectedCustomers = filteredCustomers.slice(
+    startIndex,
+    startIndex + itemsPerPage
+  );
 
   return (
-    <div className="p-6 bg-white shadow-lg rounded-lg">
-      <div className="flex justify-between items-center mb-4">
+    <div className="p-6 bg-gray-50 mt-20 ml-6 dark:bg-gray-900 dark:text-white max-w-full rounded-lg shadow-md">
+      <div className="bg-white">
+      <div className="flex justify-between items-center mb-4 ">
+        {/* Search Input */}
         <div className="relative">
           <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
           <input
@@ -87,15 +54,30 @@ const ECommerceAllCustomers = () => {
             onChange={(e) => setSearch(e.target.value)}
           />
         </div>
+        <div className="flex items-center gap-3">
+                  <select className="border p-2 rounded-md">
+                    <option value="7">7</option>
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                  </select>
+        
+                  <button className="bg-gray-200 text-black px-4 py-2 rounded-md flex items-center gap-2">
+                    <FiDownload className="text-gray-600" /> Export
+                  </button>
+                  {/* Add Customer Button */}
         <button className="bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center gap-2">
           <FaPlus />
           Add Customer
         </button>
+                </div>
+
+        
       </div>
 
-      <table className="w-full border-collapse border border-gray-200">
+      {/* Table */}
+      <table className="w-full border-collapse border border-gray-200 ">
         <thead>
-          <tr className="bg-gray-100">
+          <tr className="bg-white">
             <th className="px-4 py-2 text-left">
               <input type="checkbox" />
             </th>
@@ -107,51 +89,95 @@ const ECommerceAllCustomers = () => {
           </tr>
         </thead>
         <tbody>
-          {customersData
-            .filter((customer) =>
-              customer.name.toLowerCase().includes(search.toLowerCase())
-            )
-            .map((customer) => (
-              <tr key={customer.id} className="border-t">
-                <td className="px-4 py-2">
-                  <input type="checkbox" />
-                </td>
-                <td className="px-4 py-2 flex items-center gap-2">
-                  <img
-                    src={customer.avatar}
-                    alt={customer.name}
-                    className="w-8 h-8 rounded-full"
-                  />
-                  <div>
-                    <p className="font-semibold">{customer.name}</p>
-                    <p className="text-gray-500 text-sm">{customer.email}</p>
-                  </div>
-                </td>
-                <td className="px-4 py-2">{customer.customerId}</td>
-                <td className="px-4 py-2 flex items-center gap-2">
-                  <span>{customer.countryFlag}</span>
-                  {customer.country}
-                </td>
-                <td className="px-4 py-2">{customer.orders}</td>
-                <td className="px-4 py-2">{customer.totalSpent}</td>
-              </tr>
-            ))}
+          {selectedCustomers.map((customer) => (
+            <tr key={customer.id} className="border-t">
+              <td className="px-4 py-2">
+                <input type="checkbox" />
+              </td>
+              <td className="px-4 py-2 flex items-center gap-2">
+                <img
+                  src={customer.avatar}
+                  alt={customer.name}
+                  className="w-8 h-8 rounded-full"
+                />
+                <div>
+                  <p className="font-semibold">{customer.name}</p>
+                  <p className="text-gray-500 text-sm">{customer.email}</p>
+                </div>
+              </td>
+              <td className="px-4 py-2">{customer.customerId}</td>
+              <td className="px-4 py-2 flex items-center gap-2 ">
+  <img src={customer.countryFlag} alt={customer.country} className="w-6 h-6 rounded-full" />
+  {customer.country}
+</td>
+
+              <td className="px-4 py-2">{customer.orders}</td>
+              <td className="px-4 py-2">{customer.totalSpent}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
 
+      {/* Pagination */}
       <div className="flex justify-between items-center mt-4">
-        <p className="text-gray-600">Showing 1 to 5 of 100 entries</p>
+        <p className="text-gray-600">
+          Showing {startIndex + 1} to{" "}
+          {Math.min(startIndex + itemsPerPage, filteredCustomers.length)} of{" "}
+          {filteredCustomers.length} entries
+        </p>
+
         <div className="flex items-center gap-1">
-          <button className="px-3 py-1 border rounded-md">{"<<"}</button>
-          <button className="px-3 py-1 border rounded-md">1</button>
-          <button className="px-3 py-1 border rounded-md bg-blue-500 text-white">
-            2
+          <button
+            className={`px-3 py-1 border rounded-md ${
+              currentPage === 1 ? "opacity-50 cursor-not-allowed" : ""
+            }`}
+            disabled={currentPage === 1}
+            onClick={() => setCurrentPage(1)}
+          >
+            {"<<"}
           </button>
-          <button className="px-3 py-1 border rounded-md">3</button>
-          <button className="px-3 py-1 border rounded-md">4</button>
-          <button className="px-3 py-1 border rounded-md">{">>"}</button>
+          <button
+            className={`px-3 py-1 border rounded-md ${
+              currentPage === 1 ? "bg-blue-500 text-white" : ""
+            }`}
+            onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
+          >
+            {"<"}
+          </button>
+
+          {[...Array(totalPages)].map((_, index) => (
+            <button
+              key={index}
+              className={`px-3 py-1 border rounded-md ${
+                currentPage === index + 1 ? "bg-blue-500 text-white" : ""
+              }`}
+              onClick={() => setCurrentPage(index + 1)}
+            >
+              {index + 1}
+            </button>
+          ))}
+
+          <button
+            className={`px-3 py-1 border rounded-md ${
+              currentPage === totalPages ? "opacity-50 cursor-not-allowed" : ""
+            }`}
+            disabled={currentPage === totalPages}
+            onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
+          >
+            {">"}
+          </button>
+          <button
+            className={`px-3 py-1 border rounded-md ${
+              currentPage === totalPages ? "opacity-50 cursor-not-allowed" : ""
+            }`}
+            disabled={currentPage === totalPages}
+            onClick={() => setCurrentPage(totalPages)}
+          >
+            {">>"}
+          </button>
         </div>
       </div>
+    </div>
     </div>
   );
 };
