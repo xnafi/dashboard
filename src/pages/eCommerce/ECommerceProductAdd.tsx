@@ -55,7 +55,7 @@ const ECommerceProductAdd = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
           <div className="lg:col-span-2">
             {/* Product Information */}
-<div className="bg-gray-50 p-6 rounded-lg shadow-sm dark:bg-gray-800">
+<div className=" p-6 rounded-lg shadow-sm dark:bg-gray-800">
   <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
     Product information
   </h2>
@@ -178,7 +178,7 @@ const ECommerceProductAdd = () => {
       </div>
 
             {/* Variants */}
-            <div className="bg-gray-50 p-4 rounded-lg shadow-sm mt-4">
+            <div className=" p-4 rounded-lg shadow-sm mt-4">
               <h2 className="text-lg font-semibold mb-2">Variants</h2>
               <div>
                 <h2 className="text-sm font-medium text-gray-700 dark:text-gray-300 block mb-2">options</h2>
@@ -200,7 +200,7 @@ const ECommerceProductAdd = () => {
             </div>
 
             {/* Inventory */}
-            <div className="bg-gray-50 p-4 rounded-lg shadow-sm dark:bg-gray-800 mt-4">
+            <div className=" p-4 rounded-lg shadow-sm dark:bg-gray-800 mt-4">
       {/* Header */}
       <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Inventory</h2>
 
@@ -219,7 +219,7 @@ const ECommerceProductAdd = () => {
               onClick={() => setActiveTab(tab.name)}
               className={`w-full flex items-center space-x-2 px-4 py-2 rounded text-left transition ${
                 activeTab === tab.name
-                  ? "bg-gray-200 text-gray-700"
+                  ? "bg-gray-200 text-gray-700 hover:bg-indigo-500 hover:text-white"
                   : "bg-gray-200 text-gray-700 hover:bg-indigo-500 hover:text-white"
               }`}
             >
@@ -262,18 +262,28 @@ const ECommerceProductAdd = () => {
           {/* Sidebar */}
           <div>
             {/* Pricing */}
-            <div className="bg-gray-50 p-4 rounded-lg shadow-sm">
+            <div className="p-4 rounded-lg shadow-sm">
               <h2 className="text-lg font-semibold mb-2">Pricing</h2>
-              <input
+              <div>
+                <div>
+                <h2 className="text-sm font-medium text-gray-700 dark:text-gray-300 block mt-2">Base price</h2>
+                <input
                 type="text"
                 placeholder="Base Price"
-                className="w-full p-2 border rounded mt-2"
+                className="w-full p-2 border rounded "
               />
-              <input
+                </div>
+             <div>
+                <h2 className="text-sm font-medium text-gray-700 dark:text-gray-300 block mt-2">Discounted Price</h2>
+                <input
                 type="text"
                 placeholder="Discounted Price"
-                className="w-full p-2 border rounded mt-2"
+                className="w-full p-2 border rounded "
               />
+             </div>
+             
+              </div>
+              
               <div className="flex items-center mt-2">
                 <input type="checkbox" id="tax" className="mr-2" />
                 <label htmlFor="tax">Charge tax on this product</label>
@@ -297,7 +307,7 @@ const ECommerceProductAdd = () => {
             </div>
 
             {/* Organize */}
-            <div className="bg-gray-50 p-4 rounded-lg shadow-sm mt-4">
+            <div className=" p-4 rounded-lg shadow-sm mt-4">
               <h2 className="text-lg font-semibold mb-2">Organize</h2>
               <select className="w-full p-2 border rounded mt-2">
                 <option>Select Vendor</option>
