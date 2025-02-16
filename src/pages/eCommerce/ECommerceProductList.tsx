@@ -61,6 +61,53 @@ const ECommerceProductList = () => {
 
   return (
     <div className="p-6 bg-gray-50 mt-20 ml-6 dark:bg-gray-900 dark:text-white max-w-full rounded-lg shadow-md">
+       {/* Stats Cards Section */}
+       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+        {/* Card 1 */}
+        <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow flex flex-col">
+          <span className="text-gray-500 text-sm">In-Store Sales</span>
+          <span className="text-2xl font-semibold">$5,345</span>
+          <div className="flex items-center gap-1">
+          <span className="text-gray-500 text-sm">5k orders</span>
+          <span className="text-green-600 bg-green-100 px-2 py-1 rounded-md text-xs mt-1">
+            +5.7%
+          </span>
+          </div>
+          
+        </div>
+
+        {/* Card 2 */}
+        <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow flex flex-col">
+          <span className="text-gray-500 text-sm">Website Sales</span>
+          <span className="text-2xl font-semibold">$74,347</span>
+          <div className="flex items-center gap-1">
+          <span className="text-gray-500 text-sm">21k orders</span>
+          <span className="text-green-600 bg-green-100 px-2 py-1 rounded-md text-xs mt-1">
+            +12.4%
+          </span>
+          </div>
+        </div>
+
+        {/* Card 3 */}
+        <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow flex flex-col">
+          <span className="text-gray-500 text-sm">Discount</span>
+          <span className="text-2xl font-semibold">$14,235</span>
+          <span className="text-gray-500 text-sm">6k orders</span>
+        </div>
+
+        {/* Card 4 */}
+        <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow flex flex-col">
+          <span className="text-gray-500 text-sm">Affiliate</span>
+          <span className="text-2xl font-semibold">$8,345</span>
+          <div className="flex items-center gap-1">
+          <span className="text-gray-500 text-sm">150 orders</span>
+          <span className="text-red-600 bg-red-100 px-2 py-1 rounded-md text-xs mt-1">
+            -3.5%
+          </span>
+        </div>
+        </div>
+      </div>
+
       {/* Filter Section */}
       <div className="mb-4 bg-white p-4 rounded-md shadow-sm">
         <h3 className="text-gray-500 font-semibold mb-2">Filter</h3>

@@ -57,6 +57,12 @@ const ECommerceCategoryList = () => {
           onChange={(e) => setSearch(e.target.value)}
           className="border border-gray-300 rounded-lg px-4 py-2 w-1/3"
         />
+
+<select className="border p-2 rounded-md ml-96 ">
+              <option value="7">7</option>
+              <option value="10">10</option>
+              <option value="20">20</option>
+            </select>
         <button
           onClick={() => setIsModalOpen(true)}
           className="bg-indigo-600 text-white px-4 py-2 rounded-lg"
@@ -147,75 +153,94 @@ const ECommerceCategoryList = () => {
       </div>
 
       {/* Right-side Modal */}
-      {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-end">
-          <div className="w-96 bg-white dark:bg-gray-800 shadow-xl p-6 relative transform transition-transform ease-in-out translate-x-0">
-            <button
-              onClick={() => setIsModalOpen(false)}
-              className="absolute top-4 right-4 text-gray-600 hover:text-black"
+        {/* Modal */}
+        {isModalOpen && (
+  <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-end z-50">
+    <div
+      className={`w-[400px] h-full bg-white dark:bg-gray-800 shadow-xl p-6 transform transition-transform duration-300 ease-in-out ${
+        isModalOpen ? "translate-x-0" : "translate-x-full"
+      }`}
+    >
+      <div className="flex justify-between items-center mb-4">
+        
+        <h2 className="text-xl font-semibold">Add Category</h2>
+        <button
+          onClick={() => setIsModalOpen(false)}
+          className="text-gray-600 hover:text-black"
+        >
+          <AiOutlineClose size={20} />
+        </button>
+      </div>
+
+      <div className="space-y-4">
+        <div>
+          <label className="block text-sm font-medium">Title</label>
+          <input
+            type="text"
+            placeholder="Enter category title"
+            className="w-full border rounded-lg px-3 py-2"
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium">Slug</label>
+          <input
+            type="text"
+            placeholder="Enter slug"
+            className="w-full border rounded-lg px-3 py-2"
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium">Attachment</label>
+          <div className="flex items-center space-x-2">
+            <input type="file" className="hidden" id="file-upload" />
+            <label
+              htmlFor="file-upload"
+              className="border rounded-lg px-3 py-2 w-full text-gray-500 cursor-pointer"
             >
-              <AiOutlineClose size={20} />
+              No file chosen
+            </label>
+            <button className="bg-indigo-100 text-indigo-600 px-3 py-2 rounded-lg">
+              Choose
             </button>
-            <h2 className="text-xl font-semibold mb-4">Add Category</h2>
-            <div className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium">Title</label>
-                <input
-                  type="text"
-                  placeholder="Enter category title"
-                  className="w-full border rounded-lg px-3 py-2"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium">Slug</label>
-                <input
-                  type="text"
-                  placeholder="Enter slug"
-                  className="w-full border rounded-lg px-3 py-2"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium">Attachment</label>
-                <input type="file" className="w-full border rounded-lg px-3 py-2" />
-              </div>
-              <div>
-                <label className="block text-sm font-medium">
-                  Parent Category
-                </label>
-                <select className="w-full border rounded-lg px-3 py-2">
-                  <option>Select parent category</option>
-                </select>
-              </div>
-              <div>
-                <label className="block text-sm font-medium">Description</label>
-                <textarea
-                  placeholder="Enter category description..."
-                  className="w-full border rounded-lg px-3 py-2"
-                ></textarea>
-              </div>
-              <div>
-                <label className="block text-sm font-medium">
-                  Select category status
-                </label>
-                <select className="w-full border rounded-lg px-3 py-2">
-                  <option>Select category status</option>
-                </select>
-              </div>
-              <div className="flex justify-end space-x-2">
-                <button
-                  onClick={() => setIsModalOpen(false)}
-                  className="bg-red-200 text-red-600 px-4 py-2 rounded-lg"
-                >
-                  Discard
-                </button>
-                <button className="bg-indigo-600 text-white px-4 py-2 rounded-lg">
-                  Add
-                </button>
-              </div>
-            </div>
           </div>
         </div>
-      )}
+        <div>
+          <label className="block text-sm font-medium">Parent Category</label>
+          <select className="w-full border rounded-lg px-3 py-2">
+            <option>Select parent category</option>
+          </select>
+        </div>
+        <div>
+          <label className="block text-sm font-medium">Description</label>
+          <textarea
+            placeholder="Enter category description..."
+            className="w-full border rounded-lg px-3 py-2"
+          ></textarea>
+        </div>
+        <div>
+          <label className="block text-sm font-medium">Category Status</label>
+          <select className="w-full border rounded-lg px-3 py-2">
+            <option>Select category status</option>
+          </select>
+        </div>
+
+        <div className="flex justify-start space-x-2 mt-4">
+        <button className="bg-indigo-600 text-white px-4 py-2 rounded-lg">
+            Add
+          </button>
+          <button
+            onClick={() => setIsModalOpen(false)}
+            className="bg-red-100 text-red-600 px-4 py-2 rounded-lg"
+          >
+            Discard
+          </button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+)}
+
     </div>
   );
 };
