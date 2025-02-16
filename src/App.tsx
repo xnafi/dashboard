@@ -22,8 +22,10 @@ import Register from "./pages/Register/Register";
 import UserOverview from "./pages/User/UserOverview";
 import UserSecurity from "./pages/User/UserSecurity";
 import UserPlans from "./pages/User/UserPlans";
-import ECommerceProductList from "./pages/eCommerce/eCommerceProductList";
+// import ECommerceProductList from "./pages/eCommerce/eCommerceProductList";
 import ECommerceCategoryList from "./pages/eCommerce/ECommerceCategoryList";
+import ECommerceProductAdd from "./pages/eCommerce/ECommerceProductAdd";
+import ECommerceProductList from "./pages/eCommerce/ECommerceProductList";
 
 
 function App() {
@@ -53,6 +55,7 @@ function App() {
           <Route path="/user-security" element={<UserSecurity />} />
           <Route path="/user-plans" element={<UserPlans />} />
           <Route path="/ECommerceProductList" element={<ECommerceProductList />} />
+          <Route path="/ECommerceProductAdd" element={<ECommerceProductAdd />} />
           <Route path="/ECommerceCategoryList" element={<ECommerceCategoryList />} />
         </Route>
       </Routes>
