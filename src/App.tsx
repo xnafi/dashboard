@@ -26,6 +26,7 @@ import UserPlans from "./pages/User/UserPlans";
 import ECommerceCategoryList from "./pages/eCommerce/ECommerceCategoryList";
 import ECommerceProductAdd from "./pages/eCommerce/ECommerceProductAdd";
 import ECommerceProductList from "./pages/eCommerce/ECommerceProductList";
+import ECommerceOrderList from "./pages/eCommerce/EcommerceOrderList";
 
 
 function App() {
@@ -57,6 +58,7 @@ function App() {
           <Route path="/ECommerceProductList" element={<ECommerceProductList />} />
           <Route path="/ECommerceProductAdd" element={<ECommerceProductAdd />} />
           <Route path="/ECommerceCategoryList" element={<ECommerceCategoryList />} />
+          <Route path="/ECommerceOrderList" element={<ECommerceOrderList/>} />
         </Route>
       </Routes>
     </BrowserRouter>
