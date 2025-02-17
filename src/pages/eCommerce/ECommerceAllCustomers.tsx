@@ -41,31 +41,31 @@ const ECommerceAllCustomers = () => {
 
   return (
     <div className="p-6 bg-gray-50 mt-20 ml-6 dark:bg-gray-900 dark:text-white max-w-full rounded-lg shadow-md">
-      <div className="bg-white">
-      <div className="flex justify-between items-center mb-4 ">
+      <div className="bg-white dark:bg-gray-800 p-4">
+      <div className="flex justify-between items-center mb-4 dark:bg-gray-800">
         {/* Search Input */}
-        <div className="relative">
-          <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+        <div className="relative dark:bg-gray-800">
+          <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 " />
           <input
             type="text"
             placeholder="Search Order"
-            className="pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="pl-10 pr-4 py-2 border dark:border-gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 dark:bg-gray-800"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
         </div>
-        <div className="flex items-center gap-3">
-                  <select className="border p-2 rounded-md">
+        <div className="flex items-center gap-3 ">
+                  <select className="border p-2 rounded-md dark:border-gray-500 dark:bg-gray-800">
                     <option value="7">7</option>
                     <option value="10">10</option>
                     <option value="20">20</option>
                   </select>
         
-                  <button className="bg-gray-200 text-black px-4 py-2 rounded-md flex items-center gap-2">
-                    <FiDownload className="text-gray-600" /> Export
+                  <button className="bg-gray-200 text-black px-4 py-2 border rounded-md flex items-center gap-2 dark:border-gray-500 dark:bg-gray-800 dark:text-gray-300">
+                    <FiDownload className="text-gray-600 " /> Export
                   </button>
                   {/* Add Customer Button */}
-        <button className="bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center gap-2">
+        <button className="bg-indigo-600 text-white px-4 py-2 rounded-lg flex items-center gap-2">
           <FaPlus />
           Add Customer
         </button>
@@ -75,22 +75,22 @@ const ECommerceAllCustomers = () => {
       </div>
 
       {/* Table */}
-      <table className="w-full border-collapse border border-gray-200 ">
+      <table className="w-full border-collapse border border-gray-200 dark:border-gray-500">
         <thead>
-          <tr className="bg-white">
+          <tr className="bg-white  dark:border-gray-500 dark:bg-gray-800 dark:text-gray-300">
             <th className="px-4 py-2 text-left ">
               <input type="checkbox" />
             </th>
-            <th className="px-4 py-2 text-left text-sm text-gray-600">Customers</th>
-            <th className="px-4 py-2 text-left text-sm text-gray-600">Customer ID</th>
-            <th className="px-4 py-2 text-left text-sm text-gray-600">Country</th>
-            <th className="px-4 py-2 text-left text-sm text-gray-600">Orders</th>
-            <th className="px-4 py-2 text-left text-sm text-gray-600">Total Spent</th>
+            <th className="px-4 py-2 text-left text-sm text-gray-600 dark:text-gray-300">Customers</th>
+            <th className="px-4 py-2 text-left text-sm text-gray-600 dark:text-gray-300">Customer ID</th>
+            <th className="px-4 py-2 text-left text-sm text-gray-600 dark:text-gray-300">Country</th>
+            <th className="px-4 py-2 text-left text-sm text-gray-600 dark:text-gray-300">Orders</th>
+            <th className="px-4 py-2 text-left text-sm text-gray-600 dark:text-gray-300">Total Spent</th>
           </tr>
         </thead>
         <tbody>
           {selectedCustomers.map((customer) => (
-            <tr key={customer.id} className="border-t">
+            <tr key={customer.id} className="border-t dark:border-gray-500">
               <td className="px-4 py-2">
                 <input type="checkbox" />
               </td>
@@ -101,18 +101,18 @@ const ECommerceAllCustomers = () => {
                   className="w-8 h-8 rounded-full"
                 />
                 <div>
-                  <p className="font-semibold">{customer.name}</p>
+                  <p className="font-semibold dark:text-gray-300">{customer.name}</p>
                   <p className="text-gray-500 text-sm">{customer.email}</p>
                 </div>
               </td>
-              <td className="px-4 py-2">{customer.customerId}</td>
-              <td className="px-4 py-2 flex items-center gap-2 ">
+              <td className="px-4 py-2 dark:text-gray-300">{customer.customerId}</td>
+              <td className="px-4 py-2 flex items-center gap-2 dark:text-gray-300">
   <img src={customer.countryFlag} alt={customer.country} className="w-6 h-6 rounded-full" />
   {customer.country}
 </td>
 
-              <td className="px-4 py-2">{customer.orders}</td>
-              <td className="px-4 py-2">{customer.totalSpent}</td>
+              <td className="px-4 py-2 dark:text-gray-300">{customer.orders}</td>
+              <td className="px-4 py-2 dark:text-gray-300">{customer.totalSpent}</td>
             </tr>
           ))}
         </tbody>
@@ -138,7 +138,7 @@ const ECommerceAllCustomers = () => {
           </button>
           <button
             className={`px-3 py-1 border rounded-md ${
-              currentPage === 1 ? "bg-blue-500 text-white" : ""
+              currentPage === 1 ? "bg-indigo-500 text-white" : ""
             }`}
             onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
           >
@@ -149,7 +149,7 @@ const ECommerceAllCustomers = () => {
             <button
               key={index}
               className={`px-3 py-1 border rounded-md ${
-                currentPage === index + 1 ? "bg-blue-500 text-white" : ""
+                currentPage === index + 1 ? "bg-indigo-500 text-white" : ""
               }`}
               onClick={() => setCurrentPage(index + 1)}
             >
