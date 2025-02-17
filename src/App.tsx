@@ -32,6 +32,7 @@ import ECommerceOrderDetails from "./pages/eCommerce/ECommerceOrderDetails";
 import ECommerceUserOverview from "./pages/eCommerce/ECommerceUserOverview";
 import ECommerceOrderList from "./pages/eCommerce/ECommerceOrderList";
 import ECommerceCustomerSecurity from "./pages/eCommerce/ECommerceCustomerSecurity";
+import ECommerceCustomerAddress from "./pages/eCommerce/ECommerceCustomerAddress";
 
 
 function App() {
@@ -68,6 +69,7 @@ function App() {
           <Route path="/ECommerceOrderDetails" element={<ECommerceOrderDetails/>} />
           <Route path="/ECommerceUserOverview" element={<ECommerceUserOverview/>} />
           <Route path="/ECommerceCustomerSecurity" element={<ECommerceCustomerSecurity/>} />
+          <Route path="/ECommerceCustomerAddress" element={<ECommerceCustomerAddress/>} />
         </Route>
       </Routes>
     </BrowserRouter>
