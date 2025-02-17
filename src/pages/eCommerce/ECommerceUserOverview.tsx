@@ -3,6 +3,29 @@ import { FaEdit, FaStar, FaGift, FaDollarSign, FaShoppingCart } from "react-icon
 const ECommerceUserOverview = () => {
   return (
     <div className="p-6 bg-gray-50 mt-20 ml-6 dark:bg-gray-900 dark:text-white max-w-full rounded-lg shadow-md">
+       {/* Order Header */}
+       <div className="flex justify-between items-center p-4  rounded-lg shadow-sm">
+        <div>
+          <div className="flex items-center space-x-2">
+            <h3 className="text-lg font-semibold">Customer ID #634759</h3>
+            {/* <div className="flex space-x-2">
+              <span className="px-3 py-1 text-sm bg-gray-100 text-green-500 rounded">
+                Paid
+              </span>
+              <span className="px-3 py-1 text-sm bg-gray-100 text-blue-400 rounded">
+                Ready to pick
+              </span>
+            </div> */}
+          </div>
+
+          <p className="text-sm text-gray-500">Aug 17, 2020, 5:48 (ET)</p>
+        </div>
+        <div>
+          <span className="px-3 py-3 text-sm bg-red-50 text-red-500 rounded">
+            Delete customer
+          </span>
+        </div>
+      </div>
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
         <div>
 {/* User Profile */}
