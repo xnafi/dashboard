@@ -49,19 +49,19 @@ const ECommerceAllCustomers = () => {
           <input
             type="text"
             placeholder="Search Order"
-            className="pl-10 pr-4 py-2 border dark:border-gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 dark:bg-gray-800"
+            className="pl-10 pr-4 py-2 border dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 dark:bg-gray-800"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
         </div>
         <div className="flex items-center gap-3 ">
-                  <select className="border p-2 rounded-md dark:border-gray-500 dark:bg-gray-800">
+                  <select className="border p-2 rounded-md dark:border-gray-700 dark:bg-gray-800">
                     <option value="7">7</option>
                     <option value="10">10</option>
                     <option value="20">20</option>
                   </select>
         
-                  <button className="bg-gray-200 text-black px-4 py-2 border rounded-md flex items-center gap-2 dark:border-gray-500 dark:bg-gray-800 dark:text-gray-300">
+                  <button className="bg-gray-200 text-black px-4 py-2 border rounded-md flex items-center gap-2 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300">
                     <FiDownload className="text-gray-600 " /> Export
                   </button>
                   {/* Add Customer Button */}
@@ -75,7 +75,7 @@ const ECommerceAllCustomers = () => {
       </div>
 
       {/* Table */}
-      <table className="w-full border-collapse border border-gray-200 dark:border-gray-500">
+      <table className="w-full border-collapse border border-gray-200 dark:border-gray-700">
         <thead>
           <tr className="bg-white  dark:border-gray-500 dark:bg-gray-800 dark:text-gray-300">
             <th className="px-4 py-2 text-left ">
@@ -90,7 +90,7 @@ const ECommerceAllCustomers = () => {
         </thead>
         <tbody>
           {selectedCustomers.map((customer) => (
-            <tr key={customer.id} className="border-t dark:border-gray-500">
+            <tr key={customer.id} className="border-t dark:border-gray-700">
               <td className="px-4 py-2">
                 <input type="checkbox" />
               </td>
@@ -128,7 +128,7 @@ const ECommerceAllCustomers = () => {
 
         <div className="flex items-center gap-1">
           <button
-            className={`px-3 py-1 border rounded-md ${
+            className={`px-3 py-1 border dark:border-gray-700 rounded-md ${
               currentPage === 1 ? "opacity-50 cursor-not-allowed" : ""
             }`}
             disabled={currentPage === 1}
@@ -137,7 +137,7 @@ const ECommerceAllCustomers = () => {
             {"<<"}
           </button>
           <button
-            className={`px-3 py-1 border rounded-md ${
+            className={`px-3 py-1 border dark:border-gray-700 rounded-md ${
               currentPage === 1 ? "bg-indigo-500 text-white" : ""
             }`}
             onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
@@ -148,7 +148,7 @@ const ECommerceAllCustomers = () => {
           {[...Array(totalPages)].map((_, index) => (
             <button
               key={index}
-              className={`px-3 py-1 border rounded-md ${
+              className={`px-3 py-1 border dark:border-gray-700 rounded-md ${
                 currentPage === index + 1 ? "bg-indigo-500 text-white" : ""
               }`}
               onClick={() => setCurrentPage(index + 1)}
@@ -158,7 +158,7 @@ const ECommerceAllCustomers = () => {
           ))}
 
           <button
-            className={`px-3 py-1 border rounded-md ${
+            className={`px-3 py-1 border dark:border-gray-700 rounded-md ${
               currentPage === totalPages ? "opacity-50 cursor-not-allowed" : ""
             }`}
             disabled={currentPage === totalPages}
@@ -167,7 +167,7 @@ const ECommerceAllCustomers = () => {
             {">"}
           </button>
           <button
-            className={`px-3 py-1 border rounded-md ${
+            className={`px-3 py-1 border dark:border-gray-700 rounded-md ${
               currentPage === totalPages ? "opacity-50 cursor-not-allowed" : ""
             }`}
             disabled={currentPage === totalPages}
