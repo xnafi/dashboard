@@ -52,10 +52,10 @@ const ECommerceProductAdd = () => {
         </div>
 
         {/* Product Information */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 ">
           <div className="lg:col-span-2">
             {/* Product Information */}
-<div className=" p-6 rounded-lg shadow-sm dark:bg-gray-800">
+<div className=" p-6 rounded-lg shadow-lg dark:bg-gray-800">
   <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
     Product information
   </h2>
@@ -138,7 +138,8 @@ const ECommerceProductAdd = () => {
                  {/* Product Image */}
 
             {/* Header */}
-      <div className="flex justify-between items-center mb-2">
+            <div className="p-6 rounded-lg shadow-lg dark:bg-gray-800">
+      <div className="flex justify-between items-center mb-2  ">
         <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Product Image</h2>
         <button className="text-indigo-500 text-sm font-medium hover:underline">
           Add media from URL
@@ -147,7 +148,7 @@ const ECommerceProductAdd = () => {
 
       {/* Upload Box */}
       <div
-        className="border-dashed border-2 border-gray-300 rounded-lg p-6 text-center cursor-pointer"
+        className="border-dashed border-2 border-gray-300 rounded-lg p-6 text-center cursor-pointer   shadow-sm dark:bg-gray-800"
         onDragOver={(e) => e.preventDefault()}
         onDrop={handleDrop}
       >
@@ -176,9 +177,10 @@ const ECommerceProductAdd = () => {
           </>
         )}
       </div>
+      </div>
 
             {/* Variants */}
-            <div className=" p-4 rounded-lg shadow-sm mt-4">
+            <div className=" p-4 rounded-lg shadow-lg mt-4">
               <h2 className="text-lg font-semibold mb-2">Variants</h2>
               <div>
                 <h2 className="text-sm font-medium text-gray-700 dark:text-gray-300 block mb-2">options</h2>
@@ -200,13 +202,13 @@ const ECommerceProductAdd = () => {
             </div>
 
             {/* Inventory */}
-            <div className=" p-4 rounded-lg shadow-sm dark:bg-gray-800 mt-4">
+            <div className=" p-4 rounded-lg shadow-lg dark:bg-gray-800 mt-4">
       {/* Header */}
       <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Inventory</h2>
 
       {/* Sidebar Navigation */}
       <div className="flex">
-        <div className="w-1/3 space-y-2">
+        <div className="w-1/3 space-y-2 ">
           {[
             { name: "Restock", icon: <FaBoxOpen /> },
             { name: "Shipping", icon: <FaTruck /> },
@@ -219,8 +221,8 @@ const ECommerceProductAdd = () => {
               onClick={() => setActiveTab(tab.name)}
               className={`w-full flex items-center space-x-2 px-4 py-2 rounded text-left transition ${
                 activeTab === tab.name
-                  ? "bg-gray-200 text-gray-700 hover:bg-indigo-500 hover:text-white"
-                  : "bg-gray-200 text-gray-700 hover:bg-indigo-500 hover:text-white"
+                  ? " text-gray-700 hover:bg-indigo-500 hover:text-white"
+                  : " text-gray-700 hover:bg-indigo-500 hover:text-white"
               }`}
             >
               {tab.icon}
@@ -262,7 +264,7 @@ const ECommerceProductAdd = () => {
           {/* Sidebar */}
           <div>
             {/* Pricing */}
-            <div className="p-4 rounded-lg shadow-sm">
+            <div className="p-4 rounded-lg shadow-lg">
               <h2 className="text-lg font-semibold mb-2">Pricing</h2>
               <div>
                 <div>
@@ -307,7 +309,7 @@ const ECommerceProductAdd = () => {
             </div>
 
             {/* Organize */}
-            <div className=" p-4 rounded-lg shadow-sm mt-4">
+            <div className=" p-4 rounded-lg shadow-lg mt-4">
               <h2 className="text-lg font-semibold mb-2">Organize</h2>
               <select className="w-full p-2 border rounded mt-2">
                 <option>Select Vendor</option>
@@ -316,7 +318,7 @@ const ECommerceProductAdd = () => {
                 <select className="w-full p-2 border rounded">
                   <option>Select Category</option>
                 </select>
-                <button className="px-4 py-2 bg-indigo-600 text-white rounded">+</button>
+                <button className="px-4 py-2 bg-indigo-100 text-indigo-500 text-lg font-semibold rounded">+</button>
               </div>
               <select className="w-full p-2 border rounded mt-2">
                 <option>Select Collection</option>
