@@ -47,7 +47,7 @@ const ECommerceCategoryList = () => {
   );
 
   return (
-    <div className="p-6 bg-gray-50 mt-20 ml-6 dark:bg-gray-900 dark:text-white max-w-full rounded-lg shadow-md ">
+    <div className="p-6 bg-gray-50 mt-20 ml-12 dark:bg-gray-800 dark:text-white w-[1055px] mx-auto  rounded-lg shadow-md">
       {/* Search Bar */}
       <div className="flex justify-between items-center mb-4">
         <input
@@ -55,17 +55,17 @@ const ECommerceCategoryList = () => {
           placeholder="Search Category"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="border border-gray-300 rounded-lg px-4 py-2 w-1/3"
+          className="border  rounded-lg px-4 py-2 w-1/3 dark:bg-gray-800 dark:border-gray-500 "
         />
 
-<select className="border p-2 rounded-md ml-96 ">
-              <option value="7">7</option>
-              <option value="10">10</option>
-              <option value="20">20</option>
-            </select>
+        <select className="border p-2 rounded-md ml-96 dark:bg-gray-800 dark:border-gray-500">
+          <option value="7">7</option>
+          <option value="10">10</option>
+          <option value="20">20</option>
+        </select>
         <button
           onClick={() => setIsModalOpen(true)}
-          className="bg-indigo-600 text-white px-4 py-2 rounded-lg"
+          className="bg-indigo-600 text-white px-4 py-2 rounded-lg dark:text-gray-300"
         >
           + Add Category
         </button>
@@ -75,23 +75,23 @@ const ECommerceCategoryList = () => {
       <div className="overflow-x-auto">
         <table className="w-full border-collapse">
           <thead>
-            <tr className="bg-gray-100">
+            <tr className="bg-gray-100 dark:bg-gray-800 dark:border-b dark:border-t dark:border-gray-500">
               <th className="p-3 text-left">
                 <input type="checkbox" />
               </th>
-              <th className="p-3 text-left">Categories</th>
-              <th className="p-3 text-center">Total Products</th>
-              <th className="p-3 text-center">Total Earnings</th>
-              <th className="p-3 text-center">Actions</th>
+              <th className="p-3 text-left text-gray-600 dark:text-gray-300">Categories</th>
+              <th className="p-3 text-center text-gray-600 dark:text-gray-300">Total Products</th>
+              <th className="p-3 text-center text-gray-600 dark:text-gray-300">Total Earnings</th>
+              <th className="p-3 text-center text-gray-600 dark:text-gray-300">Actions</th>
             </tr>
           </thead>
           <tbody>
             {displayedCategories.map((category) => (
-              <tr key={category.id} className="border-b">
+              <tr key={category.id} className="border-b dark:border-gray-500">
                 <td className="p-3">
                   <input type="checkbox" />
                 </td>
-                <td className="p-3 flex items-center space-x-3">
+                <td className="p-3 flex items-center space-x-3 dark:text-gray-300 text-gray-600">
                   <img
                     src={category.image}
                     alt={category.name}
@@ -121,126 +121,129 @@ const ECommerceCategoryList = () => {
           </tbody>
         </table>
         {/* Pagination */}
-      <div className="flex justify-end items-center mt-4 space-x-2">
-        <button
-          onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-          disabled={currentPage === 1}
-          className={`px-3 py-1 flex items-center space-x-1 rounded-lg ${
-            currentPage === 1
-              ? "bg-gray-300 dark:bg-gray-700 cursor-not-allowed"
-              : "bg-indigo-600 text-white hover:bg-indigo-700"
-          }`}
-        >
-          <FaChevronLeft />
-          <span>Prev</span>
-        </button>
-        <span className="text-gray-700 dark:text-gray-300">
-          Page {currentPage} of {totalPages}
-        </span>
-        <button
-          onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
-          disabled={currentPage === totalPages}
-          className={`px-3 py-1 flex items-center space-x-1 rounded-lg ${
-            currentPage === totalPages
-              ? "bg-gray-300 dark:bg-gray-700 cursor-not-allowed"
-              : "bg-indigo-600 text-white hover:bg-indigo-700"
-          }`}
-        >
-          <span>Next</span>
-          <FaChevronRight />
-        </button>
-      </div>
+        <div className="flex justify-end items-center mt-4 space-x-2">
+          <button
+            onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+            disabled={currentPage === 1}
+            className={`px-3 py-1 flex items-center space-x-1 rounded-lg ${
+              currentPage === 1
+                ? "bg-gray-300 dark:bg-gray-700 cursor-not-allowed"
+                : "bg-indigo-600 text-white hover:bg-indigo-700"
+            }`}
+          >
+            <FaChevronLeft />
+            <span>Prev</span>
+          </button>
+          <span className="text-gray-700 dark:text-gray-300">
+            Page {currentPage} of {totalPages}
+          </span>
+          <button
+            onClick={() =>
+              setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+            }
+            disabled={currentPage === totalPages}
+            className={`px-3 py-1 flex items-center space-x-1 rounded-lg ${
+              currentPage === totalPages
+                ? "bg-gray-300 dark:bg-gray-700 cursor-not-allowed"
+                : "bg-indigo-600 text-white hover:bg-indigo-700"
+            }`}
+          >
+            <span>Next</span>
+            <FaChevronRight />
+          </button>
+        </div>
       </div>
 
       {/* Right-side Modal */}
-        {/* Modal */}
-        {isModalOpen && (
-  <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-end z-50">
-    <div
-      className={`w-[400px] h-full bg-white dark:bg-gray-800 shadow-xl p-6 transform transition-transform duration-300 ease-in-out ${
-        isModalOpen ? "translate-x-0" : "translate-x-full"
-      }`}
-    >
-      <div className="flex justify-between items-center mb-4">
-        
-        <h2 className="text-xl font-semibold">Add Category</h2>
-        <button
-          onClick={() => setIsModalOpen(false)}
-          className="text-gray-600 hover:text-black"
-        >
-          <AiOutlineClose size={20} />
-        </button>
-      </div>
+      {/* Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-end z-50">
+          <div
+            className={`w-[400px] h-full bg-white dark:bg-gray-800 shadow-xl p-6 transform transition-transform duration-300 ease-in-out ${
+              isModalOpen ? "translate-x-0" : "translate-x-full"
+            }`}
+          >
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-xl font-semibold">Add Category</h2>
+              <button
+                onClick={() => setIsModalOpen(false)}
+                className="text-gray-600 hover:text-black"
+              >
+                <AiOutlineClose size={20} />
+              </button>
+            </div>
 
-      <div className="space-y-4">
-        <div>
-          <label className="block text-sm font-medium">Title</label>
-          <input
-            type="text"
-            placeholder="Enter category title"
-            className="w-full border rounded-lg px-3 py-2"
-          />
-        </div>
-        <div>
-          <label className="block text-sm font-medium">Slug</label>
-          <input
-            type="text"
-            placeholder="Enter slug"
-            className="w-full border rounded-lg px-3 py-2"
-          />
-        </div>
-        <div>
-          <label className="block text-sm font-medium">Attachment</label>
-          <div className="flex items-center space-x-2">
-            <input type="file" className="hidden" id="file-upload" />
-            <label
-              htmlFor="file-upload"
-              className="border rounded-lg px-3 py-2 w-full text-gray-500 cursor-pointer"
-            >
-              No file chosen
-            </label>
-            <button className="bg-indigo-100 text-indigo-600 px-3 py-2 rounded-lg">
-              Choose
-            </button>
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium">Title</label>
+                <input
+                  type="text"
+                  placeholder="Enter category title"
+                  className="w-full border rounded-lg px-3 py-2"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium">Slug</label>
+                <input
+                  type="text"
+                  placeholder="Enter slug"
+                  className="w-full border rounded-lg px-3 py-2"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium">Attachment</label>
+                <div className="flex items-center space-x-2">
+                  <input type="file" className="hidden" id="file-upload" />
+                  <label
+                    htmlFor="file-upload"
+                    className="border rounded-lg px-3 py-2 w-full text-gray-500 cursor-pointer"
+                  >
+                    No file chosen
+                  </label>
+                  <button className="bg-indigo-100 text-indigo-600 px-3 py-2 rounded-lg">
+                    Choose
+                  </button>
+                </div>
+              </div>
+              <div>
+                <label className="block text-sm font-medium">
+                  Parent Category
+                </label>
+                <select className="w-full border rounded-lg px-3 py-2">
+                  <option>Select parent category</option>
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-medium">Description</label>
+                <textarea
+                  placeholder="Enter category description..."
+                  className="w-full border rounded-lg px-3 py-2"
+                ></textarea>
+              </div>
+              <div>
+                <label className="block text-sm font-medium">
+                  Category Status
+                </label>
+                <select className="w-full border rounded-lg px-3 py-2">
+                  <option>Select category status</option>
+                </select>
+              </div>
+
+              <div className="flex justify-start space-x-2 mt-4">
+                <button className="bg-indigo-600 text-white px-4 py-2 rounded-lg">
+                  Add
+                </button>
+                <button
+                  onClick={() => setIsModalOpen(false)}
+                  className="bg-red-100 text-red-600 px-4 py-2 rounded-lg"
+                >
+                  Discard
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-        <div>
-          <label className="block text-sm font-medium">Parent Category</label>
-          <select className="w-full border rounded-lg px-3 py-2">
-            <option>Select parent category</option>
-          </select>
-        </div>
-        <div>
-          <label className="block text-sm font-medium">Description</label>
-          <textarea
-            placeholder="Enter category description..."
-            className="w-full border rounded-lg px-3 py-2"
-          ></textarea>
-        </div>
-        <div>
-          <label className="block text-sm font-medium">Category Status</label>
-          <select className="w-full border rounded-lg px-3 py-2">
-            <option>Select category status</option>
-          </select>
-        </div>
-
-        <div className="flex justify-start space-x-2 mt-4">
-        <button className="bg-indigo-600 text-white px-4 py-2 rounded-lg">
-            Add
-          </button>
-          <button
-            onClick={() => setIsModalOpen(false)}
-            className="bg-red-100 text-red-600 px-4 py-2 rounded-lg"
-          >
-            Discard
-          </button>
-          
-        </div>
-      </div>
-    </div>
-  </div>
-)}
-
+      )}
     </div>
   );
 };
