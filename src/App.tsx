@@ -26,9 +26,11 @@ import UserPlans from "./pages/User/UserPlans";
 import ECommerceCategoryList from "./pages/eCommerce/ECommerceCategoryList";
 import ECommerceProductAdd from "./pages/eCommerce/ECommerceProductAdd";
 import ECommerceProductList from "./pages/eCommerce/ECommerceProductList";
-import ECommerceOrderList from "./pages/eCommerce/EcommerceOrderList";
+// import ECommerceOrderList from "./pages/eCommerce/EcommerceOrderList";
 import ECommerceAllCustomers from "./pages/eCommerce/ECommerceAllCustomers";
 import ECommerceOrderDetails from "./pages/eCommerce/ECommerceOrderDetails";
+import ECommerceUserOverview from "./pages/eCommerce/ECommerceUserOverview";
+import ECommerceOrderList from "./pages/eCommerce/ECommerceOrderList";
 
 
 function App() {
@@ -63,6 +65,7 @@ function App() {
           <Route path="/ECommerceOrderList" element={<ECommerceOrderList/>} />
           <Route path="/ECommerceAllCustomers" element={<ECommerceAllCustomers/>} />
           <Route path="/ECommerceOrderDetails" element={<ECommerceOrderDetails/>} />
+          <Route path="/ECommerceUserOverview" element={<ECommerceUserOverview/>} />
         </Route>
       </Routes>
     </BrowserRouter>
