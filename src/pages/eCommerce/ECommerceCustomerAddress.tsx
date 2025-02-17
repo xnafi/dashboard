@@ -12,6 +12,13 @@ import {
 import { useState } from "react";
 
 const ECommerceCustomerAddress = () => {
+    const [activeTab, setActiveTab] = useState("Address & Billing");
+    const tabs = [
+        { name: "Overview", icon: <FaUser className="mr-2" /> },
+        { name: "Security", icon: <FaLock className="mr-2" /> },
+        { name: "Address & Billing", icon: <FaMapMarkerAlt className="mr-2" /> },
+        { name: "Notifications", icon: <FaBell className="mr-2" /> },
+      ];
   const [addresses] = useState([
     {
       id: 1,
@@ -101,15 +108,22 @@ const ECommerceCustomerAddress = () => {
             </div>
 
             <div className="flex justify-between my-4">
-              <div className="flex items-center gap-2">
-                <FaShoppingCart className="text-indigo-500 text-xl" />
+              <div className="flex items-center gap-2 ">
+                <div className="">
+
+                <div className="bg-gray-100 p-2  flex items-center justify-center">
+                  <FaShoppingCart className="text-indigo-500 text-xl" />
+                </div>
+                </div>
                 <div>
                   <p className="text-lg font-semibold text-gray-600">184</p>
                   <p className="text-gray-500 text-sm">Orders</p>
                 </div>
               </div>
               <div className="flex items-center gap-2">
-                <FaDollarSign className="text-indigo-500 text-xl" />
+              <div className="bg-gray-100 p-2  flex items-center justify-center">
+                  <FaDollarSign className="text-indigo-500 text-xl" />
+                </div>
                 <div>
                   <p className="text-lg font-semibold text-gray-600">$8456</p>
                   <p className="text-gray-500 text-sm">Spent</p>
@@ -165,24 +179,21 @@ const ECommerceCustomerAddress = () => {
 
         {/* Right Section */}
         <div className="col-span-2">
-          <div className="flex space-x-6 mb-4">
-            {[
-              { name: "Overview", icon: <FaUser className="mr-2" /> },
-              { name: "Security", icon: <FaLock className="mr-2" /> },
-              {
-                name: "Address & Billing",
-                icon: <FaMapMarkerAlt className="mr-2" />,
-              },
-              { name: "Notifications", icon: <FaBell className="mr-2" /> },
-            ].map((tab, index) => (
-              <button
-                key={index}
-                className={`flex items-center py-2 px-4 font-semibold text-gray-500`}
-              >
-                {tab.icon} {tab.name}
-              </button>
-            ))}
-          </div>
+        <div className="flex space-x-6 mb-4">
+      {tabs.map((tab) => (
+        <button
+          key={tab.name}
+          onClick={() => setActiveTab(tab.name)}
+          className={`flex items-center py-2 px-4 font-semibold rounded-lg transition duration-300 ${
+            activeTab === tab.name
+              ? "text-blue-600 bg-blue-100"
+              : "text-gray-500 hover:text-blue-600"
+          }`}
+        >
+          {tab.icon} {tab.name}
+        </button>
+      ))}
+    </div>
 
           {/* Address Book */}
           <div className="p-6 bg-white rounded-lg shadow-md">

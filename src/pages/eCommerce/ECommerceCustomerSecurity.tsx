@@ -17,6 +17,13 @@ import { EyeIcon, EyeOffIcon } from "lucide-react";
   const ECommerceCustomerSecurity = () => {
     const [showPassword, setShowPassword] = useState(false);
       const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+      const [activeTab, setActiveTab] = useState("Security");
+      const tabs = [
+        { name: "Overview", icon: <FaUser className="mr-2" /> },
+        { name: "Security", icon: <FaLock className="mr-2" /> },
+        { name: "Address & Billing", icon: <FaMapMarkerAlt className="mr-2" /> },
+        { name: "Notifications", icon: <FaBell className="mr-2" /> },
+      ];
     
     return (
       <div className="p-6 bg-gray-50 mt-20 ml-6 dark:bg-gray-900 dark:text-white max-w-full rounded-lg shadow-md">
@@ -49,14 +56,18 @@ import { EyeIcon, EyeOffIcon } from "lucide-react";
               {/* Orders & Spent Section */}
               <div className="flex justify-between my-4">
                 <div className="flex items-center gap-2">
+                <div className="bg-gray-100 p-2  flex items-center justify-center">
                   <FaShoppingCart className="text-indigo-500 text-xl" />
+                </div>
                   <div>
                     <p className="text-lg font-semibold text-gray-600">184</p>
                     <p className="text-gray-500 text-sm">Orders</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
+                <div className="bg-gray-100 p-2  flex items-center justify-center">
                   <FaDollarSign className="text-indigo-500 text-xl" />
+                </div>
                   <div>
                     <p className="text-lg font-semibold text-gray-600">$8456</p>
                     <p className="text-gray-500 text-sm">Spent</p>
@@ -116,25 +127,20 @@ import { EyeIcon, EyeOffIcon } from "lucide-react";
           <div className="col-span-2">
             {/* Top Navigation */}
             <div className="flex space-x-6 mb-4">
-              {[
-                { name: "Overview", icon: <FaUser className="mr-2" /> },
-                { name: "Security", icon: <FaLock className="mr-2" /> },
-                {
-                  name: "Address & Billing",
-                  icon: <FaMapMarkerAlt className="mr-2" />,
-                },
-                { name: "Notifications", icon: <FaBell className="mr-2" /> },
-              ].map((tab, index) => (
-                <button
-                  key={index}
-                  className={`flex items-center py-2 px-4 font-semibold ${
-                    index === 0 ? "text-gray-500" : "text-gray-500"
-                  }`}
-                >
-                  {tab.icon} {tab.name}
-                </button>
-              ))}
-            </div>
+      {tabs.map((tab) => (
+        <button
+          key={tab.name}
+          onClick={() => setActiveTab(tab.name)}
+          className={`flex items-center py-2 px-4 font-semibold rounded-lg transition duration-300 ${
+            activeTab === tab.name
+              ? "text-blue-600 bg-blue-100"
+              : "text-gray-500 hover:text-blue-600"
+          }`}
+        >
+          {tab.icon} {tab.name}
+        </button>
+      ))}
+    </div>
   
             {/* Right Side - Change Password */}
       <div className="lg:col-span-2 bg-white rounded-2xl shadow-lg p-6 dark:bg-gray-800  dark:text-white">

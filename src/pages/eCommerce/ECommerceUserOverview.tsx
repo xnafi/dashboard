@@ -9,15 +9,21 @@ import {
   FaMapMarkerAlt,
   FaBell,
   FaCrown,
-  FaSearch
+  FaSearch,
 } from "react-icons/fa";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { useState } from "react";
 
-
 const ECommerceUserOverview = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = 5;
+  const [activeTab, setActiveTab] = useState("Overview");
+  const tabs = [
+    { name: "Overview", icon: <FaUser className="mr-2" /> },
+    { name: "Security", icon: <FaLock className="mr-2" /> },
+    { name: "Address & Billing", icon: <FaMapMarkerAlt className="mr-2" /> },
+    { name: "Notifications", icon: <FaBell className="mr-2" /> },
+  ];
 
   const cards = [
     {
@@ -82,21 +88,28 @@ const ECommerceUserOverview = () => {
                 alt="User"
                 className="w-24 h-24"
               />
-              <h2 className="text-xl font-semibold mt-2 text-gray-600">Seth Hallam</h2>
+              <h2 className="text-xl font-semibold mt-2 text-gray-600">
+                Seth Hallam
+              </h2>
               <p className="text-gray-500 text-sm">Customer ID #634759</p>
             </div>
 
             {/* Orders & Spent Section */}
             <div className="flex justify-between my-4">
               <div className="flex items-center gap-2">
-                <FaShoppingCart className="text-indigo-500 text-xl" />
+                <div className="bg-gray-100 p-2  flex items-center justify-center">
+                  <FaShoppingCart className="text-indigo-500 text-xl" />
+                </div>
                 <div>
                   <p className="text-lg font-semibold text-gray-600">184</p>
                   <p className="text-gray-500 text-sm">Orders</p>
                 </div>
               </div>
               <div className="flex items-center gap-2">
-                <FaDollarSign className="text-indigo-500 text-xl" />
+                <div className="bg-gray-100 p-2  flex items-center justify-center">
+                  <FaDollarSign className="text-indigo-500 text-xl" />
+                </div>
+
                 <div>
                   <p className="text-lg font-semibold text-gray-600">$8456</p>
                   <p className="text-gray-500 text-sm">Spent</p>
@@ -156,19 +169,14 @@ const ECommerceUserOverview = () => {
         <div className="col-span-2">
           {/* Top Navigation */}
           <div className="flex space-x-6 mb-4">
-            {[
-              { name: "Overview", icon: <FaUser className="mr-2" /> },
-              { name: "Security", icon: <FaLock className="mr-2" /> },
-              {
-                name: "Address & Billing",
-                icon: <FaMapMarkerAlt className="mr-2" />,
-              },
-              { name: "Notifications", icon: <FaBell className="mr-2" /> },
-            ].map((tab, index) => (
+            {tabs.map((tab) => (
               <button
-                key={index}
-                className={`flex items-center py-2 px-4 font-semibold ${
-                  index === 0 ? "text-gray-500" : "text-gray-500"
+                key={tab.name}
+                onClick={() => setActiveTab(tab.name)}
+                className={`flex items-center py-2 px-4 font-semibold rounded-lg transition duration-300 ${
+                  activeTab === tab.name
+                    ? "text-blue-600 bg-blue-100"
+                    : "text-gray-500 hover:text-blue-600"
                 }`}
               >
                 {tab.icon} {tab.name}
@@ -178,36 +186,48 @@ const ECommerceUserOverview = () => {
 
           {/* Cards Grid */}
           <div className="grid grid-cols-2 gap-6">
-      {cards.map((card, i) => (
-        <div key={i} className="bg-white rounded-xl shadow-lg p-4">
-          <div className="flex flex-col">
-            <div className={`p-2 w-10 h-10 mb-2 rounded-lg flex items-center justify-center ${card.bgColor}`}>
-              {card.icon}
-            </div>
-            <h3 className="text-lg font-semibold text-gray-600">{card.title}</h3>
-            <p className={`text-xl font-semibold mt-2 ${card.textColor}`}>
-              {card.amount}{" "}
-              <span className="text-gray-600 text-base">{card.label}</span>
-            </p>
-            {card.description && <p className="text-gray-500 text-sm mt-1">{card.description}</p>}
+            {cards.map((card, i) => (
+              <div key={i} className="bg-white rounded-xl shadow-lg p-4">
+                <div className="flex flex-col">
+                  <div
+                    className={`p-2 w-10 h-10 mb-2 rounded-lg flex items-center justify-center ${card.bgColor}`}
+                  >
+                    {card.icon}
+                  </div>
+                  <h3 className="text-lg font-semibold text-gray-600">
+                    {card.title}
+                  </h3>
+                  <p className={`text-xl font-semibold mt-2 ${card.textColor}`}>
+                    {card.amount}{" "}
+                    <span className="text-gray-600 text-base">
+                      {card.label}
+                    </span>
+                  </p>
+                  {card.description && (
+                    <p className="text-gray-500 text-sm mt-1">
+                      {card.description}
+                    </p>
+                  )}
+                </div>
+              </div>
+            ))}
           </div>
-        </div>
-      ))}
-    </div>
 
           {/* Orders Table */}
           <div className="bg-white rounded-xl shadow-lg p-4 mt-6">
-          <div className="flex justify-between items-center space-x-4">
-  <h3 className="text-lg font-semibold text-gray-600">Orders Placed</h3>
-  <div className="relative">
-    <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm" />
-    <input
-      type="text"
-      placeholder="Search Orders"
-      className="pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm"
-    />
-  </div>
-</div>
+            <div className="flex justify-between items-center space-x-4">
+              <h3 className="text-lg font-semibold text-gray-600">
+                Orders Placed
+              </h3>
+              <div className="relative">
+                <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm" />
+                <input
+                  type="text"
+                  placeholder="Search Orders"
+                  className="pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm"
+                />
+              </div>
+            </div>
             <div className="overflow-x-auto">
               <table className="min-w-full text-left text-sm mt-8">
                 <thead className="text-gray-500">
