@@ -26,7 +26,8 @@ const ECommerceCustomerAddress = () => {
       details: "45 Roker Terrace",
       contactName: "Violet Mendoza",
       contactName1: "Latheronwheel",
-      contactName2: "KW5 8NW, London UK",
+      contactName2: "KW5 8NW",
+      contactName3: "London UK"
     },
     {
       id: 3,
@@ -34,6 +35,36 @@ const ECommerceCustomerAddress = () => {
       details: "512 Water Plant",
     },
   ]);
+
+  const [paymentMethods] = useState([
+    {
+      id: 1,
+      type: "Mastercard",
+      details: "Expires Apr 2028",
+      icon: "https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg",
+    },
+    {
+      id: 2,
+      type: "American Express",
+      details: "**** 4487 - Expires 08/2028",
+      icon: "https://i.postimg.cc/MGH6rJ0K/American-Express-logo-700x394.png",
+      isDefault: true,
+      owner: "Violet Mendoza",
+      issuer: "VICBANK",
+      billingCountry: "USA",
+      phone: "+7634 983 637",
+      email: "vafgot@vultukir.org",
+      origin: "United States",
+      cvcCheck: "Passed",
+    },
+    {
+      id: 3,
+      type: "VISA",
+      details: "Expires Dec 2029",
+      icon: "https://i.postimg.cc/3wzTS4Jn/visa-logo-png-seeklogo-299317.png",
+    },
+  ]);
+
 
   // const handleDelete = (id) => {
   //     console.log("Deleting ID:", id);
@@ -182,9 +213,10 @@ const ECommerceCustomerAddress = () => {
                     </h3>
 
                     <p className="text-sm text-gray-500">{address.details}</p>
-                    <p className="text-lg font-semibold text-gray-500 mt-4">{address.contactName}</p>
-                    <p className="text-sm text-gray-500 mt-4">{address.contactName1}</p>
-                    <p className="text-sm text-gray-500 mt-4">{address.contactName2}</p>
+                    <p className="text-lg font-semibold text-gray-500 mt-2">{address.contactName}</p>
+                    <p className="text-sm text-gray-500 mt-2">{address.contactName1}</p>
+                    <p className="text-sm text-gray-500 mt-2">{address.contactName2}</p>
+                    <p className="text-sm text-gray-500 mt-2">{address.contactName3}</p>
                   </div>
 
                   <div className="flex space-x-4">
@@ -205,10 +237,81 @@ const ECommerceCustomerAddress = () => {
               ))}
             </div>
           </div>
+
+           {/* Payment Methods */}
+           <div className="p-6 bg-white rounded-lg mt-6">
+  <div className="flex justify-between items-center mb-4">
+    <h2 className="text-xl font-semibold text-gray-700">Payment Methods</h2>
+    <button className="flex items-center bg-indigo-100 text-indigo-600 px-4 py-2 rounded-lg text-sm font-medium hover:bg-purple-300 transition">
+      <FaPlus className="mr-2" /> Add Payment Method
+    </button>
+  </div>
+
+  <div className="space-y-4">
+    {paymentMethods.map((payment) => (
+      <div key={payment.id} className="p-4 rounded-lg flex items-center justify-between ">
+        
+        {/* Left Side: Icon & Card Details */}
+        <div className="flex items-center space-x-4">
+          <img src={payment.icon} alt={payment.type} className="w-24 h-14" />
+          <div>
+            <h3 className="text-lg font-semibold text-gray-700 flex items-center space-x-2">
+              <span>{payment.type}</span>
+              {payment.isDefault && (
+                <span className="ml-2 px-2 py-1 text-xs font-semibold bg-green-100 text-green-600 rounded-lg">
+                  Default Address
+                </span>
+              )}
+            </h3>
+            <p className="text-sm text-gray-500">{payment.details}</p>
+
+                  {payment.owner && (
+                    <div className="text-sm text-gray-500 mt-2 space-y-1">
+                      <p><strong>Name:</strong> {payment.owner}</p>
+                      <p><strong>Issuer:</strong> {payment.issuer}</p>
+                      <p><strong>Billing Country:</strong> {payment.billingCountry}</p>
+                      <p><strong>Phone:</strong> {payment.phone}</p>
+                      <p><strong>Email:</strong> {payment.email}</p>
+                      <p><strong>Origin:</strong> {payment.origin}</p>
+                      <p>
+                        <strong>CVC Check:</strong>{" "}
+                        <span className="text-green-600 font-semibold">{payment.cvcCheck}</span>
+                      </p>
+                    </div>
+                  )}
+          </div>
         </div>
+
+        {/* Right Side: Actions */}
+        <div className="flex space-x-4">
+          <button className="text-gray-500 hover:text-blue-700">
+            <FaEdit />
+          </button>
+          <button className="text-gray-500 hover:text-red-700">
+            <FaTrash />
+          </button>
+          <button className="text-gray-500 hover:text-gray-700">
+            <FaPlus /> {/* Replace with a menu icon if needed */}
+          </button>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
+        </div>
+
+       
+        
       </div>
     </div>
   );
 };
 
 export default ECommerceCustomerAddress;
+
+
+
+
+
+
