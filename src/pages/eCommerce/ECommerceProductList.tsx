@@ -109,13 +109,14 @@ const ECommerceProductList = () => {
       </div>
 
       {/* Filter Section */}
-      <div className="mb-4 bg-white p-4 rounded-md shadow-sm">
+      <div className="div-dark">
+      <div className="mb-4 bg-white p-4 rounded-md shadow-sm div-dark div-text">
         <h3 className="text-gray-500 font-semibold mb-2">Filter</h3>
 
         {/* Status, Category, Stock - In One Line */}
-        <div className="flex gap-4 flex-wrap">
+        <div className="flex gap-7 flex-wrap">
           <select
-            className="border p-2 rounded-md w-80"
+            className="border p-2 rounded-md w-80 div-dark div-text dark:border-gray-700"
             value={selectedStatus}
             onChange={(e) => setSelectedStatus(e.target.value)}
           >
@@ -126,7 +127,7 @@ const ECommerceProductList = () => {
           </select>
 
           <select
-            className="border p-2 rounded-md w-80"
+            className="border p-2 rounded-md w-80 div-dark div-text dark:border-gray-700"
             value={selectedCategory}
             onChange={(e) => setSelectedCategory(e.target.value)}
           >
@@ -137,7 +138,7 @@ const ECommerceProductList = () => {
           </select>
 
           <select
-            className="border p-2 rounded-md w-80"
+            className="border p-2 rounded-md w-80  div-dark div-text dark:border-gray-700"
             value={selectedStock}
             onChange={(e) => setSelectedStock(e.target.value)}
           >
@@ -148,23 +149,23 @@ const ECommerceProductList = () => {
         </div>
 
         {/* Search Bar & Actions Row */}
-        <div className="mt-4 flex flex-wrap justify-between items-center">
+        <div className="mt-4 flex flex-wrap justify-between items-center ">
           <input
             type="text"
             placeholder="Search Product"
-            className="border p-2 rounded-md w-80"
+            className="border p-2 rounded-md w-80 div-dark div-text dark:border-gray-700"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
 
           <div className="flex items-center gap-3">
-            <select className="border p-2 rounded-md">
+            <select className="border p-2 rounded-md div-dark div-text dark:border-gray-700">
               <option value="7">7</option>
               <option value="10">10</option>
               <option value="20">20</option>
             </select>
 
-            <button className="bg-gray-200 text-black px-4 py-2 rounded-md flex items-center gap-2">
+            <button className="bg-gray-200 text-black px-4 py-2 rounded-md flex items-center gap-2 div-dark div-text border dark:border-gray-700">
   <FiDownload className="text-gray-600" /> Export
 </button>
             <button className="bg-indigo-500 text-white px-4 py-2 rounded-md">
@@ -176,29 +177,29 @@ const ECommerceProductList = () => {
 
       {/* Product Table */}
       <div className="overflow-x-auto">
-        <table className="w-full border-collapse border border-gray-200">
-          <thead className="bg-gray-100">
+        <table className="w-full border-collapse border border-gray-200 div-dark div-text dark:border-gray-700">
+          <thead className="bg-gray-100 dark:bg-gray-800">
             <tr className="text-left">
-              <th className="p-3 border">
+              <th className="p-3 border dark:border-gray-700">
                 <input type="checkbox" className="w-4 h-4" />
               </th>
-              <th className="p-3 border">Product</th>
-              <th className="p-3 border">Category</th>
-              <th className="p-3 border">Stock</th>
-              <th className="p-3 border">SKU</th>
-              <th className="p-3 border">Price</th>
-              <th className="p-3 border">Qty</th>
-              <th className="p-3 border">Status</th>
-              <th className="p-3 border">Actions</th>
+              <th className="p-3 border dark:border-gray-700">Product</th>
+              <th className="p-3 border dark:border-gray-700">Category</th>
+              <th className="p-3 border dark:border-gray-700">Stock</th>
+              <th className="p-3 border dark:border-gray-700">SKU</th>
+              <th className="p-3 border dark:border-gray-700">Price</th>
+              <th className="p-3 border dark:border-gray-700">Qty</th>
+              <th className="p-3 border dark:border-gray-700">Status</th>
+              <th className="p-3 border dark:border-gray-700">Actions</th>
             </tr>
           </thead>
           <tbody>
             {displayedProducts.map((product) => (
               <tr
                 key={product.id}
-                className="border hover:bg-gray-100 transition"
+                className="border dark:border-gray-700 hover:bg-gray-100 transition"
               >
-                <td className="p-3 border">
+                <td className="p-3 border dark:border-gray-700">
                   <input type="checkbox" className="w-4 h-4" />
                 </td>
                 <td className="p-3 flex items-center gap-2">
@@ -209,7 +210,7 @@ const ECommerceProductList = () => {
                   />
                   <span>{product.name}</span>
                 </td>
-                <td className="p-3 border">{product.category}</td>
+                <td className="p-3 border dark:border-gray-700">{product.category}</td>
                 <td
   className="p-3  cursor-pointer flex items-center justify-between"
   onClick={() => toggleStock(product.id)}
@@ -226,11 +227,11 @@ const ECommerceProductList = () => {
     </>
   )}
 </td>
-                <td className="p-3 border">{product.sku}</td>
-                <td className="p-3 border">${product.price}</td>
-                <td className="p-3 border">{product.qty}</td>
-                <td className="p-3 border">{product.status}</td>
-                <td className="p-3 border">
+                <td className="p-3 border dark:border-gray-700">{product.sku}</td>
+                <td className="p-3 border dark:border-gray-700">${product.price}</td>
+                <td className="p-3 border dark:border-gray-700">{product.qty}</td>
+                <td className="p-3 border dark:border-gray-700">{product.status}</td>
+                <td className="p-3 border dark:border-gray-700">
                   <button className="text-indigo-500 hover:text-indigo-700">
                     <div className="flex items-center gap-2">
                       <FaEdit />
@@ -255,8 +256,8 @@ const ECommerceProductList = () => {
           <button
             onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
             disabled={currentPage === 1}
-            className={`px-3 py-1 rounded-md border ${
-              currentPage === 1 ? "bg-gray-300" : "bg-white hover:bg-gray-200"
+            className={`px-3 py-1 rounded-md border dark:border-gray-700 ${
+              currentPage === 1 ? "bg-gray-300 div-text div-dark" : "bg-white hover:bg-gray-200"
             }`}
           >
             {"<"}
@@ -265,9 +266,9 @@ const ECommerceProductList = () => {
             <button
               key={index}
               onClick={() => setCurrentPage(index + 1)}
-              className={`px-3 py-1 rounded-md border ${
+              className={`px-3 py-1 rounded-md border dark:border-gray-700 ${
                 currentPage === index + 1
-                  ? "bg-indigo-500 text-white"
+                  ? "bg-indigo-500 text-white "
                   : "bg-white hover:bg-gray-200"
               }`}
             >
@@ -279,16 +280,17 @@ const ECommerceProductList = () => {
               setCurrentPage((prev) => Math.min(prev + 1, totalPages))
             }
             disabled={currentPage === totalPages}
-            className={`px-3 py-1 rounded-md border ${
+            className={`px-3 py-1 rounded-md border dark:border-gray-700 ${
               currentPage === totalPages
-                ? "bg-gray-300"
-                : "bg-white hover:bg-gray-200"
+                ? "bg-gray-300 div-text div-dark"
+                : "bg-white hover:bg-gray-200 div-text div-dark"
             }`}
           >
             {">"}
           </button>
         </div>
       </div>
+    </div>
     </div>
   );
 };

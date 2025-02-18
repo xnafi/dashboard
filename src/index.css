@@ -1,3 +1,47 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+    .headings {
+      @apply text-3xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-extrabold uppercase;
+    }
+    .sub-heading {
+      @apply text-lg font-semibold text-gray-700 dark:text-gray-500;
+    }
+    .primary-text {
+      @apply text-sm md:text-base font-bold text-[#D3D3D3];
+    }
+    .primary_color {
+      @apply text-[#FFFFFF];
+    }
+    .para_text {
+      @apply text-sm lg:text-base
+    }
+    .secondary_color {
+      @apply text-[#DD4242];
+    }
+    .sub_color {
+      @apply text-[#6C6C6C];
+    }
+    .heading3{
+      @apply text-sm text-[#6C6C6C]
+    }
+    .container {
+      @apply px-4 mx-auto;
+    }
+    .div-dark {
+        @apply bg-white dark:bg-gray-800 ;
+    }
+    .div-text {
+        @apply text-gray-500 dark:text-gray-500 ;
+    }
+    .btn-text {
+        @apply text-gray-500 dark:text-gray-500 ;
+    }
+  }
+  
+  .text_head {
+    line-height: 5rem;
+  }
+  
