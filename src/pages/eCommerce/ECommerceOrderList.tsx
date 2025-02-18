@@ -84,7 +84,7 @@ const ECommerceOrderList = () => {
   return (
     <div className="p-6 bg-gray-50 mt-20 ml-6 dark:bg-gray-900 dark:text-white max-w-full rounded-lg shadow-md">
        {/* Summary Row */}
-       <div className="grid grid-cols-4 gap-4 mb-6 p-4 bg-white rounded-md shadow">
+       <div className="grid grid-cols-4 gap-4 mb-6 p-4 bg-white div-text div-dark border-dark rounded-md shadow">
         <div className="flex items-center gap-3">
             <div>
             <h2 className="text-xl font-bold">56</h2>
@@ -94,7 +94,7 @@ const ECommerceOrderList = () => {
           
           <FaRegCalendarCheck className="text-gray-400 text-lg ml-auto" />
         </div>
-        <div className="flex items-center gap-3 border-l pl-4">
+        <div className="flex items-center gap-3 border-l border-dark pl-4">
             <div>
             <h2 className="text-xl font-bold">12,689</h2>
             <p className="text-gray-500">Completed</p>
@@ -102,7 +102,7 @@ const ECommerceOrderList = () => {
           
           <FaRegCheckCircle className="text-gray-400 text-lg ml-auto" />
         </div>
-        <div className="flex items-center gap-3 border-l pl-4">
+        <div className="flex items-center gap-3 border-l border-dark pl-4">
             <div>
             <h2 className="text-xl font-bold">124</h2>
             <p className="text-gray-500">Refunded</p>
@@ -110,7 +110,7 @@ const ECommerceOrderList = () => {
           
           <FaRegCreditCard className="text-gray-400 text-lg ml-auto " />
         </div>
-        <div className="flex items-center gap-3 border-l pl-4">
+        <div className="flex items-center gap-3 border-l border-dark pl-4">
             <div>
             <h2 className="text-xl font-bold">32</h2>
             <p className="text-gray-500">Failed</p>
@@ -127,26 +127,26 @@ const ECommerceOrderList = () => {
           placeholder="Search Order"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="border border-gray-300 rounded-lg px-4 py-2 w-1/3"
+          className="border border-gray-300 rounded-lg px-4 py-2 w-1/3 div-text div-dark border-dark"
         />
 
         <div className="flex items-center gap-3">
-          <select className="border p-2 rounded-md">
+          <select className="border p-2 rounded-md div-text div-dark border-dark">
             <option value="7">7</option>
             <option value="10">10</option>
             <option value="20">20</option>
           </select>
 
-          <button className="bg-gray-200 text-black px-4 py-2 rounded-md flex items-center gap-2">
+          <button className="bg-gray-200 text-black px-4 py-2 rounded-md flex items-center gap-2 div-text div-dark border-dark">
             <FiDownload className="text-gray-600" /> Export
           </button>
         </div>
       </div>
 
       <div className="overflow-x-auto">
-        <table className="min-w-full bg-white border rounded-md">
+        <table className="min-w-full bg-white border rounded-md div-text div-dark border-dark">
           <thead>
-            <tr className="border-b text-left text-sm text-gray-600">
+            <tr className="border-b text-left text-sm text-gray-600 div-text div-dark border-dark">
               <th className="p-3">
                 <input type="checkbox" className="cursor-pointer" />
               </th>
@@ -163,7 +163,7 @@ const ECommerceOrderList = () => {
             {orders.map((order) => (
               <tr
                 key={order.id}
-                className="border-b text-sm hover:bg-gray-50 transition"
+                className="border-b div-text div-dark border-dark text-sm hover:bg-gray-50 transition"
               >
                 <td className="p-3">
                   <input
@@ -190,7 +190,7 @@ const ECommerceOrderList = () => {
                 </td>
                 <td className="p-3">
                   <span
-                    className={`px-2 py-1 text-xs font-semibold rounded ${getStatusColor(
+                    className={`px-2 py-1 text-xs font-semibold rounded div-text div-dark border-dark ${getStatusColor(
                       order.payment
                     )}`}
                   >
@@ -199,7 +199,7 @@ const ECommerceOrderList = () => {
                 </td>
                 <td className="p-3">
                   <span
-                    className={`px-2 py-1 text-xs font-semibold rounded ${getDeliveryStatusColor(
+                    className={`px-2 py-1 text-xs font-semibold rounded div-text div-dark border-dark ${getDeliveryStatusColor(
                       order.status
                     )}`}
                   >

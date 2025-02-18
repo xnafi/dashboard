@@ -33,8 +33,8 @@ const ECommerceProductAdd = () => {
   
 
   return (
-    <div className="p-6 bg-gray-50 mt-20 ml-6 dark:bg-gray-900 dark:text-white max-w-full rounded-lg shadow-m">
-      <div className="max-w-5xl mx-auto bg-white p-6 shadow-md rounded-lg">
+    <div className="p-6 bg-gray-50 mt-20 ml-6 dark:bg-gray-900  max-w-full rounded-lg shadow-m">
+      <div className="max-w-6xl mx-auto bg-white div-text dark:bg-gray-900 p-6 shadow-md rounded-lg">
         {/* Header */}
         <div className="flex justify-between items-center mb-4">
             <div>
@@ -43,8 +43,8 @@ const ECommerceProductAdd = () => {
             </div>
           
           <div className="flex space-x-2">
-            <button className="px-4 py-2 bg-gray-300 rounded">Discard</button>
-            <button className="px-4 py-2 bg-gray-300 rounded text-indigo-500">Save Draft</button>
+            <button className="px-4 py-2 bg-gray-300 rounded div-dark div-text">Discard</button>
+            <button className="px-4 py-2 bg-gray-300 rounded text-indigo-500 dark:text-indigo-500 div-dark ">Save Draft</button>
             <button className="px-4 py-2 bg-indigo-600 text-white rounded">
               Publish Product
             </button>
@@ -56,79 +56,79 @@ const ECommerceProductAdd = () => {
           <div className="lg:col-span-2">
             {/* Product Information */}
 <div className=" p-6 rounded-lg shadow-lg dark:bg-gray-800">
-  <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
+  <h2 className="text-lg font-semibold text-gray-900 div-text div-dark">
     Product information
   </h2>
 
   {/* Name Input */}
   <div className="mt-4">
-    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+    <label className="block text-sm font-medium div-text div-dark  div-text div-dark">
       Name
     </label>
     <input
       type="text"
       placeholder="Product Title"
-      className="w-full mt-1 p-2 border rounded-lg bg-white dark:bg-gray-700 dark:text-white dark:border-gray-600"
+      className="w-full mt-1 p-2 border rounded-lg bg-white div-text div-dark  dark:border-gray-600"
     />
   </div>
 
   {/* SKU & Barcode Inputs */}
   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
     <div>
-      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+      <label className="block text-sm font-medium div-text div-dark  div-text">
         SKU
       </label>
       <input
         type="text"
         placeholder="SKU"
-        className="w-full mt-1 p-2 border rounded-lg bg-white dark:bg-gray-700 dark:text-white dark:border-gray-600"
+        className="w-full mt-1 p-2 border rounded-lg bg-white  div-text div-dark  dark:border-gray-600"
       />
     </div>
     <div>
-      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+      <label className="block text-sm font-medium div-text div-dark  div-text">
         Barcode
       </label>
       <input
         type="text"
         placeholder="0123-4567"
-        className="w-full mt-1 p-2 border rounded-lg bg-white dark:bg-gray-700 dark:text-white dark:border-gray-600"
+        className="w-full mt-1 p-2 border rounded-lg bg-white div-text div-dark   dark:border-gray-600"
       />
     </div>
   </div>
 
   {/* Description */}
   <div className="mt-4">
-    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+    <label className="block text-sm font-medium div-text div-dark  div-text">
       Description (Optional)
     </label>
-    <div className="mt-1 border rounded-lg bg-white dark:bg-gray-700 dark:text-white dark:border-gray-600">
+    <div className="mt-1 border rounded-lg bg-white div-text div-dark   dark:border-gray-600">
       {/* Toolbar */}
       <div className="flex items-center gap-2 p-2 border-b dark:border-gray-600">
-        <button className="p-1 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 rounded">
+        <button className="p-1 text-gray-600 div-text div-dark hover:bg-gray-200 dark:hover:bg-gray-600 rounded">
           B
         </button>
-        <button className="p-1 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 rounded">
+        <button className="p-1 text-gray-600 div-text hover:bg-gray-200 dark:hover:bg-gray-600 rounded">
           I
         </button>
-        <button className="p-1 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 rounded">
+        <button className="p-1 text-gray-600 div-text hover:bg-gray-200 dark:hover:bg-gray-600 rounded">
           U
         </button>
-        <button className="p-1 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 rounded">
+        <button className="p-1 text-gray-600 div-text hover:bg-gray-200 dark:hover:bg-gray-600 rounded">
           [|]
         </button>
-        <button className="p-1 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 rounded  ">
+        <button className="p-1 text-gray-600 div-text hover:bg-gray-200 dark:hover:bg-gray-600 rounded  ">
           ≡
         </button>
-        <button className="p-1 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 rounded">
+        <button className="p-1 text-gray-600 div-text hover:bg-gray-200 dark:hover:bg-gray-600 rounded">
           ≡
         </button>
-        <button className="p-1 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 rounded">
+        <button className="p-1 text-gray-600 div-text hover:bg-gray-200 dark:hover:bg-gray-600 rounded">
           ≡
         </button>
       </div>
       {/* Text Area */}
       <textarea
-        className="w-full p-2 outline-none resize-none dark:bg-gray-700 dark:text-white"
+        className="w-full p-2 outline-none resize-none div-text div-dark  "
         rows={3}
         placeholder="Keep your account secure with authentication step."
       ></textarea>
@@ -138,17 +138,17 @@ const ECommerceProductAdd = () => {
                  {/* Product Image */}
 
             {/* Header */}
-            <div className="p-6 rounded-lg shadow-lg dark:bg-gray-800">
+            <div className="p-6 rounded-lg shadow-lg dark:bg-gray-800 mt-4">
       <div className="flex justify-between items-center mb-2  ">
-        <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Product Image</h2>
-        <button className="text-indigo-500 text-sm font-medium hover:underline">
+        <h2 className="text-lg font-semibold text-gray-900 div-text">Product Image</h2>
+        <button className="text-indigo-500 dark:text-indigo-500 text-sm font-medium hover:underline">
           Add media from URL
         </button>
       </div>
 
       {/* Upload Box */}
       <div
-        className="border-dashed border-2 border-gray-300 rounded-lg p-6 text-center cursor-pointer   shadow-sm dark:bg-gray-800"
+        className="border-dashed border-2 border-gray-300 dark:border-gray-700 rounded-lg p-6 text-center cursor-pointer   shadow-sm dark:bg-gray-800"
         onDragOver={(e) => e.preventDefault()}
         onDrop={handleDrop}
       >
@@ -161,11 +161,11 @@ const ECommerceProductAdd = () => {
         ) : (
           <>
             <FiUpload className="mx-auto text-3xl text-gray-500" />
-            <p className="mt-2 text-gray-600 dark:text-gray-300">
+            <p className="mt-2 text-gray-600 div-text">
               Drag and drop your image here
             </p>
             <p className="text-gray-500 dark:text-gray-400 mb-4">or</p>
-            <label className="mt-2 px-4 py-2 bg-gray-100 text-indigo-500 hover:bg-indigo-500 hover:text-white rounded cursor-pointer">
+            <label className="mt-2 px-4 py-2 bg-gray-100 dark:bg-indigo-500 text-indigo-700 dark:text-indigo-300 hover:bg-indigo-200 hover:text-white rounded  cursor-pointer">
               Browse Image
               <input
                 type="file"
@@ -180,21 +180,21 @@ const ECommerceProductAdd = () => {
       </div>
 
             {/* Variants */}
-            <div className=" p-4 rounded-lg shadow-lg mt-4">
+            <div className=" p-4 rounded-lg shadow-lg mt-4 div-text div-dark ">
               <h2 className="text-lg font-semibold mb-2">Variants</h2>
               <div>
-                <h2 className="text-sm font-medium text-gray-700 dark:text-gray-300 block mb-2">options</h2>
+                <h2 className="text-sm font-medium div-text   div-text block mb-2">options</h2>
               <div className="flex space-x-2">
                 
                 <input
                   type="text"
                   placeholder="Size"
-                  className="w-1/2 p-2 border rounded"
+                  className="w-1/2 p-2 border dark:border-gray-700 rounded div-text div-dark "
                 />
                 <input
                   type="text"
                   placeholder="Enter size"
-                  className="w-1/2 p-2 border rounded"
+                  className="w-1/2 p-2 border dark:border-gray-700 rounded div-text div-dark "
                 />
               </div>
               <button className="mt-2 bg-indigo-600 text-white px-4 py-2 ">+ Add Another Option</button>
@@ -204,7 +204,7 @@ const ECommerceProductAdd = () => {
             {/* Inventory */}
             <div className=" p-4 rounded-lg shadow-lg dark:bg-gray-800 mt-4">
       {/* Header */}
-      <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Inventory</h2>
+      <h2 className="text-lg font-semibold text-gray-900 div-text div-dark ">Inventory</h2>
 
       {/* Sidebar Navigation */}
       <div className="flex">
@@ -221,8 +221,8 @@ const ECommerceProductAdd = () => {
               onClick={() => setActiveTab(tab.name)}
               className={`w-full flex items-center space-x-2 px-4 py-2 rounded text-left transition ${
                 activeTab === tab.name
-                  ? " text-gray-700 hover:bg-indigo-500 hover:text-white"
-                  : " text-gray-700 hover:bg-indigo-500 hover:text-white"
+                  ? " div-text div-dark  hover:bg-indigo-500 hover:text-white"
+                  : " div-text div-dark  hover:bg-indigo-500 hover:text-white"
               }`}
             >
               {tab.icon}
@@ -233,24 +233,24 @@ const ECommerceProductAdd = () => {
 
         {/* Content Section */}
         <div className="w-2/3 pl-4">
-          <h3 className="text-sm font-normal text-gray-900 dark:text-white">Options</h3>
+          <h3 className="text-sm font-normal text-gray-900 div-text div-dark ">Options</h3>
           <div>
-          <h2 className="text-sm font-normal mt-4 text-gray-700 dark:text-gray-300 block mb-2">Add to stock</h2>
+          <h2 className="text-sm font-normal mt-4 div-text div-dark  div-text block mb-2">Add to stock</h2>
           
           <div className="mt-2 flex space-x-2">
             <input
               type="number"
               placeholder="Add Quantity"
-              className="w-full p-2 border rounded outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full p-2 border dark:border-gray-700 rounded outline-none focus:ring-2 focus:ring-indigo-500 div-text div-dark "
             />
-            <button className="px-4 py-2 bg-indigo-500 text-white rounded hover:bg-indigo-600">
+            <button className="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-600">
               Confirm
             </button>
           </div>
           </div>
 
           {/* Stock Details */}
-          <p className="text-gray-600 dark:text-gray-300 mt-4 text-sm">
+          <p className="text-gray-600 div-text mt-4 text-sm">
             <span className="block mb-2">Product in stock now: 8</span>
             <span className="block mb-2">Product in transit: 62</span>
             <span className="block mb-2">Last time restocked: 24th June, 2023</span>
@@ -264,23 +264,23 @@ const ECommerceProductAdd = () => {
           {/* Sidebar */}
           <div>
             {/* Pricing */}
-            <div className="p-4 rounded-lg shadow-lg">
+            <div className="p-4 rounded-lg shadow-lg div-text div-dark ">
               <h2 className="text-lg font-semibold mb-2">Pricing</h2>
               <div>
                 <div>
-                <h2 className="text-sm font-medium text-gray-700 dark:text-gray-300 block mt-2">Base price</h2>
+                <h2 className="text-sm font-medium div-text div-dark div-text div-text block mt-2">Base price</h2>
                 <input
                 type="text"
                 placeholder="Base Price"
-                className="w-full p-2 border rounded "
+                className="w-full p-2 border rounded div-text div-dark border-dark"
               />
                 </div>
              <div>
-                <h2 className="text-sm font-medium text-gray-700 dark:text-gray-300 block mt-2">Discounted Price</h2>
+                <h2 className="text-sm font-medium div-text div-dark  div-text block mt-2">Discounted Price</h2>
                 <input
                 type="text"
                 placeholder="Discounted Price"
-                className="w-full p-2 border rounded "
+                className="w-full p-2 border border-dark rounded div-text div-dark"
               />
              </div>
              
@@ -309,27 +309,27 @@ const ECommerceProductAdd = () => {
             </div>
 
             {/* Organize */}
-            <div className=" p-4 rounded-lg shadow-lg mt-4">
+            <div className=" p-4 rounded-lg shadow-lg mt-4 div-text div-dark ">
               <h2 className="text-lg font-semibold mb-2">Organize</h2>
-              <select className="w-full p-2 border rounded mt-2">
+              <select className="w-full p-2 border rounded mt-2 div-text div-dark border-dark">
                 <option>Select Vendor</option>
               </select>
               <div className="flex space-x-2 mt-2">
-                <select className="w-full p-2 border rounded">
+                <select className="w-full p-2 border rounded div-text div-dark border-dark">
                   <option>Select Category</option>
                 </select>
-                <button className="px-4 py-2 bg-indigo-100 text-indigo-500 text-lg font-semibold rounded">+</button>
+                <button className="px-4 py-2 bg-indigo-100 div-text div-dark dark:bg-indigo-300 text-indigo-500 text-lg font-semibold rounded">+</button>
               </div>
-              <select className="w-full p-2 border rounded mt-2">
+              <select className="w-full p-2 border rounded mt-2 div-text div-dark border-dark">
                 <option>Select Collection</option>
               </select>
-              <select className="w-full p-2 border rounded mt-2">
+              <select className="w-full p-2 border rounded mt-2 div-text div-dark border-dark">
                 <option>Published</option>
               </select>
               <input
                 type="text"
                 placeholder="Enter Tags"
-                className="w-full p-2 border rounded mt-2"
+                className="w-full p-2 border rounded mt-2 div-text div-dark border-dark"
               />
             </div>
           </div>
