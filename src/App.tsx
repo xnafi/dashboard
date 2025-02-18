@@ -33,6 +33,7 @@ import ECommerceUserOverview from "./pages/eCommerce/ECommerceUserOverview";
 import ECommerceOrderList from "./pages/eCommerce/ECommerceOrderList";
 import ECommerceCustomerSecurity from "./pages/eCommerce/ECommerceCustomerSecurity";
 import ECommerceCustomerAddress from "./pages/eCommerce/ECommerceCustomerAddress";
+import ECommerceManageReview from "./pages/eCommerce/ECommerceManageReview";
 
 
 function App() {
@@ -70,6 +71,7 @@ function App() {
           <Route path="/ECommerceUserOverview" element={<ECommerceUserOverview/>} />
           <Route path="/ECommerceCustomerSecurity" element={<ECommerceCustomerSecurity/>} />
           <Route path="/ECommerceCustomerAddress" element={<ECommerceCustomerAddress/>} />
+          <Route path="/ECommerceManageReview" element={<ECommerceManageReview/>} />
         </Route>
       </Routes>
     </BrowserRouter>
