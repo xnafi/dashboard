@@ -30,10 +30,10 @@ import { EyeIcon, EyeOffIcon } from "lucide-react";
         {/* Order Header */}
         <div className="flex justify-between items-center p-4 rounded-lg shadow-sm">
           <div>
-            <h3 className="text-lg font-semibold">Customer ID #634759</h3>
+            <h3 className="text-lg font-semibold div-text">Customer ID #634759</h3>
             <p className="text-sm text-gray-500">Aug 17, 2020, 5:48 (ET)</p>
           </div>
-          <button className="px-4 py-2 text-sm bg-red-100 text-red-600 rounded">
+          <button className="px-4 py-2 text-sm bg-red-100 dark:bg-red-300 text-red-600 rounded">
             Delete customer
           </button>
         </div>
@@ -42,60 +42,60 @@ import { EyeIcon, EyeOffIcon } from "lucide-react";
           {/* Left Section - User Profile & Premium */}
           <div>
             {/* User Profile */}
-            <div className="bg-white rounded-xl shadow-lg p-6 w-80">
+            <div className="bg-white rounded-xl shadow-lg p-6 w-80 div-text div-dark border-dark">
               <div className="flex flex-col items-center">
                 <img
                   src="https://i.postimg.cc/Tw4rMhxh/Avatar.png"
                   alt="User"
                   className="w-24 h-24"
                 />
-                <h2 className="text-xl font-semibold mt-2 text-gray-600">Seth Hallam</h2>
-                <p className="text-gray-500 text-sm">Customer ID #634759</p>
+                <h2 className="text-xl font-semibold mt-2 text-gray-600 div-text">Seth Hallam</h2>
+                <p className="text-gray-500 text-sm v">Customer ID #634759</p>
               </div>
   
               {/* Orders & Spent Section */}
               <div className="flex justify-between my-4">
                 <div className="flex items-center gap-2">
-                <div className="bg-gray-100 p-2  flex items-center justify-center">
+                <div className="bg-gray-100 dark:bg-indigo-300 p-2  flex items-center justify-center">
                   <FaShoppingCart className="text-indigo-500 text-xl" />
                 </div>
                   <div>
-                    <p className="text-lg font-semibold text-gray-600">184</p>
-                    <p className="text-gray-500 text-sm">Orders</p>
+                    <p className="text-lg font-semibold text-gray-600 div-text">184</p>
+                    <p className="text-gray-500 text-sm div-text">Orders</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
-                <div className="bg-gray-100 p-2  flex items-center justify-center">
+                <div className="bg-gray-100 dark:bg-indigo-300 p-2  flex items-center justify-center">
                   <FaDollarSign className="text-indigo-500 text-xl" />
                 </div>
                   <div>
-                    <p className="text-lg font-semibold text-gray-600">$8456</p>
-                    <p className="text-gray-500 text-sm">Spent</p>
+                    <p className="text-lg font-semibold text-gray-600 div-text">$8456</p>
+                    <p className="text-gray-500 text-sm div-text">Spent</p>
                   </div>
                 </div>
               </div>
   
               <h2 className="text-lg font-semibold text-gray-600">Details</h2>
-              <hr className="my-4" />
+              <hr className="my-4 border-dark" />
   
               {/* User Details */}
               <div className="text-sm">
-                <p className="mb-1 text-gray-600">
+                <p className="mb-1 text-gray-600 div-text">
                   <strong>Username:</strong> shal.lamb
                 </p>
-                <p className="mb-1 text-gray-600">
+                <p className="mb-1 text-gray-600 div-text">
                   <strong>Billing Email:</strong> shallamb@gmail.com
                 </p>
-                <p className="mb-1 text-gray-600">
+                <p className="mb-1 text-gray-600 div-text">
                   <strong>Status:</strong>{" "}
-                  <span className="bg-green-100 text-green-600 px-2 py-1 rounded-lg text-xs font-medium">
+                  <span className="bg-green-100 dark:bg-green-300 text-green-600 px-2 py-1 rounded-lg text-xs font-medium">
                     Active
                   </span>
                 </p>
-                <p className="mb-1 text-gray-600">
+                <p className="mb-1 text-gray-600 div-text">
                   <strong>Contact:</strong> +1 (234) 464-0600
                 </p>
-                <p className="mb-1 text-gray-600">
+                <p className="mb-1 text-gray-600 div-text">
                   <strong>Country:</strong> Peru
                 </p>
               </div>
@@ -133,7 +133,7 @@ import { EyeIcon, EyeOffIcon } from "lucide-react";
           onClick={() => setActiveTab(tab.name)}
           className={`flex items-center py-2 px-4 font-semibold rounded-lg transition duration-300 ${
             activeTab === tab.name
-              ? "text-blue-600 bg-blue-100"
+              ? "text-blue-600 bg-blue-100 "
               : "text-gray-500 hover:text-blue-600"
           }`}
         >
@@ -144,11 +144,11 @@ import { EyeIcon, EyeOffIcon } from "lucide-react";
   
             {/* Right Side - Change Password */}
       <div className="lg:col-span-2 bg-white rounded-2xl shadow-lg p-6 dark:bg-gray-800  dark:text-white">
-        <div className="bg-white rounded-2xl  dark:bg-gray-800  dark:text-white">
+        <div className="bg-white rounded-2xl  div-text div-dark border-dark">
           <h3 className="text-lg font-semibold">Change Password</h3>
 
           {/* Password Requirements Alert */}
-          <div className="bg-orange-100 text-orange-600 dark:text-orange-400 dark:bg-transparent p-4 rounded-lg mt-4">
+          <div className="bg-orange-100 dark:bg-gray-600 text-orange-600 dark:text-orange-400 dark:bg-transparent p-4 rounded-lg mt-4">
             <p className="font-semibold">Ensure that these requirements are met</p>
             <p className="text-sm">Minimum 8 characters long, uppercase & symbol</p>
           </div>
@@ -161,7 +161,7 @@ import { EyeIcon, EyeOffIcon } from "lucide-react";
               <div className="relative">
                 <input
                   type={showPassword ? "text" : "password"}
-                  className="w-full border rounded-md px-3 py-2 mt-1 dark:bg-gray-800  dark:text-white"
+                  className="w-full border rounded-md px-3 py-2 mt-1 div-text div-dark border-dark"
                   placeholder="••••••••"
                 />
                 <button
@@ -180,7 +180,7 @@ import { EyeIcon, EyeOffIcon } from "lucide-react";
               <div className="relative">
                 <input
                   type={showConfirmPassword ? "text" : "password"}
-                  className="w-full border rounded-md px-3 py-2 mt-1 dark:bg-gray-800  dark:text-white"
+                  className="w-full border rounded-md px-3 py-2 mt-1 div-text div-dark border-dark"
                   placeholder="••••••••"
                 />
                 <button
