@@ -31,16 +31,16 @@ const ECommerceManageReview = () => {
       {/* Top Section - Stats */}
       {/* Top Review Statistics */}
       <div className="grid grid-cols-2 gap-6 mb-6">
-        <div className="flex items-center text-2xl font-bold bg-white p-4">
+        <div className="flex items-center text-2xl font-bold bg-white p-4 div-dark div-text">
           {/* Left Section */}
           <div className="flex-1">
             <div className="flex items-center text-2xl font-bold text-indigo-500">
               4.89 <FaStar className="text-indigo-500 ml-2" />
             </div>
-            <p className="font-semibold text-sm text-gray-700 mt-1">
+            <p className="font-semibold text-sm text-gray-700 mt-1 div-text">
               Total 187 reviews
             </p>
-            <p className="text-gray-500 text-sm font-normal mt-2">
+            <p className="text-gray-500 text-sm font-normal mt-2 div-text">
               All reviews are from genuine customers
             </p>
             <button className="bg-purple-100 text-indigo-700 px-3 py-1 rounded mt-3 text-sm font-normal">
@@ -49,7 +49,7 @@ const ECommerceManageReview = () => {
           </div>
 
           {/* Right Section */}
-          <div className="flex-1 pl-6 text-gray-700 font-normal">
+          <div className="flex-1 pl-6 text-gray-700 div-text font-normal">
             {[5, 4, 3, 2, 1].map((star, index) => (
               <div key={index} className="flex items-center mb-2">
                 <span className="text-sm w-12">{star} Star</span>
@@ -66,13 +66,13 @@ const ECommerceManageReview = () => {
         </div>
 
         {/* Review Statistics */}
-        <div className="flex justify-between items-center text-2xl font-bold bg-white p-4">
+        <div className="flex justify-between items-center text-2xl font-bold div-dark div-text p-4 ">
           {/* Left Section */}
           <div className="flex-1">
-            <h3 className="text-lg font-semibold text-gray-700 ">
+            <h3 className="sub-heading div-text">
               Reviews statistics
             </h3>
-            <div className="flex items-center gap-2 text-sm mt-2 text-gray-700 font-normal">
+            <div className="flex items-center gap-2 text-sm mt-2 text-gray-700 font-normal div-text">
               <span>12 New reviews</span>
               <span className="bg-green-100 text-green-600 px-2 py-0.5 rounded-md text-xs font-medium">
                 +8.4%
@@ -80,7 +80,7 @@ const ECommerceManageReview = () => {
             </div>
             <div className="text-sm font-medium text-green-600 mt-14">
               87%{" "}
-              <span className="text-gray-700 font-normal">
+              <span className="text-gray-700 font-normal div-text">
                 Positive reviews
               </span>
             </div>
@@ -136,7 +136,7 @@ const ECommerceManageReview = () => {
               <option value="20">20</option>
             </select>
 
-            <button className="bg-gray-200 text-gray-500 px-4 py-2 border rounded-md flex items-center gap-2 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300">
+            <button className="bg-gray-200 text-gray-500 px-4 py-2 border rounded-md flex items-center gap-2 dark:border-gray-700 dark:bg-gray-800  btn-text">
               <FiDownload className="text-gray-600 " /> Export
             </button>
           </div>
@@ -144,7 +144,7 @@ const ECommerceManageReview = () => {
 
         {/* Review Table */}
 
-        <div className="bg-white shadow-lg rounded-xl overflow-x-auto">
+        <div className="div-dark shadow-lg rounded-xl overflow-x-auto">
           <table className="w-full border-collapse">
             <thead className=" text-left text-gray-500 text-sm">
               <tr>
@@ -161,7 +161,7 @@ const ECommerceManageReview = () => {
             </thead>
             <tbody>
               {filteredReviews.map((review) => (
-                <tr key={review.id} className="border-b text-sm">
+                <tr key={review.id} className="border-b text-sm dark:border-gray-700">
                   <td className="p-4 w-10 text-center align-middle">
                     <input type="checkbox" className="w-4 h-4" />
                   </td>
@@ -175,7 +175,7 @@ const ECommerceManageReview = () => {
                       <p className="font-medium text-gray-500">
                         {review.product}
                       </p>
-                      <p className="text-gray-500 text-xs">{review.brand}</p>
+                      <p className="text-gray-500 text-xs div-text">{review.brand}</p>
                     </div>
                   </td>
                   <td className="p-4  items-center space-x-3 max-w-[200px]">
@@ -193,7 +193,7 @@ const ECommerceManageReview = () => {
                       </p>
                     </div>
                   </td>
-                  <td className="p-4 align-top max-w-[250px] break-words">
+                  <td className="p-4 align-top max-w-[250px] break-words div-text">
                     <div className="flex items-center mb-1">
                       {Array.from({ length: 5 }, (_, i) => (
                         <FaStar
@@ -206,14 +206,14 @@ const ECommerceManageReview = () => {
                         />
                       ))}
                     </div>
-                    <p className="font-medium text-gray-900">
+                    <p className="font-medium text-gray-900 div-text">
                       {review.reviewTitle}
                     </p>
                     <p className="text-gray-500 text-xs break-words">
                       {review.reviewText}
                     </p>
                   </td>
-                  <td className="p-4 text-sm text-gray-600 whitespace-nowrap">
+                  <td className="p-4 text-sm text-gray-600 whitespace-nowrap div-text ">
                     {review.date}
                   </td>
                   <td className="p-4 text-sm whitespace-nowrap">
