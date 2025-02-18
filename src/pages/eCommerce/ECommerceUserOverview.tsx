@@ -175,8 +175,8 @@ const ECommerceUserOverview = () => {
                 onClick={() => setActiveTab(tab.name)}
                 className={`flex items-center py-2 px-4 font-semibold rounded-lg transition duration-300 ${
                   activeTab === tab.name
-                    ? "text-blue-600 bg-blue-100"
-                    : "text-gray-500 hover:text-blue-600"
+                    ? "text-indigo-600 bg-blue-100"
+                    : "text-gray-500 hover:text-indigo-600"
                 }`}
               >
                 {tab.icon} {tab.name}

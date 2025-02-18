@@ -1,0 +1,27 @@
+[
+    {
+      "id": 1,
+      "product": "OnePlus 7Pro",
+      "brand": "OnePlus",
+      "reviewer": "Jordan Stevenson",
+      "email": "dayna19@yahoo.com",
+      "rating": 5,
+      "reviewTitle": "I just love it!",
+      "reviewText": "I bought this hat for my boyfriend, but then I found out he cheated on me so I kept it and I love it!!!",
+      "date": "Mar 17, 2023",
+      "status": "Published"
+    },
+    {
+      "id": 2,
+      "product": "Magic Mouse",
+      "brand": "Google",
+      "reviewer": "Benedetto Rossiter",
+      "email": "lorena@yahoo.com",
+      "rating": 4,
+      "reviewTitle": "Really nice",
+      "reviewText": "Material is great and very comfortable and stylish.",
+      "date": "Mar 17, 2023",
+      "status": "Pending"
+    }
+  ]
+  
