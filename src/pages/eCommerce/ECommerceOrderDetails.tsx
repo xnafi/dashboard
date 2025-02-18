@@ -36,15 +36,15 @@ const ECommerceOrderDetails = () => {
   return (
     <div className="p-6 bg-gray-50 mt-20 ml-6 dark:bg-gray-900 dark:text-white rounded-lg shadow-md ">
       {/* Order Header */}
-      <div className="flex justify-between items-center p-4 border rounded-lg shadow-sm">
+      <div className="flex justify-between items-center p-4  rounded-lg shadow-sm div-text ">
         <div>
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-2 bb">
             <h3 className="text-lg font-semibold">Order #32543</h3>
             <div className="flex space-x-2">
-              <span className="px-3 py-1 text-sm bg-gray-100 text-green-500 rounded">
+              <span className="px-3 py-1 text-sm bg-gray-100 dark:bg-green-200 text-green-500 rounded">
                 Paid
               </span>
-              <span className="px-3 py-1 text-sm bg-gray-100 text-blue-400 rounded">
+              <span className="px-3 py-1 text-sm bg-gray-100 dark:bg-blue-200 text-blue-400 rounded">
                 Ready to pick
               </span>
             </div>
@@ -53,7 +53,7 @@ const ECommerceOrderDetails = () => {
           <p className="text-sm text-gray-500">Aug 17, 2020, 5:48 (ET)</p>
         </div>
         <div>
-          <span className="px-3 py-3 text-sm bg-red-50 text-red-500 rounded">
+          <span className="px-3 py-3 text-sm bg-red-50 dark:bg-red-300 text-red-500 rounded">
             Delete Order
           </span>
         </div>
@@ -62,14 +62,14 @@ const ECommerceOrderDetails = () => {
         {/* Left Section */}
         <div className="md:col-span-2 space-y-4">
           {/* Order Details */}
-          <div className="p-4 border rounded-lg shadow-sm">
+          <div className="p-4 border rounded-lg shadow-sm div-text div-dark border-dark">
             <div className="flex justify-between items-center mb-2">
               <h3 className="text-lg font-semibold">Order details</h3>
               <FaEdit className="text-gray-500 cursor-pointer" />
             </div>
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b text-left">
+                <tr className="border-b text-left border-dark">
                   <th className="p-2"></th>
                   <th className="p-2">Product</th>
                   <th className="p-2">Price</th>
@@ -108,7 +108,7 @@ const ECommerceOrderDetails = () => {
                     qty: 2,
                   },
                 ].map((item, index) => (
-                  <tr key={index} className="border-b">
+                  <tr key={index} className="border-b border-dark">
                     <td className="p-2">
                       <input type="checkbox" />
                     </td>
@@ -142,7 +142,7 @@ const ECommerceOrderDetails = () => {
                 <p>Tax:</p>
                 <p className="font-semibold ml-16 pl-6">$28</p>
               </div>
-              <div className="flex justify-items-start text-lg font-semibold border-t mt-2 pt-2">
+              <div className="flex justify-items-start text-lg font-semibold border-t border-dark mt-2 pt-2">
                 <p>Total:</p>
                 <p className="ml-16">$2,113</p>
               </div>
@@ -150,11 +150,11 @@ const ECommerceOrderDetails = () => {
           </div>
 
           {/* Shipping Activity */}
-          <div className="p-6 bg-white shadow-md rounded-lg border">
-            <h3 className="text-lg font-semibold text-gray-800">
+          <div className="p-6 bg-white shadow-md rounded-lg  div-text div-dark">
+            <h3 className="text-lg font-semibold text-gray-800 div-text">
               Shipping activity
             </h3>
-            <div className="mt-4 space-y-5">
+            <div className="mt-4 space-y-5 ">
               {activities.map((activity, index) => (
                 <div key={index} className="flex space-x-4 items-start">
                   {/* Timeline Indicator */}
@@ -167,20 +167,20 @@ const ECommerceOrderDetails = () => {
                       }`}
                     ></div>
                     {index !== activities.length - 1 && (
-                      <div className="w-0.5 bg-gray-300 absolute top-3 left-1/2 h-10"></div>
+                      <div className="w-0.5 bg-gray-300 dark:bg-indigo-500 absolute top-3 left-1/2 h-10 "></div>
                     )}
                   </div>
                   {/* Content */}
                   <div className="w-full">
                     <div className="flex justify-between items-center w-full">
-                      <h1 className="font-medium text-gray-900">
+                      <h1 className="font-medium text-gray-800 dark:text-gray-500">
                         {activity.status}
                       </h1>
                       {activity.date && (
-                        <p className="text-xs text-gray-400">{activity.date}</p>
+                        <p className="text-xs text-gray-400 div-dark">{activity.date}</p>
                       )}
                     </div>
-                    <p className="text-sm text-gray-600">{activity.desc}</p>
+                    <p className="text-sm text-gray-600 div-dark">{activity.desc}</p>
                   </div>
                 </div>
               ))}
@@ -191,7 +191,7 @@ const ECommerceOrderDetails = () => {
         {/* Right Section */}
         <div className="space-y-4">
           {/* Customer Details */}
-          <div className="p-4 border rounded-lg shadow-sm">
+          <div className="p-4 border rounded-lg shadow-sm div-text div-dark border-dark">
             <div className="flex justify-between items-center">
               <h3 className="text-lg font-semibold">Customer details</h3>
               <FaEdit className="text-gray-500 cursor-pointer" />
@@ -211,7 +211,7 @@ const ECommerceOrderDetails = () => {
           </div>
 
           {/* Shipping Address */}
-          <div className="p-4 border rounded-lg shadow-sm">
+          <div className="p-4 border rounded-lg shadow-sm div-text div-dark border-dark">
             <div className="flex justify-between items-center">
               <h3 className="text-lg font-semibold">Shipping address</h3>
               <FaEdit className="text-gray-500 cursor-pointer" />
@@ -228,7 +228,7 @@ const ECommerceOrderDetails = () => {
           </div>
 
           {/* Billing Address & Payment */}
-          <div className="p-4 border rounded-lg shadow-sm">
+          <div className="p-4 border rounded-lg shadow-sm div-text div-dark border-dark">
             <div className="flex justify-between items-center">
               <h3 className="text-lg font-semibold">Billing address</h3>
               <FaEdit className="text-gray-500 cursor-pointer" />
