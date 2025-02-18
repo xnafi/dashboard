@@ -62,7 +62,7 @@ const ECommerceProductList = () => {
   return (
     <div className="p-6 bg-gray-50 mt-20 ml-6 dark:bg-gray-900 dark:text-white max-w-full rounded-lg shadow-md">
        {/* Stats Cards Section */}
-       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6 dark:bg-gray-800">
         {/* Card 1 */}
         <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow flex flex-col">
           <span className="text-gray-500 text-sm">In-Store Sales</span>
@@ -197,7 +197,7 @@ const ECommerceProductList = () => {
             {displayedProducts.map((product) => (
               <tr
                 key={product.id}
-                className="border dark:border-gray-700 hover:bg-gray-100 transition"
+                className="border dark:border-gray-700 hover:bg-indigo-100 transition"
               >
                 <td className="p-3 border dark:border-gray-700">
                   <input type="checkbox" className="w-4 h-4" />
@@ -269,7 +269,7 @@ const ECommerceProductList = () => {
               className={`px-3 py-1 rounded-md border dark:border-gray-700 ${
                 currentPage === index + 1
                   ? "bg-indigo-500 text-white "
-                  : "bg-white hover:bg-gray-200"
+                  : "bg-white hover:bg-indigo-200"
               }`}
             >
               {index + 1}
