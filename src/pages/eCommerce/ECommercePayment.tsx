@@ -57,7 +57,7 @@ const ECommercePayment = () => {
                   set by the third-party. An additional fee will apply to new
                   orders once you select a plan.
                 </p>
-                <button className="bg-indigo-100 text-indigo-600 px-4 py-2 rounded-lg">
+                <button className="bg-indigo-100 dark:bg-indigo-400 text-indigo-600 px-4 py-2 rounded-lg">
                   Choose A Provider
                 </button>
               </section>
@@ -74,12 +74,12 @@ const ECommercePayment = () => {
                 </p>
 
                 {/* Default Label */}
-                <p className="text-sm font-medium text-gray-700 mb-2 dark:text-gray-300">
+                <p className="text-sm font-medium text-gray-700  mb-2 dark:text-gray-300">
                   Default
                 </p>
 
                 {/* Payment Card */}
-                <div className="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg flex justify-between items-center">
+                <div className="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg flex justify-between items-center">
                   <div className="w-full">
                     <div className="flex justify-between items-center">
                       <div>
@@ -100,7 +100,7 @@ const ECommercePayment = () => {
                       </div>
                       <div>
                         <p className="text-gray-500 text-sm">Status</p>
-                        <span className="bg-orange-100 text-orange-600 text-xs px-2 py-1 rounded-sm">
+                        <span className="bg-orange-100 dark:bg-orange-300 text-orange-600 text-xs px-2 py-1 rounded-sm">
                           Inactive
                         </span>
                       </div>
@@ -113,7 +113,7 @@ const ECommercePayment = () => {
                 </div>
 
                 {/* Add Payment Methods Button */}
-                <button className="bg-indigo-100 text-indigo-600 px-4 py-2 rounded-lg mt-4">
+                <button className="bg-indigo-100 dark:bg-indigo-400 text-indigo-600 px-4 py-2 rounded-lg mt-4">
                   Add Payment Methods
                 </button>
               </section>
@@ -129,14 +129,14 @@ const ECommercePayment = () => {
                   delivery, you'll need to approve their order before it can be
                   fulfilled.
                 </p>
-                <button className="bg-indigo-100 text-indigo-600 px-4 py-2 rounded-lg">
+                <button className="bg-indigo-100 dark:bg-indigo-400 text-indigo-600 px-4 py-2 rounded-lg">
                   Add Manual Payment Method <span className="ml-2">▼</span>
                 </button>
               </section>
 
               {/* Save & Discard Buttons */}
               <div className="flex justify-end gap-4">
-                <button className="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg">
+                <button className="px-4 py-2 bg-gray-300 dark:dark:bg-gray-500 text-gray-700 dark:text-gray-300 rounded-lg">
                   Discard
                 </button>
                 <button className="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg">

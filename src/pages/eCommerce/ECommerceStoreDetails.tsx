@@ -37,7 +37,7 @@ const ECommerceStoreDetails = () => {
                                 ${
                                   activeTab === item.name
                                     ? "bg-indigo-600"
-                                    : "hover:bg-indigo-300"
+                                    : "hover:bg-indigo-500"
                                 }`}
                 onClick={() => setActiveTab(item.name)}
               >
@@ -95,7 +95,7 @@ const ECommerceStoreDetails = () => {
                   />
                 </div>
               </div>
-              <div className="mt-4 p-3 bg-orange-100 dark:bg-orange-200 rounded-lg text-orange-800 text-sm">
+              <div className="mt-4 p-3 bg-orange-100 dark:bg-orange-300 rounded-lg text-orange-800 text-sm">
                 ⚠️ Confirm that you have access to johndoe@gmail.com in sender
                 email settings.
               </div>
@@ -219,7 +219,7 @@ const ECommerceStoreDetails = () => {
 
             {/* Store Currency */}
             <section className="bg-white dark:bg-gray-800 shadow-lg p-6 rounded-lg">
-              <h3 className="text-lg font-semibold mb-1">Store currency</h3>
+              <h3 className="text-lg font-semibold mb-1 div-text">Store currency</h3>
               <p className="text-sm text-gray-500 mb-2 dark:text-gray-400">
                 The currency your products are sold in.
               </p>
@@ -240,7 +240,7 @@ const ECommerceStoreDetails = () => {
 
             {/* Order ID Format */}
             <section className="bg-white dark:bg-gray-800 shadow-lg p-6 rounded-lg">
-              <h3 className="text-lg font-semibold mb-1">Order id format</h3>
+              <h3 className="text-lg font-semibold mb-1 div-text">Order id format</h3>
               <p className="text-sm text-gray-500 mb-2 dark:text-gray-400">
                 Shown on the Orders page, customer pages, and customer order
                 notifications to identify orders.
