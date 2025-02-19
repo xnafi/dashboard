@@ -273,7 +273,7 @@ const ECommerceStoreDetails = () => {
               <button className="px-4 py-2 bg-gray-300 text-gray-600 rounded-lg mr-3 cursor-not-allowed">
                 Discard
               </button>
-              <button className="px-4 py-2 bg-indigo-600 hover:bg-indigo-300 text-white rounded-lg">
+              <button className="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg">
                 Save Changes
               </button>
             </div>
