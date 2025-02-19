@@ -33,6 +33,7 @@ import ECommerceCustomerSecurity from "./pages/eCommerce/ECommerceCustomerSecuri
 import ECommerceCustomerAddress from "./pages/eCommerce/ECommerceCustomerAddress";
 import ECommerceManageReview from "./pages/eCommerce/ECommerceManageReview";
 import ECommerceReferrals from "./pages/eCommerce/ECommerceReferrals";
+import ECommerceStoreDetails from "./pages/eCommerce/ECommerceStoreDetails";
 
 
 function App() {
@@ -72,6 +73,7 @@ function App() {
           <Route path="/ECommerceCustomerAddress" element={<ECommerceCustomerAddress/>} />
           <Route path="/ECommerceManageReview" element={<ECommerceManageReview/>} />
           <Route path="/ECommerceReferrals" element={<ECommerceReferrals/>} />
+          <Route path="/ECommerceStoreDetails" element={<ECommerceStoreDetails/>} />
         </Route>
       </Routes>
     </BrowserRouter>
