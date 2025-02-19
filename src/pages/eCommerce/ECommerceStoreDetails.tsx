@@ -51,11 +51,11 @@ const ECommerceStoreDetails = () => {
         <div className="flex-1 p-8">
           <div className="space-y-6">
             {/* Profile Section */}
-            <section className="bg-white dark:bg-gray-800 shadow-lg p-6 rounded-lg">
+            <section className="bg-white dark:bg-gray-800 shadow-lg p-6 rounded-lg border-dark div-dark div-text ">
               <h3 className="text-lg font-semibold mb-4">Profile</h3>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="text-sm text-gray-600 dark:text-gray-300">
+                  <label className="text-sm text-gray-600 div-text">
                     Store Name
                   </label>
                   <input
@@ -65,7 +65,7 @@ const ECommerceStoreDetails = () => {
                   />
                 </div>
                 <div>
-                  <label className="text-sm text-gray-600 dark:text-gray-300">
+                  <label className="text-sm text-gray-600 div-text">
                     Phone
                   </label>
                   <input
@@ -75,7 +75,7 @@ const ECommerceStoreDetails = () => {
                   />
                 </div>
                 <div>
-                  <label className="text-sm text-gray-600 dark:text-gray-300">
+                  <label className="text-sm text-gray-600 div-text">
                     Store contact email
                   </label>
                   <input
@@ -85,7 +85,7 @@ const ECommerceStoreDetails = () => {
                   />
                 </div>
                 <div>
-                  <label className="text-sm text-gray-600 dark:text-gray-300">
+                  <label className="text-sm text-gray-600 div-text">
                     Sender email
                   </label>
                   <input
@@ -103,12 +103,12 @@ const ECommerceStoreDetails = () => {
 
             {/* Billing Information */}
             <section className="bg-white dark:bg-gray-800 shadow-lg p-6 rounded-lg">
-              <h3 className="text-lg font-semibold mb-4">
+              <h3 className="text-lg font-semibold mb-4 div-text">
                 Billing information
               </h3>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="text-sm text-gray-600 dark:text-gray-300">
+                  <label className="text-sm text-gray-600 div-text">
                     Legal business name
                   </label>
                   <input
@@ -118,7 +118,7 @@ const ECommerceStoreDetails = () => {
                   />
                 </div>
                 <div>
-                  <label className="text-sm text-gray-600 dark:text-gray-300">
+                  <label className="text-sm text-gray-600 div-text">
                     Country/region
                   </label>
                   <select className="input-field">
@@ -126,7 +126,7 @@ const ECommerceStoreDetails = () => {
                   </select>
                 </div>
                 <div className="col-span-2">
-                  <label className="text-sm text-gray-600 dark:text-gray-300">
+                  <label className="text-sm text-gray-600 div-text">
                     Address
                   </label>
                   <input
@@ -136,7 +136,7 @@ const ECommerceStoreDetails = () => {
                   />
                 </div>
                 <div>
-                  <label className="text-sm text-gray-600 dark:text-gray-300">
+                  <label className="text-sm text-gray-600 div-text">
                     Apartment, suite, etc.
                   </label>
                   <input
@@ -146,7 +146,7 @@ const ECommerceStoreDetails = () => {
                   />
                 </div>
                 <div>
-                  <label className="text-sm text-gray-600 dark:text-gray-300">
+                  <label className="text-sm text-gray-600 div-text">
                     City
                   </label>
                   <input
@@ -156,7 +156,7 @@ const ECommerceStoreDetails = () => {
                   />
                 </div>
                 <div>
-                  <label className="text-sm text-gray-600 dark:text-gray-300">
+                  <label className="text-sm text-gray-600 div-text">
                     State
                   </label>
                   <input
@@ -166,7 +166,7 @@ const ECommerceStoreDetails = () => {
                   />
                 </div>
                 <div>
-                  <label className="text-sm text-gray-600 dark:text-gray-300">
+                  <label className="text-sm text-gray-600 div-text">
                     PIN Code
                   </label>
                   <input
@@ -180,7 +180,7 @@ const ECommerceStoreDetails = () => {
 
             {/* Time Zone & Units */}
             <section className="bg-white dark:bg-gray-800 shadow-lg p-6 rounded-lg">
-              <h3 className="text-lg font-semibold mb-1">
+              <h3 className="text-lg font-semibold mb-1 div-text">
                 Time zone and units of measurement
               </h3>
               <p className="text-sm text-gray-500 mb-2 dark:text-gray-400">
@@ -189,7 +189,7 @@ const ECommerceStoreDetails = () => {
               </p>
               <div className="">
                 <div>
-                  <label className="text-sm text-gray-600  dark:text-gray-300">
+                  <label className="text-sm text-gray-600  div-text">
                     Time zone
                   </label>
                   <select className="input-field">
@@ -198,7 +198,7 @@ const ECommerceStoreDetails = () => {
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="text-sm text-gray-600 dark:text-gray-300">
+                    <label className="text-sm text-gray-600 div-text">
                       Unit system
                     </label>
                     <select className="input-field w-full">
@@ -206,7 +206,7 @@ const ECommerceStoreDetails = () => {
                     </select>
                   </div>
                   <div>
-                    <label className="text-sm text-gray-600 dark:text-gray-300">
+                    <label className="text-sm text-gray-600 div-text">
                       Default weight unit
                     </label>
                     <select className="input-field w-full">
@@ -224,7 +224,7 @@ const ECommerceStoreDetails = () => {
                 The currency your products are sold in.
               </p>
               <div>
-                <label className="text-sm text-gray-600 dark:text-gray-300">
+                <label className="text-sm text-gray-600 div-text">
                   Store currency
                 </label>
                 <select className="input-field w-full">
@@ -247,13 +247,13 @@ const ECommerceStoreDetails = () => {
               </p>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="text-sm text-gray-600 dark:text-gray-300">
+                  <label className="text-sm text-gray-600 div-text">
                     Prefix
                   </label>
                   <input type="text" placeholder="#" className="input-field" />
                 </div>
                 <div>
-                  <label className="text-sm text-gray-600 dark:text-gray-300">
+                  <label className="text-sm text-gray-600 div-text">
                     Suffix
                   </label>
                   <input

@@ -39,7 +39,7 @@ const ECommerceReferrals = () => {
   return (
     <div className="p-6 bg-gray-50 mt-20 ml-6 dark:bg-gray-900 dark:text-white max-w-full rounded-lg shadow-2xl">
       {/* Top Stats Section */}
-      <div className="grid grid-cols-4 gap-4 mb-6">
+      <div className="grid grid-cols-4 gap-4 mb-6  div-text">
         {[
           {
             title: "Total Earning",
@@ -64,7 +64,7 @@ const ECommerceReferrals = () => {
         ].map((stat, index) => (
           <div
             key={index}
-            className="bg-white p-4 rounded-lg shadow-md flex items-center justify-between"
+            className="bg-white p-4 rounded-lg shadow-md flex items-center justify-between div-dark"
           >
             <div>
               <h3 className="text-2xl font-bold">{stat.value}</h3>
@@ -81,7 +81,7 @@ const ECommerceReferrals = () => {
 
       <div className="grid grid-cols-2 gap-6">
         {/* How to use section */}
-        <div className="bg-white p-6 rounded-lg shadow-md">
+        <div className="bg-white p-6 rounded-lg shadow-md div-dark div-text">
           <h3 className="text-lg font-semibold">How to use</h3>
           <p className="text-gray-500 mb-4">
             Integrate your referral code in 3 easy steps.
@@ -95,7 +95,7 @@ const ECommerceReferrals = () => {
                 reward: "$50",
               },
               {
-                img: "https://i.postimg.cc/V6y95ykG/Icon-2x.jpg",
+                img: "https://i.postimg.cc/265WVH7L/Icon-5.png",
                 text: "For every new signup you get",
                 reward: "10%",
               },
@@ -107,12 +107,12 @@ const ECommerceReferrals = () => {
             ].map((item, index) => (
               <div
                 key={index}
-                className="flex flex-col items-center text-center"
+                className="flex flex-col items-center text-center "
               >
                 <img
                   src={item.img}
                   alt="Step Icon"
-                  className="w-12 h-12 mb-2"
+                  className="w-12 h-12 mb-2 div-dark"
                 />
                 <p className="text-gray-500 text-sm">{item.text}</p>
                 <span className="text-indigo-600 font-semibold">
@@ -124,7 +124,7 @@ const ECommerceReferrals = () => {
         </div>
 
         {/* Invite Friends Section */}
-        <div className="bg-white p-6 rounded-lg shadow-md">
+        <div className="bg-white p-6 rounded-lg shadow-md div-dark div-text">
           <h3 className="text-lg font-semibold flex items-center gap-2">
             <FaUserFriends className="text-indigo-600" /> Invite your friends
           </h3>
@@ -136,7 +136,7 @@ const ECommerceReferrals = () => {
             <input
               type="email"
               placeholder="Email address"
-              className="w-full border rounded-lg p-2 text-sm"
+              className="w-full border rounded-lg p-2 text-sm border-dark div-dark div-text"
             />
             <button className="bg-indigo-600 text-white px-4 py-2 rounded-lg">
               Submit
@@ -153,7 +153,7 @@ const ECommerceReferrals = () => {
               type="text"
               value="https://pixinvent.com/?ref=6479"
               readOnly
-              className="w-full border rounded-lg p-2 text-sm"
+              className="w-full border rounded-lg p-2 text-sm border-dark div-dark div-text"
             />
             <button className="bg-blue-600 text-white p-2 rounded-lg flex items-center justify-center w-10 h-10">
               <FaFacebookF />
@@ -166,7 +166,7 @@ const ECommerceReferrals = () => {
       </div>
 
       {/* Referred Users Table */}
-      <div className="bg-white p-6 rounded-lg shadow-md">
+      <div className="bg-white p-6 rounded-lg shadow-md border-dark div-dark div-text mt-6">
         <div className="bg-white dark:bg-gray-800 p-4">
           <div className="flex justify-between items-center mb-4 dark:bg-gray-800">
             <h3 className="text-lg font-semibold mb-4">Referred Users</h3>
@@ -177,7 +177,7 @@ const ECommerceReferrals = () => {
                 <option value="20">20</option>
               </select>
 
-              <button className="bg-gray-200 text-gray-500 px-4 py-2 border rounded-md flex items-center gap-2 dark:border-gray-700 dark:bg-gray-800  btn-text">
+              <button className="bg-gray-200 dark:bg-gray-700 text-gray-500 px-4 py-2 border rounded-md flex items-center gap-2 dark:border-gray-700   btn-text">
                 <FiDownload className="text-gray-600 " /> Export
               </button>
             </div>
@@ -186,9 +186,9 @@ const ECommerceReferrals = () => {
 
         <table className="w-full border-collapse">
           <thead>
-            <tr className="border-b">
-              <th className="p-4 w-10 text-center">
-                <input type="checkbox" className="w-4 h-4" />
+            <tr className="border-b border-t border-dark">
+              <th className="p-4 w-10 text-center ">
+                <input type="checkbox" className="w-4 h-4 " />
               </th>
               <th className="text-left p-2">Users</th>
               <th className="text-left p-2">Referred ID</th>
@@ -199,7 +199,7 @@ const ECommerceReferrals = () => {
           </thead>
           <tbody>
             {referredUsers.map((user, index) => (
-              <tr key={index} className="border-b">
+              <tr key={index} className="border-b border-dark">
                 <td className="p-4 w-10 text-center align-middle">
                   <input type="checkbox" className="w-4 h-4" />
                 </td>
@@ -219,8 +219,8 @@ const ECommerceReferrals = () => {
                   <span
                     className={`px-2 py-1 text-xs rounded ${
                       user.status === "Active"
-                        ? "bg-green-100 text-green-600"
-                        : "bg-orange-100 text-orange-600"
+                        ? "bg-green-100 text-green-600 dark:bg-green-300 dark:text-green-800"
+                        : "bg-orange-100 text-orange-600 dark:bg-orange-300 dark:text-orange-800"
                     }`}
                   >
                     {user.status}
