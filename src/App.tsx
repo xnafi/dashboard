@@ -22,11 +22,9 @@ import Register from "./pages/Register/Register";
 import UserOverview from "./pages/User/UserOverview";
 import UserSecurity from "./pages/User/UserSecurity";
 import UserPlans from "./pages/User/UserPlans";
-// import ECommerceProductList from "./pages/eCommerce/eCommerceProductList";
 import ECommerceCategoryList from "./pages/eCommerce/ECommerceCategoryList";
 import ECommerceProductAdd from "./pages/eCommerce/ECommerceProductAdd";
 import ECommerceProductList from "./pages/eCommerce/ECommerceProductList";
-// import ECommerceOrderList from "./pages/eCommerce/EcommerceOrderList";
 import ECommerceAllCustomers from "./pages/eCommerce/ECommerceAllCustomers";
 import ECommerceOrderDetails from "./pages/eCommerce/ECommerceOrderDetails";
 import ECommerceUserOverview from "./pages/eCommerce/ECommerceUserOverview";
@@ -34,6 +32,7 @@ import ECommerceOrderList from "./pages/eCommerce/ECommerceOrderList";
 import ECommerceCustomerSecurity from "./pages/eCommerce/ECommerceCustomerSecurity";
 import ECommerceCustomerAddress from "./pages/eCommerce/ECommerceCustomerAddress";
 import ECommerceManageReview from "./pages/eCommerce/ECommerceManageReview";
+import ECommerceReferrals from "./pages/eCommerce/ECommerceReferrals";
 
 
 function App() {
@@ -72,6 +71,7 @@ function App() {
           <Route path="/ECommerceCustomerSecurity" element={<ECommerceCustomerSecurity/>} />
           <Route path="/ECommerceCustomerAddress" element={<ECommerceCustomerAddress/>} />
           <Route path="/ECommerceManageReview" element={<ECommerceManageReview/>} />
+          <Route path="/ECommerceReferrals" element={<ECommerceReferrals/>} />
         </Route>
       </Routes>
     </BrowserRouter>
