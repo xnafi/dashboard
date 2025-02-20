@@ -46,8 +46,9 @@ const ECommerceCheckOut = () => {
         {/* Right Section */}
         <div className="flex-1 p-6">
           {activeTab === "Checkout" && (
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold mb-4">Customer contact method</h3>
+            <div >
+                <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+              <h3 className="text-lg font-semibold mb-1">Customer contact method</h3>
               <p className="text-gray-500 mb-4">Select what contact method customers use to check out.</p>
 
               <div className="space-y-4">
@@ -59,22 +60,24 @@ const ECommerceCheckOut = () => {
                   <input type="radio" name="contact" className="text-indigo-600" />
                   <span>Email</span>
                 </label>
-              </div>
-
-              <div className="bg-blue-100 text-blue-700 p-4 rounded-lg mt-4">
+                <div className="bg-blue-100 text-blue-700 p-4 rounded-lg mt-4">
                 <p>📢 To send SMS updates, you need to install an SMS App.</p>
               </div>
+                </div>
+              </div>
 
-              <h3 className="text-xl font-semibold mt-6 mb-4">Customer information</h3>
+             
+              <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md mt-4">
+              <h3 className="text-lg font-semibold mt-6 mb-4">Customer information</h3>
 
               <div className="space-y-4">
                 <fieldset>
                   <legend className="font-medium">Full name</legend>
-                  <label className="flex items-center gap-3">
+                  <label className="flex items-center gap-3 mb-1">
                     <input type="radio" name="fullname" className="text-indigo-600" defaultChecked />
                     <span>Phone number</span>
                   </label>
-                  <label className="flex items-center gap-3">
+                  <label className="flex items-center gap-3 ">
                     <input type="radio" name="fullname" className="text-indigo-600" />
                     <span>Require first and last name</span>
                   </label>
@@ -82,15 +85,15 @@ const ECommerceCheckOut = () => {
 
                 <fieldset>
                   <legend className="font-medium">Company name</legend>
-                  <label className="flex items-center gap-3">
+                  <label className="flex items-center gap-3 mb-1">
                     <input type="radio" name="company" className="text-indigo-600" defaultChecked />
                     <span>Don’t include</span>
                   </label>
-                  <label className="flex items-center gap-3">
+                  <label className="flex items-center gap-3 mb-1">
                     <input type="radio" name="company" className="text-indigo-600" />
                     <span>Optional</span>
                   </label>
-                  <label className="flex items-center gap-3">
+                  <label className="flex items-center gap-3 mb-1">
                     <input type="radio" name="company" className="text-indigo-600" />
                     <span>Required</span>
                   </label>
@@ -98,15 +101,15 @@ const ECommerceCheckOut = () => {
 
                 <fieldset>
                   <legend className="font-medium">Address line 2 (apartment, unit, etc.)</legend>
-                  <label className="flex items-center gap-3">
+                  <label className="flex items-center gap-3 mb-1">
                     <input type="radio" name="address2" className="text-indigo-600" defaultChecked />
                     <span>Don’t include</span>
                   </label>
-                  <label className="flex items-center gap-3">
+                  <label className="flex items-center gap-3 mb-1">
                     <input type="radio" name="address2" className="text-indigo-600" />
                     <span>Optional</span>
                   </label>
-                  <label className="flex items-center gap-3">
+                  <label className="flex items-center gap-3 mb-1">
                     <input type="radio" name="address2" className="text-indigo-600" />
                     <span>Required</span>
                   </label>
@@ -114,19 +117,20 @@ const ECommerceCheckOut = () => {
 
                 <fieldset>
                   <legend className="font-medium">Shipping address phone number</legend>
-                  <label className="flex items-center gap-3">
+                  <label className="flex items-center gap-3 mb-1">
                     <input type="radio" name="shippingPhone" className="text-indigo-600" defaultChecked />
                     <span>Don’t include</span>
                   </label>
-                  <label className="flex items-center gap-3">
+                  <label className="flex items-center gap-3 mb-1">
                     <input type="radio" name="shippingPhone" className="text-indigo-600" />
                     <span>Optional</span>
                   </label>
-                  <label className="flex items-center gap-3">
+                  <label className="flex items-center gap-3 mb-1">
                     <input type="radio" name="shippingPhone" className="text-indigo-600" />
                     <span>Required</span>
                   </label>
                 </fieldset>
+              </div>
               </div>
 
               {/* Footer Buttons */}
