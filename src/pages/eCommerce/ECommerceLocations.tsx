@@ -150,7 +150,7 @@ const ECommerceLocations = () => {
 
               {/* Buttons */}
               <div className="mt-6 flex justify-end space-x-4">
-                <button className="px-6 py-2 bg-gray-300 rounded-lg hover:bg-gray-400 dark:bg-gray-700 dark:hover:bg-gray-600 div-text">
+                <button className="px-6 py-2 bg-gray-300 rounded-lg hover:bg-gray-400  dark:hover:bg-gray-600 div-text div-dark">
                   Discard
                 </button>
                 <button className="px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700">

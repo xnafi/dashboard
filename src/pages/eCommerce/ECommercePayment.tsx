@@ -48,11 +48,11 @@ const ECommercePayment = () => {
           {activeTab === "Payment" && (
             <div className="space-y-6">
               {/* Payment Providers */}
-              <section className="bg-white dark:bg-gray-800 shadow-lg p-6 rounded-lg">
+              <section className="bg-white dark:bg-gray-800 shadow-lg p-6 rounded-lg border-dark div-dark div-text" >
                 <h3 className="text-lg font-semibold mb-1">
                   Payment providers
                 </h3>
-                <p className="text-sm text-gray-500 mb-4 dark:text-gray-400">
+                <p className="text-sm text-gray-500 mb-4 div-text">
                   Providers that enable you to accept payment methods at a rate
                   set by the third-party. An additional fee will apply to new
                   orders once you select a plan.
@@ -63,18 +63,18 @@ const ECommercePayment = () => {
               </section>
 
               {/* Supported Payment Methods */}
-              <section className="bg-white dark:bg-gray-800 shadow-lg p-6 rounded-lg">
+              <section className="bg-white dark:bg-gray-800 shadow-lg p-6 rounded-lg border-dark div-dark div-text">
                 {/* Header */}
                 <h3 className="text-lg font-semibold mb-1">
                   Supported payment methods
                 </h3>
-                <p className="text-sm text-gray-500 mb-4 dark:text-gray-400">
+                <p className="text-sm text-gray-500 mb-4 div-text">
                   Payment methods that are available with one of Vuexy's
                   approved payment providers.
                 </p>
 
                 {/* Default Label */}
-                <p className="text-sm font-medium text-gray-700  mb-2 dark:text-gray-300">
+                <p className="text-sm font-medium text-gray-700  mb-2 div-text">
                   Default
                 </p>
 
@@ -119,11 +119,11 @@ const ECommercePayment = () => {
               </section>
 
               {/* Manual Payment Methods */}
-              <section className="bg-white dark:bg-gray-800 shadow-lg p-6 rounded-lg">
+              <section className="bg-white dark:bg-gray-800 shadow-lg p-6 rounded-lg border-dark div-dark div-text">
                 <h3 className="text-lg font-semibold mb-1">
                   Manual payment methods
                 </h3>
-                <p className="text-sm text-gray-500 mb-4 dark:text-gray-400">
+                <p className="text-sm text-gray-500 mb-4 div-text">
                   Payments that are made outside your online store. When a
                   customer selects a manual payment method such as cash on
                   delivery, you'll need to approve their order before it can be
@@ -136,7 +136,7 @@ const ECommercePayment = () => {
 
               {/* Save & Discard Buttons */}
               <div className="flex justify-end gap-4">
-                <button className="px-4 py-2 bg-gray-300 dark:dark:bg-gray-500 text-gray-700 dark:text-gray-300 rounded-lg">
+                <button className="px-4 py-2 bg-gray-300  text-gray-700 hover:bg-gray-400  dark:hover:bg-gray-600 rounded-lg div-dark div-text">
                   Discard
                 </button>
                 <button className="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg">

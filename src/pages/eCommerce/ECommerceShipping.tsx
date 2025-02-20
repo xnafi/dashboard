@@ -139,7 +139,7 @@ const ECommerceShipping = () => {
       </div>
 
       <div className="flex justify-end mt-4">
-        <button className="px-4 py-2 bg-gray-400 text-white rounded-lg mr-2 div-text">Discard</button>
+        <button className="px-4 py-2 bg-gray-400 text-white rounded-lg mr-2 div-text div-dark">Discard</button>
         <button className="px-4 py-2 bg-indigo-600 text-white rounded-lg">Save Changes</button>
       </div>
     </div>
