@@ -33,7 +33,7 @@ const ECommerceCheckOut = () => {
                                 ${
                                   activeTab === item.name
                                     ? "bg-indigo-600 text-white"
-                                    : "hover:bg-indigo-300"
+                                    : "hover:bg-indigo-300 dark:hover:bg-indigo-500 dark:hover:text-gray-300"
                                 }`}
                 onClick={() => setActiveTab(item.name)}
               >
