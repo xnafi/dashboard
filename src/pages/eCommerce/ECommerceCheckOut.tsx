@@ -23,7 +23,7 @@ const ECommerceCheckOut = () => {
     <div className="p-6 bg-gray-50 mt-20 ml-6 dark:bg-gray-900 max-w-full rounded-lg shadow-2xl">
       <div className="flex  dark:bg-gray-900">
         {/* Sidebar */}
-        <aside className="w-64 p-6  dark:bg-gray-800 rounded-lg">
+        <aside className="w-64 p-6   rounded-lg">
           <h2 className="text-lg font-semibold mb-4">Getting Started</h2>
           <ul className="space-y-2">
             {menuItems.map((item) => (
@@ -47,7 +47,7 @@ const ECommerceCheckOut = () => {
         <div className="flex-1 p-6">
           {activeTab === "Checkout" && (
             <div >
-                <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+                <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border-dark div-dark div-text">
               <h3 className="text-lg font-semibold mb-1">Customer contact method</h3>
               <p className="text-gray-500 mb-4">Select what contact method customers use to check out.</p>
 
@@ -67,7 +67,7 @@ const ECommerceCheckOut = () => {
               </div>
 
              
-              <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md mt-4">
+              <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md mt-4 border-dark div-dark div-text">
               <h3 className="text-lg font-semibold mt-6 mb-4">Customer information</h3>
 
               <div className="space-y-4">
@@ -135,7 +135,7 @@ const ECommerceCheckOut = () => {
 
               {/* Footer Buttons */}
               <div className="flex justify-end mt-6 space-x-4">
-                <button className="px-4 py-2 bg-gray-200 text-gray-600 rounded-lg">Discard</button>
+                <button className="px-4 py-2 bg-gray-200 text-gray-600 rounded-lg div-text div-dark">Discard</button>
                 <button className="px-4 py-2 bg-indigo-600 text-white rounded-lg">Save Changes</button>
               </div>
             </div>
