@@ -21,9 +21,9 @@ const ECommerceCheckOut = () => {
 
   return (
     <div className="p-6 bg-gray-50 mt-20 ml-6 dark:bg-gray-900 max-w-full rounded-lg shadow-2xl">
-      <div className="flex bg-gray-100 dark:bg-gray-900">
+      <div className="flex  dark:bg-gray-900">
         {/* Sidebar */}
-        <aside className="w-64 p-6 bg-white dark:bg-gray-800 shadow-md rounded-lg">
+        <aside className="w-64 p-6  dark:bg-gray-800 rounded-lg">
           <h2 className="text-lg font-semibold mb-4">Getting Started</h2>
           <ul className="space-y-2">
             {menuItems.map((item) => (
