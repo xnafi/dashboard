@@ -47,12 +47,12 @@ const UserOverview = () => {
   const [showCount, setShowCount] = useState("10");
 
   return (
-    <div className="p-6 bg-gray-50 mt-20 ml-6 max-w-full dark:bg-gray-900 dark:text-white">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 p-6 bg-gray-100 dark:bg-gray-900  dark:text-gray-200">
+    <div className="p-6 bg-gray-50 mt-20 ml-6 max-w-full dark:bg-gray-900 div-text">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 p-6 bg-gray-100 dark:bg-gray-900  div-text">
         {/* Left Side - User Details & Plan */}
         <div className="lg:col-span-1 space-y-6">
           {/* User Details */}
-          <div className="bg-white rounded-2xl shadow-md p-6 dark:bg-gray-800  dark:text-white">
+          <div className="bg-white rounded-2xl shadow-md p-6 div-dark div-text">
             {/* Profile Section */}
             <div className="flex flex-col items-center">
               <img
@@ -61,7 +61,7 @@ const UserOverview = () => {
                 className="w-20 h-20 rounded-full border-2 border-indigo-500"
               />
               <h2 className="text-lg font-semibold mt-2">Seth Hallam</h2>
-              <span className="text-gray-500 bg-gray-200 dark:bg-gray-500  dark:text-white px-3 py-1 rounded-full text-sm mt-1">
+              <span className="text-gray-500 bg-gray-200 div-dark div-text px-3 py-1 rounded-full text-sm mt-1">
                 Author
               </span>
             </div>
@@ -97,7 +97,7 @@ const UserOverview = () => {
 
             {/* Details Section */}
             <h3 className="text-md font-semibold mb-2">Details</h3>
-            <div className="text-sm text-gray-700 dark:text-white space-y-2">
+            <div className="text-sm text-gray-700 div-text space-y-2">
               <p>
                 <strong>Username:</strong> @shallamb
               </p>
@@ -137,10 +137,10 @@ const UserOverview = () => {
           </div>
 
           {/* Plan Card */}
-          <div className="bg-white rounded-2xl shadow-md p-6 dark:bg-gray-800  dark:text-white">
+          <div className="bg-white rounded-2xl shadow-md p-6 div-dark div-text">
             {/* Plan Type and Price */}
             <div className="flex justify-between items-center">
-              <span className="bg-indigo-500 text-white px-3 py-1 rounded-full text-sm">
+              <span className="bg-indigo-500 text-white px-3 py-1 rounded-full text-sm ">
                 Standard
               </span>
               <p className="text-4xl font-bold text-indigo-500">
@@ -149,7 +149,7 @@ const UserOverview = () => {
             </div>
 
             {/* Plan Features */}
-            <ul className="text-lg text-gray-700 dark:text-white mt-3 space-y-1">
+            <ul className="text-lg text-gray-700 div-text mt-3 space-y-1">
               <li>• 10 Users</li>
               <li>• Up to 10 GB Storage</li>
               <li>• Basic Support</li>
@@ -157,8 +157,8 @@ const UserOverview = () => {
 
             {/* Days Remaining Section */}
             <div className="flex justify-between items-center mt-4">
-              <p className="text-lg text-gray-500 dark:text-white">Days</p>
-              <p className="text-lg text-gray-500 dark:text-white">26 of 30 days</p>
+              <p className="text-lg text-gray-500 div-text">Days</p>
+              <p className="text-lg text-gray-500 div-text">26 of 30 days</p>
             </div>
 
             {/* Progress Bar */}
@@ -177,12 +177,12 @@ const UserOverview = () => {
         </div>
 
         {/* Right Side - Invoice List */}
-        <div className="lg:col-span-2 bg-white rounded-2xl shadow-md p-6 dark:bg-gray-800  dark:text-white">
+        <div className="lg:col-span-2 bg-white rounded-2xl shadow-md p-6 div-dark  div-text">
           <div className="flex justify-between items-center mb-4">
             <h3 className="text-lg font-semibold">Invoice List</h3>
             <div className="flex items-center gap-4 ">
               <select
-                className="border p-2 rounded dark:bg-gray-800  dark:text-white dark:border-gray-700"
+                className="border p-2 rounded div-dark  div-text border-dark"
                 value={showCount}
                 onChange={(e) => setShowCount(e.target.value)}
               >
@@ -190,7 +190,7 @@ const UserOverview = () => {
                 <option value="20">Show 20</option>
                 <option value="50">Show 50</option>
               </select>
-              <button className="flex items-center px-3 py-2 bg-gray-400 text-white rounded-md">
+              <button className="flex items-center px-3 py-2 bg-gray-400 div-dark div-text border border-dark text-white  div-text rounded-md">
                 <FaDownload className="mr-2" /> Export
               </button>
             </div>
@@ -198,7 +198,7 @@ const UserOverview = () => {
           <div className="overflow-x-auto">
             <table className="w-full  border-collapse">
               <thead>
-                <tr className="text-gray-600 text-sm bg-gray-100 dark:bg-gray-800  dark:text-white">
+                <tr className="text-gray-600 text-sm bg-gray-100 div-dark  div-text">
                   <th className="py-2 px-8 text-left">#</th>
                   <th className="py-2 px-8 text-left">Status</th>
                   <th className="py-2 px-8 text-left">Total</th>
@@ -208,7 +208,7 @@ const UserOverview = () => {
               </thead>
               <tbody>
                 {currentInvoices.map((invoice) => (
-                  <tr key={invoice.id} className="border-b text-gray-700 dark:text-white dark:border-gray-500">
+                  <tr key={invoice.id} className="border-b text-gray-700 div-text dark:border-gray-500">
                     <td className="py-2 px-8">#{invoice.id}</td>
                     <td className="py-2 px-8">
                       {invoice.status === "paid" && (
@@ -239,13 +239,13 @@ const UserOverview = () => {
           <div className="flex justify-end mt-4 space-x-2">
             <button
               onClick={prevPage}
-              className="px-3 py-1 bg-gray-200 rounded-md"
+              className="px-3 py-1 bg-gray-200 div-dark div-text rounded-md"
             >
               <FaChevronLeft className="text-gray-600" />
             </button>
             <button
               onClick={nextPage}
-              className="px-3 py-1 bg-gray-200 rounded-md"
+              className="px-3 py-1 bg-gray-200 div-dark div-text rounded-md"
             >
               <FaChevronRight className="text-gray-600" />
             </button>
