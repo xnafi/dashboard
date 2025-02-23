@@ -199,7 +199,7 @@ const ECommerceAllCustomers = () => {
           {isModalOpen && (
             <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-end z-50">
               <div
-                className={`w-[400px] h-full bg-white dark:bg-gray-800 shadow-xl p-6 transform transition-transform duration-300 ease-in-out ${
+                className={`w-[400px] h-full bg-white dark:bg-gray-800 shadow-xl p-6 transform transition-transform duration-300 ease-in-out translate-x-0 overflow-y-auto ${
                   isModalOpen ? "translate-x-0" : "translate-x-full"
                 }`}
               >
