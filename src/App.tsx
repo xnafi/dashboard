@@ -38,6 +38,7 @@ import ECommercePayment from "./pages/eCommerce/ECommercePayment";
 import ECommerceCheckOut from "./pages/eCommerce/ECommerceCheckOut";
 import ECommerceShipping from "./pages/eCommerce/ECommerceShipping";
 import ECommerceLocations from "./pages/eCommerce/ECommerceLocations";
+import ECommerceNotifications from "./pages/eCommerce/ECommerceNotifications";
 
 
 function App() {
@@ -82,6 +83,7 @@ function App() {
           <Route path="/ECommerceCheckOut" element={<ECommerceCheckOut/>} />
           <Route path="/ECommerceShipping" element={<ECommerceShipping/>} />
           <Route path="/ECommerceLocations" element={<ECommerceLocations/>} />
+          <Route path="/ECommerceNotifications" element={<ECommerceNotifications/>} />
         </Route>
       </Routes>
     </BrowserRouter>
