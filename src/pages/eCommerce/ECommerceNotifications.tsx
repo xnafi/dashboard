@@ -88,17 +88,17 @@ const ECommerceNotifications = () => {
 
         {/* Right Side Content */}
         {activeTab === "Notifications" && (
-          <div className="flex-1 p-6 bg-white">
+          <div className="flex-1 p-6 bg-white div-dark div-text border-dark">
             {Object.entries(notifications).map(([category, types]) => (
               <div
                 key={category}
-                className="mb-6 bg-white dark:bg-gray-800 p-4 rounded-lg "
+                className="mb-6 bg-white div-dark div-text p-4 rounded-lg "
               >
                 <h3 className="text-lg font-semibold mb-3 capitalize">
                   {category}
                 </h3>
-                <div className="border rounded-lg">
-                  <div className="grid grid-cols-3 gap-4 p-4  dark:bg-gray-700 font-semibold">
+                <div className="border rounded-lg border-dark">
+                  <div className="grid grid-cols-3 gap-4 p-4  div-dark div-text font-semibold">
                     <span>TYPE</span>
                     <span className="text-center">EMAIL</span>
                     <span className="text-center">APP</span>
@@ -107,7 +107,7 @@ const ECommerceNotifications = () => {
                     ([type, channels]) => (
                       <div
                         key={type}
-                        className="grid grid-cols-3 gap-4 p-4 border-t"
+                        className="grid grid-cols-3 gap-4 p-4 border-t border-dark"
                       >
                         <span>{type}</span>
                         <div className="flex justify-center">
