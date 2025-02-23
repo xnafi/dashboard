@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import { FaSearch, FaPlus } from "react-icons/fa";
+import { FaSearch } from "react-icons/fa";
 import customersData from "../../data/customers.json";
 import { FiDownload } from "react-icons/fi";
+import { AiOutlineClose } from "react-icons/ai";
 
 interface Customer {
   id: number;
@@ -20,6 +21,9 @@ const ECommerceAllCustomers = () => {
   const [search, setSearch] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isBillingAddress, setIsBillingAddress] = useState(true);
+  
 
   // Fetch customers from JSON file
   useEffect(() => {
@@ -63,11 +67,20 @@ const ECommerceAllCustomers = () => {
         
                   <button className="bg-gray-200 text-black px-4 py-2 border rounded-md flex items-center gap-2 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300">
                     <FiDownload className="text-gray-600 " /> Export
+
+                  
                   </button>
                   {/* Add Customer Button */}
-        <button className="bg-indigo-600 text-white px-4 py-2 rounded-lg flex items-center gap-2">
+        {/* <button className="bg-indigo-600 text-white px-4 py-2 rounded-lg flex items-center gap-2">
           <FaPlus />
           Add Customer
+        </button> */}
+
+<button
+          onClick={() => setIsModalOpen(true)}
+          className="bg-indigo-600 text-white px-4 py-2 rounded-lg dark:text-gray-300"
+        >
+          + Add Customer
         </button>
                 </div>
 
@@ -178,6 +191,153 @@ const ECommerceAllCustomers = () => {
         </div>
       </div>
     </div>
+    
+    
+    
+     {/* Right-side Modal */}
+          {/* Modal */}
+          {isModalOpen && (
+            <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-end z-50">
+              <div
+                className={`w-[400px] h-full bg-white dark:bg-gray-800 shadow-xl p-6 transform transition-transform duration-300 ease-in-out ${
+                  isModalOpen ? "translate-x-0" : "translate-x-full"
+                }`}
+              >
+                <div className="flex justify-between items-center mb-4">
+                  <h2 className="text-xl font-semibold">Add Customer</h2>
+                  <button
+                    onClick={() => setIsModalOpen(false)}
+                    className="text-gray-600 hover:text-black"
+                  >
+                    <AiOutlineClose size={20} />
+                  </button>
+                </div>
+    
+               {/* Form Fields */}
+        <div className="space-y-4">
+          {/* Basic Information */}
+          <div className="text-gray-500 dark:text-gray-400 text-sm font-semibold">Basic Information</div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Name</label>
+            <input
+              type="text"
+              placeholder="John Doe"
+              className="w-full border rounded-lg px-3 py-2 bg-gray-100 dark:bg-gray-700 dark:text-white"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Email</label>
+            <input
+              type="email"
+              placeholder="john.doe@example.com"
+              className="w-full border rounded-lg px-3 py-2 bg-gray-100 dark:bg-gray-700 dark:text-white"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Mobile</label>
+            <input
+              type="text"
+              placeholder="+(123) 456-7890"
+              className="w-full border rounded-lg px-3 py-2 bg-gray-100 dark:bg-gray-700 dark:text-white"
+            />
+          </div>
+
+                {/* Shipping Information */}
+          <div className="text-gray-500 dark:text-gray-400 text-sm font-semibold mt-4">Shipping Information</div>
+
+<div>
+  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Address Line 1</label>
+  <input
+    type="text"
+    placeholder="45 Roker Terrace"
+    className="w-full border rounded-lg px-3 py-2 bg-gray-100 dark:bg-gray-700 dark:text-white"
+  />
+</div>
+
+<div>
+  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Address Line 2</label>
+  <input
+    type="text"
+    placeholder="Address Line 2*"
+    className="w-full border rounded-lg px-3 py-2 bg-gray-100 dark:bg-gray-700 dark:text-white"
+  />
+</div>
+
+<div>
+  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Town</label>
+  <input
+    type="text"
+    placeholder="New York"
+    className="w-full border rounded-lg px-3 py-2 bg-gray-100 dark:bg-gray-700 dark:text-white"
+  />
+</div>
+
+<div>
+  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">State/Province</label>
+  <input
+    type="text"
+    placeholder="Southern tip"
+    className="w-full border rounded-lg px-3 py-2 bg-gray-100 dark:bg-gray-700 dark:text-white"
+  />
+</div>
+
+<div>
+  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Post Code</label>
+  <input
+    type="text"
+    placeholder="734990"
+    className="w-full border rounded-lg px-3 py-2 bg-gray-100 dark:bg-gray-700 dark:text-white"
+  />
+</div>
+
+<div>
+  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Country</label>
+  <select className="w-full border rounded-lg px-3 py-2 bg-gray-100 dark:bg-gray-700 dark:text-white">
+    <option>United States</option>
+    <option>Canada</option>
+    <option>United Kingdom</option>
+  </select>
+</div>
+
+{/* Billing Address Toggle */}
+<div className="flex items-center justify-between mt-4">
+  <div>
+    <label className="text-sm font-medium text-gray-700 dark:text-gray-300">
+      Use as a billing address?
+    </label>
+    <p className="text-xs text-gray-500 dark:text-gray-400">Please check budget for more info.</p>
+  </div>
+  <label className="relative inline-flex items-center cursor-pointer">
+    <input type="checkbox" className="sr-only peer" checked={isBillingAddress} onChange={() => setIsBillingAddress(!isBillingAddress)} />
+    <div className="w-10 h-5 bg-gray-300 peer-focus:ring-2 peer-focus:ring-indigo-500 rounded-full peer peer-checked:after:translate-x-5 peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border after:border-gray-300 after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
+  </label>
+</div>
+    
+                  <div className="flex justify-start space-x-2 mt-4">
+                    <button className="bg-indigo-600 text-white px-4 py-2 rounded-lg">
+                      Add
+                    </button>
+                    <button
+                      onClick={() => setIsModalOpen(false)}
+                      className="bg-red-100 text-red-600 px-4 py-2 rounded-lg"
+                    >
+                      Discard
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+    
+    
+    
+    
+    
+    
+    
     </div>
   );
 };
