@@ -150,8 +150,8 @@ const UserList = () => {
 
         {/* Buttons */}
         <div className="flex gap-2">
-          <button className="flex items-center gap-2 border border-dark  rounded-md px-4 py-2 text-gray-700  bg-gray-100 dark:bg-gray-700">
-            <FiDownload className="text-gray-500" />
+          <button className="flex items-center gap-2 border border-dark  rounded-md px-4 py-2 text-gray-700  bg-gray-100 div-dark div-text">
+            <FiDownload className="text-gray-500 " />
             Export
           </button>
           <button
