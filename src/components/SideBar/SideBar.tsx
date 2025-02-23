@@ -59,11 +59,7 @@ export default function Sidebar() {
           Apps & Pages
         </div>
         <ul className="mt-2 space-y-1 dark:text-white">
-          <SidebarItem
-            to="/ecommerce"
-            icon={<FaShoppingCart />}
-            label="eCommerce"
-          />
+         
           {/* Users Dropdown */}
           <SidebarDropdown
             isOpen={userMenuOpen}

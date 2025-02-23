@@ -298,7 +298,7 @@ const ECommerceCustomerAddress = () => {
           <button className="text-gray-500 hover:text-blue-700">
             <FaEdit />
           </button>
-          <button className="text-gray-500 hover:text-red-700">
+          <button className="text-gray-500 hover:text-red-700 dark:hover:text-red-700">
             <FaTrash />
           </button>
           <button className="text-gray-500 hover:text-gray-700">

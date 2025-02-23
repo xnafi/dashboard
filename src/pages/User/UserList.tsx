@@ -58,10 +58,10 @@ const UserList = () => {
       {/* Analytics Cards */}
       <div className="grid grid-cols-4 gap-4 mb-6">
       {/* Session Card */}
-      <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md flex justify-between items-center border border-gray-200 dark:border-gray-700">
+      <div className="bg-white div-dark div-text p-4 rounded-lg shadow-md flex justify-between items-center border border-gray-200 border-dark">
         <div>
-          <p className="text-sm text-gray-500 dark:text-gray-400">Session</p>
-          <p className="text-2xl font-semibold text-gray-900 dark:text-white">
+          <p className="text-sm text-gray-500 div-text">Session</p>
+          <p className="text-2xl font-semibold text-gray-900 div-text">
             21,459 <span className="text-green-500 text-sm">(+29%)</span>
           </p>
           <p className="text-xs text-gray-400">Total Users</p>
@@ -72,10 +72,10 @@ const UserList = () => {
       </div>
 
       {/* Paid Users Card */}
-      <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md flex justify-between items-center border border-gray-200 dark:border-gray-700">
+      <div className="bg-white border-dark div-dark div-text p-4 rounded-lg shadow-md flex justify-between items-center border border-gray-200 ">
         <div>
-          <p className="text-sm text-gray-500 dark:text-gray-400">Paid Users</p>
-          <p className="text-2xl font-semibold text-gray-900 dark:text-white">
+          <p className="text-sm text-gray-500 div-text">Paid Users</p>
+          <p className="text-2xl font-semibold text-gray-900 div-text">
             4,567 <span className="text-green-500 text-sm">(+18%)</span>
           </p>
           <p className="text-xs text-gray-400">Last week analytics</p>
@@ -86,10 +86,10 @@ const UserList = () => {
       </div>
 
       {/* Active Users Card */}
-      <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md flex justify-between items-center border border-gray-200 dark:border-gray-700">
+      <div className="bg-white div-dark div-text p-4 rounded-lg shadow-md flex justify-between items-center border border-gray-200 dark:border-gray-700">
         <div>
-          <p className="text-sm text-gray-500 dark:text-gray-400">Active Users</p>
-          <p className="text-2xl font-semibold text-gray-900 dark:text-white">
+          <p className="text-sm text-gray-500 div-text">Active Users</p>
+          <p className="text-2xl font-semibold text-gray-900 div-text">
             19,860 <span className="text-red-500 text-sm">(-14%)</span>
           </p>
           <p className="text-xs text-gray-400">Last week analytics</p>
@@ -100,10 +100,10 @@ const UserList = () => {
       </div>
 
       {/* Pending Users Card */}
-      <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md flex justify-between items-center border border-gray-200 dark:border-gray-700">
+      <div className="bg-white div-dark div-text p-4 rounded-lg shadow-md flex justify-between items-center border border-gray-200 dark:border-gray-700">
         <div>
-          <p className="text-sm text-gray-500 dark:text-gray-400">Pending Users</p>
-          <p className="text-2xl font-semibold text-gray-900 dark:text-white">
+          <p className="text-sm text-gray-500 div-text">Pending Users</p>
+          <p className="text-2xl font-semibold text-gray-900 div-text">
             237 <span className="text-green-500 text-sm">(+42%)</span>
           </p>
           <p className="text-xs text-gray-400">Last week analytics</p>
@@ -115,18 +115,18 @@ const UserList = () => {
     </div>
 
       {/* Filters Section */}
-      <div className="dark:bg-gray-800 dark:text-gray-300 p-4 rounded-lg shadow-md">
+      <div className="div-dark div-text  p-4 rounded-lg shadow-md">
       <div>
-      <h2 className="mb-4 text-lg font-semibold">Filters</h2>
+      <h2 className="mb-4 text-lg font-semibold div-text">Filters</h2>
       <div className="grid grid-cols-3 gap-4 mb-4">
         
-        <select className="border border-gray-300 dark:border-gray-700 rounded-lg p-2 text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 w-full">
+        <select className="border border-dark  rounded-lg p-2 text-gray-700  bg-white div-dark div-text w-full">
           <option>Select Role</option>
         </select>
-        <select className="border border-gray-300 dark:border-gray-700 rounded-lg p-2 text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 w-full">
+        <select className="border border-dark  rounded-lg p-2 text-gray-700  bg-white div-dark div-text w-full">
           <option>Select Plan</option>
         </select>
-        <select className="border border-gray-300 dark:border-gray-700 rounded-lg p-2 text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 w-full">
+        <select className="border border-dark  rounded-lg p-2 text-gray-700  bg-white div-dark div-text w-full">
           <option>Select Status</option>
         </select>
       </div>
@@ -135,7 +135,7 @@ const UserList = () => {
       {/* Search and Actions */}
       <div className="flex justify-between items-center mb-4">
         {/* Entries Dropdown */}
-        <select className="border border-gray-300 dark:border-gray-700 rounded-md px-3 py-2 text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 w-20">
+        <select className="border border-dark  rounded-md px-3 py-2 text-gray-700  bg-white div-dark div-text w-20">
           <option>10</option>
           <option>25</option>
           <option>50</option>
@@ -145,12 +145,12 @@ const UserList = () => {
         <input
           type="text"
           placeholder="Search User"
-          className="border ml-80 pl-36 border-gray-300 dark:border-gray-700 rounded-md px-4 py-2 text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 w-1/3"
+          className="border ml-80 pl-36 border-dark  rounded-md px-4 py-2 text-gray-700  bg-white div-dark div-text w-1/3"
         />
 
         {/* Buttons */}
         <div className="flex gap-2">
-          <button className="flex items-center gap-2 border border-gray-300 dark:border-gray-700 rounded-md px-4 py-2 text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-700">
+          <button className="flex items-center gap-2 border border-dark  rounded-md px-4 py-2 text-gray-700  bg-gray-100 dark:bg-gray-700">
             <FiDownload className="text-gray-500" />
             Export
           </button>
@@ -168,7 +168,7 @@ const UserList = () => {
       <div className="overflow-x-auto">
         <table className="min-w-full border-collapse">
           <thead>
-            <tr className="bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 text-left">
+            <tr className="bg-gray-100 div-dark div-text text-gray-600  text-left">
               <th className="p-2"><input type="checkbox" /></th>
               <th className="p-2">USER</th>
               <th className="p-2">ROLE</th>
@@ -210,7 +210,7 @@ const UserList = () => {
       {/* Add User Modal */}
       {isModalOpen && (
   <div className="fixed inset-0 flex justify-end bg-black bg-opacity-50 z-50">
-    <div className="bg-white dark:bg-gray-800 w-80 h-full p-6 shadow-lg transform transition-transform duration-300 ease-in-out translate-x-0">
+    <div className="bg-white div-dark div-text w-80 h-full p-6 shadow-lg transform transition-transform duration-300 ease-in-out translate-x-0">
       <button
         onClick={() => setIsModalOpen(false)}
         className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
@@ -219,35 +219,35 @@ const UserList = () => {
       </button>
       <h2 className="text-xl font-semibold mb-4">Add New User</h2>
       <div className="space-y-4">
-        <input className="w-full p-1 border rounded dark:bg-gray-800 dark:text-gray-300 dark:border-gray-500" type="text" placeholder="Full Name" />
-        <input className="w-full p-1 border rounded dark:bg-gray-800 dark:text-gray-300 dark:border-gray-500" type="text" placeholder="Username" />
-        <input className="w-full p-1 border rounded dark:bg-gray-800 dark:text-gray-300 dark:border-gray-500" type="email" placeholder="Email" />
-        <input className="w-full p-1 border rounded dark:bg-gray-800 dark:text-gray-300 dark:border-gray-500" type="text" placeholder="Company" />
+        <input className="w-full p-1 border rounded div-dark div-text  dark:border-gray-500" type="text" placeholder="Full Name" />
+        <input className="w-full p-1 border rounded div-dark div-text  dark:border-gray-500" type="text" placeholder="Username" />
+        <input className="w-full p-1 border rounded div-dark div-text  dark:border-gray-500" type="email" placeholder="Email" />
+        <input className="w-full p-1 border rounded div-dark div-text  dark:border-gray-500" type="text" placeholder="Company" />
         
-        <select className="w-full p-1 border rounded dark:bg-gray-800 dark:text-gray-300 dark:border-gray-500">
+        <select className="w-full p-1 border rounded div-dark div-text  dark:border-gray-500">
           <option>Select Country</option>
           <option>USA</option>
           <option>UK</option>
           <option>Canada</option>
         </select>
 
-        <input className="w-full p-1 border rounded dark:bg-gray-800 dark:text-gray-300 dark:border-gray-500" type="text" placeholder="Contact" />
+        <input className="w-full p-1 border rounded div-dark div-text  dark:border-gray-500" type="text" placeholder="Contact" />
 
-        <select className="w-full p-1 border rounded dark:bg-gray-800 dark:text-gray-300 dark:border-gray-500">
+        <select className="w-full p-1 border rounded div-dark div-text  dark:border-gray-500">
           <option>Select Role</option>
           <option>Admin</option>
           <option>Editor</option>
           <option>Author</option>
         </select>
 
-        <select className="w-full p-1 border rounded dark:bg-gray-800 dark:text-gray-300 dark:border-gray-500">
+        <select className="w-full p-1 border rounded div-dark div-text  dark:border-gray-500">
           <option>Select Plan</option>
           <option>Basic</option>
           <option>Premium</option>
           <option>Enterprise</option>
         </select>
 
-        <select className="w-full p-1 border rounded dark:bg-gray-800 dark:text-gray-300 dark:border-gray-500">
+        <select className="w-full p-1 border rounded div-dark div-text  dark:border-gray-500">
           <option>Select Status</option>
           <option>Active</option>
           <option>Inactive</option>
@@ -273,7 +273,7 @@ const UserList = () => {
   <button
     onClick={() => handlePageChange(currentPage - 1)}
     disabled={currentPage === 1}
-    className={`px-4 py-2 border rounded bg-gray-200 dark:bg-gray-800 dark:text-gray-200 dark:border-gray-500 flex items-center gap-2
+    className={`px-4 py-2 border rounded bg-gray-200 div-dark div-text dark:text-gray-200 dark:border-gray-500 flex items-center gap-2
     ${currentPage === 1 ? "opacity-50 cursor-not-allowed" : "hover:bg-gray-600 dark:hover:bg-gray-400 transition"}`}
   >
     <FaChevronLeft className="text-gray-600" />
@@ -287,7 +287,7 @@ const UserList = () => {
       className={`px-4 py-2 border rounded mx-1 dark:border-gray-500 transition ${
         currentPage === page
           ? "bg-indigo-500 text-white dark:bg-indigo-300"
-          : "bg-gray-200 dark:bg-gray-800 dark:text-gray-200 hover:bg-indigo-500 dark:hover:bg-indigo-300"
+          : "bg-gray-200 div-dark div-text dark:text-gray-200 hover:bg-indigo-500 dark:hover:bg-indigo-300"
       }`}
     >
       {page}
@@ -298,7 +298,7 @@ const UserList = () => {
   <button
     onClick={() => handlePageChange(currentPage + 1)}
     disabled={currentPage === totalPages}
-    className={`px-4 py-2 border rounded bg-gray-200 dark:bg-gray-800 dark:text-gray-200 dark:border-gray-500 flex items-center gap-2
+    className={`px-4 py-2 border rounded bg-gray-200 div-dark div-text dark:text-gray-200 dark:border-gray-500 flex items-center gap-2
     ${currentPage === totalPages ? "opacity-50 cursor-not-allowed" : "hover:bg-gray-600 dark:hover:bg-gray-400 transition"}`}
   >
     <FaChevronRight className="text-gray-600" />
