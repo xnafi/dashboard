@@ -55,17 +55,17 @@ const ECommerceCategoryList = () => {
           placeholder="Search Category"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="border  rounded-lg px-4 py-2 w-1/3 dark:bg-gray-800 dark:border-gray-500 "
+          className="border  rounded-lg px-4 py-2 w-1/3 border-dark div-dark div-text"
         />
 
-        <select className="border p-2 rounded-md ml-96 dark:bg-gray-800 dark:border-gray-500">
+        <select className="border p-2 rounded-md ml-96 border-dark div-dark div-text">
           <option value="7">7</option>
           <option value="10">10</option>
           <option value="20">20</option>
         </select>
         <button
           onClick={() => setIsModalOpen(true)}
-          className="bg-indigo-600 text-white px-4 py-2 rounded-lg dark:text-gray-300"
+          className="bg-indigo-600 text-white px-4 py-2 rounded-lg "
         >
           + Add Category
         </button>
@@ -73,25 +73,25 @@ const ECommerceCategoryList = () => {
 
       {/* Category Table */}
       <div className="overflow-x-auto">
-        <table className="w-full border-collapse">
+        <table className="w-full border-collapse border-dark">
           <thead>
-            <tr className="bg-gray-100 dark:bg-gray-800 dark:border-b dark:border-t dark:border-gray-500">
+            <tr className="bg-gray-100 dark:bg-gray-800 dark:border-b dark:border-t border-dark">
               <th className="p-3 text-left">
                 <input type="checkbox" />
               </th>
-              <th className="p-3 text-left text-gray-600 dark:text-gray-300">Categories</th>
-              <th className="p-3 text-center text-gray-600 dark:text-gray-300">Total Products</th>
-              <th className="p-3 text-center text-gray-600 dark:text-gray-300">Total Earnings</th>
-              <th className="p-3 text-center text-gray-600 dark:text-gray-300">Actions</th>
+              <th className="p-3 text-left text-gray-600 div-text">Categories</th>
+              <th className="p-3 text-center text-gray-600 div-text">Total Products</th>
+              <th className="p-3 text-center text-gray-600 div-text">Total Earnings</th>
+              <th className="p-3 text-center text-gray-600 div-text">Actions</th>
             </tr>
           </thead>
           <tbody>
             {displayedCategories.map((category) => (
-              <tr key={category.id} className="border-b dark:border-gray-500">
+              <tr key={category.id} className="border-b border-dark">
                 <td className="p-3">
                   <input type="checkbox" />
                 </td>
-                <td className="p-3 flex items-center space-x-3 dark:text-gray-300 text-gray-600">
+                <td className="p-3 flex items-center space-x-3 div-text text-gray-600">
                   <img
                     src={category.image}
                     alt={category.name}
@@ -99,15 +99,15 @@ const ECommerceCategoryList = () => {
                   />
                   <div>
                     <p className="font-semibold">{category.name}</p>
-                    <p className="text-sm text-gray-500">
+                    <p className="text-sm text-gray-500 div-text">
                       {category.description}
                     </p>
                   </div>
                 </td>
-                <td className="p-3 text-center">
+                <td className="p-3 text-center div-text">
                   {category.products.toLocaleString()}
                 </td>
-                <td className="p-3 text-center">{category.earnings}</td>
+                <td className="p-3 text-center div-text">{category.earnings}</td>
                 <td className="p-3 text-center flex items-center justify-center space-x-2">
                   <button className="text-gray-600 hover:text-blue-600">
                     <FaEdit />
@@ -121,7 +121,7 @@ const ECommerceCategoryList = () => {
           </tbody>
         </table>
         {/* Pagination */}
-        <div className="flex justify-end items-center mt-4 space-x-2">
+        <div className="flex justify-end items-center mt-4 space-x-2 div-text">
           <button
             onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
             disabled={currentPage === 1}
@@ -132,9 +132,9 @@ const ECommerceCategoryList = () => {
             }`}
           >
             <FaChevronLeft />
-            <span>Prev</span>
+            <span className="div-text">Prev</span>
           </button>
-          <span className="text-gray-700 dark:text-gray-300">
+          <span className="text-gray-700 div-text">
             Page {currentPage} of {totalPages}
           </span>
           <button
@@ -148,7 +148,7 @@ const ECommerceCategoryList = () => {
                 : "bg-indigo-600 text-white hover:bg-indigo-700"
             }`}
           >
-            <span>Next</span>
+            <span className="div-text">Next</span>
             <FaChevronRight />
           </button>
         </div>
