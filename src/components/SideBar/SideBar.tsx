@@ -34,7 +34,7 @@ export default function Sidebar() {
   const [formsMenuOpen, setFormsMenuOpen] = useState(false);
 
   return (
-    <div className="w-64 fixed left-0 top-0 h-screen bg-white shadow-lg z-50 overflow-y-auto dark:bg-gray-900  dark:text-white">
+    <div className="w-64 fixed left-0 top-0 h-screen bg-white shadow-lg z-50 overflow-y-auto dark:bg-gray-900  div-text">
       {/* Sidebar Header */}
       <div className="flex items-center px-4 py-6">
         <div className="w-10 h-10 bg-indigo-500 rounded-full flex items-center justify-center text-white  dark:text-white font-bold">
@@ -64,6 +64,35 @@ export default function Sidebar() {
             icon={<FaShoppingCart />}
             label="eCommerce"
           />
+          {/* Users Dropdown */}
+          <SidebarDropdown
+            isOpen={userMenuOpen}
+            setIsOpen={setUserMenuOpen}
+            icon={<FaShoppingCart />}
+            label="eCommerce"
+          >
+            <SidebarSubItem to="/eCommerceProductList" icon={<FaList />} label="Product List" />
+            <SidebarSubItem to="/eCommerceProductAdd" icon={<FaEye />} label="Product Add" />
+            <SidebarSubItem to="/eCommerceCategoryList" icon={<FaShieldAlt />} label="Category List" />
+            <SidebarSubItem to="/eCommerceOrderList" icon={<FaClipboardCheck />} label="Order List" />
+            <SidebarSubItem to="/eCommerceAllCustomers" icon={<FaList />} label="All Customers" />
+            <SidebarSubItem to="/eCommerceOrderDetails" icon={<FaEye />} label="Order Details" />
+            <SidebarSubItem to="/eCommerceUserOverview" icon={<FaShieldAlt />} label="User Overview" />
+            <SidebarSubItem to="/eCommerceCustomerSecurity" icon={<FaClipboardCheck />} label="Customer Security" />
+            <SidebarSubItem to="/eCommerceCustomerAddress" icon={<FaEye />} label="Customer Address" />
+            <SidebarSubItem to="/eCommerceManageReview" icon={<FaShieldAlt />} label="Manage Review" />
+            <SidebarSubItem to="/eCommerceReferrals" icon={<FaClipboardCheck />} label="Referrals" />
+            <SidebarSubItem to="/eCommerceStoreDetails" icon={<FaEye />} label="Store Details" />
+            <SidebarSubItem to="/eCommercePayment" icon={<FaShieldAlt />} label="Payment" />
+            <SidebarSubItem to="/eCommerceCheckOut" icon={<FaClipboardCheck />} label="Check Out" />
+            <SidebarSubItem to="/eCommerceShipping" icon={<FaEye />} label="Shipping" />
+            <SidebarSubItem to="/eCommerceLocations" icon={<FaShieldAlt />} label="Locations" />
+            <SidebarSubItem to="/eCommerceNotifications" icon={<FaClipboardCheck />} label="Notifications" />
+
+
+          </SidebarDropdown>
+
+
           <SidebarItem
             to="/academy"
             icon={<FaGraduationCap />}
