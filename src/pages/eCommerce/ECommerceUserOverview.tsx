@@ -69,8 +69,8 @@ const ECommerceUserOverview = () => {
       {/* Order Header */}
       <div className="flex justify-between items-center p-4 rounded-lg shadow-sm">
         <div>
-          <h3 className="text-lg font-semibold">Customer ID #634759</h3>
-          <p className="text-sm text-gray-500">Aug 17, 2020, 5:48 (ET)</p>
+          <h3 className="text-lg font-semibold div-text">Customer ID #634759</h3>
+          <p className="text-sm text-gray-500 div-text">Aug 17, 2020, 5:48 (ET)</p>
         </div>
         <button className="px-4 py-2 text-sm bg-red-100 text-red-600 rounded">
           Delete customer
@@ -81,7 +81,7 @@ const ECommerceUserOverview = () => {
         {/* Left Section - User Profile & Premium */}
         <div>
           {/* User Profile */}
-          <div className="bg-white rounded-xl shadow-lg p-6 w-80">
+          <div className="bg-white rounded-xl shadow-lg p-6 w-80 div-dark div-text">
             <div className="flex flex-col items-center">
               <img
                 src="https://i.postimg.cc/Tw4rMhxh/Avatar.png"
@@ -97,8 +97,8 @@ const ECommerceUserOverview = () => {
             {/* Orders & Spent Section */}
             <div className="flex justify-between my-4">
               <div className="flex items-center gap-2">
-                <div className="bg-gray-100 p-2  flex items-center justify-center">
-                  <FaShoppingCart className="text-indigo-500 text-xl" />
+                <div className="bg-gray-100  dark:bg-indigo-300 p-2  flex items-center justify-center">
+                  <FaShoppingCart className="text-indigo-500  text-xl" />
                 </div>
                 <div>
                   <p className="text-lg font-semibold text-gray-600">184</p>
@@ -106,7 +106,7 @@ const ECommerceUserOverview = () => {
                 </div>
               </div>
               <div className="flex items-center gap-2">
-                <div className="bg-gray-100 p-2  flex items-center justify-center">
+                <div className="bg-gray-100 dark:bg-indigo-300 p-2  flex items-center justify-center">
                   <FaDollarSign className="text-indigo-500 text-xl" />
                 </div>
 
@@ -130,7 +130,7 @@ const ECommerceUserOverview = () => {
               </p>
               <p className="mb-1 text-gray-600">
                 <strong>Status:</strong>{" "}
-                <span className="bg-green-100 text-green-600 px-2 py-1 rounded-lg text-xs font-medium">
+                <span className="bg-green-100 text-green-600 dark:bg-green-300 px-2 py-1 rounded-lg text-xs font-medium">
                   Active
                 </span>
               </p>
@@ -187,10 +187,10 @@ const ECommerceUserOverview = () => {
           {/* Cards Grid */}
           <div className="grid grid-cols-2 gap-6">
             {cards.map((card, i) => (
-              <div key={i} className="bg-white rounded-xl shadow-lg p-4">
+              <div key={i} className="bg-white div-dark div-text rounded-xl shadow-lg p-4">
                 <div className="flex flex-col">
                   <div
-                    className={`p-2 w-10 h-10 mb-2 rounded-lg flex items-center justify-center ${card.bgColor}`}
+                    className={`p-2 w-10 h-10 mb-2 rounded-lg flex items-center dark:bg-indigo-300 justify-center ${card.bgColor}`}
                   >
                     {card.icon}
                   </div>
@@ -214,24 +214,24 @@ const ECommerceUserOverview = () => {
           </div>
 
           {/* Orders Table */}
-          <div className="bg-white rounded-xl shadow-lg p-4 mt-6">
+          <div className="bg-white rounded-xl shadow-lg p-4 mt-6 div-dark div-text">
             <div className="flex justify-between items-center space-x-4">
               <h3 className="text-lg font-semibold text-gray-600">
                 Orders Placed
               </h3>
-              <div className="relative">
-                <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm" />
+              <div className="relative ">
+                <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm ml-32 div-text" />
                 <input
                   type="text"
                   placeholder="Search Orders"
-                  className="pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm"
+                  className="pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm input-field "
                 />
               </div>
             </div>
             <div className="overflow-x-auto">
               <table className="min-w-full text-left text-sm mt-8">
                 <thead className="text-gray-500">
-                  <tr className="border-b">
+                  <tr className="border-b border-dark">
                     <th className="p-2">ORDER</th>
                     <th className="p-2">DATE</th>
                     <th className="p-2">STATUS</th>
@@ -241,7 +241,7 @@ const ECommerceUserOverview = () => {
                 </thead>
                 <tbody>
                   {Array.from({ length: 6 }).map((_, index) => (
-                    <tr key={index} className="border-b">
+                    <tr key={index} className="border-b border-dark">
                       <td className="p-2">#{4910 + index}</td>
                       <td className="p-2">Aug 17, 2020</td>
                       <td className="p-2 text-green-600 font-semibold">
