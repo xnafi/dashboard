@@ -77,7 +77,7 @@ const ECommerceProductAdd = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 ">
           <div className="lg:col-span-2">
             {/* Product Information */}
-            <div className=" p-6 rounded-lg shadow-lg dark:bg-gray-800">
+            <div className=" p-6 rounded-lg shadow-lg div-dark">
               <h2 className="text-lg font-semibold text-gray-900 div-text div-dark">
                 Product information
               </h2>
@@ -160,7 +160,7 @@ const ECommerceProductAdd = () => {
             {/* Product Image */}
 
             {/* Header */}
-            <div className="p-6 rounded-lg shadow-lg dark:bg-gray-800 mt-4">
+            <div className="p-6 rounded-lg shadow-lg div-dark mt-4">
               <div className="flex justify-between items-center mb-2  ">
                 <h2 className="text-lg font-semibold text-gray-900 div-text">
                   Product Image
@@ -172,7 +172,7 @@ const ECommerceProductAdd = () => {
 
               {/* Upload Box */}
               <div
-                className="border-dashed border-2 border-gray-300 dark:border-gray-700 rounded-lg p-6 text-center cursor-pointer   shadow-sm dark:bg-gray-800"
+                className="border-dashed border-2 border-gray-300 border-dark  rounded-lg p-6 text-center cursor-pointer   shadow-sm div-dark"
                 onDragOver={(e) => e.preventDefault()}
                 onDrop={handleDrop}
               >
@@ -213,7 +213,7 @@ const ECommerceProductAdd = () => {
             <select
               value={option.type}
               onChange={(e) => updateOptionType(index, e.target.value)}
-              className="w-1/2 p-2 border dark:border-gray-700 rounded div-text div-dark"
+              className="w-1/2 p-2 border border-dark  rounded div-text div-dark"
             >
               {variantOptions.map((opt) => (
                 <option key={opt} value={opt}>
@@ -226,7 +226,7 @@ const ECommerceProductAdd = () => {
               value={option.value}
               onChange={(e) => updateOptionValue(index, e.target.value)}
               placeholder={`Enter ${option.type.toLowerCase()}`}
-              className="w-1/2 p-2 border dark:border-gray-700 rounded div-text div-dark"
+              className="w-1/2 p-2 border border-dark input-field rounded div-text div-dark"
             />
           </div>
         ))}
@@ -239,9 +239,9 @@ const ECommerceProductAdd = () => {
       </div>
     </div>
             {/* Inventory */}
-            <div className="p-4 rounded-lg shadow-lg dark:bg-gray-800 mt-4">
+            <div className="p-4 rounded-lg shadow-lg div-dark mt-4">
       {/* Header */}
-      <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
+      <h2 className="text-lg font-semibold text-gray-900 div-text">
         Inventory
       </h2>
 
@@ -272,32 +272,46 @@ const ECommerceProductAdd = () => {
 
         {/* Content Section */}
         <div className="w-2/3 pl-4">
-          {activeTab === "Restock" && (
-            <div>
-              <h3 className="text-sm font-normal text-gray-900 dark:text-white">
-                Restock Management
-              </h3>
-              <div className="mt-4 space-y-4">
-                <label className="block">
-                  <span className="font-medium">Restock Alert</span>
-                  <input
-                    type="number"
-                    placeholder="Enter minimum stock level"
-                    className="block w-full mt-2 p-2 border rounded dark:bg-gray-800"
-                  />
-                </label>
+        {activeTab === "Restock" && (
+  <div className="p-6 bg-white div-dark rounded-lg ">
+    <h3 className="text-lg font-semibold text-gray-900 div-text">
+      Restock
+    </h3>
 
-                <label className="flex items-center space-x-2">
-                  <input type="checkbox" />
-                  <span>Send email notification when stock is low</span>
-                </label>
-              </div>
-            </div>
-          )}
+    <div className="mt-6 space-y-4">
+      <div className="flex items-center  space-x-2">
+      {/* Quantity Input */}
+      <label className="block">
+        <span className="text-gray-700 div-text font-medium">
+          Add to Stock
+        </span>
+        <input
+          type="number"
+          placeholder="Quantity"
+          className="block w-full mt-2 p-2 border border-dark  rounded div-dark div-text"
+        />
+      </label>
+
+      {/* Confirm Button */}
+      <button className=" bg-indigo-600 mt-8 w-32 text-white py-2 rounded-md hover:bg-indigo-700 transition">
+        Confirm
+      </button>
+      </div>
+      {/* Stock Information */}
+      <div className="text-sm text-gray-700 div-text space-y-1">
+        <p>Product in stock now: <span className="font-medium">54</span></p>
+        <p>Product in transit: <span className="font-medium">390</span></p>
+        <p>Last time restocked: <span className="font-medium">24th June, 2022</span></p>
+        <p>Total stock over lifetime: <span className="font-medium">2,430</span></p>
+      </div>
+    </div>
+  </div>
+)}
+
 
           {activeTab === "Shipping" && (
             <div>
-              <h3 className="text-sm font-normal text-gray-900 dark:text-white">
+              <h3 className="text-lg font-semibold text-gray-900 div-text">
                 Shipping Type
               </h3>
               <div className="mt-4 space-y-4">
@@ -330,7 +344,7 @@ const ECommerceProductAdd = () => {
 
           {activeTab === "Global Delivery" && (
             <div>
-              <h3 className="text-sm font-normal text-gray-900 dark:text-white">
+              <h3 className="text-lg font-semibold text-gray-900 div-text">
                 Global Delivery
               </h3>
               <div className="mt-4 space-y-4">
@@ -354,8 +368,21 @@ const ECommerceProductAdd = () => {
                     <input
                       type="text"
                       placeholder="USA"
-                      className="block w-full mt-2 p-2 border rounded dark:bg-gray-800"
+                      className="block w-full mt-2 p-2 border rounded border-dark div-dark div-text"
                     />
+                  </div>
+                </label>
+
+                <label className="flex items-start space-x-2">
+                  <input type="radio" name="delivery" className="mt-1" checked />
+                  <div>
+                    <span className="font-medium">Local Delivery</span>
+                    <p className="text-sm text-gray-600">
+                      Deliver to your country of residence:{" "}
+                      <span className="text-indigo-600 cursor-pointer">
+                        change profile address
+                      </span>
+                    </p>
                   </div>
                 </label>
               </div>
@@ -364,7 +391,7 @@ const ECommerceProductAdd = () => {
 
           {activeTab === "Attributes" && (
             <div>
-              <h3 className="text-sm font-normal text-gray-900 dark:text-white">
+              <h3 className="text-lg font-semibold text-gray-900 div-text">
                 Attributes
               </h3>
               <div className="mt-4 space-y-4">
@@ -385,7 +412,7 @@ const ECommerceProductAdd = () => {
                     <input
                       type="text"
                       placeholder="40 C"
-                      className="block w-full mt-2 p-2 border rounded dark:bg-gray-800"
+                      className="block w-full mt-2 p-2 border border-dark div-text rounded div-dark"
                     />
                   </div>
                 </label>
@@ -396,7 +423,7 @@ const ECommerceProductAdd = () => {
                     <span>Expiry Date of Product</span>
                     <input
                       type="date"
-                      className="block w-full mt-2 p-2 border rounded dark:bg-gray-800"
+                      className="block w-full mt-2 p-2 border border-dark  rounded div-dark"
                       defaultValue="2025-06-14"
                     />
                   </div>
@@ -407,13 +434,13 @@ const ECommerceProductAdd = () => {
 
           {activeTab === "Advanced" && (
             <div>
-              <h3 className="text-sm font-normal text-gray-900 dark:text-white">
+              <h3 className="text-lg font-semibold text-gray-900 div-text">
                 Advanced
               </h3>
               <div className="mt-4 space-y-4">
                 <label className="block">
                   <span className="font-medium">Product ID Type</span>
-                  <select className="block w-full mt-2 p-2 border rounded dark:bg-gray-800">
+                  <select className="block w-full mt-2 p-2 border border-dark div-text rounded div-dark">
                     <option>ISBN</option>
                     <option>UPC</option>
                     <option>EAN</option>
@@ -426,7 +453,7 @@ const ECommerceProductAdd = () => {
                   <input
                     type="text"
                     placeholder="Enter ID"
-                    className="block w-full mt-2 p-2 border rounded dark:bg-gray-800"
+                    className="block w-full mt-2 p-2 border border-dark div-text rounded div-dark"
                   />
                 </label>
               </div>
