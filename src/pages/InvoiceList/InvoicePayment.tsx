@@ -5,12 +5,12 @@ const InvoicePayment = () => {
   const [clientNotes, setClientNotes] = useState(true);
   const [paymentStub, setPaymentStub] = useState(true);
   return (
-    <div className="p-6 bg-gray-50 mt-20 ml-6 dark:bg-gray-900 dark:text-white max-w-full rounded-lg shadow-md">
+    <div className="p-6 bg-gray-50 mt-20 ml-6 dark:bg-gray-900 div-text max-w-full rounded-lg shadow-md">
       <div className=" w-full rounded-lg p-4 flex gap-6 ">
         {/* Left Side: Invoice Details */}
         <div className="flex-1 div-dark  div-text p-6 rounded-lg">
           {/* Header */}
-          <div className="bg-gray-100 p-4 rounded-lg flex justify-between items-center div-dark  div-text">
+          <div className="bg-gray-50 p-4 rounded-lg flex justify-between items-center div-dark  div-text">
             <div>
               <h2 className="text-xl font-bold text-indigo-600 flex items-center gap-2 div-text">
                 <span className="text-indigo-600 div-text">
