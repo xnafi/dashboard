@@ -239,73 +239,202 @@ const ECommerceProductAdd = () => {
       </div>
     </div>
             {/* Inventory */}
-            <div className=" p-4 rounded-lg shadow-lg dark:bg-gray-800 mt-4">
-              {/* Header */}
-              <h2 className="text-lg font-semibold text-gray-900 div-text div-dark ">
-                Inventory
-              </h2>
+            <div className="p-4 rounded-lg shadow-lg dark:bg-gray-800 mt-4">
+      {/* Header */}
+      <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
+        Inventory
+      </h2>
 
-              {/* Sidebar Navigation */}
-              <div className="flex">
-                <div className="w-1/3 space-y-2 ">
-                  {[
-                    { name: "Restock", icon: <FaBoxOpen /> },
-                    { name: "Shipping", icon: <FaTruck /> },
-                    { name: "Global Delivery", icon: <FaGlobe /> },
-                    { name: "Attributes", icon: <FaTags /> },
-                    { name: "Advanced", icon: <FaSlidersH /> },
-                  ].map((tab) => (
-                    <button
-                      key={tab.name}
-                      onClick={() => setActiveTab(tab.name)}
-                      className={`w-full flex items-center space-x-2 px-4 py-2 rounded text-left transition ${
-                        activeTab === tab.name
-                          ? " div-text div-dark  hover:bg-indigo-500 hover:text-white"
-                          : " div-text div-dark  hover:bg-indigo-500 hover:text-white"
-                      }`}
-                    >
-                      {tab.icon}
-                      <span>{tab.name}</span>
-                    </button>
-                  ))}
-                </div>
+      {/* Sidebar Navigation */}
+      <div className="flex">
+        <div className="w-1/3 space-y-2">
+          {[
+            { name: "Restock", icon: <FaBoxOpen /> },
+            { name: "Shipping", icon: <FaTruck /> },
+            { name: "Global Delivery", icon: <FaGlobe /> },
+            { name: "Attributes", icon: <FaTags /> },
+            { name: "Advanced", icon: <FaSlidersH /> },
+          ].map((tab) => (
+            <button
+              key={tab.name}
+              onClick={() => setActiveTab(tab.name)}
+              className={`w-full flex items-center space-x-2 px-4 py-2 rounded text-left transition ${
+                activeTab === tab.name
+                  ? "bg-indigo-500 text-white"
+                  : "hover:bg-indigo-500 hover:text-white"
+              }`}
+            >
+              {tab.icon}
+              <span>{tab.name}</span>
+            </button>
+          ))}
+        </div>
 
-                {/* Content Section */}
-                <div className="w-2/3 pl-4">
-                  <h3 className="text-sm font-normal text-gray-900 div-text div-dark ">
-                    Options
-                  </h3>
-                  <div>
-                    <h2 className="text-sm font-normal mt-4 div-text div-dark  div-text block mb-2">
-                      Add to stock
-                    </h2>
+        {/* Content Section */}
+        <div className="w-2/3 pl-4">
+          {activeTab === "Restock" && (
+            <div>
+              <h3 className="text-sm font-normal text-gray-900 dark:text-white">
+                Restock Management
+              </h3>
+              <div className="mt-4 space-y-4">
+                <label className="block">
+                  <span className="font-medium">Restock Alert</span>
+                  <input
+                    type="number"
+                    placeholder="Enter minimum stock level"
+                    className="block w-full mt-2 p-2 border rounded dark:bg-gray-800"
+                  />
+                </label>
 
-                    <div className="mt-2 flex space-x-2">
-                      <input
-                        type="number"
-                        placeholder="Add Quantity"
-                        className="w-full p-2 border dark:border-gray-700 rounded outline-none focus:ring-2 focus:ring-indigo-500 div-text div-dark "
-                      />
-                      <button className="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-600">
-                        Confirm
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Stock Details */}
-                  <p className="text-gray-600 div-text mt-4 text-sm">
-                    <span className="block mb-2">Product in stock now: 8</span>
-                    <span className="block mb-2">Product in transit: 62</span>
-                    <span className="block mb-2">
-                      Last time restocked: 24th June, 2023
-                    </span>
-                    <span className="block mb-2">
-                      Total stock over lifetime: 2,430
-                    </span>
-                  </p>
-                </div>
+                <label className="flex items-center space-x-2">
+                  <input type="checkbox" />
+                  <span>Send email notification when stock is low</span>
+                </label>
               </div>
             </div>
+          )}
+
+          {activeTab === "Shipping" && (
+            <div>
+              <h3 className="text-sm font-normal text-gray-900 dark:text-white">
+                Shipping Type
+              </h3>
+              <div className="mt-4 space-y-4">
+                <label className="flex items-start space-x-2">
+                  <input type="radio" name="shipping" className="mt-1" />
+                  <div>
+                    <span className="font-medium">Fulfilled by Seller</span>
+                    <p className="text-sm text-gray-600">
+                      You’ll be responsible for product delivery. Any damage or
+                      delay during shipping may cost you a damage fee.
+                    </p>
+                  </div>
+                </label>
+
+                <label className="flex items-start space-x-2">
+                  <input type="radio" name="shipping" className="mt-1" checked />
+                  <div>
+                    <span className="font-medium">
+                      Fulfilled by Company Name
+                    </span>
+                    <p className="text-sm text-gray-600">
+                      Your product, our responsibility. For a small fee, we
+                      will handle the delivery process for you.
+                    </p>
+                  </div>
+                </label>
+              </div>
+            </div>
+          )}
+
+          {activeTab === "Global Delivery" && (
+            <div>
+              <h3 className="text-sm font-normal text-gray-900 dark:text-white">
+                Global Delivery
+              </h3>
+              <div className="mt-4 space-y-4">
+                <label className="flex items-start space-x-2">
+                  <input type="radio" name="delivery" className="mt-1" checked />
+                  <div>
+                    <span className="font-medium">Worldwide Delivery</span>
+                    <p className="text-sm text-gray-600">
+                      Only available with Shipping method:{" "}
+                      <span className="text-indigo-600 cursor-pointer">
+                        Fulfilled by Company Name
+                      </span>
+                    </p>
+                  </div>
+                </label>
+
+                <label className="flex items-start space-x-2">
+                  <input type="radio" name="delivery" className="mt-1" />
+                  <div>
+                    <span className="font-medium">Selected Countries</span>
+                    <input
+                      type="text"
+                      placeholder="USA"
+                      className="block w-full mt-2 p-2 border rounded dark:bg-gray-800"
+                    />
+                  </div>
+                </label>
+              </div>
+            </div>
+          )}
+
+          {activeTab === "Attributes" && (
+            <div>
+              <h3 className="text-sm font-normal text-gray-900 dark:text-white">
+                Attributes
+              </h3>
+              <div className="mt-4 space-y-4">
+                <label className="flex items-center space-x-2">
+                  <input type="checkbox" />
+                  <span>Fragile Product</span>
+                </label>
+
+                <label className="flex items-center space-x-2">
+                  <input type="checkbox" checked />
+                  <span>Biodegradable</span>
+                </label>
+
+                <label className="flex items-center space-x-2">
+                  <input type="checkbox" />
+                  <div>
+                    <span>Frozen Product</span>
+                    <input
+                      type="text"
+                      placeholder="40 C"
+                      className="block w-full mt-2 p-2 border rounded dark:bg-gray-800"
+                    />
+                  </div>
+                </label>
+
+                <label className="flex items-center space-x-2">
+                  <input type="checkbox" checked />
+                  <div>
+                    <span>Expiry Date of Product</span>
+                    <input
+                      type="date"
+                      className="block w-full mt-2 p-2 border rounded dark:bg-gray-800"
+                      defaultValue="2025-06-14"
+                    />
+                  </div>
+                </label>
+              </div>
+            </div>
+          )}
+
+          {activeTab === "Advanced" && (
+            <div>
+              <h3 className="text-sm font-normal text-gray-900 dark:text-white">
+                Advanced
+              </h3>
+              <div className="mt-4 space-y-4">
+                <label className="block">
+                  <span className="font-medium">Product ID Type</span>
+                  <select className="block w-full mt-2 p-2 border rounded dark:bg-gray-800">
+                    <option>ISBN</option>
+                    <option>UPC</option>
+                    <option>EAN</option>
+                    <option>JAN</option>
+                  </select>
+                </label>
+
+                <label className="block">
+                  <span className="font-medium">Flexible Product ID</span>
+                  <input
+                    type="text"
+                    placeholder="Enter ID"
+                    className="block w-full mt-2 p-2 border rounded dark:bg-gray-800"
+                  />
+                </label>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
           </div>
 
           {/* Sidebar */}
