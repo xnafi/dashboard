@@ -1,9 +1,8 @@
 import { useState } from "react";
-import { FiMoreVertical } from "react-icons/fi";
-import { FaEdit, FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { FaEdit, FaChevronLeft, FaChevronRight, FaTrash } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
 
-const categories = [
+const initialCategories = [
   {
     id: 1,
     name: "Gaming Accessories",
@@ -37,7 +36,7 @@ const ECommerceCategoryList = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectAll, setSelectAll] = useState(false);
   const [selectedProducts, setSelectedProducts] = useState<number[]>([]);
-  
+  const [categories, setCategories] = useState(initialCategories);
 
   const filteredCategories = categories.filter((category) =>
     category.name.toLowerCase().includes(search.toLowerCase())
@@ -49,8 +48,8 @@ const ECommerceCategoryList = () => {
     currentPage * itemsPerPage
   );
 
-   // Handle Select All functionality
-   const handleSelectAll = () => {
+  // Handle Select All functionality
+  const handleSelectAll = () => {
     if (selectAll) {
       setSelectedProducts([]);
     } else {
@@ -68,8 +67,17 @@ const ECommerceCategoryList = () => {
     );
   };
 
+  // Handle category deletion
+  const handleDeleteCategory = (id: number) => {
+    if (window.confirm("Are you sure you want to delete this category?")) {
+      setCategories((prevCategories) =>
+        prevCategories.filter((category) => category.id !== id)
+      );
+    }
+  };
+
   return (
-    <div className="p-6 bg-gray-50 mt-20 ml-12 dark:bg-gray-800 dark:text-white w-[1055px] mx-auto  rounded-lg shadow-md">
+    <div className="p-6 bg-gray-50 mt-20 ml-12 dark:bg-gray-800 dark:text-white w-[1055px] mx-auto rounded-lg shadow-md">
       {/* Search Bar */}
       <div className="flex justify-between items-center mb-4">
         <input
@@ -77,9 +85,8 @@ const ECommerceCategoryList = () => {
           placeholder="Search Category"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="border  rounded-lg px-4 py-2 w-1/3 border-dark div-dark div-text"
+          className="border rounded-lg px-4 py-2 w-1/3 border-dark div-dark div-text"
         />
-
         <select className="border p-2 rounded-md ml-96 border-dark div-dark div-text">
           <option value="7">7</option>
           <option value="10">10</option>
@@ -87,7 +94,7 @@ const ECommerceCategoryList = () => {
         </select>
         <button
           onClick={() => setIsModalOpen(true)}
-          className="bg-indigo-600 text-white px-4 py-2 rounded-lg "
+          className="bg-indigo-600 text-white px-4 py-2 rounded-lg"
         >
           + Add Category
         </button>
@@ -99,7 +106,7 @@ const ECommerceCategoryList = () => {
           <thead>
             <tr className="bg-gray-100 dark:bg-gray-800 dark:border-b dark:border-t border-dark">
               <th className="p-3 text-left">
-              <input
+                <input
                   type="checkbox"
                   className="w-4 h-4"
                   checked={selectAll}
@@ -116,7 +123,7 @@ const ECommerceCategoryList = () => {
             {displayedCategories.map((category) => (
               <tr key={category.id} className="border-b border-dark">
                 <td className="p-3">
-                <input
+                  <input
                     type="checkbox"
                     className="w-4 h-4"
                     checked={selectedProducts.includes(category.id)}
@@ -140,12 +147,15 @@ const ECommerceCategoryList = () => {
                   {category.products.toLocaleString()}
                 </td>
                 <td className="p-3 text-center div-text">{category.earnings}</td>
-                <td className="p-3 text-center flex items-center justify-center space-x-2">
+                <td className="p-3 text-center flex items-center justify-center space-x-4 pb-10">
                   <button className="text-gray-600 hover:text-blue-600">
                     <FaEdit />
                   </button>
-                  <button className="text-gray-600 hover:text-gray-800">
-                    <FiMoreVertical />
+                  <button
+                    className="text-red-600 hover:text-red-800"
+                    onClick={() => handleDeleteCategory(category.id)}
+                  >
+                    <FaTrash />
                   </button>
                 </td>
               </tr>
