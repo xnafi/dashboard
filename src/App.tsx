@@ -67,23 +67,23 @@ function App() {
           <Route path="/user-overview" element={<UserOverview />} />
           <Route path="/user-security" element={<UserSecurity />} />
           <Route path="/user-plans" element={<UserPlans />} />
-          <Route path="/ECommerceProductList" element={<ECommerceProductList />} />
-          <Route path="/ECommerceProductAdd" element={<ECommerceProductAdd />} />
-          <Route path="/ECommerceCategoryList" element={<ECommerceCategoryList />} />
-          <Route path="/ECommerceOrderList" element={<ECommerceOrderList/>} />
-          <Route path="/ECommerceAllCustomers" element={<ECommerceAllCustomers/>} />
-          <Route path="/ECommerceOrderDetails" element={<ECommerceOrderDetails/>} />
-          <Route path="/ECommerceUserOverview" element={<ECommerceUserOverview/>} />
-          <Route path="/ECommerceCustomerSecurity" element={<ECommerceCustomerSecurity/>} />
-          <Route path="/ECommerceCustomerAddress" element={<ECommerceCustomerAddress/>} />
-          <Route path="/ECommerceManageReview" element={<ECommerceManageReview/>} />
-          <Route path="/ECommerceReferrals" element={<ECommerceReferrals/>} />
-          <Route path="/ECommerceStoreDetails" element={<ECommerceStoreDetails/>} />
-          <Route path="/ECommercePayment" element={<ECommercePayment/>} />
-          <Route path="/ECommerceCheckOut" element={<ECommerceCheckOut/>} />
-          <Route path="/ECommerceShipping" element={<ECommerceShipping/>} />
-          <Route path="/ECommerceLocations" element={<ECommerceLocations/>} />
-          <Route path="/ECommerceNotifications" element={<ECommerceNotifications/>} />
+          <Route path="/e-commerce-product-list" element={<ECommerceProductList />} />
+          <Route path="/e-commerce-product-add" element={<ECommerceProductAdd />} />
+          <Route path="/e-commerce-category-list" element={<ECommerceCategoryList />} />
+          <Route path="/e-commerce-order-ist" element={<ECommerceOrderList/>} />
+          <Route path="/e-commerce-all-customers" element={<ECommerceAllCustomers/>} />
+          <Route path="/e-commerce-order-details" element={<ECommerceOrderDetails/>} />
+          <Route path="/e-commerce-user-overview" element={<ECommerceUserOverview/>} />
+          <Route path="/e-commerce-customer-security" element={<ECommerceCustomerSecurity/>} />
+          <Route path="/e-commerce-customer-address" element={<ECommerceCustomerAddress/>} />
+          <Route path="/e-commerce-manage-review" element={<ECommerceManageReview/>} />
+          <Route path="/e-commerce-referrals" element={<ECommerceReferrals/>} />
+          <Route path="/e-commerce-store-details" element={<ECommerceStoreDetails/>} />
+          <Route path="/e-commerce-payment" element={<ECommercePayment/>} />
+          <Route path="/e-commerce-checkOut" element={<ECommerceCheckOut/>} />
+          <Route path="/e-commerce-shipping" element={<ECommerceShipping/>} />
+          <Route path="/e-commerce-locations" element={<ECommerceLocations/>} />
+          <Route path="/e-commerce-notifications" element={<ECommerceNotifications/>} />
         </Route>
       </Routes>
     </BrowserRouter>

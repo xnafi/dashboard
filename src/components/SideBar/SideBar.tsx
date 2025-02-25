@@ -67,23 +67,23 @@ export default function Sidebar() {
             icon={<FaShoppingCart />}
             label="eCommerce"
           >
-            <SidebarSubItem to="/eCommerceProductList" icon={<FaList />} label="Product List" />
-            <SidebarSubItem to="/eCommerceProductAdd" icon={<FaEye />} label="Product Add" />
-            <SidebarSubItem to="/eCommerceCategoryList" icon={<FaShieldAlt />} label="Category List" />
-            <SidebarSubItem to="/eCommerceOrderList" icon={<FaClipboardCheck />} label="Order List" />
-            <SidebarSubItem to="/eCommerceAllCustomers" icon={<FaList />} label="All Customers" />
-            <SidebarSubItem to="/eCommerceOrderDetails" icon={<FaEye />} label="Order Details" />
-            <SidebarSubItem to="/eCommerceUserOverview" icon={<FaShieldAlt />} label="User Overview" />
-            <SidebarSubItem to="/eCommerceCustomerSecurity" icon={<FaClipboardCheck />} label="Customer Security" />
-            <SidebarSubItem to="/eCommerceCustomerAddress" icon={<FaEye />} label="Customer Address" />
-            <SidebarSubItem to="/eCommerceManageReview" icon={<FaShieldAlt />} label="Manage Review" />
-            <SidebarSubItem to="/eCommerceReferrals" icon={<FaClipboardCheck />} label="Referrals" />
-            <SidebarSubItem to="/eCommerceStoreDetails" icon={<FaEye />} label="Store Details" />
-            <SidebarSubItem to="/eCommercePayment" icon={<FaShieldAlt />} label="Payment" />
-            <SidebarSubItem to="/eCommerceCheckOut" icon={<FaClipboardCheck />} label="Check Out" />
-            <SidebarSubItem to="/eCommerceShipping" icon={<FaEye />} label="Shipping" />
-            <SidebarSubItem to="/eCommerceLocations" icon={<FaShieldAlt />} label="Locations" />
-            <SidebarSubItem to="/eCommerceNotifications" icon={<FaClipboardCheck />} label="Notifications" />
+            <SidebarSubItem to="/e-commerce-product-list" icon={<FaList />} label="Product List" />
+            <SidebarSubItem to="/e-commerce-product-add" icon={<FaEye />} label="Product Add" />
+            <SidebarSubItem to="/e-commerce-category-list" icon={<FaShieldAlt />} label="Category List" />
+            <SidebarSubItem to="/e-commerce-order-ist" icon={<FaClipboardCheck />} label="Order List" />
+            <SidebarSubItem to="/e-commerce-all-customers" icon={<FaList />} label="All Customers" />
+            <SidebarSubItem to="/e-commerce-order-details" icon={<FaEye />} label="Order Details" />
+            <SidebarSubItem to="/e-commerce-user-overview" icon={<FaShieldAlt />} label="User Overview" />
+            <SidebarSubItem to="/e-commerce-customer-security" icon={<FaClipboardCheck />} label="Customer Security" />
+            <SidebarSubItem to="/e-commerce-customer-address" icon={<FaEye />} label="Customer Address" />
+            <SidebarSubItem to="/e-commerce-manage-review" icon={<FaShieldAlt />} label="Manage Review" />
+            <SidebarSubItem to="/e-commerce-referrals" icon={<FaClipboardCheck />} label="Referrals" />
+            <SidebarSubItem to="/e-commerce-store-details" icon={<FaEye />} label="Store Details" />
+            <SidebarSubItem to="/e-commerce-payment" icon={<FaShieldAlt />} label="Payment" />
+            <SidebarSubItem to="/e-commerce-checkOut" icon={<FaClipboardCheck />} label="Check Out" />
+            <SidebarSubItem to="/e-commerce-shipping" icon={<FaEye />} label="Shipping" />
+            <SidebarSubItem to="/e-commerce-locations" icon={<FaShieldAlt />} label="Locations" />
+            <SidebarSubItem to="/e-commerce-notifications" icon={<FaClipboardCheck />} label="Notifications" />
 
 
           </SidebarDropdown>
