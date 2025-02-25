@@ -12,7 +12,7 @@ const ECommerceShipping = () => {
   const [activeTab, setActiveTab] = useState("Shipping & Delivery");
 
   const menuItems = [
-    { name: "Store Details", icon: <FaStore /> },
+    { name: "Store Details", icon: <FaStore />, link: "/e-commerce-store-details" },
     { name: "Payment", icon: <MdOutlinePayments /> },
     { name: "Checkout", icon: <FaCreditCard /> },
     { name: "Shipping & Delivery", icon: <MdOutlineLocalShipping /> },
@@ -24,7 +24,7 @@ const ECommerceShipping = () => {
     {
       name: "Domestic",
       country: "United States of America",
-      avatar: "https://randomuser.me/api/portraits/men/1.jpg", // Replace with actual avatar URL
+      avatar: "https://randomuser.me/api/portraits/men/1.jpg", 
       rates: [
         { rateName: "Weight", condition: "5kg-10kg", price: "$9" },
         { rateName: "VAT", condition: "12%", price: "$25" },
@@ -34,7 +34,7 @@ const ECommerceShipping = () => {
     {
       name: "International",
       country: "United States of America",
-      avatar: "https://i.postimg.cc/153vgP3z/united-states-flag.jpg", // Replace with actual avatar URL
+      avatar: "https://i.postimg.cc/153vgP3z/united-states-flag.jpg", 
       rates: [
         { rateName: "Weight", condition: "5kg-10kg", price: "$19" },
         { rateName: "VAT", condition: "12%", price: "$25" },
@@ -61,7 +61,7 @@ const ECommerceShipping = () => {
                             }`}
                 onClick={() => setActiveTab(item.name)}
               >
-                {item.icon} <span>{item.name}</span>
+                {item.icon} <span>{item.link}{item.name}</span>
               </li>
             ))}
           </ul>
