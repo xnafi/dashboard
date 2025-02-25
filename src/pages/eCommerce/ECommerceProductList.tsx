@@ -136,7 +136,7 @@ const ECommerceProductList = () => {
           {/* Status, Category, Stock - In One Line */}
           <div className="flex gap-7 flex-wrap">
             <select
-              className="border p-2 rounded-md w-80 div-dark div-text dark:border-gray-700"
+              className="border p-2 rounded-md w-80 div-dark div-text border-dark"
               value={selectedStatus}
               onChange={(e) => setSelectedStatus(e.target.value)}
             >
@@ -147,7 +147,7 @@ const ECommerceProductList = () => {
             </select>
 
             <select
-              className="border p-2 rounded-md w-80 div-dark div-text dark:border-gray-700"
+              className="border p-2 rounded-md w-80 div-dark div-text border-dark"
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
             >
@@ -158,7 +158,7 @@ const ECommerceProductList = () => {
             </select>
 
             <select
-              className="border p-2 rounded-md w-80  div-dark div-text dark:border-gray-700"
+              className="border p-2 rounded-md w-80  div-dark div-text border-dark"
               value={selectedStock}
               onChange={(e) => setSelectedStock(e.target.value)}
             >
@@ -173,19 +173,19 @@ const ECommerceProductList = () => {
             <input
               type="text"
               placeholder="Search Product"
-              className="border p-2 rounded-md w-80 div-dark div-text dark:border-gray-700"
+              className="border p-2 rounded-md w-80 div-dark div-text border-dark"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
 
             <div className="flex items-center gap-3">
-              <select className="border p-2 rounded-md div-dark div-text dark:border-gray-700">
+              <select className="border p-2 rounded-md div-dark div-text border-dark">
                 <option value="7">7</option>
                 <option value="10">10</option>
                 <option value="20">20</option>
               </select>
 
-              <button className="bg-gray-200 text-black px-4 py-2 rounded-md flex items-center gap-2 div-dark div-text border dark:border-gray-700">
+              <button className="bg-gray-200 text-black px-4 py-2 rounded-md flex items-center gap-2 div-dark div-text border border-dark">
                 <FiDownload className="text-gray-600" /> Export
               </button>
               <button className="bg-indigo-500 text-white px-4 py-2 rounded-md">
@@ -197,10 +197,10 @@ const ECommerceProductList = () => {
 
         {/* Product Table */}
         <div className="overflow-x-auto">
-        <table className="w-full border-collapse border border-gray-200 dark:border-gray-700">
-          <thead className="bg-gray-100 div-dark">
+        <table className="w-full border-collapse border  border-dark div-text">
+          <thead className="bg-gray-50 div-dark">
             <tr className="text-left">
-              <th className="p-3 border dark:border-gray-700">
+              <th className="p-3 border border-dark">
                 <input
                   type="checkbox"
                   className="w-4 h-4"
@@ -208,23 +208,23 @@ const ECommerceProductList = () => {
                   onChange={handleSelectAll}
                 />
               </th>
-              <th className="p-3 border dark:border-gray-700">Product</th>
-              <th className="p-3 border dark:border-gray-700">Category</th>
-              <th className="p-3 border dark:border-gray-700">Stock</th>
-              <th className="p-3 border dark:border-gray-700">SKU</th>
-              <th className="p-3 border dark:border-gray-700">Price</th>
-              <th className="p-3 border dark:border-gray-700">Qty</th>
-              <th className="p-3 border dark:border-gray-700">Status</th>
-              <th className="p-3 border dark:border-gray-700">Actions</th>
+              <th className="p-3 border border-dark">Product</th>
+              <th className="p-3 border border-dark">Category</th>
+              <th className="p-3 border border-dark">Stock</th>
+              <th className="p-3 border border-dark">SKU</th>
+              <th className="p-3 border border-dark">Price</th>
+              <th className="p-3 border border-dark">Qty</th>
+              <th className="p-3 border border-dark">Status</th>
+              <th className="p-3 border border-dark">Actions</th>
             </tr>
           </thead>
           <tbody>
             {displayedProducts.map((product) => (
               <tr
                 key={product.id}
-                className="border dark:border-gray-700 hover:bg-indigo-100 dark:hover:bg-indigo-300 dark:hover:div-text transition"
+                className="border border-dark hover:bg-indigo-100 dark:hover:bg-indigo-300 dark:hover:div-text transition"
               >
-                <td className="p-3 border dark:border-gray-700">
+                <td className="p-3 border border-dark">
                   <input
                     type="checkbox"
                     className="w-4 h-4"
@@ -240,7 +240,7 @@ const ECommerceProductList = () => {
                   />
                   <span>{product.name}</span>
                 </td>
-                <td className="p-3 border dark:border-gray-700">{product.category}</td>
+                <td className="p-3 border border-dark">{product.category}</td>
                 <td
                   className="p-3 cursor-pointer flex items-center justify-between"
                   onClick={() => toggleStock(product.id)}
@@ -251,11 +251,11 @@ const ECommerceProductList = () => {
                     <BsToggleOff className="text-red-500" />
                   )}
                 </td>
-                <td className="p-3 border dark:border-gray-700">{product.sku}</td>
-                <td className="p-3 border dark:border-gray-700">${product.price}</td>
-                <td className="p-3 border dark:border-gray-700">{product.qty}</td>
-                <td className="p-3 border dark:border-gray-700">{product.status}</td>
-                <td className="p-3 border dark:border-gray-700">
+                <td className="p-3 border border-dark">{product.sku}</td>
+                <td className="p-3 border border-dark">${product.price}</td>
+                <td className="p-3 border border-dark">{product.qty}</td>
+                <td className="p-3 border border-dark">{product.status}</td>
+                <td className="p-3 border border-dark">
                   <button className="text-indigo-500 hover:text-indigo-700">
                     <div className="flex items-center gap-2">
                       <FaEdit />
@@ -280,7 +280,7 @@ const ECommerceProductList = () => {
             <button
               onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
               disabled={currentPage === 1}
-              className={`px-3 py-1 rounded-md border dark:border-gray-700 ${
+              className={`px-3 py-1 rounded-md border border-dark ${
                 currentPage === 1
                   ? "bg-gray-300 div-text div-dark"
                   : "bg-white hover:bg-gray-200"
@@ -292,7 +292,7 @@ const ECommerceProductList = () => {
               <button
                 key={index}
                 onClick={() => setCurrentPage(index + 1)}
-                className={`px-3 py-1 rounded-md border dark:border-gray-700 ${
+                className={`px-3 py-1 rounded-md border border-dark ${
                   currentPage === index + 1
                     ? "bg-indigo-500 text-white "
                     : "bg-white hover:bg-indigo-200"
@@ -306,7 +306,7 @@ const ECommerceProductList = () => {
                 setCurrentPage((prev) => Math.min(prev + 1, totalPages))
               }
               disabled={currentPage === totalPages}
-              className={`px-3 py-1 rounded-md border dark:border-gray-700 ${
+              className={`px-3 py-1 rounded-md border border-dark ${
                 currentPage === totalPages
                   ? "bg-gray-300 div-text div-dark"
                   : "bg-white hover:bg-gray-200 div-text div-dark"
