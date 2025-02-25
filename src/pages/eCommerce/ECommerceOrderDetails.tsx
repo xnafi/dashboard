@@ -160,7 +160,7 @@ const ECommerceOrderDetails = () => {
                   {/* Timeline Indicator */}
                   <div className="relative">
                     <div
-                      className={`w-3 h-3 rounded-full ${
+                      className={`w-3 h-3 rounded-full -mt-1 ${
                         index === activities.length - 1
                           ? "bg-gray-500"
                           : "bg-indigo-500"
