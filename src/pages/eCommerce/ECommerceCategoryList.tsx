@@ -152,7 +152,7 @@ const ECommerceCategoryList = () => {
                     <FaEdit />
                   </button>
                   <button
-                    className="text-red-600 hover:text-red-800"
+                    className="text-gray-600 hover:text-red-800"
                     onClick={() => handleDeleteCategory(category.id)}
                   >
                     <FaTrash />
@@ -201,7 +201,7 @@ const ECommerceCategoryList = () => {
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-end z-50">
           <div
-            className={`w-[400px] h-full bg-white dark:bg-gray-800 shadow-xl p-6 transform transition-transform duration-300 ease-in-out ${
+            className={`w-[400px] h-full bg-white div-dark div-text shadow-xl p-6 transform transition-transform duration-300 ease-in-out ${
               isModalOpen ? "translate-x-0" : "translate-x-full"
             }`}
           >
@@ -221,7 +221,7 @@ const ECommerceCategoryList = () => {
                 <input
                   type="text"
                   placeholder="Enter category title"
-                  className="w-full border rounded-lg px-3 py-2"
+                  className="w-full border rounded-lg px-3 py-2 border-dark input-field div-text div-dark"
                 />
               </div>
               <div>
@@ -229,7 +229,7 @@ const ECommerceCategoryList = () => {
                 <input
                   type="text"
                   placeholder="Enter slug"
-                  className="w-full border rounded-lg px-3 py-2"
+                  className="w-full border rounded-lg px-3 py-2 input-field div-text div-dark"
                 />
               </div>
               <div>
@@ -238,11 +238,11 @@ const ECommerceCategoryList = () => {
                   <input type="file" className="hidden" id="file-upload" />
                   <label
                     htmlFor="file-upload"
-                    className="border rounded-lg px-3 py-2 w-full text-gray-500 cursor-pointer"
+                    className="border border-dark rounded-lg px-3 py-2 w-full text-gray-500 cursor-pointer"
                   >
                     No file chosen
                   </label>
-                  <button className="bg-indigo-100 text-indigo-600 px-3 py-2 rounded-lg">
+                  <button className="bg-indigo-100 dark:bg-indigo-300 text-indigo-600 px-3 py-2 rounded-lg">
                     Choose
                   </button>
                 </div>
@@ -251,7 +251,7 @@ const ECommerceCategoryList = () => {
                 <label className="block text-sm font-medium">
                   Parent Category
                 </label>
-                <select className="w-full border rounded-lg px-3 py-2">
+                <select className="w-full border rounded-lg px-3 py-2 input-field div-text div-dark">
                   <option>Select parent category</option>
                 </select>
               </div>
@@ -259,14 +259,14 @@ const ECommerceCategoryList = () => {
                 <label className="block text-sm font-medium">Description</label>
                 <textarea
                   placeholder="Enter category description..."
-                  className="w-full border rounded-lg px-3 py-2"
+                  className="w-full border rounded-lg px-3 py-2 input-field div-text div-dark"
                 ></textarea>
               </div>
               <div>
                 <label className="block text-sm font-medium">
                   Category Status
                 </label>
-                <select className="w-full border rounded-lg px-3 py-2">
+                <select className="w-full border rounded-lg px-3 py-2 input-field div-text div-dark">
                   <option>Select category status</option>
                 </select>
               </div>
@@ -277,7 +277,7 @@ const ECommerceCategoryList = () => {
                 </button>
                 <button
                   onClick={() => setIsModalOpen(false)}
-                  className="bg-red-100 text-red-600 px-4 py-2 rounded-lg"
+                  className="bg-red-100 dark:bg-red-300 text-red-600 px-4 py-2 rounded-lg"
                 >
                   Discard
                 </button>
