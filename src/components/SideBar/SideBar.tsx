@@ -32,6 +32,9 @@ export default function Sidebar() {
   const [invoiceMenuOpen, setInvoiceMenuOpen] = useState(false);
   const [pagesMenuOpen, setPagesMenuOpen] = useState(false);
   const [formsMenuOpen, setFormsMenuOpen] = useState(false);
+  const [productOpen, setProductOpen] = useState(false);
+  const [orderOpen, setOrderOpen] = useState(false);
+  const [customerOpen, setCustomerOpen] = useState(false);
 
   return (
     <div className="w-64 fixed left-0 top-0 h-screen bg-white shadow-lg z-50 overflow-y-auto dark:bg-gray-900  div-text">
@@ -59,35 +62,122 @@ export default function Sidebar() {
           Apps & Pages
         </div>
         <ul className="mt-2 space-y-1 dark:text-white">
-         
-          {/* Users Dropdown */}
+          {/* eCommerce Dropdown */}
           <SidebarDropdown
             isOpen={userMenuOpen}
             setIsOpen={setUserMenuOpen}
             icon={<FaShoppingCart />}
             label="eCommerce"
           >
-            <SidebarSubItem to="/e-commerce-product-list" icon={<FaList />} label="Product List" />
-            <SidebarSubItem to="/e-commerce-product-add" icon={<FaEye />} label="Product Add" />
-            <SidebarSubItem to="/e-commerce-category-list" icon={<FaShieldAlt />} label="Category List" />
-            <SidebarSubItem to="/e-commerce-order-ist" icon={<FaClipboardCheck />} label="Order List" />
-            <SidebarSubItem to="/e-commerce-all-customers" icon={<FaList />} label="All Customers" />
-            <SidebarSubItem to="/e-commerce-order-details" icon={<FaEye />} label="Order Details" />
-            <SidebarSubItem to="/e-commerce-user-overview" icon={<FaShieldAlt />} label="User Overview" />
-            <SidebarSubItem to="/e-commerce-customer-security" icon={<FaClipboardCheck />} label="Customer Security" />
-            <SidebarSubItem to="/e-commerce-customer-address" icon={<FaEye />} label="Customer Address" />
-            <SidebarSubItem to="/e-commerce-manage-review" icon={<FaShieldAlt />} label="Manage Review" />
-            <SidebarSubItem to="/e-commerce-referrals" icon={<FaClipboardCheck />} label="Referrals" />
-            <SidebarSubItem to="/e-commerce-store-details" icon={<FaEye />} label="Store Details" />
-            <SidebarSubItem to="/e-commerce-payment" icon={<FaShieldAlt />} label="Payment" />
-            <SidebarSubItem to="/e-commerce-checkOut" icon={<FaClipboardCheck />} label="Check Out" />
-            <SidebarSubItem to="/e-commerce-shipping" icon={<FaEye />} label="Shipping" />
-            <SidebarSubItem to="/e-commerce-locations" icon={<FaShieldAlt />} label="Locations" />
-            <SidebarSubItem to="/e-commerce-notifications" icon={<FaClipboardCheck />} label="Notifications" />
+            {/* Product Dropdown */}
+            <SidebarDropdown
+              isOpen={productOpen}
+              setIsOpen={setProductOpen}
+              icon={<FaList />}
+              label="Product"
+            >
+              <SidebarSubItem
+                to="/e-commerce-product-list"
+                icon={<FaList />}
+                label="Product List"
+              />
+              <SidebarSubItem
+                to="/e-commerce-product-add"
+                icon={<FaEye />}
+                label="Product Add"
+              />
+              <SidebarSubItem
+                to="/e-commerce-category-list"
+                icon={<FaShieldAlt />}
+                label="Category List"
+              />
+            </SidebarDropdown>
 
+            {/* Order Dropdown */}
+            <SidebarDropdown
+              isOpen={orderOpen}
+              setIsOpen={setOrderOpen}
+              icon={<FaClipboardCheck />}
+              label="Order"
+            >
+              <SidebarSubItem
+                to="/e-commerce-order-ist"
+                icon={<FaClipboardCheck />}
+                label="Order List"
+              />
+              <SidebarSubItem
+                to="/e-commerce-order-details"
+                icon={<FaEye />}
+                label="Order Details"
+              />
+            </SidebarDropdown>
 
+            {/* Customers Dropdown */}
+            <SidebarDropdown
+              isOpen={customerOpen}
+              setIsOpen={setCustomerOpen}
+              icon={<FaList />}
+              label="Customers"
+            >
+              <SidebarSubItem
+                to="/e-commerce-all-customers"
+                icon={<FaList />}
+                label="All Customers"
+              />
+              <SidebarSubItem
+                to="/e-commerce-customer-security"
+                icon={<FaClipboardCheck />}
+                label="Customer Security"
+              />
+              <SidebarSubItem
+                to="/e-commerce-customer-address"
+                icon={<FaEye />}
+                label="Customer Address"
+              />
+            </SidebarDropdown>
+
+            {/* Standalone Items */}
+            <SidebarSubItem
+              to="/e-commerce-manage-review"
+              icon={<FaShieldAlt />}
+              label="Manage Review"
+            />
+            <SidebarSubItem
+              to="/e-commerce-referrals"
+              icon={<FaClipboardCheck />}
+              label="Referrals"
+            />
+            <SidebarSubItem
+              to="/e-commerce-store-details"
+              icon={<FaEye />}
+              label="Store Details"
+            />
+            <SidebarSubItem
+              to="/e-commerce-payment"
+              icon={<FaShieldAlt />}
+              label="Payment"
+            />
+            <SidebarSubItem
+              to="/e-commerce-checkOut"
+              icon={<FaClipboardCheck />}
+              label="Check Out"
+            />
+            <SidebarSubItem
+              to="/e-commerce-shipping"
+              icon={<FaEye />}
+              label="Shipping"
+            />
+            <SidebarSubItem
+              to="/e-commerce-locations"
+              icon={<FaShieldAlt />}
+              label="Locations"
+            />
+            <SidebarSubItem
+              to="/e-commerce-notifications"
+              icon={<FaClipboardCheck />}
+              label="Notifications"
+            />
           </SidebarDropdown>
-
 
           <SidebarItem
             to="/academy"
