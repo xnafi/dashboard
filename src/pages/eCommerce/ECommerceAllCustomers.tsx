@@ -20,135 +20,121 @@ const ECommerceAllCustomers = () => {
   const [customers, setCustomers] = useState<Customer[]>([]);
   const [search, setSearch] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 5;
+  const [itemsPerPage] = useState(5);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isBillingAddress, setIsBillingAddress] = useState(true);
+  const [selectedCustomers, setSelectedCustomers] = useState<number[]>([]);
+  const [selectAll, setSelectAll] = useState(false);
 
-  // Fetch customers from JSON file
   useEffect(() => {
     setCustomers(customersData.customers);
   }, []);
 
-  // Filter customers based on search input
   const filteredCustomers = customers.filter((customer) =>
     customer.name.toLowerCase().includes(search.toLowerCase())
   );
 
-  // Pagination logic
   const totalPages = Math.ceil(filteredCustomers.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
-  const selectedCustomers = filteredCustomers.slice(
+  const displayedCustomers = filteredCustomers.slice(
     startIndex,
     startIndex + itemsPerPage
   );
 
+  // Select all customers in the current page
+  const handleSelectAll = () => {
+    if (selectAll) {
+      setSelectedCustomers([]); // Deselect all
+    } else {
+      setSelectedCustomers(displayedCustomers.map((customer) => customer.id)); // Select all visible customers
+    }
+    setSelectAll(!selectAll);
+  };
+
+  const handleSelectCustomer = (id: number) => {
+    setSelectedCustomers((prev) =>
+      prev.includes(id)
+        ? prev.filter((customerId) => customerId !== id)
+        : [...prev, id]
+    );
+  };
+
   return (
-    <div className="p-6 bg-gray-50 mt-20 ml-6 dark:bg-gray-900 dark:text-white max-w-full rounded-lg shadow-md">
-      <div className="bg-white dark:bg-gray-800 p-4">
-        <div className="flex justify-between items-center mb-4 dark:bg-gray-800">
-          {/* Search Input */}
-          <div className="relative dark:bg-gray-800">
+    <div className="p-6 bg-gray-50 mt-20 ml-6 dark:bg-gray-900 div-text max-w-full rounded-lg shadow-md">
+      <div className="bg-white div-dark p-4">
+        <div className="flex justify-between items-center mb-4 div-dark">
+          <div className="relative div-dark">
             <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 " />
             <input
               type="text"
               placeholder="Search Order"
-              className="pl-10 pr-4 py-2 border dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 dark:bg-gray-800"
+              className="pl-10 pr-4 py-2 border border-dark rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 div-dark"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
           </div>
-          <div className="flex items-center gap-3 ">
-            <select className="border p-2 rounded-md div-dark div-text border-dark">
+          <div className="flex items-center gap-3">
+            <select className="border p-2 rounded-md border-dark div-dark">
               <option value="7">7</option>
               <option value="10">10</option>
               <option value="20">20</option>
             </select>
 
-            <button className="bg-gray-200 text-black px-4 py-2 border rounded-md flex items-center gap-2 dark:border-gray-700 dark:bg-gray-800 div-text ">
-              <FiDownload className="text-gray-600 " /> Export
+            <button className="bg-gray-200 text-black px-4 py-2 border rounded-md flex items-center gap-2 border-dark div-dark">
+              <FiDownload className="text-gray-600" /> Export
             </button>
-            {/* Add Customer Button */}
-            {/* <button className="bg-indigo-600 text-white px-4 py-2 rounded-lg flex items-center gap-2">
-          <FaPlus />
-          Add Customer
-        </button> */}
 
             <button
               onClick={() => setIsModalOpen(true)}
-              className="bg-indigo-600 text-white px-4 py-2 rounded-lg  "
+              className="bg-indigo-600 text-white px-4 py-2 rounded-lg"
             >
               + Add Customer
             </button>
           </div>
         </div>
 
-        {/* Table */}
-        <table className="w-full border-collapse border border-gray-200 dark:border-gray-700">
+        <table className="w-full border-collapse border border-gray-200 border-dark">
           <thead>
-            <tr className="bg-white  dark:border-gray-500 dark:bg-gray-800 div-text ">
-              <th className="px-4 py-2 text-left ">
-                <input type="checkbox" />
+            <tr className="bg-white dark:border-gray-500 div-dark">
+              <th className="px-4 py-2 text-left">
+                <input type="checkbox" checked={selectAll} onChange={handleSelectAll} />
               </th>
-              <th className="px-4 py-2 text-left text-sm text-gray-600 div-text ">
-                Customers
-              </th>
-              <th className="px-4 py-2 text-left text-sm text-gray-600 div-text ">
-                Customer ID
-              </th>
-              <th className="px-4 py-2 text-left text-sm text-gray-600 div-text ">
-                Country
-              </th>
-              <th className="px-4 py-2 text-left text-sm text-gray-600 div-text ">
-                Orders
-              </th>
-              <th className="px-4 py-2 text-left text-sm text-gray-600 div-text ">
-                Total Spent
-              </th>
+              <th className="px-4 py-2 text-left">Customers</th>
+              <th className="px-4 py-2 text-left">Customer ID</th>
+              <th className="px-4 py-2 text-left">Country</th>
+              <th className="px-4 py-2 text-left">Orders</th>
+              <th className="px-4 py-2 text-left">Total Spent</th>
             </tr>
           </thead>
           <tbody>
-            {selectedCustomers.map((customer) => (
-              <tr key={customer.id} className="border-t dark:border-gray-700">
+            {displayedCustomers.map((customer) => (
+              <tr key={customer.id} className="border-t border-dark">
                 <td className="px-4 py-2">
-                  <input type="checkbox" />
+                  <input
+                    type="checkbox"
+                    checked={selectedCustomers.includes(customer.id)}
+                    onChange={() => handleSelectCustomer(customer.id)}
+                  />
                 </td>
                 <td className="px-4 py-2 flex items-center gap-2">
-                  <img
-                    src={customer.avatar}
-                    alt={customer.name}
-                    className="w-8 h-8 rounded-full"
-                  />
+                  <img src={customer.avatar} alt={customer.name} className="w-8 h-8 rounded-full" />
                   <div>
-                    <p className="font-semibold div-text ">
-                      {customer.name}
-                    </p>
+                    <p className="font-semibold">{customer.name}</p>
                     <p className="text-gray-500 text-sm">{customer.email}</p>
                   </div>
                 </td>
-                <td className="px-4 py-2 div-text ">
-                  {customer.customerId}
-                </td>
-                <td className="px-4 py-2 flex items-center gap-2 div-text ">
-                  <img
-                    src={customer.countryFlag}
-                    alt={customer.country}
-                    className="w-6 h-6 rounded-full"
-                  />
+                <td className="px-4 py-2">{customer.customerId}</td>
+                <td className="px-4 py-2 flex items-center gap-2">
+                  <img src={customer.countryFlag} alt={customer.country} className="w-6 h-6 rounded-full" />
                   {customer.country}
                 </td>
-
-                <td className="px-4 py-2 div-text ">
-                  {customer.orders}
-                </td>
-                <td className="px-4 py-2 div-text ">
-                  {customer.totalSpent}
-                </td>
+                <td className="px-4 py-2">{customer.orders}</td>
+                <td className="px-4 py-2">{customer.totalSpent}</td>
               </tr>
             ))}
           </tbody>
         </table>
 
-        {/* Pagination */}
         <div className="flex justify-between items-center mt-4">
           <p className="text-gray-600">
             Showing {startIndex + 1} to{" "}
@@ -158,19 +144,16 @@ const ECommerceAllCustomers = () => {
 
           <div className="flex items-center gap-1">
             <button
-              className={`px-3 py-1 border dark:border-gray-700 rounded-md ${
-                currentPage === 1 ? "opacity-50 cursor-not-allowed" : ""
-              }`}
+              className={`px-3 py-1 border rounded-md ${currentPage === 1 ? "opacity-50 cursor-not-allowed" : ""}`}
               disabled={currentPage === 1}
               onClick={() => setCurrentPage(1)}
             >
               {"<<"}
             </button>
             <button
-              className={`px-3 py-1 border dark:border-gray-700 rounded-md ${
-                currentPage === 1 ? "bg-indigo-500 text-white" : ""
-              }`}
-              onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
+              className={`px-3 py-1 border rounded-md ${currentPage === 1 ? "opacity-50 cursor-not-allowed" : ""}`}
+              disabled={currentPage === 1}
+              onClick={() => setCurrentPage(currentPage - 1)}
             >
               {"<"}
             </button>
@@ -178,9 +161,7 @@ const ECommerceAllCustomers = () => {
             {[...Array(totalPages)].map((_, index) => (
               <button
                 key={index}
-                className={`px-3 py-1 border dark:border-gray-700 rounded-md ${
-                  currentPage === index + 1 ? "bg-indigo-500 text-white" : ""
-                }`}
+                className={`px-3 py-1 border rounded-md ${currentPage === index + 1 ? "bg-indigo-500 text-white" : ""}`}
                 onClick={() => setCurrentPage(index + 1)}
               >
                 {index + 1}
@@ -188,24 +169,14 @@ const ECommerceAllCustomers = () => {
             ))}
 
             <button
-              className={`px-3 py-1 border dark:border-gray-700 rounded-md ${
-                currentPage === totalPages
-                  ? "opacity-50 cursor-not-allowed"
-                  : ""
-              }`}
+              className={`px-3 py-1 border rounded-md ${currentPage === totalPages ? "opacity-50 cursor-not-allowed" : ""}`}
               disabled={currentPage === totalPages}
-              onClick={() =>
-                setCurrentPage(Math.min(totalPages, currentPage + 1))
-              }
+              onClick={() => setCurrentPage(currentPage + 1)}
             >
               {">"}
             </button>
             <button
-              className={`px-3 py-1 border dark:border-gray-700 rounded-md ${
-                currentPage === totalPages
-                  ? "opacity-50 cursor-not-allowed"
-                  : ""
-              }`}
+              className={`px-3 py-1 border rounded-md ${currentPage === totalPages ? "opacity-50 cursor-not-allowed" : ""}`}
               disabled={currentPage === totalPages}
               onClick={() => setCurrentPage(totalPages)}
             >
@@ -214,7 +185,6 @@ const ECommerceAllCustomers = () => {
           </div>
         </div>
       </div>
-
       {/* Right-side Modal */}
       {/* Modal */}
       {isModalOpen && (
