@@ -524,9 +524,12 @@ const ECommerceProductAdd = () => {
                 <select className="w-full p-2 border rounded div-text div-dark border-dark">
                   <option>Select Category</option>
                 </select>
-                <button className="px-4 py-2 bg-indigo-100 div-text div-dark dark:bg-indigo-300 text-indigo-500 text-lg font-semibold rounded">
+                <div className="bg-indigo-800">
+                <button className="px-4 py-2  div-text div-dark dark:bg-indigo-300  text-lg font-semibold rounded">
                   +
                 </button>
+                </div>
+                
               </div>
               <select className="w-full p-2 border rounded mt-2 div-text div-dark border-dark">
                 <option>Select Collection</option>

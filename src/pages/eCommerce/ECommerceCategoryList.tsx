@@ -35,6 +35,9 @@ const ECommerceCategoryList = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 4;
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectAll, setSelectAll] = useState(false);
+  const [selectedProducts, setSelectedProducts] = useState<number[]>([]);
+  
 
   const filteredCategories = categories.filter((category) =>
     category.name.toLowerCase().includes(search.toLowerCase())
@@ -45,6 +48,25 @@ const ECommerceCategoryList = () => {
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
+
+   // Handle Select All functionality
+   const handleSelectAll = () => {
+    if (selectAll) {
+      setSelectedProducts([]);
+    } else {
+      setSelectedProducts(displayedCategories.map((category) => category.id));
+    }
+    setSelectAll(!selectAll);
+  };
+
+  // Handle individual product selection
+  const handleSelectProduct = (id: number) => {
+    setSelectedProducts((prevSelected) =>
+      prevSelected.includes(id)
+        ? prevSelected.filter((productId) => productId !== id)
+        : [...prevSelected, id]
+    );
+  };
 
   return (
     <div className="p-6 bg-gray-50 mt-20 ml-12 dark:bg-gray-800 dark:text-white w-[1055px] mx-auto  rounded-lg shadow-md">
@@ -77,7 +99,12 @@ const ECommerceCategoryList = () => {
           <thead>
             <tr className="bg-gray-100 dark:bg-gray-800 dark:border-b dark:border-t border-dark">
               <th className="p-3 text-left">
-                <input type="checkbox" />
+              <input
+                  type="checkbox"
+                  className="w-4 h-4"
+                  checked={selectAll}
+                  onChange={handleSelectAll}
+                />
               </th>
               <th className="p-3 text-left text-gray-600 div-text">Categories</th>
               <th className="p-3 text-center text-gray-600 div-text">Total Products</th>
@@ -89,7 +116,12 @@ const ECommerceCategoryList = () => {
             {displayedCategories.map((category) => (
               <tr key={category.id} className="border-b border-dark">
                 <td className="p-3">
-                  <input type="checkbox" />
+                <input
+                    type="checkbox"
+                    className="w-4 h-4"
+                    checked={selectedProducts.includes(category.id)}
+                    onChange={() => handleSelectProduct(category.id)}
+                  />
                 </td>
                 <td className="p-3 flex items-center space-x-3 div-text text-gray-600">
                   <img
