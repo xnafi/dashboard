@@ -10,42 +10,60 @@ import {
   MdLocationOn,
   MdNotificationsNone,
 } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 const ECommerceStoreDetails = () => {
   const [activeTab, setActiveTab] = useState("Store Details");
+  const navigate = useNavigate();
 
   const menuItems = [
-    { name: "Store Details", icon: <FaStore /> },
-    { name: "Payment", icon: <MdOutlinePayments /> },
-    { name: "Checkout", icon: <FaCreditCard /> },
-    { name: "Shipping & Delivery", icon: <MdOutlineLocalShipping /> },
-    { name: "Locations", icon: <MdLocationOn /> },
-    { name: "Notifications", icon: <MdNotificationsNone /> },
+    { name: "Store Details", icon: <FaStore />, path: "/eCommerceStoreDetails" },
+    { name: "Payment", icon: <MdOutlinePayments />, path: "/eCommercePayment" },
+    { name: "Checkout", icon: <FaCreditCard />, path: "/eCommerceCheckOut" },
+    { name: "Shipping & Delivery", icon: <MdOutlineLocalShipping />, path: "/eCommerceShipping" },
+    { name: "Locations", icon: <MdLocationOn />, path: "/eCommerceLocations" },
+    { name: "Notifications", icon: <MdNotificationsNone />, path: "/eCommerceNotifications" },
   ];
+
+  const handleMenuClick = (item: any) => {
+    console.log("Navigating to:", item.path); 
+    setActiveTab(item.name); 
+    navigate(item.path); 
+  };
 
   return (
     <div className="p-6 bg-gray-50 mt-20 ml-6 dark:bg-gray-900 div-dark max-w-full rounded-lg shadow-2xl">
       <div className="flex  bg-gray-100 dark:bg-gray-900">
         {/* Sidebar */}
-        <aside className="w-64   p-6">
-          <h2 className="text-lg font-semibold mb-4">Getting Started</h2>
+        <aside className="w-64 p-6">
+          <h2
+            className="text-lg font-semibold mb-4 cursor-pointer text-indigo-600 hover:underline"
+            onClick={() => {
+              console.log("Navigating to /store-details"); // Debugging
+              setActiveTab("Store Details");
+              navigate("/store-details");
+            }}
+          >
+            Getting Started
+          </h2>
+
           <ul className="space-y-2">
             {menuItems.map((item) => (
               <li
                 key={item.name}
-                className={`flex items-center gap-3 px-4 py-2 rounded-lg cursor-pointer
-                                ${
-                                  activeTab === item.name
-                                    ? "bg-indigo-600"
-                                    : "hover:bg-indigo-500"
-                                }`}
-                onClick={() => setActiveTab(item.name)}
+                className={`flex items-center gap-3 px-4 py-2 rounded-lg cursor-pointer ${
+                  activeTab === item.name
+                    ? "bg-indigo-600 text-white"
+                    : "hover:bg-indigo-500 text-gray-200"
+                }`}
+                onClick={() => handleMenuClick(item)} // Using the new handler
               >
                 {item.icon} <span>{item.name}</span>
               </li>
             ))}
           </ul>
         </aside>
+  
 
         {/* Main Content */}
         <div className="flex-1 p-8">
