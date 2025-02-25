@@ -159,7 +159,7 @@ const UserSecurity = () => {
                 />
                 <button
                   type="button"
-                  className="absolute right-3 top-3 text-gray-500 "
+                  className="absolute right-3 top-4 text-gray-500 "
                   onClick={() => setShowPassword(!showPassword)}
                 >
                   {showPassword ? <EyeIcon size={18} /> : <EyeOffIcon size={18} />}
@@ -178,7 +178,7 @@ const UserSecurity = () => {
                 />
                 <button
                   type="button"
-                  className="absolute right-3 top-3 text-gray-500"
+                  className="absolute right-3 top-4 text-gray-500"
                   onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                 >
                   {showConfirmPassword ? <EyeIcon size={18} /> : <EyeOffIcon size={18} />}

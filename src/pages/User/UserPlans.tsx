@@ -1,8 +1,19 @@
 // import { FaRegCreditCard } from "react-icons/fa";
 import { MdOutlineErrorOutline } from "react-icons/md";
 // import { FaCcMastercard, FaCcVisa, FaCcAmex } from "react-icons/fa";
+import { useState } from "react";
 
 const UserPlans = () => {
+  const [cards, setCards] = useState([
+    { id: 1, name: "Tom McBride", number: "**** **** **** 9865", img: "https://i.postimg.cc/1zy59Khk/mastercard-1.png", expiry: "12/24", status: "Popular" },
+    { id: 2, name: "Mildred Wagner", number: "**** **** **** 5678", img: "https://i.postimg.cc/vZs6Vfwz/visa-icon-1.png", expiry: "02/24", status: "" },
+    { id: 3, name: "Lester Jennings", number: "**** **** **** 9424", img: "https://i.postimg.cc/tgr1wcZS/american-express.png", expiry: "08/20", status: "Expired" },
+  ]);
+
+  // Delete function
+  const handleDelete = (cardId: any) => {
+    setCards((prevCards) => prevCards.filter((card) => card.id !== cardId));
+  };
   return (
     <div className="p-6 bg-gray-50 mt-20 ml-6 dark:bg-gray-900 div-text max-w-full">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 p-6 bg-gray-100 dark:bg-gray-900 dark:text-gray-200">
@@ -208,97 +219,40 @@ const UserPlans = () => {
             </div>
 
             {/* Payment Cards */}
-            <div className="space-y-4 ">
-              {/* Mastercard */}
-              <div className="p-4 border border-dark rounded-lg flex justify-between items-center">
-                <div className="gap-4">
-                  <img
-                    src="https://i.postimg.cc/1zy59Khk/mastercard-1.png"
-                    alt="Mastercard"
-                    className="w-12 h-8"
-                  />
-                  <div>
-                    <p className="font-semibold mb-2 mt-2">
-                      Tom McBride
-                      <span className="text-xs bg-purple-200 text-indigo-700 px-2 py-1 rounded-md ml-2">
-                        Popular
-                      </span>
-                    </p>
-                    <p className="text-sm text-gray-500 div-text">**** **** **** 9865</p>
-                  </div>
-                </div>
-                <div className="text-right">
-                  
-                  <div className="flex gap-2 mt-2">
-                    <button className="bg-purple-200 text-indigo-700 px-3 py-1 rounded-md">
-                      Edit
-                    </button>
-                    <button className="bg-red-200 text-red-700 px-3 py-1 rounded-md">
-                      Delete
-                    </button>
-                  </div>
-                  <p className="text-sm text-gray-500 mt-2 div-text">Card expires at 12/24</p>
-                </div>
-              </div>
-
-              {/* Visa */}
-              <div className="p-4 border border-dark rounded-lg flex justify-between items-center">
-                <div className=" gap-4">
-                  <img
-                    src="https://i.postimg.cc/vZs6Vfwz/visa-icon-1.png"
-                    alt="Visa"
-                    className="w-12 h-8"
-                  />
-                  <div>
-                    <p className="font-semibold mb-2 mt-2">Mildred Wagner</p>
-                    <p className="text-sm text-gray-500 div-text">**** **** **** 5678</p>
-                  </div>
-                </div>
-                <div className="text-right">
-                  
-                  <div className="flex gap-2 mt-2">
-                    <button className="bg-purple-200 text-indigo-700 px-3 py-1 rounded-md">
-                      Edit
-                    </button>
-                    <button className="bg-red-200 text-red-700 px-3 py-1 rounded-md">
-                      Delete
-                    </button>
-                  </div>
-                  <p className="text-sm text-gray-500 mt-2 div-text">Card expires at 02/24</p>
-                </div>
-              </div>
-
-              {/* American Express - Expired */}
-              <div className="p-4 border border-dark rounded-lg flex justify-between items-center">
-                <div className=" gap-4">
-                  <img
-                    src="https://i.postimg.cc/tgr1wcZS/american-express.png"
-                    alt="American Express"
-                    className="w-12 h-8"
-                  />
-                  <div>
-                    <p className="font-semibold mb-2 mt-2">
-                      Lester Jennings
-                      <span className="text-xs bg-red-200 text-red-700 px-2 py-1 rounded-md ml-2 ">
-                        Expired
-                      </span>
-                    </p>
-                    <p className="text-sm text-gray-500 div-text">**** **** **** 9424</p>
-                  </div>
-                </div>
-                <div className="text-right">
-                  <div className="flex gap-2 mt-2">
-                    <button className="bg-purple-200 text-indigo-700 px-3 py-1 rounded-md">
-                      Edit
-                    </button>
-                    <button className="bg-red-200 text-red-700 px-3 py-1 rounded-md">
-                      Delete
-                    </button>
-                  </div>
-                  <p className="text-sm text-gray-500 mt-2 div-text">Card expires at 08/20</p>
-                </div>
-              </div>
+            <div className="space-y-4">
+      {cards.map((card) => (
+        <div key={card.id} className="p-4 border border-dark rounded-lg flex justify-between items-center">
+          <div className="flex gap-4">
+            <img src={card.img} alt={card.name} className="w-12 h-8" />
+            <div>
+              <p className="font-semibold mb-2 mt-2">
+                {card.name}
+                {card.status && (
+                  <span className={`text-xs px-2 py-1 rounded-md ml-2 ${card.status === "Expired" ? "bg-red-200 text-red-700" : "bg-purple-200 text-indigo-700"}`}>
+                    {card.status}
+                  </span>
+                )}
+              </p>
+              <p className="text-sm text-gray-500 div-text">{card.number}</p>
             </div>
+          </div>
+          <div className="text-right">
+            <div className="flex gap-2 mt-2">
+              <button className="bg-purple-200 text-indigo-700 px-3 py-1 rounded-md">
+                Edit
+              </button>
+              <button
+                onClick={() => handleDelete(card.id)}
+                className="bg-red-200 text-red-700 px-3 py-1 rounded-md"
+              >
+                Delete
+              </button>
+            </div>
+            <p className="text-sm text-gray-500 mt-2 div-text">Card expires at {card.expiry}</p>
+          </div>
+        </div>
+      ))}
+    </div>
           </div>
 
           {/* Billing Address Section */}
