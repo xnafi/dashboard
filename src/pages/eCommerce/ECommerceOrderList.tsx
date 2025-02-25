@@ -74,7 +74,7 @@ const ECommerceOrderList = () => {
   const [currentPage, setCurrentPage] = useState(3);
   const [search, setSearch] = useState("");
   const [selectedOrders, setSelectedOrders] = useState<string[]>([]);
-  const [selectAll, setSelectAll] = useState(false); // State for 'Select All' checkbox
+  const [selectAll, setSelectAll] = useState(false); 
   const [orderList, setOrderList] = useState(orders); // Add state for orders
 
   const toggleSelectAll = () => {
@@ -83,7 +83,7 @@ const ECommerceOrderList = () => {
     } else {
       setSelectedOrders(orders.map(order => order.id)); // Select all
     }
-    setSelectAll(!selectAll); // Toggle 'Select All' state
+    setSelectAll(!selectAll); 
   };
 
   const toggleSelect = (id: string) => {
@@ -95,7 +95,7 @@ const ECommerceOrderList = () => {
    // Function to handle order deletion
    const handleDelete = (id: string) => {
     const updatedOrders = orderList.filter(order => order.id !== id);
-    setOrderList(updatedOrders); // Update the order list
+    setOrderList(updatedOrders); 
   };
 
   return (
@@ -177,7 +177,7 @@ const ECommerceOrderList = () => {
             </tr>
           </thead>
           <tbody>
-  {orderList.map((order) => ( // Change this from orders to orderList
+  {orderList.map((order) => ( 
     <tr
       key={order.id}
       className="border-b div-text div-dark border-dark text-sm hover:bg-gray-50 transition"
@@ -223,11 +223,11 @@ const ECommerceOrderList = () => {
           {order.status}
         </span>
       </td>
-      <td className="p-3 flex items-center">
+      <td className="p-3 flex items-center ">
         {order.method === "mastercard" ? (
-          <FaCcMastercard className="text-red-600 text-lg mr-2" />
+          <FaCcMastercard className="text-red-600 text-lg mr-2 mb-2" />
         ) : (
-          <FaCcPaypal className="text-blue-600 text-lg mr-2" />
+          <FaCcPaypal className="text-blue-600 text-lg mr-2 " />
         )}
         <span className="text-gray-700 text-sm">
           {order.lastDigits ? `•••• ${order.lastDigits}` : "N/A"}
@@ -237,7 +237,7 @@ const ECommerceOrderList = () => {
         <button className="text-indigo-600 hover:underline group">
           <li
             className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex items-center gap-1"
-            onClick={() => handleDelete(order.id)} // Call handleDelete with the correct order id
+            onClick={() => handleDelete(order.id)} 
           >
             <FaTrash className="text-gray-600 hover:text-red-600" />
            
