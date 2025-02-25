@@ -198,7 +198,7 @@ const ECommerceProductList = () => {
         {/* Product Table */}
         <div className="overflow-x-auto">
         <table className="w-full border-collapse border border-gray-200 dark:border-gray-700">
-          <thead className="bg-gray-100 dark:bg-gray-800">
+          <thead className="bg-gray-100 div-dark">
             <tr className="text-left">
               <th className="p-3 border dark:border-gray-700">
                 <input
@@ -222,7 +222,7 @@ const ECommerceProductList = () => {
             {displayedProducts.map((product) => (
               <tr
                 key={product.id}
-                className="border dark:border-gray-700 hover:bg-indigo-100 dark:hover:bg-indigo-300 transition"
+                className="border dark:border-gray-700 hover:bg-indigo-100 dark:hover:bg-indigo-300 dark:hover:div-text transition"
               >
                 <td className="p-3 border dark:border-gray-700">
                   <input

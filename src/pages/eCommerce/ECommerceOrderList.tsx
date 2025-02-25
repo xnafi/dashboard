@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaCcMastercard, FaCcPaypal, FaRegCalendarCheck, FaRegCheckCircle, FaRegCreditCard, FaRegTimesCircle } from "react-icons/fa";
+import { FaCcMastercard, FaCcPaypal, FaRegCalendarCheck, FaRegCheckCircle, FaRegCreditCard, FaRegTimesCircle, FaTrash } from "react-icons/fa";
 import { FiDownload } from "react-icons/fi";
 
 const orders = [
@@ -64,7 +64,7 @@ const getDeliveryStatusColor = (status: string) => {
     case "Dispatched":
       return "text-orange-700 bg-orange-100";
     case "Ready to Pickup":
-      return "text-blue-700 bg-blue-100";
+      return "text-indigo-700 bg-indigo-100";
     default:
       return "text-gray-700 bg-gray-200";
   }
@@ -74,6 +74,17 @@ const ECommerceOrderList = () => {
   const [currentPage, setCurrentPage] = useState(3);
   const [search, setSearch] = useState("");
   const [selectedOrders, setSelectedOrders] = useState<string[]>([]);
+  const [selectAll, setSelectAll] = useState(false); // State for 'Select All' checkbox
+  const [orderList, setOrderList] = useState(orders); // Add state for orders
+
+  const toggleSelectAll = () => {
+    if (selectAll) {
+      setSelectedOrders([]); // Deselect all
+    } else {
+      setSelectedOrders(orders.map(order => order.id)); // Select all
+    }
+    setSelectAll(!selectAll); // Toggle 'Select All' state
+  };
 
   const toggleSelect = (id: string) => {
     setSelectedOrders((prev) =>
@@ -81,45 +92,46 @@ const ECommerceOrderList = () => {
     );
   };
 
+   // Function to handle order deletion
+   const handleDelete = (id: string) => {
+    const updatedOrders = orderList.filter(order => order.id !== id);
+    setOrderList(updatedOrders); // Update the order list
+  };
+
   return (
     <div className="p-6 bg-gray-50 mt-20 ml-6 dark:bg-gray-900 dark:text-white max-w-full rounded-lg shadow-md">
-       {/* Summary Row */}
-       <div className="grid grid-cols-4 gap-4 mb-6 p-4 bg-white div-text div-dark border-dark rounded-md shadow">
+      {/* Summary Row */}
+      <div className="grid grid-cols-4 gap-4 mb-6 p-4 bg-white div-text div-dark border-dark rounded-md shadow">
         <div className="flex items-center gap-3">
-            <div>
+          <div>
             <h2 className="text-xl font-bold">56</h2>
-          
-          <p className="text-gray-500">Pending Payment</p>
-            </div>
-          
+            <p className="text-gray-500">Pending Payment</p>
+          </div>
           <FaRegCalendarCheck className="text-gray-400 text-lg ml-auto" />
         </div>
         <div className="flex items-center gap-3 border-l border-dark pl-4">
-            <div>
+          <div>
             <h2 className="text-xl font-bold">12,689</h2>
             <p className="text-gray-500">Completed</p>
-            </div>
-          
+          </div>
           <FaRegCheckCircle className="text-gray-400 text-lg ml-auto" />
         </div>
         <div className="flex items-center gap-3 border-l border-dark pl-4">
-            <div>
+          <div>
             <h2 className="text-xl font-bold">124</h2>
             <p className="text-gray-500">Refunded</p>
-            </div>
-          
+          </div>
           <FaRegCreditCard className="text-gray-400 text-lg ml-auto " />
         </div>
         <div className="flex items-center gap-3 border-l border-dark pl-4">
-            <div>
+          <div>
             <h2 className="text-xl font-bold">32</h2>
             <p className="text-gray-500">Failed</p>
-            </div>
-          
+          </div>
           <FaRegTimesCircle className="text-gray-400 text-lg ml-auto" />
         </div>
       </div>
-      
+
       {/* Search Bar */}
       <div className="flex justify-between items-center mb-4">
         <input
@@ -148,7 +160,12 @@ const ECommerceOrderList = () => {
           <thead>
             <tr className="border-b text-left text-sm text-gray-600 div-text div-dark border-dark">
               <th className="p-3">
-                <input type="checkbox" className="cursor-pointer" />
+                <input
+                  type="checkbox"
+                  checked={selectAll}
+                  onChange={toggleSelectAll}
+                  className="cursor-pointer"
+                />
               </th>
               <th className="p-3">Order</th>
               <th className="p-3">Date</th>
@@ -160,73 +177,79 @@ const ECommerceOrderList = () => {
             </tr>
           </thead>
           <tbody>
-            {orders.map((order) => (
-              <tr
-                key={order.id}
-                className="border-b div-text div-dark border-dark text-sm hover:bg-gray-50 transition"
-              >
-                <td className="p-3">
-                  <input
-                    type="checkbox"
-                    checked={selectedOrders.includes(order.id)}
-                    onChange={() => toggleSelect(order.id)}
-                    className="cursor-pointer"
-                  />
-                </td>
-                <td className="p-3 text-blue-500">{order.id}</td>
-                <td className="p-3">{order.date}</td>
-                <td className="p-3 flex items-center gap-3">
-                  <img
-                    src={order.customer.avatar}
-                    alt={order.customer.name}
-                    className="w-8 h-8 rounded-full"
-                  />
-                  <div className="flex flex-col">
-                    <span className="font-medium">{order.customer.name}</span>
-                    <span className="text-xs text-gray-500">
-                      {order.customer.email}
-                    </span>
-                  </div>
-                </td>
-                <td className="p-3">
-                  <span
-                    className={`px-2 py-1 text-xs font-semibold rounded div-text div-dark border-dark ${getStatusColor(
-                      order.payment
-                    )}`}
-                  >
-                    {order.payment}
-                  </span>
-                </td>
-                <td className="p-3">
-                  <span
-                    className={`px-2 py-1 text-xs font-semibold rounded div-text div-dark border-dark ${getDeliveryStatusColor(
-                      order.status
-                    )}`}
-                  >
-                    {order.status}
-                  </span>
-                </td>
-                <td className="p-3 flex items-center">
-                  {order.method === "mastercard" ? (
-                    <FaCcMastercard className="text-red-600 text-lg mr-2" />
-                  ) : (
-                    <FaCcPaypal className="text-blue-600 text-lg mr-2" />
-                  )}
-                  <span className="text-gray-700 text-sm">
-                    {order.lastDigits ? `•••• ${order.lastDigits}` : "N/A"}
-                  </span>
-                </td>
-                <td className="p-3">
-                  <button className="text-gray-500 hover:text-gray-700">
-                    •••
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
+  {orderList.map((order) => ( // Change this from orders to orderList
+    <tr
+      key={order.id}
+      className="border-b div-text div-dark border-dark text-sm hover:bg-gray-50 transition"
+    >
+      <td className="p-3">
+        <input
+          type="checkbox"
+          checked={selectedOrders.includes(order.id)}
+          onChange={() => toggleSelect(order.id)}
+          className="cursor-pointer"
+        />
+      </td>
+      <td className="p-3 text-blue-500">{order.id}</td>
+      <td className="p-3">{order.date}</td>
+      <td className="p-3 flex items-center gap-3">
+        <img
+          src={order.customer.avatar}
+          alt={order.customer.name}
+          className="w-8 h-8 rounded-full"
+        />
+        <div className="flex flex-col">
+          <span className="font-medium">{order.customer.name}</span>
+          <span className="text-xs text-gray-500">
+            {order.customer.email}
+          </span>
+        </div>
+      </td>
+      <td className="p-3">
+        <span
+          className={`px-2 py-1 text-xs font-semibold rounded div-text div-dark border-dark ${getStatusColor(
+            order.payment
+          )}`}
+        >
+          {order.payment}
+        </span>
+      </td>
+      <td className="p-3">
+        <span
+          className={`px-2 py-1 text-xs font-semibold rounded div-text div-dark border-dark ${getDeliveryStatusColor(
+            order.status
+          )}`}
+        >
+          {order.status}
+        </span>
+      </td>
+      <td className="p-3 flex items-center">
+        {order.method === "mastercard" ? (
+          <FaCcMastercard className="text-red-600 text-lg mr-2" />
+        ) : (
+          <FaCcPaypal className="text-blue-600 text-lg mr-2" />
+        )}
+        <span className="text-gray-700 text-sm">
+          {order.lastDigits ? `•••• ${order.lastDigits}` : "N/A"}
+        </span>
+      </td>
+      <td className="p-3 relative">
+        <button className="text-indigo-600 hover:underline group">
+          <li
+            className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex items-center gap-1"
+            onClick={() => handleDelete(order.id)} // Call handleDelete with the correct order id
+          >
+            <FaTrash className="text-gray-600 hover:text-red-600" />
+           
+          </li>
+        </button>
+      </td>
+    </tr>
+  ))}
+</tbody>
+
         </table>
       </div>
-
       {/* Pagination */}
       <div className="flex justify-end mt-4">
         <nav className="flex items-center gap-2">
@@ -237,14 +260,14 @@ const ECommerceOrderList = () => {
               onClick={() => setCurrentPage(page)}
               className={`px-3 py-1 text-sm rounded ${
                 currentPage === page
-                  ? "bg-blue-500 text-white"
-                  : "bg-gray-200 text-gray-700"
+                  ? "bg-indigo-500 text-white"
+                  : "bg-indigo-200 text-gray-700"
               }`}
             >
               {page}
             </button>
           ))}
-          <button className="px-3 py-1 text-sm bg-gray-200 rounded">›</button>
+          <button className="px-3 py-1 text-sm bg-indigo-200 rounded">›</button>
         </nav>
       </div>
     </div>
