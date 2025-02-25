@@ -13,11 +13,14 @@ import {
 } from "react-icons/fa";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { useState } from "react";
+import { FaTrash } from "react-icons/fa";
 
 const ECommerceUserOverview = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = 5;
   const [activeTab, setActiveTab] = useState("Overview");
+  
+  
   const tabs = [
     { name: "Overview", icon: <FaUser className="mr-2" /> },
     { name: "Security", icon: <FaLock className="mr-2" /> },
@@ -63,6 +66,27 @@ const ECommerceUserOverview = () => {
       textColor: "text-blue-500",
     },
   ];
+
+  // State for orders
+const [orders, setOrders] = useState([
+  { id: 4910, date: "Aug 17, 2020", status: "Ready to Pickup", spent: "$256.39" },
+  { id: 4911, date: "Aug 18, 2020", status: "Shipped", spent: "$312.99" },
+  { id: 4912, date: "Aug 19, 2020", status: "Processing", spent: "$150.50" },
+  { id: 4913, date: "Aug 20, 2020", status: "Delivered", spent: "$299.99" },
+  { id: 4914, date: "Aug 21, 2020", status: "Cancelled", spent: "$75.00" },
+  { id: 4915, date: "Aug 22, 2020", status: "Returned", spent: "$99.49" },
+]);
+
+// Delete function
+const handleDelete = (orderId: any) => {
+  if (!orderId) {
+    console.error("Invalid orderId:", orderId);
+    return;
+  }
+  
+  setOrders((prevOrders) => prevOrders.filter((order) => order.id !== orderId));
+};
+
 
   return (
     <div className="p-6 bg-gray-50 mt-20 ml-6 dark:bg-gray-900 dark:text-white max-w-full rounded-lg shadow-md">
@@ -240,22 +264,23 @@ const ECommerceUserOverview = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {Array.from({ length: 6 }).map((_, index) => (
-                    <tr key={index} className="border-b border-dark">
-                      <td className="p-2">#{4910 + index}</td>
-                      <td className="p-2">Aug 17, 2020</td>
-                      <td className="p-2 text-green-600 font-semibold">
-                        Ready to Pickup
-                      </td>
-                      <td className="p-2">$256.39</td>
-                      <td className="p-3">
-                        <button className="text-gray-500 hover:text-gray-700">
-                          •••
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
+  {orders.map((order) => (
+    <tr key={order.id} className="border-b border-dark">
+      <td className="p-2">#{order.id}</td>
+      <td className="p-2">{order.date}</td>
+      <td className="p-2 text-green-600 font-semibold">{order.status}</td>
+      <td className="p-2">{order.spent}</td>
+      <td className="p-3">
+        <button
+          className="text-gray-500 hover:text-red-700"
+          onClick={() => handleDelete(order.id)}
+        >
+          <FaTrash />
+        </button>
+      </td>
+    </tr>
+  ))}
+</tbody>
               </table>
             </div>
 
