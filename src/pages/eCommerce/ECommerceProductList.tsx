@@ -222,7 +222,7 @@ const ECommerceProductList = () => {
             {displayedProducts.map((product) => (
               <tr
                 key={product.id}
-                className="border dark:border-gray-700 hover:bg-indigo-100 transition"
+                className="border dark:border-gray-700 hover:bg-indigo-100 dark:hover:bg-indigo-300 transition"
               >
                 <td className="p-3 border dark:border-gray-700">
                   <input
