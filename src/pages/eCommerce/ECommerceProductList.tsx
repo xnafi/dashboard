@@ -3,6 +3,7 @@ import { FaEdit, FaEllipsisV } from "react-icons/fa";
 import { BsToggleOn, BsToggleOff } from "react-icons/bs";
 import productsData from "../../data/products.json";
 import { FiDownload } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 
 interface Product {
   id: number;
@@ -28,6 +29,7 @@ const ECommerceProductList = () => {
   const [selectedStock, setSelectedStock] = useState("");
   const [selectedProducts, setSelectedProducts] = useState<number[]>([]);
   const [selectAll, setSelectAll] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setProducts(productsData);
@@ -188,9 +190,12 @@ const ECommerceProductList = () => {
               <button className="bg-gray-200 text-black px-4 py-2 rounded-md flex items-center gap-2 div-dark div-text border border-dark">
                 <FiDownload className="text-gray-600" /> Export
               </button>
-              <button className="bg-indigo-500 text-white px-4 py-2 rounded-md">
-                + Add Product
-              </button>
+              <button
+      className="bg-indigo-500 text-white px-4 py-2 rounded-md"
+      onClick={() => navigate("/e-commerce-product-add")}
+    >
+      + Add Product
+    </button>
             </div>
           </div>
         </div>
