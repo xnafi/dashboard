@@ -9,6 +9,7 @@ import {
 import { FiDownload } from "react-icons/fi";
 import reviewsData from "../../data/reviews.json"; 
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 
 const ECommerceManageReview = () => {
   const [reviews, setReviews] = useState<any[]>([]);
@@ -24,6 +25,31 @@ const ECommerceManageReview = () => {
 
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = 5;
+  const [isOpen, setIsOpen] = useState(false);
+  const [openDropdownIndex, setOpenDropdownIndex] = useState<number | null>(null);
+  const navigate = useNavigate();
+
+const handleViewClick = (reviewId: number) => {
+  navigate(`/e-commerce-order-details`);
+};
+
+const toggleDropdown = (index: number) => {
+  setOpenDropdownIndex(index === openDropdownIndex ? null : index);
+};
+
+const handleDelete = (reviewId: number) => {
+  // Filter out the review by id
+  const updatedReviews = reviews.filter((review) => review.id !== reviewId);
+  
+  // Update the state with the new list of reviews
+  setReviews(updatedReviews);
+
+  // Optionally, close the dropdown after the delete action
+  setIsOpen(false);
+
+  console.log(`Review with ID ${reviewId} has been deleted.`);
+};
+  
   
 
   return (
@@ -227,9 +253,35 @@ const ECommerceManageReview = () => {
                       </span>
                     )}
                   </td>
-                  <td className="p-4 text-center text-gray-500 text-lg cursor-pointer">
-                    <FaEllipsisH />
-                  </td>
+                  <td className="p-4 text-center text-gray-500 text-lg relative">
+      {/* Three-dot icon */}
+      
+      <div className="cursor-pointer" onClick={() => toggleDropdown(review.id)}>
+    <FaEllipsisH />
+  </div>
+
+  {openDropdownIndex === review.id && (
+    <div className="absolute right-0 mt-2 w-28 bg-white border rounded shadow-lg text-sm text-gray-700">
+      <ul className="py-1">
+        <li 
+          className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+          onClick={() => handleViewClick(review.id)} 
+        >
+          View
+        </li>
+        <li
+  className="px-4 py-2 text-red-600 hover:bg-red-100 cursor-pointer"
+  onClick={() => {
+    handleDelete(review.id); 
+  }}
+>
+  Delete
+</li>
+
+      </ul>
+    </div>
+  )}
+    </td>
                 </tr>
               ))}
             </tbody>
