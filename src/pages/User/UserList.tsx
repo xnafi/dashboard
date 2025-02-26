@@ -5,6 +5,7 @@ import { FiUsers, FiUserPlus, FiUserCheck, FiUserMinus } from "react-icons/fi";
 import { FiDownload } from "react-icons/fi";
 import { IoMdAdd } from "react-icons/io";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const users = [
   {
@@ -46,7 +47,28 @@ const UserList = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const totalPages = 5; 
     const [isModalOpen, setIsModalOpen] = useState(false);
-    
+    const navigate = useNavigate();
+    const [selectedUsers, setSelectedUsers] = useState<number[]>([]);
+  const [selectAll, setSelectAll] = useState(false);
+
+  const handleSelectAll = () => {
+    if (selectAll) {
+      setSelectedUsers([]);
+    } else {
+      setSelectedUsers(users.map((_, index) => index));
+    }
+    setSelectAll(!selectAll);
+  };
+
+  const handleCheckboxChange = (index: number) => {
+    if (selectedUsers.includes(index)) {
+      setSelectedUsers(selectedUsers.filter((i) => i !== index));
+    } else {
+      setSelectedUsers([...selectedUsers, index]);
+    }
+  };
+
+
     const handlePageChange = (page: number) => {
       if (page >= 1 && page <= totalPages) {
         setCurrentPage(page);
@@ -166,46 +188,76 @@ const UserList = () => {
 
       {/* User Table */}
       <div className="overflow-x-auto">
-        <table className="min-w-full border-collapse">
-          <thead>
-            <tr className="bg-gray-100 div-dark div-text text-gray-600  text-left">
-              <th className="p-2"><input type="checkbox" /></th>
-              <th className="p-2">USER</th>
-              <th className="p-2">ROLE</th>
-              <th className="p-2">PLAN</th>
-              <th className="p-2">BILLING</th>
-              <th className="p-2">STATUS</th>
-              <th className="p-2">ACTION</th>
-            </tr>
-          </thead>
-          <tbody>
-            {users.map((user, index) => (
-              <tr key={index} className="border-b dark:border-gray-700">
-                <td className="p-2"><input type="checkbox" /></td>
-                <td className="p-2 flex items-center gap-2">
-                  <img src={user.avatar} alt="Avatar" className="w-8 h-8 rounded-full" />
-                  <div>
-                    <p className="font-semibold">{user.name}</p>
-                    <p className="text-gray-500 text-sm">{user.username}</p>
-                  </div>
-                </td>
-                <td className="p-2">{user.role}</td>
-                <td className="p-2">{user.plan}</td>
-                <td className="p-2">{user.billing}</td>
-                <td className="p-2">
-                  <span className={`px-2 py-1 rounded-lg text-xs ${statusClasses[user.status]}`}>
-                    {user.status}
-                  </span>
-                </td>
-                <td className="p-2 flex gap-2">
-                  <FaEye className="text-gray-500 cursor-pointer hover:text-blue-700 transition" />
-                              <FaTrash className="text-gray-500 cursor-pointer hover:text-red-700 transition" />
-                              <FaEllipsisV className="text-gray-500 cursor-pointer hover:text-gray-700 transition" />
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      <table className="min-w-full border-collapse">
+      <thead>
+        <tr className="bg-gray-50 div-dark border-b border-dark text-gray-600 text-left">
+          <th className="p-2">
+            <input
+              type="checkbox"
+              checked={selectAll}
+              onChange={handleSelectAll}
+            />
+          </th>
+          <th className="p-2">USER</th>
+          <th className="p-2">ROLE</th>
+          <th className="p-2">PLAN</th>
+          <th className="p-2">BILLING</th>
+          <th className="p-2">STATUS</th>
+          <th className="p-2">ACTION</th>
+        </tr>
+      </thead>
+      <tbody>
+        {users.map((user, index) => (
+          <tr key={index} className="border-b dark:border-gray-700">
+            <td className="p-2">
+              <input
+                type="checkbox"
+                checked={selectedUsers.includes(index)}
+                onChange={() => handleCheckboxChange(index)}
+              />
+            </td>
+            <td className="p-2 flex items-center gap-2">
+              <img
+                src={user.avatar}
+                alt="Avatar"
+                className="w-8 h-8 rounded-full"
+              />
+              <div>
+                <p className="font-semibold">{user.name}</p>
+                <p className="text-gray-500 text-sm">{user.username}</p>
+              </div>
+            </td>
+            <td className="p-2">{user.role}</td>
+            <td className="p-2">{user.plan}</td>
+            <td className="p-2">{user.billing}</td>
+            <td className="p-2">
+              {/* <span
+                className={`px-2 py-1 rounded-lg text-xs ${
+                  user.status === "Active"
+                    ? "bg-green-200 text-green-800"
+                    : "bg-red-200 text-red-800"
+                }`}
+              >
+                {user.status}
+              </span> */}
+
+<span className={`px-2 py-1 rounded-lg text-xs ${statusClasses[user.status] || "bg-gray-100 text-gray-600"}`}>
+  {user.status}
+</span>
+
+            </td>
+            <td className="p-2 flex gap-2">
+              <FaEye
+                className="text-gray-500 cursor-pointer hover:text-blue-700 transition"
+                onClick={() => navigate("/user-overview")}
+              />
+              <FaTrash className="text-gray-500 cursor-pointer hover:text-red-700 transition" />
+              <FaEllipsisV className="text-gray-500 cursor-pointer hover:text-gray-700 transition" />
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
       </div>
       {/* Add User Modal */}
       {isModalOpen && (
