@@ -80,17 +80,17 @@ export default function Sidebar() {
               <SidebarSubItem
                 to="/e-commerce-product-list"
                 icon={<FaList />}
-                label="Product List"
+                label="List"
               />
               <SidebarSubItem
                 to="/e-commerce-product-add"
                 icon={<FaEye />}
-                label="Product Add"
+                label="Add"
               />
               <SidebarSubItem
                 to="/e-commerce-category-list"
                 icon={<FaShieldAlt />}
-                label="Category List"
+                label="Category"
               />
             </SidebarDropdown>
 
@@ -104,12 +104,12 @@ export default function Sidebar() {
               <SidebarSubItem
                 to="/e-commerce-order-ist"
                 icon={<FaClipboardCheck />}
-                label="Order List"
+                label="List"
               />
               <SidebarSubItem
                 to="/e-commerce-order-details"
                 icon={<FaEye />}
-                label="Order Details"
+                label="Details"
               />
             </SidebarDropdown>
 
@@ -123,17 +123,17 @@ export default function Sidebar() {
               <SidebarSubItem
                 to="/e-commerce-all-customers"
                 icon={<FaList />}
-                label="All Customers"
+                label="All"
               />
               <SidebarSubItem
                 to="/e-commerce-customer-security"
                 icon={<FaClipboardCheck />}
-                label="Customer Security"
+                label="Security"
               />
               <SidebarSubItem
                 to="/e-commerce-customer-address"
                 icon={<FaEye />}
-                label="Customer Address"
+                label="Address"
               />
             </SidebarDropdown>
 
@@ -197,22 +197,22 @@ export default function Sidebar() {
             <SidebarSubItem
               to="/user-list"
               icon={<FaList />}
-              label="User List"
+              label="List"
             />
             <SidebarSubItem
               to="/user-overview"
               icon={<FaEye />}
-              label="User Overview"
+              label="Overview"
             />
             <SidebarSubItem
               to="/user-security"
               icon={<FaShieldAlt />}
-              label="User Security"
+              label="Security"
             />
             <SidebarSubItem
               to="/user-plans"
               icon={<FaClipboardCheck />}
-              label="User Plans"
+              label="Plans"
             />
           </SidebarDropdown>
 
