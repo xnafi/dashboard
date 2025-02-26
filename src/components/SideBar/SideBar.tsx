@@ -3,47 +3,48 @@ import { NavLink } from "react-router-dom";
 import {
   FaHome,
   FaShoppingCart,
-  FaGraduationCap,
-  FaTruck,
+  // FaGraduationCap,
+  // FaTruck,
   FaUsers,
   FaList,
   FaEye,
   FaShieldAlt,
-  FaCreditCard,
-  FaBell,
-  FaEnvelope,
-  FaComments,
-  FaCalendar,
-  FaTasks,
+  // FaCreditCard,
+  // FaBell,
+  // FaEnvelope,
+  // FaComments,
+  // FaCalendar,
+  // FaTasks,
   FaFileInvoice,
   FaClipboardCheck,
-  FaUserShield,
+  // FaUserShield,
   FaFileAlt,
-  FaPalette,
-  FaImage,
-  FaCog,
-  FaChartPie,
-  FaBook,
+  // FaPalette,
+  // FaImage,
+  // FaCog,
+  // FaChartPie,
+  // FaBook,
 } from "react-icons/fa";
 
 export default function Sidebar() {
+  const [eCommerceMenuOpen, setECommerceMenuOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
-  const [billingMenuOpen, setBillingMenuOpen] = useState(false);
+  // const [billingMenuOpen, setBillingMenuOpen] = useState(false);
   const [invoiceMenuOpen, setInvoiceMenuOpen] = useState(false);
-  const [pagesMenuOpen, setPagesMenuOpen] = useState(false);
-  const [formsMenuOpen, setFormsMenuOpen] = useState(false);
+  // const [pagesMenuOpen, setPagesMenuOpen] = useState(false);
+  // const [formsMenuOpen, setFormsMenuOpen] = useState(false);
   const [productOpen, setProductOpen] = useState(false);
   const [orderOpen, setOrderOpen] = useState(false);
   const [customerOpen, setCustomerOpen] = useState(false);
 
   return (
-    <div className="w-64 fixed left-0 top-0 h-screen bg-white shadow-lg z-50 overflow-y-auto dark:bg-gray-900  div-text">
+    <div className="w-64 fixed left-0 top-0 h-screen bg-gray-50 shadow-lg z-50 overflow-y-auto dark:bg-gray-900  div-text">
       {/* Sidebar Header */}
       <div className="flex items-center px-4 py-6">
         <div className="w-10 h-10 bg-indigo-500 rounded-full flex items-center justify-center text-white  dark:text-white font-bold">
           V
         </div>
-        <h1 className="text-xl font-bold ml-3">Vuexy</h1>
+        <h1 className="text-xl font-bold ml-3 dark:text-white">Vuexy</h1>
       </div>
 
       {/* Navigation Links */}
@@ -51,21 +52,21 @@ export default function Sidebar() {
         {/* Dashboards */}
         <ul>
           <SidebarItem to="/" icon={<FaHome />} label="Dashboards">
-            <span className="bg-red-500 text-white dark:text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">
+            <span className="bg-red-500 text-white div-text text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">
               5
             </span>
           </SidebarItem>
         </ul>
 
         {/* Apps & Pages */}
-        <div className="mt-6 px-4 text-gray-500 dark:text-white text-sm font-semibold uppercase">
+        <div className="mt-6 px-4 text-gray-500 div-text text-sm font-semibold uppercase">
           Apps & Pages
         </div>
-        <ul className="mt-2 space-y-1 dark:text-white">
+        <ul className="mt-2 space-y-1 div-text">
           {/* eCommerce Dropdown */}
           <SidebarDropdown
-            isOpen={userMenuOpen}
-            setIsOpen={setUserMenuOpen}
+            isOpen={eCommerceMenuOpen}
+            setIsOpen={setECommerceMenuOpen}
             icon={<FaShoppingCart />}
             label="eCommerce"
           >
@@ -179,12 +180,12 @@ export default function Sidebar() {
             />
           </SidebarDropdown>
 
-          <SidebarItem
+          {/* <SidebarItem
             to="/academy"
             icon={<FaGraduationCap />}
             label="Academy"
           />
-          <SidebarItem to="/logistics" icon={<FaTruck />} label="Logistics" />
+          <SidebarItem to="/logistics" icon={<FaTruck />} label="Logistics" /> */}
 
           {/* Users Dropdown */}
           <SidebarDropdown
@@ -216,7 +217,7 @@ export default function Sidebar() {
           </SidebarDropdown>
 
           {/* Billing Dropdown */}
-          <SidebarDropdown
+          {/* <SidebarDropdown
             isOpen={billingMenuOpen}
             setIsOpen={setBillingMenuOpen}
             icon={<FaCreditCard />}
@@ -232,12 +233,12 @@ export default function Sidebar() {
               icon={<FaClipboardCheck />}
               label="Connection"
             />
-          </SidebarDropdown>
+          </SidebarDropdown> */}
 
-          <SidebarItem to="/email" icon={<FaEnvelope />} label="Email" />
+          {/* <SidebarItem to="/email" icon={<FaEnvelope />} label="Email" />
           <SidebarItem to="/chat" icon={<FaComments />} label="Chat" />
           <SidebarItem to="/calendar" icon={<FaCalendar />} label="Calendar" />
-          <SidebarItem to="/kanban" icon={<FaTasks />} label="Kanban" />
+          <SidebarItem to="/kanban" icon={<FaTasks />} label="Kanban" /> */}
 
           {/* Invoice Dropdown */}
 
@@ -266,18 +267,18 @@ export default function Sidebar() {
             {/* <SidebarSubItem to="/invoice/add" icon={<FaClipboardCheck />} label="Add" /> */}
           </SidebarDropdown>
 
-          <SidebarItem
+          {/* <SidebarItem
             to="/roles"
             icon={<FaUserShield />}
             label="Roles & Permissions"
-          />
+          /> */}
         </ul>
 
         {/* Pages */}
-        <div className="mt-6 px-4 text-gray-500 text-sm font-semibold uppercase">
+        {/* <div className="mt-6 px-4 text-gray-500 text-sm font-semibold uppercase">
           Pages
-        </div>
-        <ul className="mt-2 space-y-1">
+        </div> */}
+        {/* <ul className="mt-2 space-y-1">
           <SidebarDropdown
             isOpen={pagesMenuOpen}
             setIsOpen={setPagesMenuOpen}
@@ -300,26 +301,26 @@ export default function Sidebar() {
               label="Dialog Examples"
             />
           </SidebarDropdown>
-        </ul>
+        </ul> */}
 
         {/* User Interface */}
-        <div className="mt-6 px-4 text-gray-500 text-sm font-semibold uppercase">
+        {/* <div className="mt-6 px-4 text-gray-500 text-sm font-semibold uppercase">
           User Interface
-        </div>
-        <ul className="mt-2 space-y-1">
+        </div> */}
+        {/* <ul className="mt-2 space-y-1">
           <SidebarItem
             to="/typography"
             icon={<FaPalette />}
             label="Typography"
           />
           <SidebarItem to="/icons" icon={<FaImage />} label="Icons" />
-        </ul>
+        </ul> */}
 
         {/* Forms & Tables */}
-        <div className="mt-6 px-4 text-gray-500 text-sm font-semibold uppercase">
+        {/* <div className="mt-6 px-4 text-gray-500 text-sm font-semibold uppercase">
           Forms & Tables
-        </div>
-        <ul className="mt-2 space-y-1">
+        </div> */}
+        {/* <ul className="mt-2 space-y-1">
           <SidebarDropdown
             isOpen={formsMenuOpen}
             setIsOpen={setFormsMenuOpen}
@@ -342,20 +343,20 @@ export default function Sidebar() {
               label="Form Validation"
             />
           </SidebarDropdown>
-        </ul>
+        </ul> */}
 
         {/* Charts & Misc */}
-        <div className="mt-6 px-4 text-gray-500 text-sm font-semibold uppercase">
+        {/* <div className="mt-6 px-4 text-gray-500 text-sm font-semibold uppercase">
           Charts & Misc
-        </div>
-        <ul className="mt-2 space-y-1">
+        </div> */}
+        {/* <ul className="mt-2 space-y-1">
           <SidebarItem to="/charts" icon={<FaChartPie />} label="Charts" />
           <SidebarItem
             to="/documentation"
             icon={<FaBook />}
             label="Documentation"
           />
-        </ul>
+        </ul> */}
       </nav>
     </div>
   );
@@ -417,7 +418,7 @@ function SidebarSubItem({ to, icon, label, activeBg }: any) {
           `flex items-center px-2 py-2 rounded-md ${
             isActive
               ? "bg-gradient-to-r from-indigo-500 to-indigo-700 text-white font-semibold"
-              : "hover:bg-gray-100 text-gray-600"
+              : "hover:bg-indigo-300 text-gray-600"
           }`
         }
       >
