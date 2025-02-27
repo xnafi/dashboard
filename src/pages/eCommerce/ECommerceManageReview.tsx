@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+
 import { useState, useEffect } from "react";
 import {
   FaStar,
@@ -26,7 +26,7 @@ const ECommerceManageReview = () => {
 
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = 5;
-  const [isOpen, setIsOpen] = useState(false);
+  const [setIsOpen] = useState(false);
   const [openDropdownIndex, setOpenDropdownIndex] = useState<number | null>(
     null
   );
