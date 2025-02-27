@@ -4,17 +4,17 @@ const UserDetails = () => {
   return (
     <div className="space-y-6">
       {/* User Profile Card */}
-      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6">
+      <div className="div-dark div-text rounded-xl shadow-lg p-6">
         <div className="flex flex-col items-center text-center">
           <img
             src="https://i.postimg.cc/s2QQp8X9/Avatar.png"
             alt="User"
             className="w-24 h-24 rounded-full border-4 border-indigo-500"
           />
-          <h2 className="text-xl font-semibold mt-3 text-gray-900 dark:text-white">
+          <h2 className="text-xl font-semibold mt-3 text-gray-900 div-text">
             Seth Hallam
           </h2>
-          <span className="text-gray-600 bg-gray-200 dark:bg-gray-700 dark:text-gray-300 px-4 py-1 rounded-full text-sm mt-1">
+          <span className="text-gray-600 bg-gray-200 dark:bg-gray-700 div-text px-4 py-1 rounded-full text-sm mt-1">
             Author
           </span>
         </div>
@@ -27,7 +27,7 @@ const UserDetails = () => {
               alt="Task Done Icon"
               className="w-10 h-10"
             />
-            <p className="text-lg font-bold text-gray-900 dark:text-white">
+            <p className="text-lg font-bold text-gray-900 div-text">
               1.23k
             </p>
             <p className="text-sm text-gray-500 dark:text-gray-400">
@@ -40,7 +40,7 @@ const UserDetails = () => {
               alt="Project Done Icon"
               className="w-10 h-10"
             />
-            <p className="text-lg font-bold text-gray-900 dark:text-white">
+            <p className="text-lg font-bold text-gray-900 div-text">
               568
             </p>
             <p className="text-sm text-gray-500 dark:text-gray-400">
@@ -50,7 +50,7 @@ const UserDetails = () => {
         </div>
 
         {/* User Info */}
-        <div className="mt-4 text-sm text-gray-800 dark:text-gray-300 space-y-2">
+        <div className="mt-4 text-sm text-gray-800 div-text space-y-2">
           <p>
             <strong>Username:</strong> @shallamb
           </p>
@@ -90,7 +90,7 @@ const UserDetails = () => {
       </div>
 
       {/* Subscription Plan */}
-      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6">
+      <div className="div-dark div-text rounded-xl shadow-lg p-6">
         <div className="flex justify-between items-center">
           <span className="bg-indigo-500 text-white px-4 py-1 rounded-full text-sm">
             Standard
@@ -101,7 +101,7 @@ const UserDetails = () => {
         </div>
 
         {/* Features */}
-        <ul className="text-gray-700 dark:text-gray-300 mt-3 space-y-2">
+        <ul className="text-gray-700 div-text mt-3 space-y-2">
           <li>• 10 Users</li>
           <li>• Up to 10 GB Storage</li>
           <li>• Basic Support</li>
