@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import {
   FaStar,
@@ -7,7 +8,7 @@ import {
   FaSearch,
 } from "react-icons/fa";
 import { FiDownload } from "react-icons/fi";
-import reviewsData from "../../data/reviews.json";
+import reviewsData from "../../data/reviews.json"; 
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 
