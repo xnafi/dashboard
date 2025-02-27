@@ -231,15 +231,7 @@ const UserList = () => {
             <td className="p-2">{user.plan}</td>
             <td className="p-2">{user.billing}</td>
             <td className="p-2">
-              {/* <span
-                className={`px-2 py-1 rounded-lg text-xs ${
-                  user.status === "Active"
-                    ? "bg-green-200 text-green-800"
-                    : "bg-red-200 text-red-800"
-                }`}
-              >
-                {user.status}
-              </span> */}
+             
 
 <span className={`px-2 py-1 rounded-lg text-xs ${statusClasses[user.status] || "bg-gray-100 text-gray-600"}`}>
   {user.status}

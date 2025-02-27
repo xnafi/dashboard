@@ -8,13 +8,14 @@ import {
   FaSearch,
 } from "react-icons/fa";
 import { FiDownload } from "react-icons/fi";
-import reviewsData from "../../data/reviews.json";
+import reviewsData from "../../data/reviews.json"; 
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 
 const ECommerceManageReview = () => {
   const [reviews, setReviews] = useState<any[]>([]);
   const [search, setSearch] = useState("");
+  const [selectAll, setSelectAll] = useState(false);
 
   useEffect(() => {
     setReviews(reviewsData);
@@ -26,7 +27,7 @@ const ECommerceManageReview = () => {
 
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = 5;
-  const [setIsOpen] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
   const [openDropdownIndex, setOpenDropdownIndex] = useState<number | null>(
     null
   );
@@ -37,18 +38,23 @@ const ECommerceManageReview = () => {
   };
 
   const toggleDropdown = (index: number) => {
-    setOpenDropdownIndex(index === openDropdownIndex ? null : index);
+    setOpenDropdownIndex(
+      index !== undefined && index === openDropdownIndex ? null : index
+    );
   };
 
   const handleDelete = (reviewId: number) => {
-    // Filter out the review by id
-    const updatedReviews = reviews.filter((review) => review.id !== reviewId);
+    console.log("Deleting Review ID:", reviewId);
 
-    // Update the state with the new list of reviews
-    setReviews(updatedReviews);
+    const updatedReviews = [...reviews];
+    const index = updatedReviews.findIndex((review) => review.id === reviewId);
 
-    // Optionally, close the dropdown after the delete action
-    setIsOpen(false);
+    if (index !== -1) {
+      updatedReviews.splice(index, 1);
+      setReviews(updatedReviews);
+    }
+
+    setOpenDropdownIndex(null);
   };
 
   return (
@@ -166,8 +172,19 @@ const ECommerceManageReview = () => {
             <thead className=" text-left text-gray-500 text-sm">
               <tr>
                 <th className="p-4 w-10 text-center">
-                  <input type="checkbox" className="w-4 h-4" />
+                  <input
+                    type="checkbox"
+                    className="w-4 h-4"
+                    checked={selectAll}
+                    onChange={() => {
+                      setSelectAll(!selectAll);
+                      setReviews((prevReviews) =>
+                        prevReviews.map((r) => ({ ...r, checked: !selectAll }))
+                      );
+                    }}
+                  />
                 </th>
+
                 <th className="p-4 w-1/6">Product</th>
                 <th className="p-4 w-1/6">Reviewer</th>
                 <th className="p-4 w-1/3">Review</th>
@@ -183,8 +200,22 @@ const ECommerceManageReview = () => {
                   className="border-b text-sm dark:border-gray-700"
                 >
                   <td className="p-4 w-10 text-center align-middle">
-                    <input type="checkbox" className="w-4 h-4" />
+                    <input
+                      type="checkbox"
+                      className="w-4 h-4"
+                      checked={review.checked || false}
+                      onChange={() => {
+                        setReviews((prevReviews) =>
+                          prevReviews.map((r) =>
+                            r.id === review.id
+                              ? { ...r, checked: !r.checked }
+                              : r
+                          )
+                        );
+                      }}
+                    />
                   </td>
+
                   <td className="p-4  items-center space-x-3 text-gray-500 ">
                     <img
                       src={review.productImage}
@@ -264,7 +295,7 @@ const ECommerceManageReview = () => {
                         <ul className="py-1">
                           <li
                             className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-                            onClick={() => handleViewClick(review.id)}
+                            onClick={() => handleViewClick()}
                           >
                             View
                           </li>

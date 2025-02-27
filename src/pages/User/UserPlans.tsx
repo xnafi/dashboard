@@ -37,8 +37,8 @@ const UserPlans = () => {
     setCards((prevCards) => prevCards.filter((card) => card.id !== cardId));
   };
   return (
-    <div className="p-6 bg-gray-50 mt-20 ml-6 dark:bg-gray-900 div-text max-w-full">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 p-6 bg-gray-100 dark:bg-gray-900 dark:text-gray-200">
+    <div className="p-6 bg-gray-50 mt-20 ml-6 dark:bg-gray-900 dark:text-white max-w-full rounded-lg shadow-md">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 p-6  dark:bg-gray-900 dark:text-gray-200">
         {/* Left Side - User Details & Plan */}
         <div className="lg:col-span-1 space-y-6">
           {/* User Details */}
