@@ -34,6 +34,9 @@ const ReviewStatistics = () => {
           </div>
         ))}
       </div>
+
+
+      
     </div>
   );
 };
