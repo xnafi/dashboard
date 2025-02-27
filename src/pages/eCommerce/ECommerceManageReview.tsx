@@ -1,16 +1,11 @@
-
 import { useState, useEffect } from "react";
-import {
-  FaStar,
-  FaCheckCircle,
-  FaClock,
-  FaEllipsisH,
-  FaSearch,
-} from "react-icons/fa";
-import { FiDownload } from "react-icons/fi";
-import reviewsData from "../../data/reviews.json"; 
+import { FaStar, FaCheckCircle, FaClock, FaEllipsisH } from "react-icons/fa";
+
+import reviewsData from "../../data/reviews.json";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
+import ReviewStatistics from "../../components/re-ui/ReviewStatistics";
+import ReviewSearchFilter from "../../components/re-ui/ReviewSearchFilter";
 
 const ECommerceManageReview = () => {
   const [reviews, setReviews] = useState<any[]>([]);
@@ -60,41 +55,9 @@ const ECommerceManageReview = () => {
   return (
     <div className="p-6 bg-gray-50 mt-20 ml-6 dark:bg-gray-900 dark:text-white max-w-full rounded-lg shadow-md">
       {/* Top Section - Stats */}
-      {/* Top Review Statistics */}
-      <div className="grid grid-cols-2 gap-6 mb-6">
-        <div className="flex items-center text-2xl font-bold bg-white p-4 div-dark div-text">
-          {/* Left Section */}
-          <div className="flex-1">
-            <div className="flex items-center text-2xl font-bold text-indigo-500">
-              4.89 <FaStar className="text-indigo-500 ml-2" />
-            </div>
-            <p className="font-semibold text-sm text-gray-700 mt-1 div-text">
-              Total 187 reviews
-            </p>
-            <p className="text-gray-500 text-sm font-normal mt-2 div-text">
-              All reviews are from genuine customers
-            </p>
-            <button className="bg-purple-100 text-indigo-700 px-3 py-1 rounded mt-3 text-sm font-normal">
-              +5 This week
-            </button>
-          </div>
 
-          {/* Right Section */}
-          <div className="flex-1 pl-6 text-gray-700 div-text font-normal">
-            {[5, 4, 3, 2, 1].map((star, index) => (
-              <div key={index} className="flex items-center mb-2">
-                <span className="text-sm w-12">{star} Star</span>
-                <div className="bg-gray-200 h-2 flex-1 rounded relative mx-2">
-                  <div
-                    className="bg-indigo-500 h-2 rounded "
-                    style={{ width: `${[90, 50, 30, 20, 10][index]}%` }}
-                  ></div>
-                </div>
-                <span className="text-sm">{[124, 40, 12, 7, 2][index]}</span>
-              </div>
-            ))}
-          </div>
-        </div>
+      <div className="grid grid-cols-2 gap-6 mb-6">
+        <ReviewStatistics />
 
         {/* Review Statistics */}
         <div className="flex justify-between items-center text-2xl font-bold div-dark div-text p-4 ">
@@ -134,36 +97,9 @@ const ECommerceManageReview = () => {
       </div>
 
       <div className="bg-white dark:bg-gray-800 p-4">
-        <div className="flex justify-between items-center mb-4 dark:bg-gray-800">
-          {/* Search Input */}
-          <div className="relative dark:bg-gray-800">
-            <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 " />
-            <input
-              type="text"
-              placeholder="Search Review"
-              className="pl-10 pr-4 py-2 border dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 dark:bg-gray-800"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-            />
-          </div>
-          <div className="flex items-center gap-3 ">
-            <select className="border p-2 rounded-md dark:border-gray-700 dark:bg-gray-800 text-gray-500 font-normal">
-              <option value="7">7</option>
-              <option value="10">10</option>
-              <option value="20">20</option>
-            </select>
-
-            <select className="border p-2 rounded-md dark:border-gray-700 dark:bg-gray-800 text-gray-500 font-normal">
-              <option value="7">All</option>
-              <option value="10">10</option>
-              <option value="20">20</option>
-            </select>
-
-            <button className="bg-gray-200 text-gray-500 px-4 py-2 border rounded-md flex items-center gap-2 dark:border-gray-700 dark:bg-gray-800  btn-text">
-              <FiDownload className="text-gray-600 " /> Export
-            </button>
-          </div>
-        </div>
+        
+        {/* Search Filter */}
+        <ReviewSearchFilter search={search} setSearch={setSearch} />
 
         {/* Review Table */}
 
