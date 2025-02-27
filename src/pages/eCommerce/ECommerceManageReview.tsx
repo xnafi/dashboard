@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState, useEffect } from "react";
 import {
   FaStar,
@@ -7,7 +8,7 @@ import {
   FaSearch,
 } from "react-icons/fa";
 import { FiDownload } from "react-icons/fi";
-import reviewsData from "../../data/reviews.json"; 
+import reviewsData from "../../data/reviews.json";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 
@@ -26,31 +27,29 @@ const ECommerceManageReview = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = 5;
   const [isOpen, setIsOpen] = useState(false);
-  const [openDropdownIndex, setOpenDropdownIndex] = useState<number | null>(null);
+  const [openDropdownIndex, setOpenDropdownIndex] = useState<number | null>(
+    null
+  );
   const navigate = useNavigate();
 
-const handleViewClick = (reviewId: number) => {
-  navigate(`/e-commerce-order-details`);
-};
+  const handleViewClick = () => {
+    navigate(`/e-commerce-order-details`);
+  };
 
-const toggleDropdown = (index: number) => {
-  setOpenDropdownIndex(index === openDropdownIndex ? null : index);
-};
+  const toggleDropdown = (index: number) => {
+    setOpenDropdownIndex(index === openDropdownIndex ? null : index);
+  };
 
-const handleDelete = (reviewId: number) => {
-  // Filter out the review by id
-  const updatedReviews = reviews.filter((review) => review.id !== reviewId);
-  
-  // Update the state with the new list of reviews
-  setReviews(updatedReviews);
+  const handleDelete = (reviewId: number) => {
+    // Filter out the review by id
+    const updatedReviews = reviews.filter((review) => review.id !== reviewId);
 
-  // Optionally, close the dropdown after the delete action
-  setIsOpen(false);
+    // Update the state with the new list of reviews
+    setReviews(updatedReviews);
 
-  console.log(`Review with ID ${reviewId} has been deleted.`);
-};
-  
-  
+    // Optionally, close the dropdown after the delete action
+    setIsOpen(false);
+  };
 
   return (
     <div className="p-6 bg-gray-50 mt-20 ml-6 dark:bg-gray-900 dark:text-white max-w-full rounded-lg shadow-md">
@@ -95,9 +94,7 @@ const handleDelete = (reviewId: number) => {
         <div className="flex justify-between items-center text-2xl font-bold div-dark div-text p-4 ">
           {/* Left Section */}
           <div className="flex-1">
-            <h3 className="sub-heading div-text">
-              Reviews statistics
-            </h3>
+            <h3 className="sub-heading div-text">Reviews statistics</h3>
             <div className="flex items-center gap-2 text-sm mt-2 text-gray-700 font-normal div-text">
               <span>12 New reviews</span>
               <span className="bg-green-100 text-green-600 px-2 py-0.5 rounded-md text-xs font-medium">
@@ -127,12 +124,6 @@ const handleDelete = (reviewId: number) => {
               ></div>
             ))}
           </div>
-
-          {/* <div className="flex justify-between text-xs text-gray-500 mt-1 ">
-        {['M', 'T', 'W', 'T', 'F', 'S', 'S'].map((day, index) => (
-          <span key={index}>{day}</span>
-        ))}
-      </div> */}
         </div>
       </div>
 
@@ -187,7 +178,10 @@ const handleDelete = (reviewId: number) => {
             </thead>
             <tbody>
               {filteredReviews.map((review) => (
-                <tr key={review.id} className="border-b text-sm dark:border-gray-700">
+                <tr
+                  key={review.id}
+                  className="border-b text-sm dark:border-gray-700"
+                >
                   <td className="p-4 w-10 text-center align-middle">
                     <input type="checkbox" className="w-4 h-4" />
                   </td>
@@ -201,7 +195,9 @@ const handleDelete = (reviewId: number) => {
                       <p className="font-medium text-gray-500">
                         {review.product}
                       </p>
-                      <p className="text-gray-500 text-xs div-text">{review.brand}</p>
+                      <p className="text-gray-500 text-xs div-text">
+                        {review.brand}
+                      </p>
                     </div>
                   </td>
                   <td className="p-4  items-center space-x-3 max-w-[200px]">
@@ -254,34 +250,36 @@ const handleDelete = (reviewId: number) => {
                     )}
                   </td>
                   <td className="p-4 text-center text-gray-500 text-lg relative">
-      {/* Three-dot icon */}
-      
-      <div className="cursor-pointer" onClick={() => toggleDropdown(review.id)}>
-    <FaEllipsisH />
-  </div>
+                    {/* Three-dot icon */}
 
-  {openDropdownIndex === review.id && (
-    <div className="absolute right-0 mt-2 w-28 bg-white border rounded shadow-lg text-sm text-gray-700">
-      <ul className="py-1">
-        <li 
-          className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-          onClick={() => handleViewClick(review.id)} 
-        >
-          View
-        </li>
-        <li
-  className="px-4 py-2 text-red-600 hover:bg-red-100 cursor-pointer"
-  onClick={() => {
-    handleDelete(review.id); 
-  }}
->
-  Delete
-</li>
+                    <div
+                      className="cursor-pointer"
+                      onClick={() => toggleDropdown(review.id)}
+                    >
+                      <FaEllipsisH />
+                    </div>
 
-      </ul>
-    </div>
-  )}
-    </td>
+                    {openDropdownIndex === review.id && (
+                      <div className="absolute right-0 mt-2 w-28 bg-white border rounded shadow-lg text-sm text-gray-700">
+                        <ul className="py-1">
+                          <li
+                            className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                            onClick={() => handleViewClick(review.id)}
+                          >
+                            View
+                          </li>
+                          <li
+                            className="px-4 py-2 text-red-600 hover:bg-red-100 cursor-pointer"
+                            onClick={() => {
+                              handleDelete(review.id);
+                            }}
+                          >
+                            Delete
+                          </li>
+                        </ul>
+                      </div>
+                    )}
+                  </td>
                 </tr>
               ))}
             </tbody>
