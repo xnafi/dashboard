@@ -22,9 +22,7 @@ const InvoiceBill: React.FC = () => {
               </div>
               {/* Invoice Number */}
               <div className="bg-gray-50 p-3 rounded-lg mb-6 div-dark div-text">
-                <p className="font-semibold mb-2 div-text">
-                  Invoice #3492
-                </p>
+                <p className="font-semibold mb-2 div-text">Invoice #3492</p>
                 <p className="div-text">Date Issued: 25/08/2020</p>
                 <p className="div-text">Date Due: 29/08/2020</p>
               </div>
@@ -116,9 +114,7 @@ const InvoiceBill: React.FC = () => {
             <div className="flex justify-between text-right">
               <div>
                 <p className="mt-6 text-sm text-gray-600 text-start div-text">
-                  <span className="font-semibold div-text">
-                    Salesperson:
-                  </span>{" "}
+                  <span className="font-semibold div-text">Salesperson:</span>{" "}
                   Tommy Shelby <br />
                   Thanks for your business
                 </p>
