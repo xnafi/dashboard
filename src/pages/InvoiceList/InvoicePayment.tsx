@@ -1,9 +1,5 @@
-import { FaPaperPlane, FaDownload, FaPrint, FaEdit } from "react-icons/fa";
-import { useState } from "react";
+import InvoiceActions from "../../components/re-ui/InvoiceActions";
 const InvoicePayment = () => {
-  const [paymentTerms, setPaymentTerms] = useState(true);
-  const [clientNotes, setClientNotes] = useState(true);
-  const [paymentStub, setPaymentStub] = useState(true);
   return (
     <div className="p-6 bg-gray-50 mt-20 ml-6 dark:bg-gray-900 div-text max-w-full rounded-lg shadow-md">
       <div className=" w-full rounded-lg p-4 flex gap-6 ">
@@ -13,9 +9,7 @@ const InvoicePayment = () => {
           <div className="bg-gray-50 p-4 rounded-lg flex justify-between items-center div-dark  div-text">
             <div>
               <h2 className="text-xl font-bold text-indigo-600 flex items-center gap-2 div-text">
-                <span className="text-indigo-600 div-text">
-                  Vuexy
-                </span>
+                <span className="text-indigo-600 div-text">Vuexy</span>
               </h2>
               <p className="text-gray-600 text-sm div-text">
                 Office 149, 450 South Brand Brooklyn, <br /> San Diego County,
@@ -28,9 +22,7 @@ const InvoicePayment = () => {
             <div className="text-right">
               <div className="flex justify-between items-center gap-2 div-text">
                 <div>
-                  <h3 className="text-sm text-gray-500 div-text">
-                    Invoice
-                  </h3>
+                  <h3 className="text-sm text-gray-500 div-text">Invoice</h3>
                 </div>
                 <div>
                   <input
@@ -83,16 +75,12 @@ const InvoicePayment = () => {
               <select className="w-full border border-dark p-2 rounded bg-gray-100 mb-4 div-dark  div-text">
                 <option>Jordan Stevenson</option>
               </select>
-              <p className="text-sm text-gray-600 div-text">
-                Hall-Robbins PLC
-              </p>
+              <p className="text-sm text-gray-600 div-text">Hall-Robbins PLC</p>
               d
               <p className="text-sm text-gray-600 div-text">
                 7777 Mendez Plains
               </p>
-              <p className="text-sm text-gray-600 div-text">
-                (616) 865-4180
-              </p>
+              <p className="text-sm text-gray-600 div-text">(616) 865-4180</p>
               <p className="text-sm text-gray-600 div-text">
                 don85@johnson.com
               </p>
@@ -222,9 +210,7 @@ const InvoicePayment = () => {
 
           {/* Note */}
           <div className="mt-6">
-            <h4 className="font-semibold text-gray-700 div-text">
-              Note:
-            </h4>
+            <h4 className="font-semibold text-gray-700 div-text">Note:</h4>
             <textarea
               className="w-full border border-dark p-2 rounded bg-gray-100 div-dark  div-text"
               readOnly
@@ -238,103 +224,7 @@ const InvoicePayment = () => {
         </div>
 
         {/* Right Side: Actions Panel */}
-        <div className="w-64 dark:bg-gray-900  div-text ">
-          <div className="bg-white shadow-md rounded-lg p-4 div-dark  div-text">
-            {/* Send Invoice Button */}
-            <button className="w-full flex items-center justify-center gap-2 bg-gray-300 dark:bg-gray-700  div-text text-black px-4 py-2 rounded mb-2 transition duration-300 hover:bg-indigo-500 dark:hover:bg-indigo-500 hover:scale-105">
-              <FaPaperPlane /> Send Invoice
-            </button>
-
-            {/* Download Button */}
-            <button className="w-full flex items-center justify-center gap-2 bg-gray-300 dark:bg-gray-700  div-text px-4 py-2 rounded mb-2 transition duration-300  hover:bg-indigo-500 dark:hover:bg-indigo-500 hover:scale-105">
-              <FaDownload /> Download
-            </button>
-
-            {/* Print & Edit Buttons - Side by Side */}
-            <div className="flex flex-row gap-2">
-              <button className="w-full flex items-center justify-center gap-2 bg-gray-300 dark:bg-gray-700  div-text px-4 py-2 rounded mb-2 transition duration-300 hover:bg-indigo-500 dark:hover:bg-indigo-500 hover:scale-105">
-                <FaPrint /> Print
-              </button>
-              <button className="w-full flex items-center justify-center gap-2 bg-gray-300 dark:bg-gray-700  div-text px-4 py-2 rounded mb-2 transition duration-300 hover:bg-indigo-500 dark:hover:bg-indigo-500 hover:scale-105">
-                <FaEdit /> Edit
-              </button>
-            </div>
-
-            {/* Add Payment Button */}
-            <button className="w-full flex items-center justify-center gap-2 bg-green-500 dark:hover:bg-green-600 text-white px-4 py-2 rounded transition duration-300 hover:bg-green-500 hover:scale-105">
-              + Add Payment
-            </button>
-          </div>
-
-          {/* Payment Options */}
-          <div className="mt-4 bg-white shadow-md rounded-lg p-4 dark:bg-gray-900  div-text">
-            <h4 className="text-gray-700 font-semibold mb-3 div-text">
-              Accept payments via
-            </h4>
-
-            {/* Payment Method Dropdown */}
-            <select className="w-full border border-dark p-2 rounded bg-gray-100 dark:bg-gray-900  div-text focus:outline-none focus:ring-2 focus:ring-indigo-500">
-              <option>Bank Account</option>
-              <option>Bkash</option>
-              <option>Rocket</option>
-            </select>
-
-            {/* Payment Options */}
-            {/* Payment Options with Toggles */}
-            <div className="flex flex-col mt-3 space-y-3">
-              {/* Payment Terms Toggle */}
-              <label className="flex items-center justify-between text-gray-700 font-medium cursor-pointer div-text">
-                Payment Terms
-                <div
-                  className={`relative w-10 h-5 rounded-full transition duration-300 ${
-                    paymentTerms ? "bg-indigo-500" : "bg-gray-300"
-                  }`}
-                  onClick={() => setPaymentTerms(!paymentTerms)}
-                >
-                  <div
-                    className={`absolute w-5 h-5 bg-white rounded-full shadow-md transform transition duration-300 ${
-                      paymentTerms ? "translate-x-5" : "translate-x-0"
-                    }`}
-                  ></div>
-                </div>
-              </label>
-
-              {/* Client Notes Toggle */}
-              <label className="flex items-center justify-between text-gray-700 font-medium cursor-pointer div-text">
-                Client Notes
-                <div
-                  className={`relative w-10 h-5 rounded-full transition duration-300 ${
-                    clientNotes ? "bg-indigo-500" : "bg-gray-300"
-                  }`}
-                  onClick={() => setClientNotes(!clientNotes)}
-                >
-                  <div
-                    className={`absolute w-5 h-5 bg-white rounded-full shadow-md transform transition duration-300 ${
-                      clientNotes ? "translate-x-5" : "translate-x-0"
-                    }`}
-                  ></div>
-                </div>
-              </label>
-
-              {/* Payment Stub Toggle */}
-              <label className="flex items-center justify-between text-gray-700 font-medium cursor-pointer div-text">
-                Payment Stub
-                <div
-                  className={`relative w-10 h-5 rounded-full transition duration-300 ${
-                    paymentStub ? "bg-indigo-500" : "bg-gray-300"
-                  }`}
-                  onClick={() => setPaymentStub(!paymentStub)}
-                >
-                  <div
-                    className={`absolute w-5 h-5 bg-white rounded-full shadow-md transform transition duration-300 ${
-                      paymentStub ? "translate-x-5" : "translate-x-0"
-                    }`}
-                  ></div>
-                </div>
-              </label>
-            </div>
-          </div>
-        </div>
+        <InvoiceActions />
       </div>
     </div>
   );
