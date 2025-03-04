@@ -1,30 +1,36 @@
 import { useState } from "react";
-import {
-  FaStore,
-  FaCreditCard,
-  
-} from "react-icons/fa";
+import { FaStore, FaCreditCard } from "react-icons/fa";
 import {
   MdOutlinePayments,
   MdOutlineLocalShipping,
   MdLocationOn,
   MdNotificationsNone,
 } from "react-icons/md";
+import BillingInformation from "../../components/re-ui/BillingInformation";
 
 const ECommerceStoreDetails = () => {
   const [activeTab, setActiveTab] = useState("Store Details");
-  
 
   const menuItems = [
-    { name: "Store Details", icon: <FaStore />, path: "/eCommerceStoreDetails" },
+    {
+      name: "Store Details",
+      icon: <FaStore />,
+      path: "/eCommerceStoreDetails",
+    },
     { name: "Payment", icon: <MdOutlinePayments />, path: "/eCommercePayment" },
     { name: "Checkout", icon: <FaCreditCard />, path: "/eCommerceCheckOut" },
-    { name: "Shipping & Delivery", icon: <MdOutlineLocalShipping />, path: "/eCommerceShipping" },
+    {
+      name: "Shipping & Delivery",
+      icon: <MdOutlineLocalShipping />,
+      path: "/eCommerceShipping",
+    },
     { name: "Locations", icon: <MdLocationOn />, path: "/eCommerceLocations" },
-    { name: "Notifications", icon: <MdNotificationsNone />, path: "/eCommerceNotifications" },
+    {
+      name: "Notifications",
+      icon: <MdNotificationsNone />,
+      path: "/eCommerceNotifications",
+    },
   ];
-
-  
 
   return (
     <div className="p-6 bg-gray-50 mt-20 ml-6 dark:bg-gray-900 div-dark max-w-full rounded-lg shadow-2xl">
@@ -49,7 +55,6 @@ const ECommerceStoreDetails = () => {
             ))}
           </ul>
         </aside>
-  
 
         {/* Main Content */}
         <div className="flex-1 p-8">
@@ -106,81 +111,7 @@ const ECommerceStoreDetails = () => {
             </section>
 
             {/* Billing Information */}
-            <section className="bg-white dark:bg-gray-800 shadow-lg p-6 rounded-lg">
-              <h3 className="text-lg font-semibold mb-4 div-text">
-                Billing information
-              </h3>
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="text-sm text-gray-600 div-text">
-                    Legal business name
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Business name"
-                    className="input-field"
-                  />
-                </div>
-                <div>
-                  <label className="text-sm text-gray-600 div-text">
-                    Country/region
-                  </label>
-                  <select className="input-field">
-                    <option>United States</option>
-                  </select>
-                </div>
-                <div className="col-span-2">
-                  <label className="text-sm text-gray-600 div-text">
-                    Address
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Address"
-                    className="input-field"
-                  />
-                </div>
-                <div>
-                  <label className="text-sm text-gray-600 div-text">
-                    Apartment, suite, etc.
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Apartment, suite, etc."
-                    className="input-field"
-                  />
-                </div>
-                <div>
-                  <label className="text-sm text-gray-600 div-text">
-                    City
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="City"
-                    className="input-field"
-                  />
-                </div>
-                <div>
-                  <label className="text-sm text-gray-600 div-text">
-                    State
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="State"
-                    className="input-field"
-                  />
-                </div>
-                <div>
-                  <label className="text-sm text-gray-600 div-text">
-                    PIN Code
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="PIN Code"
-                    className="input-field"
-                  />
-                </div>
-              </div>
-            </section>
+            <BillingInformation />
 
             {/* Time Zone & Units */}
             <section className="bg-white dark:bg-gray-800 shadow-lg p-6 rounded-lg">
@@ -223,7 +154,9 @@ const ECommerceStoreDetails = () => {
 
             {/* Store Currency */}
             <section className="bg-white dark:bg-gray-800 shadow-lg p-6 rounded-lg">
-              <h3 className="text-lg font-semibold mb-1 div-text">Store currency</h3>
+              <h3 className="text-lg font-semibold mb-1 div-text">
+                Store currency
+              </h3>
               <p className="text-sm text-gray-500 mb-2 dark:text-gray-400">
                 The currency your products are sold in.
               </p>
@@ -244,7 +177,9 @@ const ECommerceStoreDetails = () => {
 
             {/* Order ID Format */}
             <section className="bg-white dark:bg-gray-800 shadow-lg p-6 rounded-lg">
-              <h3 className="text-lg font-semibold mb-1 div-text">Order id format</h3>
+              <h3 className="text-lg font-semibold mb-1 div-text">
+                Order id format
+              </h3>
               <p className="text-sm text-gray-500 mb-2 dark:text-gray-400">
                 Shown on the Orders page, customer pages, and customer order
                 notifications to identify orders.
