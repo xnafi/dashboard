@@ -4,7 +4,7 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import AnalyticsCards2 from "../../components/re-ui/AnalyticsCards2";
 import FiltersAndSearch from "../../components/re-ui/FiltersAndSearch";
-import ReUiModal from "../../components/re-ui/ReUiModal"; // Import the modal component
+import ReUiModal from "../../components/re-ui/ReUiModal";
 
 const users = [
   {
@@ -67,7 +67,7 @@ const UserList = () => {
   const handleSubmit = () => {
     // Handle form submission logic
     console.log("Form submitted");
-    setIsModalOpen(false); // Close modal after submission
+    setIsModalOpen(false);
   };
 
   return (
@@ -146,7 +146,6 @@ const UserList = () => {
             </tbody>
           </table>
         </div>
-
         {/* Pagination */}
         <div className="flex justify-between items-center mt-4">
           <p className="text-gray-500 text-sm">Showing 1 to 10 of 50 entries</p>
@@ -197,14 +196,17 @@ const UserList = () => {
           </div>
         </div>
       </div>
-
       {/* Footer */}
       <div className="text-sm text-gray-600 mt-4">
         © 2024, Made with ❤️ by PIXINVENT
       </div>
 
       {/* Modal Component */}
-      <ReUiModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} onSubmit={handleSubmit} />
+      <ReUiModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onSubmit={handleSubmit}
+      />
     </div>
   );
 };
