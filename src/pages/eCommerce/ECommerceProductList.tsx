@@ -4,6 +4,7 @@ import { BsToggleOn, BsToggleOff } from "react-icons/bs";
 import productsData from "../../data/products.json";
 import { FiDownload } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
+import StatsCard from "../../components/re-ui/StatsCard";
 
 interface Product {
   id: number;
@@ -44,24 +45,24 @@ const ECommerceProductList = () => {
     );
   };
 
-    // Handle Select All functionality
-    const handleSelectAll = () => {
-      if (selectAll) {
-        setSelectedProducts([]);
-      } else {
-        setSelectedProducts(displayedProducts.map((product) => product.id));
-      }
-      setSelectAll(!selectAll);
-    };
-  
-    // Handle individual product selection
-    const handleSelectProduct = (id: number) => {
-      setSelectedProducts((prevSelected) =>
-        prevSelected.includes(id)
-          ? prevSelected.filter((productId) => productId !== id)
-          : [...prevSelected, id]
-      );
-    };
+  // Handle Select All functionality
+  const handleSelectAll = () => {
+    if (selectAll) {
+      setSelectedProducts([]);
+    } else {
+      setSelectedProducts(displayedProducts.map((product) => product.id));
+    }
+    setSelectAll(!selectAll);
+  };
+
+  // Handle individual product selection
+  const handleSelectProduct = (id: number) => {
+    setSelectedProducts((prevSelected) =>
+      prevSelected.includes(id)
+        ? prevSelected.filter((productId) => productId !== id)
+        : [...prevSelected, id]
+    );
+  };
 
   // Filter products
   const filteredProducts = products.filter((product) => {
@@ -86,48 +87,28 @@ const ECommerceProductList = () => {
     <div className="p-6 bg-gray-50 mt-20 ml-6 dark:bg-gray-900 dark:text-white max-w-full rounded-lg shadow-md">
       {/* Stats Cards Section */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6 dark:bg-gray-800">
-        {/* Card 1 */}
-        <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow flex flex-col">
-          <span className="text-gray-500 text-sm">In-Store Sales</span>
-          <span className="text-2xl font-semibold">$5,345</span>
-          <div className="flex items-center gap-1">
-            <span className="text-gray-500 text-sm">5k orders</span>
-            <span className="text-green-600 bg-green-100 px-2 py-1 rounded-md text-xs mt-1">
-              +5.7%
-            </span>
-          </div>
-        </div>
-
-        {/* Card 2 */}
-        <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow flex flex-col">
-          <span className="text-gray-500 text-sm">Website Sales</span>
-          <span className="text-2xl font-semibold">$74,347</span>
-          <div className="flex items-center gap-1">
-            <span className="text-gray-500 text-sm">21k orders</span>
-            <span className="text-green-600 bg-green-100 px-2 py-1 rounded-md text-xs mt-1">
-              +12.4%
-            </span>
-          </div>
-        </div>
-
-        {/* Card 3 */}
-        <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow flex flex-col">
-          <span className="text-gray-500 text-sm">Discount</span>
-          <span className="text-2xl font-semibold">$14,235</span>
-          <span className="text-gray-500 text-sm">6k orders</span>
-        </div>
-
-        {/* Card 4 */}
-        <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow flex flex-col">
-          <span className="text-gray-500 text-sm">Affiliate</span>
-          <span className="text-2xl font-semibold">$8,345</span>
-          <div className="flex items-center gap-1">
-            <span className="text-gray-500 text-sm">150 orders</span>
-            <span className="text-red-600 bg-red-100 px-2 py-1 rounded-md text-xs mt-1">
-              -3.5%
-            </span>
-          </div>
-        </div>
+        <StatsCard
+          title="In-Store Sales"
+          value="$5,345"
+          orders="5k orders"
+          percentage="5.7%"
+          isPositive
+        />
+        <StatsCard
+          title="Website Sales"
+          value="$74,347"
+          orders="21k orders"
+          percentage="12.4%"
+          isPositive
+        />
+        <StatsCard title="Discount" value="$14,235" orders="6k orders" />
+        <StatsCard
+          title="Affiliate"
+          value="$8,345"
+          orders="150 orders"
+          percentage="3.5%"
+          isPositive={false}
+        />
       </div>
 
       {/* Filter Section */}
@@ -191,88 +172,88 @@ const ECommerceProductList = () => {
                 <FiDownload className="text-gray-600" /> Export
               </button>
               <button
-      className="bg-indigo-500 text-white px-4 py-2 rounded-md"
-      onClick={() => navigate("/e-commerce-product-add")}
-    >
-      + Add Product
-    </button>
+                className="bg-indigo-500 text-white px-4 py-2 rounded-md"
+                onClick={() => navigate("/e-commerce-product-add")}
+              >
+                + Add Product
+              </button>
             </div>
           </div>
         </div>
 
         {/* Product Table */}
         <div className="overflow-x-auto">
-        <table className="w-full border-collapse border  border-dark div-text">
-          <thead className="bg-gray-50 div-dark">
-            <tr className="text-left">
-              <th className="p-3 border border-dark">
-                <input
-                  type="checkbox"
-                  className="w-4 h-4"
-                  checked={selectAll}
-                  onChange={handleSelectAll}
-                />
-              </th>
-              <th className="p-3 border border-dark">Product</th>
-              <th className="p-3 border border-dark">Category</th>
-              <th className="p-3 border border-dark">Stock</th>
-              <th className="p-3 border border-dark">SKU</th>
-              <th className="p-3 border border-dark">Price</th>
-              <th className="p-3 border border-dark">Qty</th>
-              <th className="p-3 border border-dark">Status</th>
-              <th className="p-3 border border-dark">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {displayedProducts.map((product) => (
-              <tr
-                key={product.id}
-                className="border border-dark hover:bg-indigo-100 dark:hover:bg-indigo-300 dark:hover:div-text transition"
-              >
-                <td className="p-3 border border-dark">
+          <table className="w-full border-collapse border  border-dark div-text">
+            <thead className="bg-gray-50 div-dark">
+              <tr className="text-left">
+                <th className="p-3 border border-dark">
                   <input
                     type="checkbox"
                     className="w-4 h-4"
-                    checked={selectedProducts.includes(product.id)}
-                    onChange={() => handleSelectProduct(product.id)}
+                    checked={selectAll}
+                    onChange={handleSelectAll}
                   />
-                </td>
-                <td className="p-3 flex items-center gap-2">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-10 h-10 rounded-md"
-                  />
-                  <span>{product.name}</span>
-                </td>
-                <td className="p-3 border border-dark">{product.category}</td>
-                <td
-                  className="p-3 cursor-pointer flex items-center justify-between"
-                  onClick={() => toggleStock(product.id)}
-                >
-                  {product.stock ? (
-                    <BsToggleOn className="text-indigo-500" />
-                  ) : (
-                    <BsToggleOff className="text-red-500" />
-                  )}
-                </td>
-                <td className="p-3 border border-dark">{product.sku}</td>
-                <td className="p-3 border border-dark">${product.price}</td>
-                <td className="p-3 border border-dark">{product.qty}</td>
-                <td className="p-3 border border-dark">{product.status}</td>
-                <td className="p-3 border border-dark">
-                  <button className="text-indigo-500 hover:text-indigo-700">
-                    <div className="flex items-center gap-2">
-                      <FaEdit />
-                      <FaEllipsisV />
-                    </div>
-                  </button>
-                </td>
+                </th>
+                <th className="p-3 border border-dark">Product</th>
+                <th className="p-3 border border-dark">Category</th>
+                <th className="p-3 border border-dark">Stock</th>
+                <th className="p-3 border border-dark">SKU</th>
+                <th className="p-3 border border-dark">Price</th>
+                <th className="p-3 border border-dark">Qty</th>
+                <th className="p-3 border border-dark">Status</th>
+                <th className="p-3 border border-dark">Actions</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+            </thead>
+            <tbody>
+              {displayedProducts.map((product) => (
+                <tr
+                  key={product.id}
+                  className="border border-dark hover:bg-indigo-100 dark:hover:bg-indigo-300 dark:hover:div-text transition"
+                >
+                  <td className="p-3 border border-dark">
+                    <input
+                      type="checkbox"
+                      className="w-4 h-4"
+                      checked={selectedProducts.includes(product.id)}
+                      onChange={() => handleSelectProduct(product.id)}
+                    />
+                  </td>
+                  <td className="p-3 flex items-center gap-2">
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className="w-10 h-10 rounded-md"
+                    />
+                    <span>{product.name}</span>
+                  </td>
+                  <td className="p-3 border border-dark">{product.category}</td>
+                  <td
+                    className="p-3 cursor-pointer flex items-center justify-between"
+                    onClick={() => toggleStock(product.id)}
+                  >
+                    {product.stock ? (
+                      <BsToggleOn className="text-indigo-500" />
+                    ) : (
+                      <BsToggleOff className="text-red-500" />
+                    )}
+                  </td>
+                  <td className="p-3 border border-dark">{product.sku}</td>
+                  <td className="p-3 border border-dark">${product.price}</td>
+                  <td className="p-3 border border-dark">{product.qty}</td>
+                  <td className="p-3 border border-dark">{product.status}</td>
+                  <td className="p-3 border border-dark">
+                    <button className="text-indigo-500 hover:text-indigo-700">
+                      <div className="flex items-center gap-2">
+                        <FaEdit />
+                        <FaEllipsisV />
+                      </div>
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
 
         {/* Pagination Controls */}
         <div className="flex justify-between items-center mt-4 p-3">
