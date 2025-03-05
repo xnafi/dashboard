@@ -1,4 +1,5 @@
 import { FaEdit } from "react-icons/fa";
+import RightSideCard from "../../components/re-ui/RightSideCard";
 
 const ECommerceOrderDetails = () => {
   const activities = [
@@ -177,10 +178,14 @@ const ECommerceOrderDetails = () => {
                         {activity.status}
                       </h1>
                       {activity.date && (
-                        <p className="text-xs text-gray-400 div-dark">{activity.date}</p>
+                        <p className="text-xs text-gray-400 div-dark">
+                          {activity.date}
+                        </p>
                       )}
                     </div>
-                    <p className="text-sm text-gray-600 div-dark">{activity.desc}</p>
+                    <p className="text-sm text-gray-600 div-dark">
+                      {activity.desc}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -190,16 +195,11 @@ const ECommerceOrderDetails = () => {
 
         {/* Right Section */}
         <div className="space-y-4">
-          {/* Customer Details */}
-          <div className="p-4 border rounded-lg shadow-sm div-text div-dark border-dark">
-            <div className="flex justify-between items-center">
-              <h3 className="text-lg font-semibold">Customer details</h3>
-              <FaEdit className="text-gray-500 cursor-pointer" />
-            </div>
-            <p className="font-medium mt-2">Shamus Tuttle</p>
+          <RightSideCard title="Customer details" isEditable={true}>
+            <p className="font-medium">Shamus Tuttle</p>
             <p className="text-sm text-gray-500">Customer ID: #47389</p>
             <p className="text-sm mt-6 mb-4">12 Orders</p>
-            <div className="mt-2">
+            <div>
               <h1>Contact Info</h1>
               <p className="text-sm text-gray-500">
                 Email: Sheldon88@yahoo.com
@@ -208,15 +208,10 @@ const ECommerceOrderDetails = () => {
                 Mobile: +1 (609) 972-22-22
               </p>
             </div>
-          </div>
+          </RightSideCard>
 
-          {/* Shipping Address */}
-          <div className="p-4 border rounded-lg shadow-sm div-text div-dark border-dark">
-            <div className="flex justify-between items-center">
-              <h3 className="text-lg font-semibold">Shipping address</h3>
-              <FaEdit className="text-gray-500 cursor-pointer" />
-            </div>
-            <p className="text-sm mt-2">
+          <RightSideCard title="Shipping address" isEditable={true}>
+            <p className="text-sm">
               45 Roker Terrace
               <br />
               Latheronwheel
@@ -225,15 +220,10 @@ const ECommerceOrderDetails = () => {
               <br />
               UK
             </p>
-          </div>
+          </RightSideCard>
 
-          {/* Billing Address & Payment */}
-          <div className="p-4 border rounded-lg shadow-sm div-text div-dark border-dark">
-            <div className="flex justify-between items-center">
-              <h3 className="text-lg font-semibold">Billing address</h3>
-              <FaEdit className="text-gray-500 cursor-pointer" />
-            </div>
-            <p className="text-sm mt-2">
+          <RightSideCard title="Billing address" isEditable={true}>
+            <p className="text-sm">
               45 Roker Terrace
               <br />
               Latheronwheel
@@ -242,11 +232,11 @@ const ECommerceOrderDetails = () => {
               <br />
               UK
             </p>
-            <div className="mt-2">
+            <div>
               <h4 className="font-medium">Mastercard</h4>
               <p className="text-sm text-gray-500">Card Number: ******4291</p>
             </div>
-          </div>
+          </RightSideCard>
         </div>
       </div>
     </div>
