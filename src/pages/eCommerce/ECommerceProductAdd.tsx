@@ -205,263 +205,308 @@ const ECommerceProductAdd = () => {
 
             {/* Variants */}
             <div className="p-4 rounded-lg shadow-lg mt-4 div-text div-dark">
-      <h2 className="text-lg font-semibold mb-2">Variants</h2>
-      <div>
-        <h2 className="text-sm font-medium div-text block mb-2">Options</h2>
-        {options.map((option, index) => (
-          <div key={index} className="flex space-x-2 mb-2">
-            <select
-              value={option.type}
-              onChange={(e) => updateOptionType(index, e.target.value)}
-              className="w-1/2 p-2 border border-dark  rounded div-text div-dark"
-            >
-              {variantOptions.map((opt) => (
-                <option key={opt} value={opt}>
-                  {opt}
-                </option>
-              ))}
-            </select>
-            <input
-              type="text"
-              value={option.value}
-              onChange={(e) => updateOptionValue(index, e.target.value)}
-              placeholder={`Enter ${option.type.toLowerCase()}`}
-              className="w-1/2 p-2 border border-dark input-field rounded div-text div-dark"
-            />
-          </div>
-        ))}
-        <button
-          onClick={addOption}
-          className="mt-2 bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition"
-        >
-          + Add Another Option
-        </button>
-      </div>
-    </div>
+              <h2 className="text-lg font-semibold mb-2">Variants</h2>
+              <div>
+                <h2 className="text-sm font-medium div-text block mb-2">
+                  Options
+                </h2>
+                {options.map((option, index) => (
+                  <div key={index} className="flex space-x-2 mb-2">
+                    <select
+                      value={option.type}
+                      onChange={(e) => updateOptionType(index, e.target.value)}
+                      className="w-1/2 p-2 border border-dark  rounded div-text div-dark"
+                    >
+                      {variantOptions.map((opt) => (
+                        <option key={opt} value={opt}>
+                          {opt}
+                        </option>
+                      ))}
+                    </select>
+                    <input
+                      type="text"
+                      value={option.value}
+                      onChange={(e) => updateOptionValue(index, e.target.value)}
+                      placeholder={`Enter ${option.type.toLowerCase()}`}
+                      className="w-1/2 p-2 border border-dark input-field rounded div-text div-dark"
+                    />
+                  </div>
+                ))}
+                <button
+                  onClick={addOption}
+                  className="mt-2 bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition"
+                >
+                  + Add Another Option
+                </button>
+              </div>
+            </div>
             {/* Inventory */}
             <div className="p-4 rounded-lg shadow-lg div-dark mt-4">
-      {/* Header */}
-      <h2 className="text-lg font-semibold text-gray-900 div-text">
-        Inventory
-      </h2>
+              {/* Header */}
+              <h2 className="text-lg font-semibold text-gray-900 div-text">
+                Inventory
+              </h2>
 
-      {/* Sidebar Navigation */}
-      <div className="flex">
-        <div className="w-1/3 space-y-2">
-          {[
-            { name: "Restock", icon: <FaBoxOpen /> },
-            { name: "Shipping", icon: <FaTruck /> },
-            { name: "Global Delivery", icon: <FaGlobe /> },
-            { name: "Attributes", icon: <FaTags /> },
-            { name: "Advanced", icon: <FaSlidersH /> },
-          ].map((tab) => (
-            <button
-              key={tab.name}
-              onClick={() => setActiveTab(tab.name)}
-              className={`w-full flex items-center space-x-2 px-4 py-2 rounded text-left transition ${
-                activeTab === tab.name
-                  ? "bg-indigo-500 text-white"
-                  : "hover:bg-indigo-500 hover:text-white"
-              }`}
-            >
-              {tab.icon}
-              <span>{tab.name}</span>
-            </button>
-          ))}
-        </div>
+              {/* Sidebar Navigation */}
+              <div className="flex">
+                <div className="w-1/3 space-y-2">
+                  {[
+                    { name: "Restock", icon: <FaBoxOpen /> },
+                    { name: "Shipping", icon: <FaTruck /> },
+                    { name: "Global Delivery", icon: <FaGlobe /> },
+                    { name: "Attributes", icon: <FaTags /> },
+                    { name: "Advanced", icon: <FaSlidersH /> },
+                  ].map((tab) => (
+                    <button
+                      key={tab.name}
+                      onClick={() => setActiveTab(tab.name)}
+                      className={`w-full flex items-center space-x-2 px-4 py-2 rounded text-left transition ${
+                        activeTab === tab.name
+                          ? "bg-indigo-500 text-white"
+                          : "hover:bg-indigo-500 hover:text-white"
+                      }`}
+                    >
+                      {tab.icon}
+                      <span>{tab.name}</span>
+                    </button>
+                  ))}
+                </div>
 
-        {/* Content Section */}
-        <div className="w-2/3 pl-4">
-        {activeTab === "Restock" && (
-  <div className="p-6 bg-white div-dark rounded-lg ">
-    <h3 className="text-lg font-semibold text-gray-900 div-text">
-      Restock
-    </h3>
+                {/* Content Section */}
+                <div className="w-2/3 pl-4">
+                  {activeTab === "Restock" && (
+                    <div className="p-6 bg-white div-dark rounded-lg ">
+                      <h3 className="text-lg font-semibold text-gray-900 div-text">
+                        Restock
+                      </h3>
 
-    <div className="mt-6 space-y-4">
-      <div className="flex items-center  space-x-2">
-      {/* Quantity Input */}
-      <label className="block">
-        <span className="text-gray-700 div-text font-medium">
-          Add to Stock
-        </span>
-        <input
-          type="number"
-          placeholder="Quantity"
-          className="block w-full mt-2 p-2 border border-dark  rounded div-dark div-text"
-        />
-      </label>
+                      <div className="mt-6 space-y-4">
+                        <div className="flex items-center  space-x-2">
+                          {/* Quantity Input */}
+                          <label className="block">
+                            <span className="text-gray-700 div-text font-medium">
+                              Add to Stock
+                            </span>
+                            <input
+                              type="number"
+                              placeholder="Quantity"
+                              className="block w-full mt-2 p-2 border border-dark  rounded div-dark div-text"
+                            />
+                          </label>
 
-      {/* Confirm Button */}
-      <button className=" bg-indigo-600 mt-8 w-32 text-white py-2 rounded-md hover:bg-indigo-700 transition">
-        Confirm
-      </button>
-      </div>
-      {/* Stock Information */}
-      <div className="text-sm text-gray-700 div-text space-y-1">
-        <p>Product in stock now: <span className="font-medium">54</span></p>
-        <p>Product in transit: <span className="font-medium">390</span></p>
-        <p>Last time restocked: <span className="font-medium">24th June, 2022</span></p>
-        <p>Total stock over lifetime: <span className="font-medium">2,430</span></p>
-      </div>
-    </div>
-  </div>
-)}
+                          {/* Confirm Button */}
+                          <button className=" bg-indigo-600 mt-8 w-32 text-white py-2 rounded-md hover:bg-indigo-700 transition">
+                            Confirm
+                          </button>
+                        </div>
+                        {/* Stock Information */}
+                        <div className="text-sm text-gray-700 div-text space-y-1">
+                          <p>
+                            Product in stock now:{" "}
+                            <span className="font-medium">54</span>
+                          </p>
+                          <p>
+                            Product in transit:{" "}
+                            <span className="font-medium">390</span>
+                          </p>
+                          <p>
+                            Last time restocked:{" "}
+                            <span className="font-medium">24th June, 2022</span>
+                          </p>
+                          <p>
+                            Total stock over lifetime:{" "}
+                            <span className="font-medium">2,430</span>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  )}
 
+                  {activeTab === "Shipping" && (
+                    <div>
+                      <h3 className="text-lg font-semibold text-gray-900 div-text">
+                        Shipping Type
+                      </h3>
+                      <div className="mt-4 space-y-4">
+                        <label className="flex items-start space-x-2">
+                          <input
+                            type="radio"
+                            name="shipping"
+                            className="mt-1"
+                          />
+                          <div>
+                            <span className="font-medium">
+                              Fulfilled by Seller
+                            </span>
+                            <p className="text-sm text-gray-600">
+                              You’ll be responsible for product delivery. Any
+                              damage or delay during shipping may cost you a
+                              damage fee.
+                            </p>
+                          </div>
+                        </label>
 
-          {activeTab === "Shipping" && (
-            <div>
-              <h3 className="text-lg font-semibold text-gray-900 div-text">
-                Shipping Type
-              </h3>
-              <div className="mt-4 space-y-4">
-                <label className="flex items-start space-x-2">
-                  <input type="radio" name="shipping" className="mt-1" />
-                  <div>
-                    <span className="font-medium">Fulfilled by Seller</span>
-                    <p className="text-sm text-gray-600">
-                      You’ll be responsible for product delivery. Any damage or
-                      delay during shipping may cost you a damage fee.
-                    </p>
-                  </div>
-                </label>
+                        <label className="flex items-start space-x-2">
+                          <input
+                            type="radio"
+                            name="shipping"
+                            className="mt-1"
+                            checked
+                          />
+                          <div>
+                            <span className="font-medium">
+                              Fulfilled by Company Name
+                            </span>
+                            <p className="text-sm text-gray-600">
+                              Your product, our responsibility. For a small fee,
+                              we will handle the delivery process for you.
+                            </p>
+                          </div>
+                        </label>
+                      </div>
+                    </div>
+                  )}
 
-                <label className="flex items-start space-x-2">
-                  <input type="radio" name="shipping" className="mt-1" checked />
-                  <div>
-                    <span className="font-medium">
-                      Fulfilled by Company Name
-                    </span>
-                    <p className="text-sm text-gray-600">
-                      Your product, our responsibility. For a small fee, we
-                      will handle the delivery process for you.
-                    </p>
-                  </div>
-                </label>
+                  {activeTab === "Global Delivery" && (
+                    <div>
+                      <h3 className="text-lg font-semibold text-gray-900 div-text">
+                        Global Delivery
+                      </h3>
+                      <div className="mt-4 space-y-4">
+                        <label className="flex items-start space-x-2">
+                          <input
+                            type="radio"
+                            name="delivery"
+                            className="mt-1"
+                            checked
+                          />
+                          <div>
+                            <span className="font-medium">
+                              Worldwide Delivery
+                            </span>
+                            <p className="text-sm text-gray-600">
+                              Only available with Shipping method:{" "}
+                              <span className="text-indigo-600 cursor-pointer">
+                                Fulfilled by Company Name
+                              </span>
+                            </p>
+                          </div>
+                        </label>
+
+                        <label className="flex items-start space-x-2">
+                          <input
+                            type="radio"
+                            name="delivery"
+                            className="mt-1"
+                          />
+                          <div>
+                            <span className="font-medium">
+                              Selected Countries
+                            </span>
+                            <input
+                              type="text"
+                              placeholder="USA"
+                              className="block w-full mt-2 p-2 border rounded border-dark div-dark div-text"
+                            />
+                          </div>
+                        </label>
+
+                        <label className="flex items-start space-x-2">
+                          <input
+                            type="radio"
+                            name="delivery"
+                            className="mt-1"
+                            checked
+                          />
+                          <div>
+                            <span className="font-medium">Local Delivery</span>
+                            <p className="text-sm text-gray-600">
+                              Deliver to your country of residence:{" "}
+                              <span className="text-indigo-600 cursor-pointer">
+                                change profile address
+                              </span>
+                            </p>
+                          </div>
+                        </label>
+                      </div>
+                    </div>
+                  )}
+
+                  {activeTab === "Attributes" && (
+                    <div>
+                      <h3 className="text-lg font-semibold text-gray-900 div-text">
+                        Attributes
+                      </h3>
+                      <div className="mt-4 space-y-4">
+                        <label className="flex items-center space-x-2">
+                          <input type="checkbox" />
+                          <span>Fragile Product</span>
+                        </label>
+
+                        <label className="flex items-center space-x-2">
+                          <input type="checkbox" checked />
+                          <span>Biodegradable</span>
+                        </label>
+
+                        <label className="flex items-center space-x-2">
+                          <input type="checkbox" />
+                          <div>
+                            <span>Frozen Product</span>
+                            <input
+                              type="text"
+                              placeholder="40 C"
+                              className="block w-full mt-2 p-2 border border-dark div-text rounded div-dark"
+                            />
+                          </div>
+                        </label>
+
+                        <label className="flex items-center space-x-2">
+                          <input type="checkbox" checked />
+                          <div>
+                            <span>Expiry Date of Product</span>
+                            <input
+                              type="date"
+                              className="block w-full mt-2 p-2 border border-dark  rounded div-dark"
+                              defaultValue="2025-06-14"
+                            />
+                          </div>
+                        </label>
+                      </div>
+                    </div>
+                  )}
+
+                  {activeTab === "Advanced" && (
+                    <div>
+                      <h3 className="text-lg font-semibold text-gray-900 div-text">
+                        Advanced
+                      </h3>
+                      <div className="mt-4 space-y-4">
+                        <label className="block">
+                          <span className="font-medium">Product ID Type</span>
+                          <select className="block w-full mt-2 p-2 border border-dark div-text rounded div-dark">
+                            <option>ISBN</option>
+                            <option>UPC</option>
+                            <option>EAN</option>
+                            <option>JAN</option>
+                          </select>
+                        </label>
+
+                        <label className="block">
+                          <span className="font-medium">
+                            Flexible Product ID
+                          </span>
+                          <input
+                            type="text"
+                            placeholder="Enter ID"
+                            className="block w-full mt-2 p-2 border border-dark div-text rounded div-dark"
+                          />
+                        </label>
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
-          )}
-
-          {activeTab === "Global Delivery" && (
-            <div>
-              <h3 className="text-lg font-semibold text-gray-900 div-text">
-                Global Delivery
-              </h3>
-              <div className="mt-4 space-y-4">
-                <label className="flex items-start space-x-2">
-                  <input type="radio" name="delivery" className="mt-1" checked />
-                  <div>
-                    <span className="font-medium">Worldwide Delivery</span>
-                    <p className="text-sm text-gray-600">
-                      Only available with Shipping method:{" "}
-                      <span className="text-indigo-600 cursor-pointer">
-                        Fulfilled by Company Name
-                      </span>
-                    </p>
-                  </div>
-                </label>
-
-                <label className="flex items-start space-x-2">
-                  <input type="radio" name="delivery" className="mt-1" />
-                  <div>
-                    <span className="font-medium">Selected Countries</span>
-                    <input
-                      type="text"
-                      placeholder="USA"
-                      className="block w-full mt-2 p-2 border rounded border-dark div-dark div-text"
-                    />
-                  </div>
-                </label>
-
-                <label className="flex items-start space-x-2">
-                  <input type="radio" name="delivery" className="mt-1" checked />
-                  <div>
-                    <span className="font-medium">Local Delivery</span>
-                    <p className="text-sm text-gray-600">
-                      Deliver to your country of residence:{" "}
-                      <span className="text-indigo-600 cursor-pointer">
-                        change profile address
-                      </span>
-                    </p>
-                  </div>
-                </label>
-              </div>
-            </div>
-          )}
-
-          {activeTab === "Attributes" && (
-            <div>
-              <h3 className="text-lg font-semibold text-gray-900 div-text">
-                Attributes
-              </h3>
-              <div className="mt-4 space-y-4">
-                <label className="flex items-center space-x-2">
-                  <input type="checkbox" />
-                  <span>Fragile Product</span>
-                </label>
-
-                <label className="flex items-center space-x-2">
-                  <input type="checkbox" checked />
-                  <span>Biodegradable</span>
-                </label>
-
-                <label className="flex items-center space-x-2">
-                  <input type="checkbox" />
-                  <div>
-                    <span>Frozen Product</span>
-                    <input
-                      type="text"
-                      placeholder="40 C"
-                      className="block w-full mt-2 p-2 border border-dark div-text rounded div-dark"
-                    />
-                  </div>
-                </label>
-
-                <label className="flex items-center space-x-2">
-                  <input type="checkbox" checked />
-                  <div>
-                    <span>Expiry Date of Product</span>
-                    <input
-                      type="date"
-                      className="block w-full mt-2 p-2 border border-dark  rounded div-dark"
-                      defaultValue="2025-06-14"
-                    />
-                  </div>
-                </label>
-              </div>
-            </div>
-          )}
-
-          {activeTab === "Advanced" && (
-            <div>
-              <h3 className="text-lg font-semibold text-gray-900 div-text">
-                Advanced
-              </h3>
-              <div className="mt-4 space-y-4">
-                <label className="block">
-                  <span className="font-medium">Product ID Type</span>
-                  <select className="block w-full mt-2 p-2 border border-dark div-text rounded div-dark">
-                    <option>ISBN</option>
-                    <option>UPC</option>
-                    <option>EAN</option>
-                    <option>JAN</option>
-                  </select>
-                </label>
-
-                <label className="block">
-                  <span className="font-medium">Flexible Product ID</span>
-                  <input
-                    type="text"
-                    placeholder="Enter ID"
-                    className="block w-full mt-2 p-2 border border-dark div-text rounded div-dark"
-                  />
-                </label>
-              </div>
-            </div>
-          )}
-        </div>
-      </div>
-    </div>
           </div>
 
           {/* Sidebar */}
@@ -525,11 +570,10 @@ const ECommerceProductAdd = () => {
                   <option>Select Category</option>
                 </select>
                 <div className="bg-indigo-800">
-                <button className="px-4 py-2  div-text div-dark dark:bg-indigo-300  text-lg font-semibold rounded">
-                  +
-                </button>
+                  <button className="px-4 py-2  div-text div-dark dark:bg-indigo-300  text-lg font-semibold rounded">
+                    +
+                  </button>
                 </div>
-                
               </div>
               <select className="w-full p-2 border rounded mt-2 div-text div-dark border-dark">
                 <option>Select Collection</option>
