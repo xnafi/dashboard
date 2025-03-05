@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   FaEdit,
   FaStar,
@@ -19,8 +20,7 @@ const ECommerceUserOverview = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = 5;
   const [activeTab, setActiveTab] = useState("Overview");
-  
-  
+
   const tabs = [
     { name: "Overview", icon: <FaUser className="mr-2" /> },
     { name: "Security", icon: <FaLock className="mr-2" /> },
@@ -68,33 +68,43 @@ const ECommerceUserOverview = () => {
   ];
 
   // State for orders
-const [orders, setOrders] = useState([
-  { id: 4910, date: "Aug 17, 2020", status: "Ready to Pickup", spent: "$256.39" },
-  { id: 4911, date: "Aug 18, 2020", status: "Shipped", spent: "$312.99" },
-  { id: 4912, date: "Aug 19, 2020", status: "Processing", spent: "$150.50" },
-  { id: 4913, date: "Aug 20, 2020", status: "Delivered", spent: "$299.99" },
-  { id: 4914, date: "Aug 21, 2020", status: "Cancelled", spent: "$75.00" },
-  { id: 4915, date: "Aug 22, 2020", status: "Returned", spent: "$99.49" },
-]);
+  const [orders, setOrders] = useState([
+    {
+      id: 4910,
+      date: "Aug 17, 2020",
+      status: "Ready to Pickup",
+      spent: "$256.39",
+    },
+    { id: 4911, date: "Aug 18, 2020", status: "Shipped", spent: "$312.99" },
+    { id: 4912, date: "Aug 19, 2020", status: "Processing", spent: "$150.50" },
+    { id: 4913, date: "Aug 20, 2020", status: "Delivered", spent: "$299.99" },
+    { id: 4914, date: "Aug 21, 2020", status: "Cancelled", spent: "$75.00" },
+    { id: 4915, date: "Aug 22, 2020", status: "Returned", spent: "$99.49" },
+  ]);
 
-// Delete function
-const handleDelete = (orderId: any) => {
-  if (!orderId) {
-    console.error("Invalid orderId:", orderId);
-    return;
-  }
-  
-  setOrders((prevOrders) => prevOrders.filter((order) => order.id !== orderId));
-};
+  // Delete function
+  const handleDelete = (orderId: any) => {
+    if (!orderId) {
+      console.error("Invalid orderId:", orderId);
+      return;
+    }
 
+    setOrders((prevOrders) =>
+      prevOrders.filter((order) => order.id !== orderId)
+    );
+  };
 
   return (
     <div className="p-6 bg-gray-50 mt-20 ml-6 dark:bg-gray-900 dark:text-white max-w-full rounded-lg shadow-md">
       {/* Order Header */}
       <div className="flex justify-between items-center p-4 rounded-lg shadow-sm">
         <div>
-          <h3 className="text-lg font-semibold div-text">Customer ID #634759</h3>
-          <p className="text-sm text-gray-500 div-text">Aug 17, 2020, 5:48 (ET)</p>
+          <h3 className="text-lg font-semibold div-text">
+            Customer ID #634759
+          </h3>
+          <p className="text-sm text-gray-500 div-text">
+            Aug 17, 2020, 5:48 (ET)
+          </p>
         </div>
         <button className="px-4 py-2 text-sm bg-red-100 text-red-600 rounded">
           Delete customer
@@ -211,7 +221,10 @@ const handleDelete = (orderId: any) => {
           {/* Cards Grid */}
           <div className="grid grid-cols-2 gap-6">
             {cards.map((card, i) => (
-              <div key={i} className="bg-white div-dark div-text rounded-xl shadow-lg p-4">
+              <div
+                key={i}
+                className="bg-white div-dark div-text rounded-xl shadow-lg p-4"
+              >
                 <div className="flex flex-col">
                   <div
                     className={`p-2 w-10 h-10 mb-2 rounded-lg flex items-center dark:bg-indigo-300 justify-center ${card.bgColor}`}
@@ -264,23 +277,25 @@ const handleDelete = (orderId: any) => {
                   </tr>
                 </thead>
                 <tbody>
-  {orders.map((order) => (
-    <tr key={order.id} className="border-b border-dark">
-      <td className="p-2">#{order.id}</td>
-      <td className="p-2">{order.date}</td>
-      <td className="p-2 text-green-600 font-semibold">{order.status}</td>
-      <td className="p-2">{order.spent}</td>
-      <td className="p-3">
-        <button
-          className="text-gray-500 hover:text-red-700"
-          onClick={() => handleDelete(order.id)}
-        >
-          <FaTrash />
-        </button>
-      </td>
-    </tr>
-  ))}
-</tbody>
+                  {orders.map((order) => (
+                    <tr key={order.id} className="border-b border-dark">
+                      <td className="p-2">#{order.id}</td>
+                      <td className="p-2">{order.date}</td>
+                      <td className="p-2 text-green-600 font-semibold">
+                        {order.status}
+                      </td>
+                      <td className="p-2">{order.spent}</td>
+                      <td className="p-3">
+                        <button
+                          className="text-gray-500 hover:text-red-700"
+                          onClick={() => handleDelete(order.id)}
+                        >
+                          <FaTrash />
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
               </table>
             </div>
 

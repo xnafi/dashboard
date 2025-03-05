@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FaEdit, FaChevronLeft, FaChevronRight, FaTrash } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
+import SearchBar from "../../components/re-ui/SearchBar";
 
 const initialCategories = [
   {
@@ -80,12 +81,10 @@ const ECommerceCategoryList = () => {
     <div className="p-6 bg-gray-50 mt-20 ml-12 dark:bg-gray-800 dark:text-white w-[1055px] mx-auto rounded-lg shadow-md">
       {/* Search Bar */}
       <div className="flex justify-between items-center mb-4">
-        <input
-          type="text"
-          placeholder="Search Category"
+        <SearchBar
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="border rounded-lg px-4 py-2 w-1/3 border-dark div-dark div-text"
+          placeholder="Search Category"
         />
         <select className="border p-2 rounded-md ml-96 border-dark div-dark div-text">
           <option value="7">7</option>
@@ -113,10 +112,18 @@ const ECommerceCategoryList = () => {
                   onChange={handleSelectAll}
                 />
               </th>
-              <th className="p-3 text-left text-gray-600 div-text">Categories</th>
-              <th className="p-3 text-center text-gray-600 div-text">Total Products</th>
-              <th className="p-3 text-center text-gray-600 div-text">Total Earnings</th>
-              <th className="p-3 text-center text-gray-600 div-text">Actions</th>
+              <th className="p-3 text-left text-gray-600 div-text">
+                Categories
+              </th>
+              <th className="p-3 text-center text-gray-600 div-text">
+                Total Products
+              </th>
+              <th className="p-3 text-center text-gray-600 div-text">
+                Total Earnings
+              </th>
+              <th className="p-3 text-center text-gray-600 div-text">
+                Actions
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -146,7 +153,9 @@ const ECommerceCategoryList = () => {
                 <td className="p-3 text-center div-text">
                   {category.products.toLocaleString()}
                 </td>
-                <td className="p-3 text-center div-text">{category.earnings}</td>
+                <td className="p-3 text-center div-text">
+                  {category.earnings}
+                </td>
                 <td className="p-3 text-center flex items-center justify-center space-x-4 pb-10">
                   <button className="text-gray-600 hover:text-blue-600">
                     <FaEdit />
